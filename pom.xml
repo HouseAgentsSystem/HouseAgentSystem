@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example</groupId>
-	<artifactId>activiti-springboot-demo11</artifactId>
+	<artifactId>activiti-springboot-demo10</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>activiti-springboot-demo11</name>
+	<name>activiti-springboot-demo10</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
