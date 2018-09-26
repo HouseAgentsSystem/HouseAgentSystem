@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.example</groupId>
-	<artifactId>activiti-springboot-demo10</artifactId>
+	<groupId>com.houseAgent</groupId>
+	<artifactId>HouseAgentSystem</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>activiti-springboot-demo10</name>
-	<description>Demo project for Spring Boot</description>
+	<name>HouseAgentSystem</name>
+	<description>A system for HouseAgent</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
