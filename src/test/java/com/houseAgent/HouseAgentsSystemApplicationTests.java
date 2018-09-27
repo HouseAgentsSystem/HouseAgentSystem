@@ -25,7 +25,6 @@ public class HouseAgentsSystemApplicationTests {
 		user.setUserName("admin");
 		user.setPassword("admin");
 		user.setPhoneNumber("1008611");
-		user.setSurname("洪");
 		user.setCreateTime(new Date());
 		user.setFaceImage("image/1.jpg");
 		userService.addUser(user);

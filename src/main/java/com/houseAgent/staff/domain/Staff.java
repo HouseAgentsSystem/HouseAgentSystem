@@ -1,5 +1,6 @@
 package com.houseAgent.staff.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -55,7 +56,7 @@ public class Staff {
 	public String getFaceImg() {
 		return faceImg;
 	}
-	@ManyToOne()
+	@ManyToOne(cascade=CascadeType.REFRESH)
 	public Store getStore() {
 		return store;
 	}

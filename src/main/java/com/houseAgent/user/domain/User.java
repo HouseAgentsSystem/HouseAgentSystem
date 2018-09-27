@@ -20,10 +20,11 @@ public class User {
 	private Long id;
 	private String userName;
 	private String password;
-	private String surname;//姓
+	private String realname;//姓名
 	private String phoneNumber;
 	private Date createTime;//创建日期
 	private String FaceImage;//头像
+	private int status;
 	 @Id
 	 @GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long getId() {
@@ -34,9 +35,6 @@ public class User {
 	}
 	public String getPassword() {
 		return password;
-	}
-	public String getSurname() {
-		return surname;
 	}
 	public String getPhoneNumber() {
 		return phoneNumber;
@@ -55,9 +53,6 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
@@ -71,11 +66,19 @@ public class User {
 	public void setFaceImage(String faceImage) {
 		FaceImage = faceImage;
 	}
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", surname=" + surname
-				+ ", phoneNumber=" + phoneNumber + ", createTime=" + createTime + ", FaceImage=" + FaceImage + "]";
+	public String getRealname() {
+		return realname;
 	}
+	public void setRealname(String realname) {
+		this.realname = realname;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	
 	
 	
 	
