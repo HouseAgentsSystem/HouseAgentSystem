@@ -15,6 +15,7 @@ public class Staff {
 	private Long id;//员工id
 	private String userName;//账号
 	private String password;//密码
+	private	String realname;//员工姓名
 	private String position;//职位
 	private String phoneNumber;//手机号码
 	private String sex;//性别
@@ -33,6 +34,10 @@ public class Staff {
 
 	public String getPassword() {
 		return password;
+	}
+
+	public String getRealname() {
+		return realname;
 	}
 
 	public String getPosition() {
@@ -67,6 +72,10 @@ public class Staff {
 		this.password = password;
 	}
 
+	public void setRealname(String realname) {
+		this.realname = realname;
+	}
+	
 	public void setPosition(String position) {
 		this.position = position;
 	}
@@ -85,6 +94,13 @@ public class Staff {
 
 	public void setStore(Store store) {
 		this.store = store;
+	}
+
+	@Override
+	public String toString() {
+		return "Staff [id=" + id + ", userName=" + userName + ", password=" + password + ", realname=" + realname
+				+ ", position=" + position + ", phoneNumber=" + phoneNumber + ", sex=" + sex + ", faceImg=" + faceImg
+				+ ", store=" + store + "]";
 	}
 	
 	
