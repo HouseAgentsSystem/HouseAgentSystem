@@ -184,7 +184,7 @@
 	    <script type="text/javascript">
 			// 百度地图API功能
 			var map = new BMap.Map("allmap");            // 创建Map实例
-			var mPoint = new BMap.Point((${requestScope.house.longitude}),(${requestScope.house.latitude}));  
+			var mPoint = new BMap.Point(${requestScope.house.longitude},${requestScope.house.latitude});  
 			
 			var icon=new BMap.Icon("../Customer/docs/assets/images/house.png", new BMap.Size(32,32));
 			var marker = new BMap.Marker(mPoint,{icon:icon});
