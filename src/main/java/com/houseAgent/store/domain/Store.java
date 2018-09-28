@@ -20,7 +20,7 @@ public class Store {
 	private Long id;//id
 	private String name;//店名
 	private String location;//地址
-	private List<Staff> staffs = null;
+	//private List<Staff> staffs = null;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long getId() {
@@ -32,10 +32,10 @@ public class Store {
 	public String getLocation() {
 		return location;
 	}
-	@OneToMany(cascade=CascadeType.ALL,mappedBy="store")
-	public List<Staff> getStaffs() {
-		return staffs;
-	}
+//	@OneToMany(mappedBy="store")
+//	public List<Staff> getStaffs() {
+//		return staffs;
+//	}
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -45,8 +45,8 @@ public class Store {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public void setStaffs(List<Staff> staffs) {
-		this.staffs = new ArrayList<Staff>();
-		this.staffs = staffs;
-	}
+//	public void setStaffs(List<Staff> staffs) {
+//		//this.staffs = new ArrayList<Staff>();
+//		this.staffs = staffs;
+//	}
 }

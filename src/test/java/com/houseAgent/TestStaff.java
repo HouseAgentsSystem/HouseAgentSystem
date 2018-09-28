@@ -60,7 +60,7 @@ public class TestStaff {
 	}
 	//@Test
 	public void testFind() {
-		System.out.println(staffService.findOne(1L));
+		System.out.println();
 	}
 	
 }

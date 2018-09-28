@@ -56,7 +56,7 @@ public class Staff {
 	public String getFaceImg() {
 		return faceImg;
 	}
-	@ManyToOne(cascade=CascadeType.REFRESH)
+	@ManyToOne(cascade=CascadeType.ALL)
 	public Store getStore() {
 		return store;
 	}
@@ -101,7 +101,7 @@ public class Staff {
 	public String toString() {
 		return "Staff [id=" + id + ", userName=" + userName + ", password=" + password + ", realname=" + realname
 				+ ", position=" + position + ", phoneNumber=" + phoneNumber + ", sex=" + sex + ", faceImg=" + faceImg
-				+ ", store=" + store + "]";
+				+ "]";
 	}
 	
 	
