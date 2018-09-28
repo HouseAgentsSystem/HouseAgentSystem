@@ -14,13 +14,15 @@ public class DynamicUtil {
 	 */
 	public static<T> void dynamicSet(T entity, List<Object> propertyNames, List<Object> qtySums) {
 		try {
-			
 			for (int i = 0; i < propertyNames.size() ; i++) {
 				Field field  = entity.getClass().getDeclaredField((String)propertyNames.get(i));
 				field.setAccessible(true);			
-				field.set(entity, qtySums.get(i));
+				if( field.getType() == Integer.class ) {
+					field.set(entity, Integer.parseInt(new java.text.DecimalFormat("0").format(qtySums.get(i))));
+				} else {			
+					field.set(entity, qtySums.get(i));
+				}
 			}
-			
 		} catch (Exception e) {
 			e.printStackTrace();		
 		}
