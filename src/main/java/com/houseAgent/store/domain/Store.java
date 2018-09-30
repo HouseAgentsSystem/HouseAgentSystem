@@ -18,19 +18,19 @@ import com.houseAgent.staff.domain.Staff;
 @Table(name = "t_store")
 public class Store {
 	private Long id;//id
-	private String name;//店名
-	private String location;//地址
+	private String storeName;//店名
+	private String address;//地址
 	//private List<Staff> staffs = null;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
-	public String getName() {
-		return name;
+	public String getStoreName() {
+		return storeName;
 	}
-	public String getLocation() {
-		return location;
+	public String getAddress() {
+		return address;
 	}
 //	@OneToMany(mappedBy="store")
 //	public List<Staff> getStaffs() {
@@ -39,11 +39,11 @@ public class Store {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setStoreName(String storeName) {
+		this.storeName = storeName;
 	}
-	public void setLocation(String location) {
-		this.location = location;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 //	public void setStaffs(List<Staff> staffs) {
 //		//this.staffs = new ArrayList<Staff>();

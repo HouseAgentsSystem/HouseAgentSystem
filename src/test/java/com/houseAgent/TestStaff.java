@@ -26,8 +26,8 @@ public class TestStaff {
 	//@Test
 	public void addStore() {
 		Store store = new Store();
-		store.setLocation("东莞理工学院");
-		store.setName("乐家");
+		store.setAddress("东莞理工学院");
+		store.setStoreName("乐家");
 		storeService.save(store);
 		
 	}
