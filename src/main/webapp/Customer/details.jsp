@@ -35,13 +35,13 @@
 									<a href="#fakelink">首页</a>
 								</li>
 								<li>
-									<a href="house.html"><img src="../Admin/resources/images/卖房.png">买房</a>
+									<a href="../Customer/house.html"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a>
 								</li>
 								<li>
-									<a href="login.html"><img src="../Admin/resources/images/租房.png">租房</a>
+									<a href="login.html"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a>
 								</li>
 								<li>
-									<a href=""><img src="../Admin/resources/images/出租.png">我要出租</a>
+									<a href=""><img src="http://localhost:8081/Customer/dist/images/出租.png">我要出租</a>
 								</li>
 							</ul>
 						</div>
@@ -53,7 +53,7 @@
 				<b><h3>${requestScope.house.title}</h3></b>
 			</div>
 			<div class="row">
-				<b><p style='font-size:20px;'><span style="color: red;">${requestScope.house.price}万</span><em>&nbsp;|&nbsp;</em><span></span><em>&nbsp;|&nbsp;</em><span>${requestScope.house.area}平方米</span><em>&nbsp;|&nbsp;</em><span>2009年建造</span><em>&nbsp;|&nbsp;</em></p></b>
+				<b><p style='font-size:20px;'><span style="color: red;">${requestScope.house.price}万</span><em>&nbsp;|&nbsp;</em><span>${requestScope.house.area}平方米</span><em>&nbsp;|&nbsp;</em><span>2009年建造</span><em>&nbsp;|&nbsp;</em></p></b>
 			</div>
 			<div class="row">
 				<div class="col-md-7" style="background-color: #f1f1f1;">
@@ -207,7 +207,7 @@
 			var school =  new BMap.LocalSearch(map, {renderOptions: {map: map, autoViewport: false}});  
 		    school.searchNearby('学校',mPoint,1000);
 		
-			marker.setAnimation(BMAP_ANIMATION_BOUNCE); 
+			marker.setAnimation(BMAP_ANIMATION_BOUNCE);
 		</script>
 	</body>
 
