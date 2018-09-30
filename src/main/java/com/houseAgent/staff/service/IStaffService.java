@@ -6,6 +6,8 @@ import org.springframework.data.jpa.domain.Specification;
 
 import com.houseAgent.staff.domain.Staff;
 
+
+
 public interface IStaffService {
 	public void saveAndUpdate(Staff staff);
 	
@@ -15,3 +17,4 @@ public interface IStaffService {
 	public Staff findOne(long id);
 	public Page<Staff> findAll(Specification<Staff> spec, Pageable pageable);
 }
+
