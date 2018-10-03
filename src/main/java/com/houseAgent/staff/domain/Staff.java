@@ -56,7 +56,7 @@ public class Staff {
 	public String getFaceImg() {
 		return faceImg;
 	}
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.REFRESH)//这里别改
 	public Store getStore() {
 		return store;
 	}

@@ -42,18 +42,18 @@
 
 											<div class="space-6"></div>
 
-											<form>
+											<form id='form3'>
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="Username" />
+															<input type="text" class="form-control" placeholder="Username or PhoneNumber" name='user'/>
 															<i class="ace-icon fa fa-user"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Password" />
+															<input type="password" class="form-control" placeholder="Password" name='password'/>
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>
@@ -68,7 +68,7 @@
 
 														<button type="button" class="width-35 pull-right btn btn-sm btn-primary">
 															<i class="ace-icon fa fa-key"></i>
-															<span class="bigger-110">登录</span>
+															<span class="bigger-110" onclick="login()">登录</span>
 														</button>
 													</div>
 
@@ -110,17 +110,17 @@
 												输入您的手机号码和验证码
 											</p>
 
-											<form>
+											<form id='form2'>
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="綁定手机" />
+															<input type="text" class="form-control" placeholder="綁定手机" id='phone2' name='phone2'/>
 															<i class="ace-icon fa fa-mobile-phone"></i>
 														</span>
 													</label>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="密码" />
+															<input type="password" class="form-control" placeholder="密码" id='newPassword' name='newPassword'/>
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>
@@ -132,16 +132,16 @@
 														</span>
 													</label>
 													<div class="input-group">
-													  <input type="text" class="form-control" placeholder="输入验证码" aria-describedby="basic-addon2">
+													  <input type="text" class="form-control" placeholder="输入验证码" aria-describedby="basic-addon2" name='code2'>
 													  <span class="input-group-btn">
-												        <input class="btn btn-info" type="button" id="btn" value="免费获取验证码" onclick="settime(this)"></input>
+												        <input class="btn btn-info" type="button" id="btn2" value="免费获取验证码" onclick="settime(this)"></input>
 												      </span>
 													</div>
 													<br><br><br>
 													<div class="clearfix">
 														<button type="button" class="width-35 pull-right btn btn-sm btn-danger">
 															<i class="ace-icon fa fa-lightbulb-o"></i>
-															<span class="bigger-110">确定</span>
+															<span class="bigger-110" onclick="updata()">确定</span>
 														</button>
 													</div>
 												</fieldset>
@@ -210,7 +210,7 @@
 															<span class="bigger-110">重置</span>
 														</button>
 
-														<button type="button" class="width-65 pull-right btn btn-sm btn-success">
+														<button type="button" class="width-65 pull-right btn btn-sm btn-success" onclick="registration()">
 															<span class="bigger-110">注册</span>
 
 															<i class="ace-icon fa fa-arrow-right icon-on-right"></i>
@@ -285,13 +285,6 @@
 		</script>
 		<script type="text/javascript">
 			var countdown=60;
-			var phoneNumber = 13537199156;
-			$.ajax({
-	            //几个参数需要注意一下
-	                type: "POST",//方法类型
-	                dataType: "json",//预期服务器返回的数据类型
-	                url: "/users/sendCode?phoneNumber="+phoneNumber
-	            });
 			function settime(obj) {
 			  if (countdown == 0) {
 			    obj.removeAttribute("disabled");
@@ -309,31 +302,76 @@
 			}
 		</script>
 		<script type="text/javascript">
-			function sendCode(){
-				var phoneNumber = 13537199156;
+			$('#btn').on('click',function sendCode(){
+				var phoneNumber = $('#phone').val();
 				 $.ajax({
 		            //几个参数需要注意一下
-		                type: "POST",//方法类型
+		                //type: "POST",//方法类型
 		                dataType: "json",//预期服务器返回的数据类型
 		                url: "/users/sendCode?phoneNumber="+phoneNumber
 		            });
-			}
+			});
+	        function registration() {
+	            $.ajax({
+	            //几个参数需要注意一下
+	                type: "POST",//方法类型
+	                dataType: "json",//预期服务器返回的数据类型
+	                url: "/users/registered" ,//url
+	                data: $('#form1').serialize(),
+	                success: function () {
+	                    //console.log();//打印服务端返回的数据(调试用)
+	                    alert("注册成功");
+	                    window.location.reload();
+	                },
+	                error : function() {
+	                    alert("注册失败！");
+	                }
+	            });
+	        }
+	    </script>
+	    <script type="text/javascript">
+			$('#btn2').on('click',function sendCode(){
+				var phoneNumber = $('#phone2').val();
+				 $.ajax({
+		            //几个参数需要注意一下
+		                //type: "POST",//方法类型
+		                dataType: "json",//预期服务器返回的数据类型
+		                url: "/users/sendCode?phoneNumber="+phoneNumber
+		            });
+			});
+	        function updata() {
+	            $.ajax({
+	            //几个参数需要注意一下
+	                type: "POST",//方法类型
+	                dataType: "json",//预期服务器返回的数据类型
+	                url: "/users/updata" ,//url
+	                data: $('#form2').serialize(),
+	                success: function () {
+	                    //console.log();//打印服务端返回的数据(调试用)
+	                    alert("修改密码成功");
+	                    window.location.reload();
+	                },
+	                error : function() {
+	                    alert("修改密码失败！");
+	                }
+	            });
+	        }
+	    </script>
+	    <script type="text/javascript">
 	        function login() {
 	            $.ajax({
 	            //几个参数需要注意一下
 	                type: "POST",//方法类型
 	                dataType: "json",//预期服务器返回的数据类型
 	                url: "/users/login" ,//url
-	                data: $('#form1').serialize(),
-	                success: function (result) {
-	                    console.log(result);//打印服务端返回的数据(调试用)
-	                    if (result.resultCode == 200) {
-	                        alert("SUCCESS");
-	                    }
-	                    ;
+	                data: $('#form3').serialize(),
+	                success: function () {
+	                    //console.log();//打印服务端返回的数据(调试用)
+	                    alert("登录成功");
+	                    window.location.reload();
 	                },
 	                error : function() {
-	                    alert("异常！");
+	                    alert("登录失败！");
 	                }
 	            });
 	        }

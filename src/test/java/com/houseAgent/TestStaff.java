@@ -23,6 +23,12 @@ public class TestStaff {
 	private StoreService storeService;
 	@Autowired
 	private HouseService houseService;
+	
+	//@Test
+	public void findOne() {
+		System.out.println(storeService.findOne(1L));
+	}
+	
 	//@Test
 	public void addStore() {
 		Store store = new Store();

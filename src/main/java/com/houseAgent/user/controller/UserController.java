@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.houseAgent.common.SMS.SMSCode;
+import com.houseAgent.common.web.ExtAjaxResponse;
+import com.houseAgent.user.domain.User;
 import com.houseAgent.user.service.UserService;
 
 @RestController
@@ -37,6 +39,7 @@ public class UserController {
 			for(int i=0;i<6;i++) {
 				buffer.append(random.nextInt(10));
 			}
+			System.out.println(buffer.toString());
 			resp.setContentType("text/html;charset=utf-8");
 			PrintWriter out = resp.getWriter();
 			try {
@@ -55,8 +58,8 @@ public class UserController {
 			out.close();
 			}
 	@RequestMapping("/registered")
-	public void registered(HttpServletRequest req,HttpServletResponse resp) {
-		String phoneNumber = req.getParameter("phoneNumber");
+	public ExtAjaxResponse registered(HttpServletRequest req,HttpServletResponse resp) {
+		String phoneNumber = req.getParameter("phone");
 		String code = req.getParameter("code");
 		String userName = req.getParameter("userName");
 		String password = req.getParameter("password");
@@ -67,21 +70,64 @@ public class UserController {
 		session.removeAttribute("code");
 		session.removeAttribute("number");
 		session.removeAttribute("time");
-		if((System.currentTimeMillis() - time) / 1000 /60 >=2) {
-			System.out.println("验证码已失效，超过2分钟");
-			return;
+		if((System.currentTimeMillis() - time) / 1000 /60 >=1) {
+			System.out.println("验证码已失效，超过1分钟");
+			return new ExtAjaxResponse(false,"验证码失效！！！");
 		}
 		if(code_Session.trim().equalsIgnoreCase(code)) {
-//			Customer customer = new Customer();
-//			customer.setPhoneNumber(phoneNumber);
-//			customer.setUserName(userName);
-//			customer.setPassword(password);
-//			customer.setCreateTime(new Date());
-//			customerService.registered(customer);
+			User  user = new User();
+			user.setPhoneNumber(phoneNumber);
+			user.setPassword(password);
+			user.setStatus(1);
+			user.setCreateTime(new Date());
+			user.setUserName(userName);
+			user.setFaceImage("default.img");
+			userService.addUser(user);
 			System.out.println("注册成功");
+			return new ExtAjaxResponse(true,"注册成功！");
 		}else {
 			System.out.println("验证码不正确");
-			return;
+			return new ExtAjaxResponse(false,"验证码错误！！！");
+		}
+	}
+	@RequestMapping("/updata")
+	public ExtAjaxResponse updata(HttpServletRequest req,HttpServletResponse resp) {
+		String phoneNumber = req.getParameter("phone2");
+		String code = req.getParameter("code2");
+		String password = req.getParameter("newPassword");
+		HttpSession session = req.getSession();
+		String code_Session = (String) session.getAttribute("code");
+		String number = (String) session.getAttribute("number");
+		Long time = (Long) session.getAttribute("time");
+		session.removeAttribute("code");
+		session.removeAttribute("number");
+		session.removeAttribute("time");
+		if((System.currentTimeMillis() - time) / 1000 /60 >=1) {
+			System.out.println("验证码已失效，超过1分钟");
+			return new ExtAjaxResponse(false,"验证码失效！！！");
+		}
+		if(code_Session.trim().equalsIgnoreCase(code)) {
+			User  user = userService.findByPhoneNumber(phoneNumber);
+			user.setPassword(password);
+			userService.addUser(user);
+			System.out.println("修改密码成功");
+			return new ExtAjaxResponse(true,"修改密码成功！");
+		}else {
+			System.out.println("验证码不正确");
+			return new ExtAjaxResponse(false,"验证码错误！！！");
+		}
+	}
+	@RequestMapping("/login")
+	public ExtAjaxResponse login(HttpServletRequest req,HttpServletResponse resp) {
+		String user = req.getParameter("user");
+		String password = req.getParameter("password");
+		HttpSession session = req.getSession();
+		if(userService.login(user, password) != null) {
+			System.out.println("登录成功");
+			return new ExtAjaxResponse(true,"登录成功！");
+		}else {
+			System.out.println("登录失败");
+			return new ExtAjaxResponse(false,"登录失败！！！");
 		}
 	}
 }

@@ -11,4 +11,7 @@ import com.houseAgent.user.domain.User;
 public interface UserRepository extends PagingAndSortingRepository<User, Long>,JpaSpecificationExecutor<User>{
 	@Query("from User user where user.userName = ?1 and user.password = ?2") 
 	public User Login(String userName,String password); 
+	@Query("from User user where user.phoneNumber = ?1 and user.password = ?2") 
+	public User Login2(String phoneNumber,String password); 
+	public User findByPhoneNumber(String phoneNumber);
 }
