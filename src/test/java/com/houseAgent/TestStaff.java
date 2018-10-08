@@ -60,6 +60,8 @@ public class TestStaff {
 		house.setType("商品房");
 		house.setPrice(500);
 		house.setAddress("松山湖大学路东莞理工学院教师村");
+		house.setLocation("松山湖");
+		house.setImages("5.jpg");
 		house.setStaff(staff);
 		house.setStore(store);
 		houseService.addOneHouse(house);
