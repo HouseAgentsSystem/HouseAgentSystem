@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.houseAgent.house.domain.House;
@@ -21,9 +22,9 @@ public class HouseService implements IHouseService {
 	}
 
 	@Override
-	public Page<House> findAll(Pageable pageable) {
+	public Page<House> findAll(Specification<House> spec,Pageable pageable) {
 		// TODO Auto-generated method stub
-		return houseRepository.findAll(pageable);
+		return houseRepository.findAll(spec,pageable);
 	}
 
 	@Override

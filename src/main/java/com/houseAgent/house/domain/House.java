@@ -14,9 +14,9 @@ import com.houseAgent.store.domain.Store;
 @Table(name="t_house")
 public class House {
 	private Long id;
-	private String location;//地区
-	private double price;//价格
-	private double area;//面积
+	private String region;//地区
+	private Double price;//价格
+	private Double area;//面积
 	private String type;//房型
 	private String buildDate;//建造时间
 	private int room;//室
@@ -28,12 +28,12 @@ public class House {
 	private String address;//详细地址
 	private String images;
 	private String video;
-	private double longitude;//经度
-	private double latitude;//纬度
+	private Double longitude;//经度
+	private Double latitude;//纬度
 	private int isElevator;//是否有电梯
 	private int isParking;//是否有停车位
 	private String introduce;//详细介绍，核心卖点
-	private double agencyFees;//中介费
+	private Double agencyFees;//中介费
 	private int state;//状态
 	private int propertyRights;//产权年限
 	private Staff staff;//员工
@@ -43,13 +43,15 @@ public class House {
 	public Long getId() {
 		return id;
 	}
-	public String getLocation() {
-		return location;
+
+	public String getRegion() {
+		return region;
 	}
-	public double getPrice() {
+
+	public Double getPrice() {
 		return price;
 	}
-	public double getArea() {
+	public Double getArea() {
 		return area;
 	}
 	public String getType() {
@@ -85,10 +87,10 @@ public class House {
 	public String getVideo() {
 		return video;
 	}
-	public double getLongitude() {
+	public Double getLongitude() {
 		return longitude;
 	}
-	public double getLatitude() {
+	public Double getLatitude() {
 		return latitude;
 	}
 	public int getIsElevator() {
@@ -100,7 +102,7 @@ public class House {
 	public String getIntroduce() {
 		return introduce;
 	}
-	public double getAgencyFees() {
+	public Double getAgencyFees() {
 		return agencyFees;
 	}
 	public int getState() {
@@ -120,13 +122,15 @@ public class House {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public void setLocation(String location) {
-		this.location = location;
+	
+	public void setRegion(String region) {
+		this.region = region;
 	}
-	public void setPrice(double price) {
+
+	public void setPrice(Double price) {
 		this.price = price;
 	}
-	public void setArea(double area) {
+	public void setArea(Double area) {
 		this.area = area;
 	}
 	public void setType(String type) {
@@ -162,10 +166,10 @@ public class House {
 	public void setVideo(String video) {
 		this.video = video;
 	}
-	public void setLongitude(double longitude) {
+	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
-	public void setLatitude(double latitude) {
+	public void setLatitude(Double latitude) {
 		this.latitude = latitude;
 	}
 	public void setIsElevator(int isElevator) {
@@ -177,7 +181,7 @@ public class House {
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
 	}
-	public void setAgencyFees(double agencyFees) {
+	public void setAgencyFees(Double agencyFees) {
 		this.agencyFees = agencyFees;
 	}
 	public void setState(int state) {

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.houseAgent.house.domain.House;
 
 @Repository
-public interface HouseRepository  extends PagingAndSortingRepository<House, Long>,JpaSpecificationExecutor<House>{
+public interface HouseRepository  extends PagingAndSortingRepository<House, Long>
+							,JpaSpecificationExecutor<House>{
 
 }

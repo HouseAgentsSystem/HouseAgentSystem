@@ -90,19 +90,19 @@
 				          </video>
 					    </div>
 					    <div class="item">
-					      <img src="../Admin/${requestScope.house.images}" alt="..." style="height: 400px; width: 100%;">
+					      <img src="../Customer/images/${requestScope.house.images}" alt="..." style="height: 400px; width: 100%;">
 					    </div>
 					    <div class="item">
-					      <img src="../Admin/resources/images/img3.jpg" alt="..." >
+					      <img src="../Customer/images/3.jpg" alt="..." >
 					    </div>
 					    <div class="item">
-					      <img src="../Admin/resources/images/img4.jpg" alt="..." >
+					      <img src="../Customer/images/1.jpg" alt="..." >
 					    </div>
 					    <div class="item">
-					      <img src="../Admin/resources/images/img2.jpg" alt="..." >
+					      <img src="../Customer/images/2.jpg" alt="..." >
 					    </div>
 					    <div class="item">
-					      <img src="../Admin/resources/images/img3.jpg" alt="..." >
+					      <img src="../Customer/images/3.jpg" alt="..." >
 					    </div>
 					  </div>
 					
