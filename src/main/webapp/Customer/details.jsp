@@ -54,7 +54,7 @@
 				<b><h3>${requestScope.house.title}</h3></b>
 			</div>
 			<div class="row">
-				<b><p style='font-size:20px;'><span style="color: red;">${requestScope.house.price}万</span><em>&nbsp;|&nbsp;</em><span>${requestScope.house.area}平方米</span><em>&nbsp;|&nbsp;</em><span>2009年建造</span><em>&nbsp;|&nbsp;</em></p></b>
+				<b><p style='font-size:20px;'><span style="color: red;">${requestScope.house.price}万</span><em>&nbsp;|&nbsp;</em><span>${requestScope.house.area}平方米</span><em>&nbsp;|&nbsp;</em><span>${requestScope.house.buildDate}年建造</span><em>&nbsp;|&nbsp;</em><span>${requestScope.house.room}房${requestScope.house.hall}厅</span><em>&nbsp;|&nbsp;</em><span>${requestScope.house.buildDate}年建造</span><em>&nbsp;|&nbsp;</em><span>${requestScope.house.region}</span></p></b>
 			</div>
 			<div class="row">
 				<div class="col-md-7" style="background-color: #f1f1f1;">
@@ -77,9 +77,9 @@
 				            class="video-js"
 				            controls
 				            preload="auto"
-				            poster="../Customer/docs/assets/images/video/poster.jpg"
+				            poster="../Customer/docs/assets/images/video/nvpu.jpg"
 				            data-setup='{}' style="height: 400px; width: 100%;">
-				            <source src="../Customer/docs/assets/images/video/poster.mp4" type="video/mp4"></source>
+				            <source src="../Customer/docs/assets/images/video/nvpu.mp4" type="video/mp4"></source>
 				           <!-- <source src="http://iurevych.github.com/Flat-UI-videos/big_buck_bunny.webm" type="video/webm"></source>-->
 				            <p class="vjs-no-js">
 				              To view this video please enable JavaScript, and consider upgrading to a
@@ -127,22 +127,18 @@
 						</tr>
 						<tr>
 							<td width="50%"><p>房屋面积：${requestScope.house.area}平方米</p></td>
-							<td width="50%"><p>房屋朝向：南</p></td>
+							<td width="50%"><p>房屋朝向：${requestScope.house.orientation}</p></td>
 						</tr>
 						<tr>
-							<td width="50%"><p>装修程度：精装修</p></td>
-							<td width="50%"><p>房屋年限：满5年</p></td>
+							<td width="50%"><p>装修程度：${requestScope.house.decorateLevel}</p></td>
+							<td width="50%"><p>房屋年限：满${requestScope.house.propertyRights}年</p></td>
 						</tr>
 						<tr>
-							<td width="50%"><p>建造年代：2009年</p></td>
-							<td width="50%"><p>房屋类型：普通住宅</p></td>
+							<td width="50%"><p>建造年代：${requestScope.house.buildDate}年</p></td>
+							<td width="50%"><p>房屋类型：${requestScope.house.type}</p></td>
 						</tr>
 						<tr>
-							<td width="50%"><p>房屋权限：70年</p></td>
-							<td width="50%"><p>房屋性质：商品房</p></td>
-						</tr>
-						<tr>
-							<td width="50%"><p>房屋楼层：15楼</p></td>
+							<td width="50%"><p>房屋楼层：${requestScope.house.floor}楼</p></td>
 							<td width="50%"><p>是否有电梯：是</p></td>
 						</tr>
 						<tr width="100%"><p>详细地址：${requestScope.house.address}</p></tr>
@@ -159,15 +155,7 @@
 				</div>
 				<div class="col-md-5" style="background-color: #f1f1f1;">
 					<h4>核心卖点</h4><br><br>
-					 1、采光明厨明厅，采光，视野无遮挡，阳光清风自由来。<br>
-						2、户型正气南北通透，大气实用，户型设计合理，使用面积达90％<br>
-						3、房间景观毎户赠送入户花园，客厅双阳台，视野广看花园。<br>
-						【楼盘配套】<br>
-						1、交通便捷---15分到达口，30分深圳市生活圈。<br>
-						2、商业市场---位于商业购物，五酒店，篮球场等<br>
-						3、配套成熟---自带幼儿园到高中三即到，银行，医院都已入驻。<br>
-						房东置换，诚心出售，欢迎看房，随时恭候您的到来。<br>
-						小区环境优雅，配套成熟，交通便利，居住舒适！<br>
+					 <p>${requestScope.house.introduce}</p>
 				</div>
 			</div>
 		</div>
@@ -186,7 +174,7 @@
 	    <script type="text/javascript">
 			// 百度地图API功能
 			var map = new BMap.Map("allmap");            // 创建Map实例
-			var mPoint = new BMap.Point(10,10);  
+			var mPoint = new BMap.Point(${requestScope.house.longitude},${requestScope.house.latitude});  
 			
 			var icon=new BMap.Icon("../Customer/docs/assets/images/house.png", new BMap.Size(32,32));
 			var marker = new BMap.Marker(mPoint,{icon:icon});
