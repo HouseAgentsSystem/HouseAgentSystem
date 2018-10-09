@@ -12,7 +12,8 @@
 		<link href="http://localhost:8081/Customer/dist/css/vendor/bootstrap.min.css" rel="stylesheet">
 
 		<!-- Loading Flat UI -->
-		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!-- <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
 		<link href="http://localhost:8081/Customer/dist/css/navbar.css" rel="stylesheet">
 		<link rel="shortcut icon" href="http://localhost:8081/Customer/dist/favicon.ico">
 		<style type="text/css">
@@ -93,16 +94,16 @@
 					      <img src="../Customer/images/${requestScope.house.images}" alt="..." style="height: 400px; width: 100%;">
 					    </div>
 					    <div class="item">
-					      <img src="../Customer/images/3.jpg" alt="..." >
+					      <img src="../Customer/images/3.jpg" alt="..." style="height: 400px; width: 100%;">
 					    </div>
 					    <div class="item">
-					      <img src="../Customer/images/1.jpg" alt="..." >
+					      <img src="../Customer/images/2.jpg" alt="..." style="height: 400px; width: 100%;">
 					    </div>
 					    <div class="item">
-					      <img src="../Customer/images/2.jpg" alt="..." >
+					      <img src="../Customer/images/2.jpg" alt="..." style="height: 400px; width: 100%;">
 					    </div>
 					    <div class="item">
-					      <img src="../Customer/images/3.jpg" alt="..." >
+					      <img src="../Customer/images/3.jpg" alt="..." style="height: 400px; width: 100%;">
 					    </div>
 					  </div>
 					
@@ -178,13 +179,14 @@
 					<br><br>
 				</div>
 		</div>
-		<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+		<script src="../Customer/assets/js/jquery.2.1.1.min.js"></script>
 	    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-	    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	    <!-- <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 	    <script type="text/javascript">
 			// 百度地图API功能
 			var map = new BMap.Map("allmap");            // 创建Map实例
-			var mPoint = new BMap.Point(${requestScope.house.longitude},${requestScope.house.latitude});  
+			var mPoint = new BMap.Point(10,10);  
 			
 			var icon=new BMap.Icon("../Customer/docs/assets/images/house.png", new BMap.Size(32,32));
 			var marker = new BMap.Marker(mPoint,{icon:icon});
