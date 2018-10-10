@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.houseAgent.common.web.ExtjsPageRequest;
 import com.houseAgent.house.domain.House;
+import com.houseAgent.house.domain.HouseDTO;
 import com.houseAgent.house.domain.HouseQueryDTO;
 import com.houseAgent.house.service.HouseService;
 
@@ -23,7 +24,7 @@ public class HouseController {
 	@Autowired
 	private HouseService houseService;
 	@GetMapping
-	public Page<House> getPage(HouseQueryDTO houseQueryDTO ,ExtjsPageRequest pageRequest) 
+	public Page<HouseDTO> getPage(HouseQueryDTO houseQueryDTO ,ExtjsPageRequest pageRequest) 
 	{
 		return houseService.findAll(HouseQueryDTO.getWhereClause(houseQueryDTO),pageRequest.getPageable());
 	}

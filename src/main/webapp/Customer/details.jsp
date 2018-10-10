@@ -77,9 +77,8 @@
 				            class="video-js"
 				            controls
 				            preload="auto"
-				            poster="../Customer/docs/assets/images/video/nvpu.jpg"
 				            data-setup='{}' style="height: 400px; width: 100%;">
-				            <source src="../Customer/docs/assets/images/video/nvpu.mp4" type="video/mp4"></source>
+				            <source src="../Customer/video/${requestScope.house.video}" type="video/mp4"></source>
 				           <!-- <source src="http://iurevych.github.com/Flat-UI-videos/big_buck_bunny.webm" type="video/webm"></source>-->
 				            <p class="vjs-no-js">
 				              To view this video please enable JavaScript, and consider upgrading to a
@@ -91,19 +90,19 @@
 				          </video>
 					    </div>
 					    <div class="item">
-					      <img src="../Customer/images/${requestScope.house.images}" alt="..." style="height: 400px; width: 100%;">
+					      <img src="../Customer/images/${requestScope.house.img0}" alt="..." style="height: 400px; width: 100%;">
 					    </div>
 					    <div class="item">
-					      <img src="../Customer/images/3.jpg" alt="..." style="height: 400px; width: 100%;">
+					      <img src="../Customer/images/${requestScope.house.img1}" alt="..." style="height: 400px; width: 100%;">
 					    </div>
 					    <div class="item">
-					      <img src="../Customer/images/2.jpg" alt="..." style="height: 400px; width: 100%;">
+					      <img src="../Customer/images/${requestScope.house.img2}" alt="..." style="height: 400px; width: 100%;">
 					    </div>
 					    <div class="item">
-					      <img src="../Customer/images/2.jpg" alt="..." style="height: 400px; width: 100%;">
+					      <img src="../Customer/images/${requestScope.house.img3}" alt="..." style="height: 400px; width: 100%;">
 					    </div>
 					    <div class="item">
-					      <img src="../Customer/images/3.jpg" alt="..." style="height: 400px; width: 100%;">
+					      <img src="../Customer/images/${requestScope.house.img4}" alt="..." style="height: 400px; width: 100%;">
 					    </div>
 					  </div>
 					
@@ -139,7 +138,7 @@
 						</tr>
 						<tr>
 							<td width="50%"><p>房屋楼层：${requestScope.house.floor}楼</p></td>
-							<td width="50%"><p>是否有电梯：是</p></td>
+							<td width="50%"><p>是否有电梯：${requestScope.house.isElevator}</p></td>
 						</tr>
 						<tr width="100%"><p>详细地址：${requestScope.house.address}</p></tr>
 					</table>
@@ -173,7 +172,7 @@
 	    <!-- <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 	    <script type="text/javascript">
 			// 百度地图API功能
-			var map = new BMap.Map("allmap");            // 创建Map实例
+			var map = new BMap.Map("allmap");// 创建Map实例
 			var mPoint = new BMap.Point(${requestScope.house.longitude},${requestScope.house.latitude});  
 			
 			var icon=new BMap.Icon("../Customer/docs/assets/images/house.png", new BMap.Size(32,32));

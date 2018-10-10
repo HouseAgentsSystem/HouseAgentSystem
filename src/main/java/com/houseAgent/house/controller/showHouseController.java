@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.houseAgent.house.domain.House;
+import com.houseAgent.house.domain.HouseDTO;
 import com.houseAgent.house.service.HouseService;
 
 
@@ -19,9 +20,9 @@ public class showHouseController {
 	@GetMapping("/details")
 	public String showHouse(Long id,Map<String,Object> model) {
 		System.out.println(id);
-		House house = houseService.findOne(id).get();
-		System.out.println(house);
-		model.put("house",house);
+		HouseDTO housedto = houseService.findOne(id);
+		System.out.println(housedto);
+		model.put("house",housedto);
 		return "details";
 	}
 }
