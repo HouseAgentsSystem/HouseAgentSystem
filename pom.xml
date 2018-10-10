@@ -44,11 +44,11 @@
 		    <artifactId>tomcat-embed-jasper</artifactId>
 		     <scope>provided</scope>
 		</dependency>
-		<!--JSP jstl标签库 
+		<!--JSP jstl标签库 -->
 		<dependency>
 		    <groupId>javax.servlet</groupId>
 		    <artifactId>jstl</artifactId>
-		</dependency>-->
+		</dependency>
 		<!--================activiti start================-->
         <dependency>
             <groupId>org.activiti</groupId>

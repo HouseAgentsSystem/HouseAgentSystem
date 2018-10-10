@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -89,21 +90,11 @@
 				            </p>
 				          </video>
 					    </div>
-					    <div class="item">
-					      <img src="../Customer/images/${requestScope.house.img0}" alt="..." style="height: 400px; width: 100%;">
-					    </div>
-					    <div class="item">
-					      <img src="../Customer/images/${requestScope.house.img1}" alt="..." style="height: 400px; width: 100%;">
-					    </div>
-					    <div class="item">
-					      <img src="../Customer/images/${requestScope.house.img2}" alt="..." style="height: 400px; width: 100%;">
-					    </div>
-					    <div class="item">
-					      <img src="../Customer/images/${requestScope.house.img3}" alt="..." style="height: 400px; width: 100%;">
-					    </div>
-					    <div class="item">
-					      <img src="../Customer/images/${requestScope.house.img4}" alt="..." style="height: 400px; width: 100%;">
-					    </div>
+					    <c:forEach items="${requestScope.house.imgs}" var="img" varStatus="id">    
+							<div class="item">
+						      <img src="../Customer/images/${img}" alt="..." style="height: 400px; width: 100%;">
+						    </div>
+					    </c:forEach>
 					  </div>
 					
 					  <!-- Controls -->
@@ -184,8 +175,8 @@
 			map.enableScrollWheelZoom(true);
 			map.addControl(new BMap.NavigationControl());
 			map.addControl(new BMap.NavigationControl());    
-			map.addControl(new BMap.ScaleControl());    
-			map.addControl(new BMap.OverviewMapControl());    
+			map.addControl(new BMap.ScaleControl());
+			map.addControl(new BMap.OverviewMapControl());
 			map.addControl(new BMap.MapTypeControl());
 			var circle = new BMap.Circle(mPoint,1000,{fillColor:"blue", strokeWeight: 1 ,fillOpacity: 0.3, strokeOpacity: 0.3});
 		    map.addOverlay(circle);

@@ -18,11 +18,7 @@ public class HouseDTO {
 	private String decorateLevel;//装修等级
 	private String title;//标题
 	private String address;//详细地址
-	private String img1;
-	private String img0;
-	private String img2;
-	private String img3;
-	private String img4;
+	private String[] imgs;
 	private String video;
 	private Double longitude;//经度
 	private Double latitude;//纬度
@@ -45,12 +41,7 @@ public class HouseDTO {
 	
 	public static void entityToDto(House house , HouseDTO dto) {
 		BeanUtils.copyProperties(house, dto);
-		String[] imgs = house.getImages().split("/");
-		dto.img0 = imgs[0];
-		dto.img1 = imgs[1];
-		dto.img2 = imgs[2];
-		dto.img3 = imgs[3];
-		dto.img4 = imgs[4];
+		dto.imgs = house.getImages().split("/");
 		if(house.getIsElevator()==1) {
 			dto.setIsElevator("是");
 		}else dto.setIsElevator("否");
@@ -140,57 +131,14 @@ public class HouseDTO {
 		this.address = address;
 	}
 	
-	public String getImg1() {
-		return img1;
-	}
-	public void setImg1(String img1) {
-		this.img1 = img1;
-	}
-	
-	public String getImg0() {
-		return img0;
+	public String[] getImgs() {
+		return imgs;
 	}
 
 
 
-	public void setImg0(String img0) {
-		this.img0 = img0;
-	}
-
-
-
-	public String getImg2() {
-		return img2;
-	}
-
-
-
-	public void setImg2(String img2) {
-		this.img2 = img2;
-	}
-
-
-
-	public String getImg3() {
-		return img3;
-	}
-
-
-
-	public void setImg3(String img3) {
-		this.img3 = img3;
-	}
-
-
-
-	public String getImg4() {
-		return img4;
-	}
-
-
-
-	public void setImg4(String img4) {
-		this.img4 = img4;
+	public void setImgs(String[] imgs) {
+		this.imgs = imgs;
 	}
 
 
