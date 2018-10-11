@@ -6,8 +6,8 @@ public class HouseRentDTO extends HouseRentBaseDTO {
     private String userRealname;
     private String userPhoneNumber;
     
-    public void entityToDto(HouseRent entity , HouseRentDTO dto) {
-    	super.entityToDto(entity, dto);
+    public static void entityToDto(HouseRent entity , HouseRentDTO dto) {
+    	HouseRentBaseDTO.entityToDto(entity, dto);
     	dto.userFaceImage = entity.getUser().getFaceImage();
     	dto.userRealname = entity.getUser().getRealname();
     	dto.userPhoneNumber = entity.getUser().getPhoneNumber();

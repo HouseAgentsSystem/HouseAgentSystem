@@ -30,7 +30,7 @@ public class HouseRentBaseDTO {
     private Date publishTime;	//发布日期
     private RentApplyStates state;		//状态(正在审核，审核不通过，未售，已售，取消)
     
-    public void entityToDto(HouseRent entity , HouseRentBaseDTO dto) {
+    public static void entityToDto(HouseRent entity , HouseRentBaseDTO dto) {
     	BeanUtils.copyProperties(entity, dto);
     	
     	String[] supportings = entity.getSupporting().split(",");
@@ -44,7 +44,7 @@ public class HouseRentBaseDTO {
     	dto.isCalorifier = supportings[7].equals("1") ? true : false;
     }
     
-    public void dtoToEntity(HouseRentBaseDTO dto, HouseRent entity) {
+    public static void dtoToEntity(HouseRentBaseDTO dto, HouseRent entity) {
     	BeanUtils.copyProperties(dto, entity);
     	
     	String supportings = new String();
