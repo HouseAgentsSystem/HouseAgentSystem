@@ -129,7 +129,7 @@
 
 .navbar-toggler {
   border: none;
-  color: #34495e;
+  color: #00ab1d;
   margin: 0 0 0 21px;
   padding: 0 21px;
   height: 53px;
@@ -302,7 +302,7 @@
 .navbar-text {
   font-size: 16px;
   line-height: 1.438;
-  color: #34495e;
+  color: #00ab1d;
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 15px;
@@ -376,7 +376,7 @@
 }
 
 .navbar-default .navbar-brand {
-  color: #34495e;
+  color: #00ab1d;
 }
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
@@ -385,7 +385,7 @@
 }
 
 .navbar-default .navbar-toggler:before {
-  color: #34495e;
+  color: #00ab1d;
 }
 
 .navbar-default .navbar-toggler:hover, .navbar-default .navbar-toggler:focus {
@@ -403,7 +403,7 @@
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: #34495e;
+  color: #00ab1d;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
@@ -428,7 +428,7 @@
 
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .show .dropdown-menu > li > a, .navbar-default .navbar-nav .show .select2-drop > li > a {
-    color: #34495e;
+    color: #00ab1d;
   }
   .navbar-default .navbar-nav .show .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .show .select2-drop > li > a:hover, .navbar-default .navbar-nav .show .dropdown-menu > li > a:focus, .navbar-default .navbar-nav .show .select2-drop > li > a:focus {
     color: #1abc9c;
@@ -482,11 +482,11 @@
 }
 
 .navbar-default .navbar-text {
-  color: #34495e;
+  color: #00ab1d;
 }
 
 .navbar-default .navbar-link {
-  color: #34495e;
+  color: #00ab1d;
 }
 
 .navbar-default .navbar-link:hover {
@@ -494,7 +494,7 @@
 }
 
 .navbar-default .btn-link {
-  color: #34495e;
+  color: #00ab1d;
 }
 
 .navbar-default .btn-link:hover, .navbar-default .btn-link:focus {
@@ -508,7 +508,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 
 .navbar-inverse {
-  background-color: #34495e;
+  background-color: #00ab1d;
 }
 
 .navbar-inverse .navbar-brand {
@@ -563,7 +563,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 
 .navbar-inverse .navbar-nav > .show > .dropdown-menu, .navbar-inverse .navbar-nav > .show > .select2-drop {
-  background-color: #34495e;
+  background-color: #00ab1d;
   padding: 3px 4px;
 }
 

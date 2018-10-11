@@ -28,8 +28,6 @@ public class HouseDTO {
 	private Double agencyFees;//中介费
 	private int state;//状态
 	private int propertyRights;//产权年限
-	private Staff staff;//员工
-	private Store store;//门店 
 	
 	private Long staffId;
 	private String staffName;
@@ -48,6 +46,15 @@ public class HouseDTO {
 		if(house.getIsParking()==1) {
 			dto.setIsParking("是");
 		}else dto.setIsParking("否");
+		dto.setStaffId(house.getStaff().getId());
+		dto.setStaffName(house.getStaff().getRealname());
+		dto.setFaceImg(house.getStaff().getFaceImg());
+		dto.setPhoneNumber(house.getStaff().getPhoneNumber());
+		
+		dto.setStoreId(house.getStore().getId());
+		dto.setStoreName(house.getStore().getStoreName());
+		
+		System.out.println(dto.getFaceImg());
 	}
 		
 	
@@ -197,18 +204,7 @@ public class HouseDTO {
 	public void setPropertyRights(int propertyRights) {
 		this.propertyRights = propertyRights;
 	}
-	public Staff getStaff() {
-		return staff;
-	}
-	public void setStaff(Staff staff) {
-		this.staff = staff;
-	}
-	public Store getStore() {
-		return store;
-	}
-	public void setStore(Store store) {
-		this.store = store;
-	}
+	
 	public Long getStaffId() {
 		return staffId;
 	}

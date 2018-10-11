@@ -30,22 +30,24 @@
 		<div class="row demo-row">
 				<div class="col">
 					<nav class="navbar navbar-inverse navbar-embossed navbar-expand-lg" role="navigation">
-						<a class="navbar-brand" href="#">Flat UI</a>
-						<div class="collapse navbar-collapse" id="navbar-collapse-01">
-							<ul class="nav navbar-nav mr-auto">
-								<li>
-									<a href="#fakelink">首页</a>
-								</li>
-								<li>
-									<a href="../Customer/house.html"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a>
-								</li>
-								<li>
-									<a href="login.html"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a>
-								</li>
-								<li>
-									<a href=""><img src="http://localhost:8081/Customer/dist/images/出租.png">我要出租</a>
-								</li>
-							</ul>
+						<div class="container">
+							<a class="navbar-brand" href="#">Flat UI</a>
+							<div class="collapse navbar-collapse" id="navbar-collapse-01">
+								<ul class="nav navbar-nav mr-auto">
+									<li>
+										<a href="#fakelink">首页</a>
+									</li>
+									<li>
+										<a href="../Customer/house.html"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a>
+									</li>
+									<li>
+										<a href="login.html"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a>
+									</li>
+									<li>
+										<a href=""><img src="http://localhost:8081/Customer/dist/images/出租.png">我要出租</a>
+									</li>
+								</ul>
+							</div>
 						</div>
 					</nav>
 				</div>
@@ -57,8 +59,10 @@
 			<div class="row">
 				<b><p style='font-size:20px;'><span style="color: red;">${requestScope.house.price}万</span><em>&nbsp;|&nbsp;</em><span>${requestScope.house.area}平方米</span><em>&nbsp;|&nbsp;</em><span>${requestScope.house.buildDate}年建造</span><em>&nbsp;|&nbsp;</em><span>${requestScope.house.room}房${requestScope.house.hall}厅</span><em>&nbsp;|&nbsp;</em><span>${requestScope.house.buildDate}年建造</span><em>&nbsp;|&nbsp;</em><span>${requestScope.house.region}</span></p></b>
 			</div>
+			<hr>
 			<div class="row">
-				<div class="col-md-7" style="background-color: #f1f1f1;">
+				<div class="col-md-7" style="border:0.5px solid #c7c7c7;">
+					<h4>房屋情况</h4><hr>
 					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 					  <!-- Indicators -->
 					  <ol class="carousel-indicators">
@@ -108,43 +112,60 @@
 					  </a>
 					</div>
 				</div>
-				<div class="col-md-5" style="background-color: #f1f1f1;">
-					<b><h3>房屋信息</h3></b>
-					<table width="100%">
-						<tr>
-							<td width="50%"><p>房屋户型：${requestScope.house.room}室${requestScope.house.hall}厅</p></td>
-							<td width="50%"><p>房屋价格：${requestScope.house.price}万</p></td>
-						</tr>
-						<tr>
-							<td width="50%"><p>房屋面积：${requestScope.house.area}平方米</p></td>
-							<td width="50%"><p>房屋朝向：${requestScope.house.orientation}</p></td>
-						</tr>
-						<tr>
-							<td width="50%"><p>装修程度：${requestScope.house.decorateLevel}</p></td>
-							<td width="50%"><p>房屋年限：满${requestScope.house.propertyRights}年</p></td>
-						</tr>
-						<tr>
-							<td width="50%"><p>建造年代：${requestScope.house.buildDate}年</p></td>
-							<td width="50%"><p>房屋类型：${requestScope.house.type}</p></td>
-						</tr>
-						<tr>
-							<td width="50%"><p>房屋楼层：${requestScope.house.floor}楼</p></td>
-							<td width="50%"><p>是否有电梯：${requestScope.house.isElevator}</p></td>
-						</tr>
-						<tr width="100%"><p>详细地址：${requestScope.house.address}</p></tr>
-					</table>
-				</div>
+				<div class="col-md-offset-1 col-md-4">
+				    <div class="thumbnail">
+				      <h4>经纪人信息</h4><hr>
+				      <img src="../Customer/images/${requestScope.house.faceImg}" alt="..." style="height: 250px;">
+				      <div class="caption">
+				        <h4>姓名：${requestScope.house.staffName}</h4>
+				        <h4>手机：${requestScope.house.phoneNumber}</h4>
+				        <h4>所属门店：${requestScope.house.storeName}</h4>
+				      </div>
+				    </div>
+				  </div>
 			</div><br><br><br>
+			<div class="row">
+				<div class="container">
+					<div style="border:0.5px solid #c7c7c7; width: 100%;">
+						<h4>房屋信息</h4><hr>
+						<table width="100%">
+							<tr>
+								<td width="50%"><p>房屋户型：${requestScope.house.room}室${requestScope.house.hall}厅</p></td>
+								<td width="50%"><p>房屋价格：${requestScope.house.price}万</p></td>
+							</tr>
+							<tr>
+								<td width="50%"><p>房屋面积：${requestScope.house.area}平方米</p></td>
+								<td width="50%"><p>房屋朝向：${requestScope.house.orientation}</p></td>
+							</tr>
+							<tr>
+								<td width="50%"><p>装修程度：${requestScope.house.decorateLevel}</p></td>
+								<td width="50%"><p>房屋年限：满${requestScope.house.propertyRights}年</p></td>
+							</tr>
+							<tr>
+								<td width="50%"><p>建造年代：${requestScope.house.buildDate}年</p></td>
+								<td width="50%"><p>房屋类型：${requestScope.house.type}</p></td>
+							</tr>
+							<tr>
+								<td width="50%"><p>房屋楼层：${requestScope.house.floor}楼</p></td>
+								<td width="50%"><p>是否有电梯：${requestScope.house.isElevator}</p></td>
+							</tr>
+							<tr width="100%"><p>详细地址：${requestScope.house.address}</p></tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<hr>
 			<div class="row" >
-				<div class="col-md-7" style="background-color: #f1f1f1;">
-					<h4>周边情况</h4><br>
+				<div class="col-md-7" style="border:0.5px solid #c7c7c7;">
+					<h4>周边情况</h4><hr>
 					<div style="width: 100%;">
 						<div id="allmap" style="height: 400px; width:100%;"></div>
 						<br>
 					</div>
 				</div>
-				<div class="col-md-5" style="background-color: #f1f1f1;">
-					<h4>核心卖点</h4><br><br>
+				
+				<div class="col-md-4 col-md-offset-1" style="border:0.5px solid #c7c7c7;">
+					<h4>核心卖点</h4><hr>
 					 <p>${requestScope.house.introduce}</p>
 				</div>
 			</div>
