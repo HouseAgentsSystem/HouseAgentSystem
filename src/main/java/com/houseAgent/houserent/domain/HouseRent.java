@@ -24,23 +24,18 @@ import com.houseAgent.user.domain.User;
 public class HouseRent {
 
 	private Long id;
-    private String loaction;	//地区
+    private String region;	//地区
     private Double rent;		//月租金
     private Double area;		//面积
     private Integer room;		//室
     private Integer hall;		//厅
     private Integer floor;		//楼层
-    private String decorateLevel;//装修
-    private String title;		//标题
+    private String title;		//标题=地区+几室+几厅+有无卫生间+是否整租
     private String address;		//详细地址
     private String images;		//图片
     private String video;		//视频
-    private Boolean isElevator;	//is电梯
-    private Boolean isParking;	//is停车位
-    private Boolean isAirConditioning;	//Is空调
-    private Boolean isRefrigerator;		//Is冰箱
-    private Boolean isSoft;		//Is沙发
-    private Boolean isTV;		//Is电视
+    private Boolean isEntireRent;  //是否整租
+    private String supporting;  //配套设施
     private String introduce;	// 详细介绍
     private Date publishTime;	//发布日期
     private RentApplyStates state;		//状态(正在审核，审核不通过，未售，已售，取消)
@@ -52,8 +47,8 @@ public class HouseRent {
 	public Long getId() {
 		return id;
 	}
-	public String getLoaction() {
-		return loaction;
+	public String getRegion() {
+		return region;
 	}
 	public Double getRent() {
 		return rent;
@@ -70,10 +65,6 @@ public class HouseRent {
 	public Integer getFloor() {
 		return floor;
 	}
-	@Column(name = "decorate_level")
-	public String getDecorateLevel() {
-		return decorateLevel;
-	}
 	public String getTitle() {
 		return title;
 	}
@@ -86,29 +77,11 @@ public class HouseRent {
 	public String getVideo() {
 		return video;
 	}
-	@Column(name = "is_elevator")
-	public Boolean getIsElevator() {
-		return isElevator;
+	public Boolean getIsEntireRent() {
+		return isEntireRent;
 	}
-	@Column(name = "is_parking")
-	public Boolean getIsParking() {
-		return isParking;
-	}
-	@Column(name = "is_airconditioning")
-	public Boolean getIsAirConditioning() {
-		return isAirConditioning;
-	}
-	@Column(name = "is_refrigerator")
-	public Boolean getIsRefrigerator() {
-		return isRefrigerator;
-	}
-	@Column(name = "is_soft")
-	public Boolean getIsSoft() {
-		return isSoft;
-	}
-	@Column(name = "is_tv")
-	public Boolean getIsTV() {
-		return isTV;
+	public String getSupporting() {
+		return supporting;
 	}
 	public String getIntroduce() {
 		return introduce;
@@ -130,13 +103,12 @@ public class HouseRent {
 	public User getUser() {
 		return user;
 	}
-	
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public void setLoaction(String loaction) {
-		this.loaction = loaction;
+	public void setRegion(String region) {
+		this.region = region;
 	}
 	public void setRent(Double rent) {
 		this.rent = rent;
@@ -153,9 +125,6 @@ public class HouseRent {
 	public void setFloor(Integer floor) {
 		this.floor = floor;
 	}
-	public void setDecorateLevel(String decorateLevel) {
-		this.decorateLevel = decorateLevel;
-	}
 	public void setTitle(String title) {
 		this.title = title;
 	}
@@ -168,23 +137,11 @@ public class HouseRent {
 	public void setVideo(String video) {
 		this.video = video;
 	}
-	public void setIsElevator(Boolean isElevator) {
-		this.isElevator = isElevator;
+	public void setIsEntireRent(Boolean isEntireRent) {
+		this.isEntireRent = isEntireRent;
 	}
-	public void setIsParking(Boolean isParking) {
-		this.isParking = isParking;
-	}
-	public void setIsAirConditioning(Boolean isAirConditioning) {
-		this.isAirConditioning = isAirConditioning;
-	}
-	public void setIsRefrigerator(Boolean isRefrigerator) {
-		this.isRefrigerator = isRefrigerator;
-	}
-	public void setIsSoft(Boolean isSoft) {
-		this.isSoft = isSoft;
-	}
-	public void setIsTV(Boolean isTV) {
-		this.isTV = isTV;
+	public void setSupporting(String supporting) {
+		this.supporting = supporting;
 	}
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
@@ -198,9 +155,4 @@ public class HouseRent {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-//	public void setCustomerId(Long customerId) {
-//		this.customerId = customerId;
-//	}
-	
 }
