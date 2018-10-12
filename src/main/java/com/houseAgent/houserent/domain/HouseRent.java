@@ -37,6 +37,7 @@ public class HouseRent {
     private Boolean isEntireRent;  //是否整租
     private String supporting;  //配套设施
     private String introduce;	// 详细介绍
+    private Date applyTime;		//申请日期
     private Date publishTime;	//发布日期
     private RentApplyStates state;		//状态(正在审核，审核不通过，未售，已售，取消)
 //    private Long customerId;	//客户外键
@@ -85,6 +86,12 @@ public class HouseRent {
 	}
 	public String getIntroduce() {
 		return introduce;
+	}
+	@Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "apply_time")
+    @JsonFormat(pattern="yyyy/MM/dd HH:mm:ss",timezone="GMT+8")
+	public Date getApplyTime() {
+		return applyTime;
 	}
 	@Temporal(TemporalType.TIMESTAMP)
     @Column(name = "publish_time")
@@ -148,6 +155,9 @@ public class HouseRent {
 	}
 	public void setState(RentApplyStates state) {
 		this.state = state;
+	}
+	public void setApplyTime(Date applyTime) {
+		this.applyTime = applyTime;
 	}
 	public void setPublishTime(Date publishTime) {
 		this.publishTime = publishTime;

@@ -27,6 +27,7 @@ public class HouseRentBaseDTO {
     private Boolean isKitchen;		//Is厨房
     private Boolean isCalorifier;	//is热水器
     private String introduce;	// 详细介绍
+    private Date applyTime;		//申请日期
     private Date publishTime;	//发布日期
     private RentApplyStates state;		//状态(正在审核，审核不通过，未售，已售，取消)
     
@@ -203,6 +204,14 @@ public class HouseRentBaseDTO {
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
 	}
+	public Date getApplyTime() {
+		return applyTime;
+	}
+
+	public void setApplyTime(Date applyTime) {
+		this.applyTime = applyTime;
+	}
+
 	public Date getPublishTime() {
 		return publishTime;
 	}
