@@ -32,32 +32,49 @@ public class HouseRentBaseDTO {
     
     public static void entityToDto(HouseRent entity , HouseRentBaseDTO dto) {
     	BeanUtils.copyProperties(entity, dto);
-    	
-    	String[] supportings = entity.getSupporting().split(",");
-    	dto.isbed = supportings[0].equals("1") ? true : false;
-    	dto.isWasher = supportings[1].equals("1") ? true : false;
-    	dto.isAirConditioning = supportings[2].equals("1") ? true : false;
-    	dto.isBalcony = supportings[3].equals("1") ? true : false;
-    	dto.isRefrigerator = supportings[4].equals("1") ? true : false;
-    	dto.isToilet = supportings[5].equals("1") ? true : false;
-    	dto.isKitchen = supportings[6].equals("1") ? true : false;
-    	dto.isCalorifier = supportings[7].equals("1") ? true : false;
+    	String eSupportings = entity.getSupporting();
+    	if(eSupportings!=null) {
+    		String[] supportings = eSupportings.split(",");
+        	dto.isbed = supportings[0].equals("1") ? true : false;
+        	dto.isWasher = supportings[1].equals("1") ? true : false;
+        	dto.isAirConditioning = supportings[2].equals("1") ? true : false;
+        	dto.isBalcony = supportings[3].equals("1") ? true : false;
+        	dto.isRefrigerator = supportings[4].equals("1") ? true : false;
+        	dto.isToilet = supportings[5].equals("1") ? true : false;
+        	dto.isKitchen = supportings[6].equals("1") ? true : false;
+        	dto.isCalorifier = supportings[7].equals("1") ? true : false;
+    	}
     }
     
     public static void dtoToEntity(HouseRentBaseDTO dto, HouseRent entity) {
     	BeanUtils.copyProperties(dto, entity);
-    	
-    	String supportings = new String();
-    	supportings += dto.isbed == true ? "1," : "0,";
-    	supportings += dto.isWasher == true ? "1," : "0,";
-    	supportings += dto.isAirConditioning == true ? "1," : "0,";
-    	supportings += dto.isBalcony == true ? "1," : "0,";
-    	supportings += dto.isRefrigerator == true ? "1," : "0,";
-    	supportings += dto.isToilet == true ? "1," : "0,";
-    	supportings += dto.isKitchen == true ? "1," : "0,";
-    	supportings += dto.isCalorifier == true ? "1" : "0";
-    	
-    	entity.setSupporting(supportings);
+    	String[] supportings = entity.getSupporting().split(",");
+    	if(dto.isbed != null) {
+    		supportings[0] = (dto.isbed == true) ? "1," : "0,";
+    	}
+    	if(dto.isWasher != null) {
+    		supportings[1] = (dto.isWasher == true) ? "1," : "0,";
+    	}
+    	if(dto.isAirConditioning != null) {
+    		supportings[2] = (dto.isAirConditioning == true) ? "1," : "0,";
+    	}
+    	if(dto.isBalcony != null) {
+    		supportings[3] = (dto.isBalcony == true) ? "1," : "0,";
+    	}
+    	if(dto.isRefrigerator != null) {
+    		supportings[4] = (dto.isRefrigerator == true) ? "1," : "0,";
+    	}
+    	if(dto.isToilet != null) {
+    		supportings[5] = (dto.isToilet == true) ? "1," : "0,";
+    	}
+    	if(dto.isKitchen != null) {
+    		supportings[6] = (dto.isKitchen == true) ? "1," : "0,";
+    	}
+    	if(dto.isCalorifier != null) {
+    		supportings[7] = (dto.isCalorifier == true) ? "1," : "0,";
+    	}
+    	String supportingsNew = String.join(",", supportings);
+    	entity.setSupporting(supportingsNew);
     }
     
 	public Long getId() {
