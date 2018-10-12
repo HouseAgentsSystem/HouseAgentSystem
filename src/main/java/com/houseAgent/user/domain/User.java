@@ -23,7 +23,7 @@ public class User {
 	private String realname;//姓名
 	private String phoneNumber;
 	private Date createTime;//创建日期
-	private String FaceImage;//头像
+	private String faceImage;//头像
 	private int status;
 	 @Id
 	 @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -61,10 +61,10 @@ public class User {
 	}
 	
 	public String getFaceImage() {
-		return FaceImage;
+		return faceImage;
 	}
 	public void setFaceImage(String faceImage) {
-		FaceImage = faceImage;
+		this.faceImage = faceImage;
 	}
 	public String getRealname() {
 		return realname;
@@ -77,6 +77,12 @@ public class User {
 	}
 	public void setStatus(int status) {
 		this.status = status;
+	}
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", realname=" + realname
+				+ ", phoneNumber=" + phoneNumber + ", createTime=" + createTime + ", faceImage=" + faceImage
+				+ ", status=" + status + "]";
 	}
 	
 	

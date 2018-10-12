@@ -6,4 +6,5 @@ public interface IUserService {
 	public void addUser(User entity);
 	public User login(String userNameOrPhoneNumber,String password);
 	public User findByPhoneNumber(String phoneNumber);
+	public User findOne(Long id);
 }

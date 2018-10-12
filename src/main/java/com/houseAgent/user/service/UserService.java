@@ -45,4 +45,10 @@ public class UserService implements IUserService {
 		return userRepository.findByPhoneNumber(phoneNumber);
 	}
 
+	@Override
+	public User findOne(Long id) {
+		// TODO Auto-generated method stub
+		return userRepository.findById(id).get();
+	}
+
 }

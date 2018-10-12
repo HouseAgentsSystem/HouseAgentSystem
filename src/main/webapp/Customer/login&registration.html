@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
@@ -9,9 +10,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 		<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="assets/font-awesome/4.2.0/css/font-awesome.min.css" />
-		
+
 		<link rel="stylesheet" href="assets/css/ace.min.css" />
 		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="css/main.css" />
 	</head>
 
 	<body class="login-layout" style="background-color: antiquewhite;">
@@ -46,29 +48,27 @@
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="Username or PhoneNumber" name='user'/>
+															<input type="text" class="form-control" placeholder="PhoneNumber" name='user' id="login_phone"/>
 															<i class="ace-icon fa fa-user"></i>
 														</span>
+														<p><label class="err" id="login_phone_text">手机号错误</label></p>
+														<hr>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Password" name='password'/>
+															<input type="password" class="form-control" placeholder="Password" name='password' id="login_password"/>
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
+														<p><label class="err" id="login_password_text">请输入密码</label></p><hr>
 													</label>
 
 													<div class="space"></div>
 
 													<div class="clearfix">
-														<label class="inline">
-															<input type="checkbox" class="ace" />
-															<span class="lbl"> 记住</span>
-														</label>
-
 														<button type="button" class="width-35 pull-right btn btn-sm btn-primary">
 															<i class="ace-icon fa fa-key"></i>
-															<span class="bigger-110" onclick="login()">登录</span>
+															<span class="bigger-110" id="login_submit">登录</span>
 														</button>
 													</div>
 
@@ -76,14 +76,13 @@
 												</fieldset>
 											</form>
 
-											
-										</div><!-- /.widget-main -->
+										</div>
+										<!-- /.widget-main -->
 
 										<div class="toolbar clearfix">
 											<div>
 												<a href="#" data-target="#forgot-box" class="forgot-password-link">
-													<i class="ace-icon fa fa-arrow-left"></i>
-													忘记密码
+													<i class="ace-icon fa fa-arrow-left"></i> 忘记密码
 												</a>
 											</div>
 
@@ -94,8 +93,10 @@
 												</a>
 											</div>
 										</div>
-									</div><!-- /.widget-body -->
-								</div><!-- /.login-box -->
+									</div>
+									<!-- /.widget-body -->
+								</div>
+								<!-- /.login-box -->
 
 								<div id="forgot-box" class="forgot-box widget-box no-border">
 									<div class="widget-body">
@@ -132,8 +133,8 @@
 														</span>
 													</label>
 													<div class="input-group">
-													  <input type="text" class="form-control" placeholder="输入验证码" aria-describedby="basic-addon2" name='code2'>
-													  <span class="input-group-btn">
+														<input type="text" class="form-control" placeholder="输入验证码" aria-describedby="basic-addon2" name='code2'>
+														<span class="input-group-btn">
 												        <input class="btn btn-info" type="button" id="btn2" value="免费获取验证码" onclick="settime(this)"></input>
 												      </span>
 													</div>
@@ -146,7 +147,8 @@
 													</div>
 												</fieldset>
 											</form>
-										</div><!-- /.widget-main -->
+										</div>
+										<!-- /.widget-main -->
 
 										<div class="toolbar center">
 											<a href="#" data-target="#login-box" class="back-to-login-link">
@@ -154,8 +156,10 @@
 												<i class="ace-icon fa fa-arrow-right"></i>
 											</a>
 										</div>
-									</div><!-- /.widget-body -->
-								</div><!-- /.forgot-box -->
+									</div>
+									<!-- /.widget-body -->
+								</div>
+								<!-- /.forgot-box -->
 
 								<div id="signup-box" class="signup-box widget-box no-border">
 									<div class="widget-body">
@@ -197,8 +201,8 @@
 														</span>
 													</label>
 													<div class="input-group">
-													  <input type="text" class="form-control" placeholder="输入验证码" aria-describedby="basic-addon2" name="code" id="code">
-													  <span class="input-group-btn">
+														<input type="text" class="form-control" placeholder="输入验证码" aria-describedby="basic-addon2" name="code" id="code">
+														<span class="input-group-btn">
 												        <input class="btn btn-info" type="button" id="btn" value="免费获取验证码" onclick="settime(this)"></input>
 												      </span>
 													</div>
@@ -222,159 +226,206 @@
 
 										<div class="toolbar center">
 											<a href="#" data-target="#login-box" class="back-to-login-link">
-												<i class="ace-icon fa fa-arrow-left"></i>
-												返回登录
+												<i class="ace-icon fa fa-arrow-left"></i> 返回登录
 											</a>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div><!-- /.col -->
-				</div><!-- /.row -->
-			</div><!-- /.main-content -->
-		</div><!-- /.main-container -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</div>
+			<!-- /.main-content -->
+		</div>
+		<!-- /.main-container -->
 		<script src="assets/js/jquery.2.1.1.min.js"></script>
-
+		<script type="text/javascript" src="js/tbdValidate.js"></script>
+		<script type="text/javascript" src="js/upload.js"></script>
 		<script type="text/javascript">
-			window.jQuery || document.write("<script src='assets/js/jquery.min.js'>"+"<"+"/script>");
+			window.jQuery || document.write("<script src='assets/js/jquery.min.js'>" + "<" + "/script>");
 		</script>
 
 		<script type="text/javascript">
-			if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+			if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
 		</script>
 
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
 			jQuery(function($) {
-			 $(document).on('click', '.toolbar a[data-target]', function(e) {
-				e.preventDefault();
-				var target = $(this).data('target');
-				$('.widget-box.visible').removeClass('visible');//hide others
-				$(target).addClass('visible');//show target
-			 });
+				$(document).on('click', '.toolbar a[data-target]', function(e) {
+					e.preventDefault();
+					var target = $(this).data('target');
+					$('.widget-box.visible').removeClass('visible'); //hide others
+					$(target).addClass('visible'); //show target
+				});
 			});
-			
-			
-			
+
 			//you don't need this, just used for changing background
 			jQuery(function($) {
-			 $('#btn-login-dark').on('click', function(e) {
-				$('body').attr('class', 'login-layout');
-				$('#id-text2').attr('class', 'white');
-				$('#id-company-text').attr('class', 'blue');
-				
-				e.preventDefault();
-			 });
-			 $('#btn-login-light').on('click', function(e) {
-				$('body').attr('class', 'login-layout light-login');
-				$('#id-text2').attr('class', 'grey');
-				$('#id-company-text').attr('class', 'blue');
-				
-				e.preventDefault();
-			 });
-			 $('#btn-login-blur').on('click', function(e) {
-				$('body').attr('class', 'login-layout blur-login');
-				$('#id-text2').attr('class', 'white');
-				$('#id-company-text').attr('class', 'light-blue');
-				
-				e.preventDefault();
-			 });
-			 
+				$('#btn-login-dark').on('click', function(e) {
+					$('body').attr('class', 'login-layout');
+					$('#id-text2').attr('class', 'white');
+					$('#id-company-text').attr('class', 'blue');
+
+					e.preventDefault();
+				});
+				$('#btn-login-light').on('click', function(e) {
+					$('body').attr('class', 'login-layout light-login');
+					$('#id-text2').attr('class', 'grey');
+					$('#id-company-text').attr('class', 'blue');
+
+					e.preventDefault();
+				});
+				$('#btn-login-blur').on('click', function(e) {
+					$('body').attr('class', 'login-layout blur-login');
+					$('#id-text2').attr('class', 'white');
+					$('#id-company-text').attr('class', 'light-blue');
+
+					e.preventDefault();
+				});
+
 			});
 		</script>
 		<script type="text/javascript">
-			var countdown=60;
+			var countdown = 60;
+
 			function settime(obj) {
-			  if (countdown == 0) {
-			    obj.removeAttribute("disabled");
-			    obj.value="免费获取验证码";
-			    countdown = 60;
-			    return;
-			  } else {
-			    obj.setAttribute("disabled", true);
-			    obj.value="重新发送(" + countdown + ")";
-			    countdown--;
-			  }
-			  setTimeout(function() {
-			  settime(obj) }
-			  ,1000)
+				if(countdown == 0) {
+					obj.removeAttribute("disabled");
+					obj.value = "免费获取验证码";
+					countdown = 60;
+					return;
+				} else {
+					obj.setAttribute("disabled", true);
+					obj.value = "重新发送(" + countdown + ")";
+					countdown--;
+				}
+				setTimeout(function() {
+					settime(obj)
+				}, 1000)
 			}
 		</script>
 		<script type="text/javascript">
-			$('#btn').on('click',function sendCode(){
+			$('#btn').on('click', function sendCode() {
 				var phoneNumber = $('#phone').val();
-				 $.ajax({
-		            //几个参数需要注意一下
-		                //type: "POST",//方法类型
-		                dataType: "json",//预期服务器返回的数据类型
-		                url: "/users/sendCode?phoneNumber="+phoneNumber
-		            });
+				$.ajax({
+					//几个参数需要注意一下
+					//type: "POST",//方法类型
+					dataType: "json", //预期服务器返回的数据类型
+					url: "/users/sendCode?phoneNumber=" + phoneNumber
+				});
 			});
-	        function registration() {
-	            $.ajax({
-	            //几个参数需要注意一下
-	                type: "POST",//方法类型
-	                dataType: "json",//预期服务器返回的数据类型
-	                url: "/users/registered" ,//url
-	                data: $('#form1').serialize(),
-	                success: function () {
-	                    //console.log();//打印服务端返回的数据(调试用)
-	                    alert("注册成功");
-	                    window.location.reload();
-	                },
-	                error : function() {
-	                    alert("注册失败！");
-	                }
-	            });
-	        }
-	    </script>
-	    <script type="text/javascript">
-			$('#btn2').on('click',function sendCode(){
+
+			function registration() {
+				$.ajax({
+					//几个参数需要注意一下
+					type: "POST", //方法类型
+					dataType: "json", //预期服务器返回的数据类型
+					url: "/users/registered", //url
+					data: $('#form1').serialize(),
+					success: function() {
+						//console.log();//打印服务端返回的数据(调试用)
+						alert("注册成功");
+						window.location.reload();
+					},
+					error: function() {
+						alert("注册失败！");
+					}
+				});
+			}
+		</script>
+		<script type="text/javascript">
+			$('#btn2').on('click', function sendCode() {
 				var phoneNumber = $('#phone2').val();
-				 $.ajax({
-		            //几个参数需要注意一下
-		                //type: "POST",//方法类型
-		                dataType: "json",//预期服务器返回的数据类型
-		                url: "/users/sendCode?phoneNumber="+phoneNumber
-		            });
+				$.ajax({
+					//几个参数需要注意一下
+					//type: "POST",//方法类型
+					dataType: "json", //预期服务器返回的数据类型
+					url: "/users/sendCode?phoneNumber=" + phoneNumber
+				});
 			});
-	        function updata() {
-	            $.ajax({
-	            //几个参数需要注意一下
-	                type: "POST",//方法类型
-	                dataType: "json",//预期服务器返回的数据类型
-	                url: "/users/updata" ,//url
-	                data: $('#form2').serialize(),
-	                success: function () {
-	                    //console.log();//打印服务端返回的数据(调试用)
-	                    alert("修改密码成功");
-	                    window.location.reload();
-	                },
-	                error : function() {
-	                    alert("修改密码失败！");
-	                }
-	            });
-	        }
-	    </script>
-	    <script type="text/javascript">
-	        function login() {
-	            $.ajax({
-	            //几个参数需要注意一下
-	                type: "POST",//方法类型
-	                dataType: "json",//预期服务器返回的数据类型
-	                url: "/users/login" ,//url
-	                data: $('#form3').serialize(),
-	                success: function () {
-	                    //console.log();//打印服务端返回的数据(调试用)
-	                    alert("登录成功");
-	                    window.location.reload();
-	                },
-	                error : function() {
-	                    alert("登录失败！");
-	                }
-	            });
-	        }
-	    </script>
+
+			function updata() {
+				$.ajax({
+					//几个参数需要注意一下
+					type: "POST", //方法类型
+					dataType: "json", //预期服务器返回的数据类型
+					url: "/users/updata", //url
+					data: $('#form2').serialize(),
+					success: function() {
+						//console.log();//打印服务端返回的数据(调试用)
+						alert("修改密码成功");
+						window.location.reload();
+					},
+					error: function() {
+						alert("修改密码失败！");
+					}
+				});
+			}
+		</script>
+		<script type="text/javascript">
+			function login() {
+				$.ajax({
+					//几个参数需要注意一下
+					type: "POST", //方法类型
+					dataType: "json", //预期服务器返回的数据类型
+					url: "/users/login", //url
+					data: $('#form3').serialize(),
+					success: function() {
+						//console.log();//打印服务端返回的数据(调试用)
+						alert("登录成功");
+						window.location.reload();
+					},
+					error: function() {
+						alert("登录失败！");
+					}
+				});
+			}
+		</script>
+		<script>
+			$(function() {
+				//demo1
+				var regconfig = [{
+						eleinput: "login_phone",
+						eletext: "login_phone_text",
+						rule: [{
+							reg: /^.+$/,
+							text: "手机号不能为空"
+						}, {
+							reg: /^1[34578]\d{9}$/,
+							text: "手机号格式错误"
+						}]
+					},
+					{
+						eleinput: "login_password",
+						eletext: "login_password_text",
+						rule: [{
+							reg: /^.+$/,
+							text: "密码不能为空"
+						}]
+					}
+				];
+				tbdValidate(
+					regconfig, {
+						elesubmit: "login_submit", //提交按钮
+						funsubmit: function() { //验证通过可提交回调				
+							//信息提交接口
+							login();
+							alert("成功");
+						},
+						funerr: function() { //不可提交回调
+
+						},
+						funerrlist: function(errlist) {
+							$('#' + errlist[0]).focus();
+						}
+					}
+				);
+			});
+		</script>
 	</body>
+
 </html>
