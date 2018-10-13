@@ -1,312 +1,340 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-	<title>LeHome</title>
-	<meta charset="utf-8" />
-        
-	<!--CSS-->
-	<link rel="stylesheet" type="text/css" href="theme-neptune/resources/theme-neptune-all_1.css"/>
-	<link rel="stylesheet" type="text/css" href="theme-neptune/resources/theme-neptune-all_2.css"/>
 
-	<!-- <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<head>
+		<title>LeHome</title>
+		<meta charset="utf-8" />
+
+		<!--CSS-->
+		<link rel="stylesheet" type="text/css" href="theme-neptune/resources/theme-neptune-all_1.css" />
+		<link rel="stylesheet" type="text/css" href="theme-neptune/resources/theme-neptune-all_2.css" />
+
+		<!-- <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	
 
 	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
-	<link href="dist/css/vendor/bootstrap.min.css" rel="stylesheet">
+		<link href="dist/css/vendor/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Loading Flat UI -->
-    <link href="dist/css/navbar.css" rel="stylesheet">
-    <link href="docs/assets/css/demo.css" rel="stylesheet">
-	<!--JS-->
-	<script type="text/javascript" src="js/ext-all.js"></script>
-	<script sec="house.js"></script>
-	<script type="text/javascript">
-		Ext.onReady(function(){
-		var  myStore = 	Ext.create('Ext.data.Store', {
-		    storeId:'simpsonsStore',
-		    proxy: {
-				type: 'rest',
-				url: '/house',
-				reader:{
-					type:'json',
-					rootProperty:'content',
-					totalProperty: 'totalElements'
-				},
-				writer: {
-					type: 'json'
-				},
-				simpleSortMode: true	
-			},
-			autoLoad: true,
-			autoSync: true,
-			remoteSort: true,
-			pageSize: 8,
-			sorters: {
-				direction: 'DESC',property: 'id'
-			},
-			listeners: {}
-		});
-		Ext.create('Ext.container.Viewport', {
-			    //width: 800,
-			    //height: 1500,
-			    requires: [
-			        'Ext.grid.Panel',
-			        'Ext.toolbar.Paging',
-			        'Ext.grid.column.Date'
-			    ],
-			    title: 'Border Layout',
-			    layout: 'border',
-			    items: [{
-			        //title: 'North Region is resizable',
-			        region: 'north',     // position for region
-			        xtype: 'panel',
-			        height: 58,
-			        split: false,         // enable resizing
-			        //margins: '0 5 5 5',
-			        html: '<div class="row demo-row">'+
-					        '<div class="col">'+
-					          '<nav class="navbar navbar-inverse navbar-embossed navbar-expand-lg" role="navigation">'+
-					            '<a class="navbar-brand" href="#">Flat UI</a>'+
-					            '<div class="collapse navbar-collapse" id="navbar-collapse-01">'+
-					              '<ul class="nav navbar-nav mr-auto">'+
-					                '<li><a href="#fakelink">首页</a></li>'+
-					                '<li><a href="house.html"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a></li>'+
-					                '<li><a href="login.html"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a></li>'+
-					                '<li><a href=""><img src="http://localhost:8081/Customer/dist/images/出租.png">我要出租</a></li>'+
-					               '</ul>'+
-					            '</div>'+
-					          '</nav>'+
-					        '</div>'+
-					      '</div>',
-			    },{
-			        //title: 'Center Region',
-			        region: 'center',     // center region is required, no width/height specified
-			        xtype: 'panel',
-			        //layout: 'fit',
-			        scrollable: true,
-					autosrcoll: true,
-			        //margins: '5 5 0 0',
-			        margin: '0 0 0 0',
-			        items:[{
-					        	xtype:'panel',
-					        	//layout: 'fit',
-						        margin: '50 180 0 180',
-						        items:[{
-						        	xtype:'panel',
-						        	title: '我要买房',
-						        	items:[{
-						                items: [{
-						                    xtype: 'segmentedbutton',
-						                    reference: 'positionBtn',
-						                    items: [{
-						                        text: '地区：不限',
-						                        pressed: true,
-						                        value: ''
-						                    },{
-						                        text: '松山湖',
-						                        value: '松山湖'
-						                    }, {
-						                        text: '大岭山',
-						                        value: '大岭山'
-						                    },{
-						                        text: '寮步',
-						                        value: '寮步'
-						                    }, {
-						                        text: '虎门',
-						                        value: '虎门'
-						                    }, {
-						                        text: '东城',
-						                        value: '东城'
-						                    }, {
-						                        text: '厚街',
-						                        value: '厚街'
-						                    },{
-						                        text: '南城',
-						                        value: '南城'
-						                    }, {
-						                        text: '樟木头',
-						                        value: '樟木头'
-						                    }, {
-						                        text: '塘厦',
-						                        value: '塘厦'
-						                    },{
-						                        text: '常平',
-						                        value: '常平'
-						                    }, {
-						                        text: '凤岗',
-						                        value: '凤岗'
-						                    },{
-						                        text: '长安',
-						                        value: '长安'
-						                    }, {
-						                        text: '大朗',
-						                        value: '大朗'
-						                    }, {
-						                        text: '万江',
-						                        value: '万江'
-						                    }, {
-						                        text: '黄江',
-						                        value: '黄江'
-						                    },{
-						                        text: '沙田',
-						                        value: '沙田'
-						                    }, {
-						                        text: '清溪',
-						                        value: '清溪'
-						                    }, {
-						                        text: '茶山',
-						                        value: '茶山'
-						                    }, {
-						                        text: '中堂',
-						                        value: '中堂'
-						                    }, {
-						                        text: '桥头',
-						                        value: '桥头'
-						                    },{
-						                        text: '石龙',
-						                        value: '石龙'
-						                    }, {
-						                        text: '横沥',
-						                        value: '横沥'
-						                    }, {
-						                        text: '道滘',
-						                        value: '道滘'
-						                    }],listeners:{
-						    					change: function(btn){
-						    					 	 var store =	Ext.data.StoreManager.lookup('simpsonsStore');
-						    						text=btn.up("panel").down("segmentedbutton").getValue();
-						    						Ext.apply(store.proxy.extraParams, {location:text});
-						    						store.load({params:{start:0, limit:20, page:1}}); 
-						    					}
-						    				}
-						                },{},{},{},{
-						                	xtype:'panel',
-						                	items:[{
-								                    xtype: 'segmentedbutton',
-								                    items: [{
-								                        text: '价格：不限',
-								                        pressed: true,
-								                        value:''
-								                    }, {
-								                        text: '50万以下',
-								                        value: '50'
-								                    }, {
-								                        text: '50~100万',
-								                        value: '100'
-								                    },{
-								                        text: '100~150万',
-								                        value: '150'
-								                    }, {
-								                        text: '150~300万',
-								                        value: '300'
-								                    }, {
-								                        text: '300~500万',
-								                        value: '500'
-								                    } ,{
-								                        text: '500~1000万',
-								                        value: '1000'
-								                    }, {
-								                        text: '1000万以上',
-								                        value: '1001'
-								                    }],listeners:{
-								    					change: function(btn){
-								    						var store =	Ext.data.StoreManager.lookup('simpsonsStore');
-								    						text=btn.up("panel").down("segmentedbutton").getValue()*1;
-								    						Ext.apply(store.proxy.extraParams, {price:text});
-								    						store.load({params:{start:0, limit:20, page:1}});
-								    					}}}
-						                		]
-						                },{},{},{},{
-						                	xtype:'panel',
-						                	items:[{
-							                    xtype: 'segmentedbutton',
-							                    items: [{
-							                        text: '面积：不限',
-							                        pressed: true,
-							                        value:''
-							                    }, {
-							                        text: '50m²以下',
-							                        value: '50'
-							                    }, {
-							                        text: '50~70m²',
-							                        value: '70'
-							                    },{
-							                        text: '70~100m²',
-							                        value: '100'
-							                    }, {
-							                        text: '100~150m²',
-							                        value: '150'
-							                    }, {
-							                        text: '150~180m²',
-							                        value: '180'
-							                    }, {
-							                        text: '180m²以上',
-							                        value: '181'
-							                    }],listeners:{
-							    					change: function(btn){
-							    					 	var store = Ext.data.StoreManager.lookup('simpsonsStore');
-							    						text=btn.up("panel").down("segmentedbutton").getValue()*1;
-							    						Ext.apply(store.proxy.extraParams, {room:text});
-							    						store.load({params:{start:0, limit:20, page:1}}); 
-							    					}
-							    				}}]
-						                },{},{},{}
-						                ]
-						            }]
-						        },{
-						        	xtype: 'gridpanel',
-						            cls: 'allRecordsCls',
-						            //scrollable: false,
-						            //autosrcoll: true,
-						            hideHeaders: true,
-						            border: false,
-						           
-						            routeId: 'all',
-						            store: Ext.data.StoreManager.lookup('simpsonsStore'),
-						            viewConfig: {
-						                preserveScrollOnRefresh: true,
-						                stripeRows: false
-						            },
-						            columns: [
-						                {
-						                    xtype: 'gridcolumn',
-						                    renderer: function(value, metaData, record, rowIndex) {
-						                        var page = "<div class='media' style='background-color:rgba(0,1,1,0.1);'>"+
-												  "<div class='media-left'>"+
-												    "<a href='#'>"+
-												      "<img class='media-object' src='images/"+record.data.imgs[0]+"' alt='...' height='190px' width='260px'>"+
-												    "</a>"+
-												  "</div>"+
-												  "<div class='media-body'>"+
-												    "<b><a target='_blank' href='http://localhost:8081/showHouse/details?id="+record.data.id+" '><h4 style='text-indent:50px;'>"+record.data.title+"</h4></a></b>"+
-												    "<h4 style='color:red;font-family:verdana;'align='right'>"+record.data.price+"万</h4>"+
-												    "<p style='text-indent:50px; font-size:17px;'><span> "+record.data.room+"室"+record.data.hall+"厅</span><em> | </em><span> "+record.data.area+"m²</span><em> | </em><span> 第"+record.data.floor+"层</span><em> | </em><span>"+record.data.buildDate+"年建</span>"+"</p>"+
-												    "<p style='text-indent:50px; font-size:16px;'><b>"+record.data.region+"&nbsp;&nbsp;&nbsp;</b>"+record.data.address+"</p>"+
-												  "</div>"+
-												"</div>";
-						                        return page;
-						                    },
-						                    dataIndex: 'content',
-						                    flex: 1
-						                }
-						            ],
-						            dockedItems: [
-						                {
-						                    xtype: 'pagingtoolbar',
-						                    dock: 'bottom',
-						                    displayInfo: true,
-						                    bind: Ext.data.StoreManager.lookup('simpsonsStore'),
-						                }
-						            ]}
-					        ]
-			        	}],
-			        
-			    renderTo: Ext.getBody()}]
+		<!-- Loading Flat UI -->
+		<link href="dist/css/navbar.css" rel="stylesheet">
+		<link href="docs/assets/css/demo.css" rel="stylesheet">
+		<!--JS-->
+		<script type="text/javascript" src="js/ext-all.js"></script>
+		<script sec="house.js"></script>
+		<script type="text/javascript">
+			Ext.onReady(function() {
+				var myStore = Ext.create('Ext.data.Store', {
+					storeId: 'simpsonsStore',
+					proxy: {
+						type: 'rest',
+						url: '/house',
+						reader: {
+							type: 'json',
+							rootProperty: 'content',
+							totalProperty: 'totalElements'
+						},
+						writer: {
+							type: 'json'
+						},
+						simpleSortMode: true
+					},
+					autoLoad: true,
+					autoSync: true,
+					remoteSort: true,
+					pageSize: 8,
+					sorters: {
+						direction: 'DESC',
+						property: 'id'
+					},
+					listeners: {}
+				});
+				Ext.create('Ext.container.Viewport', {
+					//width: 800,
+					//height: 1500,
+					requires: [
+						'Ext.grid.Panel',
+						'Ext.toolbar.Paging',
+						'Ext.grid.column.Date'
+					],
+					title: 'Border Layout',
+					layout: 'border',
+					items: [{
+						//title: 'North Region is resizable',
+						region: 'north', // position for region
+						xtype: 'panel',
+						height: 58,
+						split: false, // enable resizing
+						//margins: '0 5 5 5',
+						html: '<div class="row demo-row">' +
+							'<div class="col">' +
+							'<nav class="navbar navbar-inverse navbar-embossed navbar-expand-lg" role="navigation">' +
+							'<a class="navbar-brand" href="#">Flat UI</a>' +
+							'<div class="collapse navbar-collapse" id="navbar-collapse-01">' +
+							'<ul class="nav navbar-nav mr-auto">' +
+							'<li><a href="#fakelink">首页</a></li>' +
+							'<li><a href="house.html"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a></li>' +
+							'<li><a href="login.html"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a></li>' +
+							'<li><a href=""><img src="http://localhost:8081/Customer/dist/images/出租.png">我要出租</a></li>' +
+							'</ul>' +
+							'</div>' +
+							'</nav>' +
+							'</div>' +
+							'</div>',
+					}, {
+						//title: 'Center Region',
+						region: 'center', // center region is required, no width/height specified
+						xtype: 'panel',
+						//layout: 'fit',
+						scrollable: true,
+						autosrcoll: true,
+						//margins: '5 5 0 0',
+						margin: '0 0 0 0',
+						items: [{
+							xtype: 'panel',
+							//layout: 'fit',
+							margin: '50 180 0 180',
+							items: [{
+								xtype: 'panel',
+								title: '我要买房',
+								items: [{
+									items: [{
+										xtype: 'segmentedbutton',
+										reference: 'positionBtn',
+										items: [{
+											text: '地区：不限',
+											pressed: true,
+											value: ''
+										}, {
+											text: '松山湖',
+											value: '松山湖'
+										}, {
+											text: '大岭山',
+											value: '大岭山'
+										}, {
+											text: '寮步',
+											value: '寮步'
+										}, {
+											text: '虎门',
+											value: '虎门'
+										}, {
+											text: '东城',
+											value: '东城'
+										}, {
+											text: '厚街',
+											value: '厚街'
+										}, {
+											text: '南城',
+											value: '南城'
+										}, {
+											text: '樟木头',
+											value: '樟木头'
+										}, {
+											text: '塘厦',
+											value: '塘厦'
+										}, {
+											text: '常平',
+											value: '常平'
+										}, {
+											text: '凤岗',
+											value: '凤岗'
+										}, {
+											text: '长安',
+											value: '长安'
+										}, {
+											text: '大朗',
+											value: '大朗'
+										}, {
+											text: '万江',
+											value: '万江'
+										}, {
+											text: '黄江',
+											value: '黄江'
+										}, {
+											text: '沙田',
+											value: '沙田'
+										}, {
+											text: '清溪',
+											value: '清溪'
+										}, {
+											text: '茶山',
+											value: '茶山'
+										}, {
+											text: '中堂',
+											value: '中堂'
+										}, {
+											text: '桥头',
+											value: '桥头'
+										}, {
+											text: '石龙',
+											value: '石龙'
+										}, {
+											text: '横沥',
+											value: '横沥'
+										}, {
+											text: '道滘',
+											value: '道滘'
+										}],
+										listeners: {
+											change: function(btn) {
+												var store = Ext.data.StoreManager.lookup('simpsonsStore');
+												text = btn.up("panel").down("segmentedbutton").getValue();
+												Ext.apply(store.proxy.extraParams, {
+													location: text
+												});
+												store.load({
+													params: {
+														start: 0,
+														limit: 20,
+														page: 1
+													}
+												});
+											}
+										}
+									}, {}, {}, {}, {
+										xtype: 'panel',
+										items: [{
+											xtype: 'segmentedbutton',
+											items: [{
+												text: '价格：不限',
+												pressed: true,
+												value: ''
+											}, {
+												text: '50万以下',
+												value: '50'
+											}, {
+												text: '50~100万',
+												value: '100'
+											}, {
+												text: '100~150万',
+												value: '150'
+											}, {
+												text: '150~300万',
+												value: '300'
+											}, {
+												text: '300~500万',
+												value: '500'
+											}, {
+												text: '500~1000万',
+												value: '1000'
+											}, {
+												text: '1000万以上',
+												value: '1001'
+											}],
+											listeners: {
+												change: function(btn) {
+													var store = Ext.data.StoreManager.lookup('simpsonsStore');
+													text = btn.up("panel").down("segmentedbutton").getValue() * 1;
+													Ext.apply(store.proxy.extraParams, {
+														price: text
+													});
+													store.load({
+														params: {
+															start: 0,
+															limit: 20,
+															page: 1
+														}
+													});
+												}
+											}
+										}]
+									}, {}, {}, {}, {
+										xtype: 'panel',
+										items: [{
+											xtype: 'segmentedbutton',
+											items: [{
+												text: '面积：不限',
+												pressed: true,
+												value: ''
+											}, {
+												text: '50m²以下',
+												value: '50'
+											}, {
+												text: '50~70m²',
+												value: '70'
+											}, {
+												text: '70~100m²',
+												value: '100'
+											}, {
+												text: '100~150m²',
+												value: '150'
+											}, {
+												text: '150~180m²',
+												value: '180'
+											}, {
+												text: '180m²以上',
+												value: '181'
+											}],
+											listeners: {
+												change: function(btn) {
+													var store = Ext.data.StoreManager.lookup('simpsonsStore');
+													text = btn.up("panel").down("segmentedbutton").getValue() * 1;
+													Ext.apply(store.proxy.extraParams, {
+														room: text
+													});
+													store.load({
+														params: {
+															start: 0,
+															limit: 20,
+															page: 1
+														}
+													});
+												}
+											}
+										}]
+									}, {}, {}, {}]
+								}]
+							}, {
+								xtype: 'gridpanel',
+								cls: 'allRecordsCls',
+								//scrollable: false,
+								//autosrcoll: true,
+								hideHeaders: true,
+								border: false,
+
+								routeId: 'all',
+								store: Ext.data.StoreManager.lookup('simpsonsStore'),
+								viewConfig: {
+									preserveScrollOnRefresh: true,
+									stripeRows: false
+								},
+								columns: [{
+									xtype: 'gridcolumn',
+									renderer: function(value, metaData, record, rowIndex) {
+										var page = "<div class='media' style='background-color:rgba(0,1,1,0.1);'>" +
+											"<div class='media-left'>" +
+											"<a href='#'>" +
+											"<img class='media-object' src='images/" + record.data.imgs[0] + "' alt='...' height='190px' width='260px'>" +
+											"</a>" +
+											"</div>" +
+											"<div class='media-body'>" +
+											"<b><a target='_blank' href='http://localhost:8081/showHouse/details?id=" + record.data.id + " '><h4 style='text-indent:50px;'>" + record.data.title + "</h4></a></b>" +
+											"<h4 style='color:red;font-family:verdana;'align='right'>" + record.data.price + "万</h4>" +
+											"<p style='text-indent:50px; font-size:17px;'><span> " + record.data.room + "室" + record.data.hall + "厅</span><em> | </em><span> " + record.data.area + "m²</span><em> | </em><span> 第" + record.data.floor + "层</span><em> | </em><span>" + record.data.buildDate + "年建</span>" + "</p>" +
+											"<p style='text-indent:50px; font-size:16px;'><b>" + record.data.region + "&nbsp;&nbsp;&nbsp;</b>" + record.data.address + "</p>" +
+											"</div>" +
+											"</div>";
+										return page;
+									},
+									dataIndex: 'content',
+									flex: 1
+								}],
+								dockedItems: [{
+									xtype: 'pagingtoolbar',
+									dock: 'bottom',
+									displayInfo: true,
+									bind: Ext.data.StoreManager.lookup('simpsonsStore'),
+								}]
+							}]
+						}],
+
+						renderTo: Ext.getBody()
+					}]
+				});
 			});
-		});
-	</script>
-</head>
+		</script>
+	</head>
 
-<body>
-</body>
+	<body>
+	</body>
+
 </html>
