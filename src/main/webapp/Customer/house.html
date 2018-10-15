@@ -205,6 +205,42 @@
 				    					change: function(btn){
 				    					 	var store = Ext.data.StoreManager.lookup('simpsonsStore');
 				    						text=btn.up("fieldcontainer").down("segmentedbutton").getValue()*1;
+				    						Ext.apply(store.proxy.extraParams, {roomArea:text});
+				    						store.load({params:{start:0, limit:20, page:1}}); 
+				    					}
+				    				}
+				    			}]
+				            },{
+			                	xtype:'fieldcontainer',
+			                	fieldLabel: '房&nbsp;&nbsp;&nbsp;&nbsp;型',
+			                	labelAlign: 'right',
+			        			labelClsExtra: 'search-label',
+			                	items:[{
+				                    xtype: 'segmentedbutton',
+				                    layout: 'column',
+				                    items: [{
+				                        text: '不限',
+				                        pressed: true,
+				                        value:''
+				                    }, {
+				                        text: '1室',
+				                        value: '1'
+				                    }, {
+				                        text: '2室',
+				                        value: '2'
+				                    },{
+				                        text: '3室',
+				                        value: '3'
+				                    }, {
+				                        text: '4室',
+				                        value: '4'
+				                    }, {
+				                        text: '5室及其以上',
+				                        value: '5'
+				                    }],listeners:{
+				    					change: function(btn){
+				    					 	var store = Ext.data.StoreManager.lookup('simpsonsStore');
+				    						text=btn.up("fieldcontainer").down("segmentedbutton").getValue()*1;
 				    						Ext.apply(store.proxy.extraParams, {room:text});
 				    						store.load({params:{start:0, limit:20, page:1}}); 
 				    					}
@@ -215,8 +251,6 @@
 					},{
 			        	xtype: 'gridpanel',
 			            cls: 'allRecordsCls',
-			            //scrollable: false,
-			            //autosrcoll: true,
 			            hideHeaders: true,
 			            border: false,
 			           
