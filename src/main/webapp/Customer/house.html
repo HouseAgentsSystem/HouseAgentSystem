@@ -26,6 +26,7 @@
 
 	<!--JS-->
 	<script type="text/javascript" src="js/ext-all.js"></script>
+	<script type="text/javascript" src="js/region.js"></script>
 	<script sec="house.js"></script>
 	<script type="text/javascript">
 		Ext.onReady(function(){
@@ -108,88 +109,24 @@
 				        		labelClsExtra: 'search-label',
 				                items: [{
 				                    xtype: 'segmentedbutton',
+				                    id: 'sgbtn',
 				                    layout: 'column',
 				                    reference: 'positionBtn',
-				                    items: [{
-				                        text: '不限',
-				                        pressed: true,
-				                        value: ''
-				                    },{
-				                        text: '松山湖',
-				                        value: '松山湖'
-				                    }, {
-				                        text: '大岭山',
-				                        value: '大岭山'
-				                    },{
-				                        text: '寮步',
-				                        value: '寮步'
-				                    }, {
-				                        text: '虎门',
-				                        value: '虎门'
-				                    }, {
-				                        text: '东城',
-				                        value: '东城'
-				                    }, {
-				                        text: '厚街',
-				                        value: '厚街'
-				                    },{
-				                        text: '南城',
-				                        value: '南城'
-				                    }, {
-				                        text: '樟木头',
-				                        value: '樟木头'
-				                    }, {
-				                        text: '塘厦',
-				                        value: '塘厦'
-				                    },{
-				                        text: '常平',
-				                        value: '常平'
-				                    }, {
-				                        text: '凤岗',
-				                        value: '凤岗'
-				                    },{
-				                        text: '长安',
-				                        value: '长安'
-				                    }, {
-				                        text: '大朗',
-				                        value: '大朗'
-				                    }, {
-				                        text: '万江',
-				                        value: '万江'
-				                    }, {
-				                        text: '黄江',
-				                        value: '黄江'
-				                    },{
-				                        text: '沙田',
-				                        value: '沙田'
-				                    }, {
-				                        text: '清溪',
-				                        value: '清溪'
-				                    }, {
-				                        text: '茶山',
-				                        value: '茶山'
-				                    }, {
-				                        text: '中堂',
-				                        value: '中堂'
-				                    }, {
-				                        text: '桥头',
-				                        value: '桥头'
-				                    },{
-				                        text: '石龙',
-				                        value: '石龙'
-				                    }, {
-				                        text: '横沥',
-				                        value: '横沥'
-				                    }, {
-				                        text: '道滘',
-				                        value: '道滘'
-				                    }],listeners:{
+				                    listeners:{
 				    					change: function(btn){
 				    					 	 var store =	Ext.data.StoreManager.lookup('simpsonsStore');
 				    						text=btn.up("fieldcontainer").down("segmentedbutton").getValue();
 				    						Ext.apply(store.proxy.extraParams, {location:text});
 				    						store.load({params:{start:0, limit:20, page:1}}); 
-				    					}
+				    					},
+				    					render: function() {
+											var regions = Ext.create('region');
+											Ext.getCmp('sgbtn').add({text: regions.getAt(0).get('name'), value: regions.getAt(0).get('value'), pressed: true});
+											for (var i = 1; i < regions.getCount(); i++) {
+												var record = regions.getAt(i);
+												Ext.getCmp('sgbtn').add({text: record.get('name'), value: record.get('value')});
+											}
+										}
 				    				}
 				                }]
 				            },{
