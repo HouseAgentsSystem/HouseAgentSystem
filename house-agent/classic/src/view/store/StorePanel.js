@@ -91,7 +91,7 @@
             	reference:'searchFieldValue',
             	name:'storePanelSearchField'
 		    },{
-		        text: 'Search',
+		        text: '搜索',
 		        iconCls: 'fa fa-search',
 		        handler: 'quickSearch'
 		    }, '->',{
@@ -101,7 +101,7 @@
 		        handler: 'openAddWindow'	
 		    },'-',{
 		        text: '返回总表',
-		        tooltip: 'Remove the selected item',
+		        //tooltip: 'Remove the selected item',
 		        iconCls:'fa fa-undo',
 		        //itemId: 'storeGridPanelRemove',
 		        //disabled: true,
