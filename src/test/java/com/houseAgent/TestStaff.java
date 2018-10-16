@@ -34,7 +34,7 @@ public class TestStaff {
 		Store store = new Store();
 		store.setAddress("东莞理工学院");
 		store.setStoreName("乐家");
-		storeService.save(store);
+		storeService.saveAndUpdate(store);
 		
 	}
 	//@Test
