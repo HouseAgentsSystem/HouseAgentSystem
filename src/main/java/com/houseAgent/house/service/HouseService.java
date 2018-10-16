@@ -48,4 +48,18 @@ public class HouseService implements IHouseService {
 		return dto;
 	}
 
+	@Override
+	public Page<HouseDTO> showAll(Pageable pageable) {
+		Page<House> list =  houseRepository.findAll(pageable);
+		
+		List<HouseDTO> dtoLists = new ArrayList<HouseDTO>();
+		for (House entity : list.getContent()) {
+			HouseDTO dto = new HouseDTO();
+			HouseDTO.entityToDto(entity, dto);
+			dtoLists.add(dto);
+		}
+		
+		return new PageImpl<HouseDTO>(dtoLists, pageable, list.getTotalElements());
+	}
+
 }

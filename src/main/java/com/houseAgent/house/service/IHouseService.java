@@ -12,5 +12,6 @@ import com.houseAgent.house.domain.HouseDTO;
 public interface IHouseService {
 	public void addOneHouse(House entity);
 	public Page<HouseDTO> findAll(Specification<House> spec,Pageable pageable);
+	public Page<HouseDTO> showAll(Pageable pageable);
 	public HouseDTO findOne(Long id);
 }

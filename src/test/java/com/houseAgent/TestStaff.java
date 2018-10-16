@@ -59,10 +59,10 @@ public class TestStaff {
 		house.setTitle("震惊，鸡儿邦邦硬!!!");
 		house.setType("商品房");
 		house.setRegion("东城");
-		house.setImages("3.jpg");
+		house.setImages("1.jpg");
 		house.setPrice(300.0);
 		house.setAddress("松山湖大学路东莞理工学院教师村");
-		house.setImages("5.jpg");
+		house.setImages("2.jpg");
 		house.setStaff(staff);
 		house.setStore(store);
 		house.setArea(400.0);

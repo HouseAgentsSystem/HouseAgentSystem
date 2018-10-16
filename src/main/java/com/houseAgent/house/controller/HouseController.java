@@ -28,4 +28,9 @@ public class HouseController {
 	{
 		return houseService.findAll(HouseQueryDTO.getWhereClause(houseQueryDTO),pageRequest.getPageable());
 	}
+	@GetMapping("/management")
+	public Page<HouseDTO> showHouse(ExtjsPageRequest pageRequest) 
+	{
+		return houseService.showAll(pageRequest.getPageable());
+	}
 }
