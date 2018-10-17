@@ -24,7 +24,7 @@ public class TestStaff {
 	@Autowired
 	private HouseService houseService;
 	
-	//@Test
+	@Test
 	public void findOne() {
 		System.out.println(storeService.findOne(1L));
 	}

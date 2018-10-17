@@ -19,10 +19,10 @@ public class House {
 	private Double area;//面积
 	private String type;//房型
 	private String buildDate;//建造时间
-	private int room;//室
-	private int hall;//厅
+	private Integer room;//室
+	private Integer hall;//厅
 	private String orientation;//朝向
-	private int floor;//楼层
+	private Integer floor;//楼层
 	private String decorateLevel;//装修等级
 	private String title;//标题
 	private String address;//详细地址
@@ -30,12 +30,12 @@ public class House {
 	private String video;
 	private Double longitude;//经度
 	private Double latitude;//纬度
-	private int isElevator;//是否有电梯
-	private int isParking;//是否有停车位
+	private Integer isElevator;//是否有电梯
+	private Integer isParking;//是否有停车位
 	private String introduce;//详细介绍，核心卖点
 	private Double agencyFees;//中介费
-	private int state;//状态
-	private int propertyRights;//产权年限
+	private Integer state;//状态
+	private Integer propertyRights;//产权年限
 	private Staff staff;//员工
 	private Store store;//门店 
 	@Id
@@ -60,16 +60,16 @@ public class House {
 	public String getBuildDate() {
 		return buildDate;
 	}
-	public int getRoom() {
+	public Integer getRoom() {
 		return room;
 	}
-	public int getHall() {
+	public Integer getHall() {
 		return hall;
 	}
 	public String getOrientation() {
 		return orientation;
 	}
-	public int getFloor() {
+	public Integer getFloor() {
 		return floor;
 	}
 	public String getDecorateLevel() {
@@ -93,10 +93,10 @@ public class House {
 	public Double getLatitude() {
 		return latitude;
 	}
-	public int getIsElevator() {
+	public Integer getIsElevator() {
 		return isElevator;
 	}
-	public int getIsParking() {
+	public Integer getIsParking() {
 		return isParking;
 	}
 	public String getIntroduce() {
@@ -105,10 +105,10 @@ public class House {
 	public Double getAgencyFees() {
 		return agencyFees;
 	}
-	public int getState() {
+	public Integer getState() {
 		return state;
 	}
-	public int getPropertyRights() {
+	public Integer getPropertyRights() {
 		return propertyRights;
 	}
 	@ManyToOne(cascade=CascadeType.REFRESH)
@@ -139,16 +139,16 @@ public class House {
 	public void setBuildDate(String buildDate) {
 		this.buildDate = buildDate;
 	}
-	public void setRoom(int room) {
+	public void setRoom(Integer room) {
 		this.room = room;
 	}
-	public void setHall(int hall) {
+	public void setHall(Integer hall) {
 		this.hall = hall;
 	}
 	public void setOrientation(String orientation) {
 		this.orientation = orientation;
 	}
-	public void setFloor(int floor) {
+	public void setFloor(Integer floor) {
 		this.floor = floor;
 	}
 	public void setDecorateLevel(String decorateLevel) {
@@ -172,10 +172,10 @@ public class House {
 	public void setLatitude(Double latitude) {
 		this.latitude = latitude;
 	}
-	public void setIsElevator(int isElevator) {
+	public void setIsElevator(Integer isElevator) {
 		this.isElevator = isElevator;
 	}
-	public void setIsParking(int isParking) {
+	public void setIsParking(Integer isParking) {
 		this.isParking = isParking;
 	}
 	public void setIntroduce(String introduce) {
@@ -184,10 +184,10 @@ public class House {
 	public void setAgencyFees(Double agencyFees) {
 		this.agencyFees = agencyFees;
 	}
-	public void setState(int state) {
+	public void setState(Integer state) {
 		this.state = state;
 	}
-	public void setPropertyRights(int propertyRights) {
+	public void setPropertyRights(Integer propertyRights) {
 		this.propertyRights = propertyRights;
 	}
 	public void setStaff(Staff staff) {

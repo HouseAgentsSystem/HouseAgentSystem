@@ -46,15 +46,22 @@ public class HouseDTO {
 		if(house.getIsParking()==1) {
 			dto.setIsParking("是");
 		}else dto.setIsParking("否");
-		dto.setStaffId(house.getStaff().getId());
-		dto.setStaffName(house.getStaff().getRealname());
-		dto.setFaceImg(house.getStaff().getFaceImg());
-		dto.setPhoneNumber(house.getStaff().getPhoneNumber());
+		if(house.getStaff()!=null) {
+			dto.setStaffId(house.getStaff().getId());
+			dto.setStaffName(house.getStaff().getRealname());
+			dto.setFaceImg(house.getStaff().getFaceImg());
+			dto.setPhoneNumber(house.getStaff().getPhoneNumber());
+		}else {
+			dto.setStaffName("未分配");
+		}
 		
-		dto.setStoreId(house.getStore().getId());
-		dto.setStoreName(house.getStore().getStoreName());
+		if(house.getStore()!=null) {
+			dto.setStoreId(house.getStore().getId());
+			dto.setStoreName(house.getStore().getStoreName());
+		}else {
+			dto.setStoreName("未分配");
+		}
 		
-		System.out.println(dto.getFaceImg());
 	}
 		
 	

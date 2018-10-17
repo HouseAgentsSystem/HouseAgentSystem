@@ -30,6 +30,7 @@ public class StoreQueryDTO {
 				 //1.声明Predicate集合
 				 List<Predicate> predicate = new ArrayList<>();
 				 //2.根据storeQueryDTO查询条件动态添加Predicate
+				 System.out.println(StoreQueryDTO.getStoreName());
 				 if(StringUtils.isNotBlank(StoreQueryDTO.getStoreName())) {
 					 predicate.add(cb.like(root.get("storeName").as(String.class),"%"+ StoreQueryDTO.getStoreName()+"%"));
 				 }

@@ -15,44 +15,16 @@ import org.springframework.data.jpa.domain.Specification;
 
 public class HouseQueryDTO {
 	private String location;
-	private Double price;//价格
-	private int roomArea;//面积
-	private int room;//几室
-	public String getLocation() {
-		return location;
-	}
-	public void setLocation(String location) {
-		this.location = location;
-	}
-	public Double getPrice() {
-		return price;
-	}
-	public void setPrice(Double price) {
-		this.price = price;
-	}
-	
-	
-	public int getRoomArea() {
-		return roomArea;
-	}
-	public void setRoomArea(int roomArea) {
-		this.roomArea = roomArea;
-	}
-	public int getRoom() {
-		return room;
-	}
-	public void setRoom(int room) {
-		this.room = room;
-	}
-	@SuppressWarnings({ "serial"})
+	private Double price=0.0;//价格
+	private Integer roomArea=0;//面积
+	private Integer room=0;//几室
+	@SuppressWarnings({ "unused"})
 	public static Specification<House> getWhereClause(final HouseQueryDTO houseQueryDTO) {
 		return new Specification<House>() {
 			public Predicate toPredicate(Root<House> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
 			
 				List<Predicate> predicate = new ArrayList<>();
-				System.out.println("123");
 				if (StringUtils.isNotBlank(houseQueryDTO.getLocation())) {
-					System.out.println(root.get("region").as(String.class));
 					predicate.add(criteriaBuilder.like(root.get("region").as(String.class),
 							"%" + houseQueryDTO.getLocation() + "%"));
 				}
@@ -129,8 +101,8 @@ public class HouseQueryDTO {
 						predicate.add(criteriaBuilder.greaterThanOrEqualTo(root.get("price"),
 								1000));
 					}
-					System.out.println(houseQueryDTO.getPrice());
 				}
+				System.out.println(houseQueryDTO.getRoom());
 				if (0!=houseQueryDTO.getRoom()) {
 					if(houseQueryDTO.getRoom()==1) {
 						predicate.add(criteriaBuilder.equal(root.get("room"),
@@ -152,12 +124,37 @@ public class HouseQueryDTO {
 						predicate.add(criteriaBuilder.equal(root.get("room"),
 								5));
 					}
-					System.out.println(houseQueryDTO.getPrice());
 				}
+				System.out.println("4");
 				Predicate[] pre = new Predicate[predicate.size()];
 				return query.where(predicate.toArray(pre)).getRestriction();
 			}
 
 		};
 	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	public Double getPrice() {
+		return price;
+	}
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+	public int getRoomArea() {
+		return roomArea;
+	}
+	public void setRoomArea(int roomArea) {
+		this.roomArea = roomArea;
+	}
+	public int getRoom() {
+		return room;
+	}
+	public void setRoom(int room) {
+		this.room = room;
+	}
+	
 }

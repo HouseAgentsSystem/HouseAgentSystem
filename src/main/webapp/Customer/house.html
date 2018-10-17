@@ -57,17 +57,58 @@
 					},
 					listeners: {}
 				});
-
-				function areaUp(combo, record, index) {
+				function reload(btn) {
 					var store = Ext.data.StoreManager.lookup('simpsonsStore');
-					store.load({
-						params: {
-							start: 0,
-							limit: 8,
-							page: 1,
-							sort: 'price'
-						}
-					});
+					var sorter = store.getSorters();
+					sorter.clear();
+					var newSorter=[{
+						property:'id',
+						direction:'DESC'
+					}];
+					store.setSorters(newSorter);
+					
+				}
+				function areaUp(btn) {
+					var store = Ext.data.StoreManager.lookup('simpsonsStore');
+					var sorter = store.getSorters();
+					sorter.clear();
+					var accord = this.getText();
+					if(accord=='面积▲'){
+						var newSorter=[{
+							property:'area',
+							direction:'asc'
+						}];
+						store.setSorters(newSorter);
+						this.setText('面积▼');
+					}else{
+						var newSorter=[{
+							property:'area',
+							direction:'DESC'
+						}];
+						store.setSorters(newSorter);
+						this.setText('面积▲');
+					}
+				}
+				function priceUp(btn) {
+					var store = Ext.data.StoreManager.lookup('simpsonsStore');
+					var sorter = store.getSorters();
+					sorter.clear();
+					var accord = this.getText();
+					if(accord=='价格▲'){
+						var newSorter=[{
+							property:'price',
+							direction:'asc'
+						}];
+						store.setSorters(newSorter);
+						this.setText('价格▼');
+					}else{
+						var newSorter=[{
+							property:'price',
+							direction:'DESC'
+						}];
+						store.setSorters(newSorter);
+						this.setText('价格▲');
+					}
 				}
 				Ext.create('Ext.container.Viewport', {
 					//width: 800,
@@ -316,83 +357,20 @@
 									stripeRows: false
 								},
 								tbar: {
-									items: [{
-										xtype: 'combobox',
-										reference: 'searchFieldName',
-										hideLabel: true,
-										//store: {type: 'states'},
-										store: Ext.create('Ext.data.Store', {
-											fields: ['name', 'value'],
-											data: [{
-												name: '订单编号',
-												value: 'houseNumber'
-											}, {
-												name: '订单日期',
-												value: 'createTime'
-											}]
-										}),
-										displayField: 'name',
-										valueField: 'value',
-										value: '订单编号',
-										editable: false,
-										//typeAhead: true,
-										queryMode: 'local',
-										triggerAction: 'all',
-										emptyText: 'Select a state...',
-										//selectOnFocus: true,
-										width: 135,
-										indent: true,
-										listeners: {
-											select: 'searchComboboxSelectChange'
-										}
+									
+									items: ['->',{
+										text: '默认排序',
+										iconCls: 'x-fa fa-refresh',
+										handler:reload
+										
+									},{
+										text: '价格▲',
+										handler: priceUp
 									}, {
-										xtype: 'textfield',
-										reference: 'searchFieldValue',
-										name: 'housePanelSearchField'
-										//iconCls: 'fa fa-search'
-									}, {
-										xtype: 'datefield',
-										hideLabel: true,
-										hidden: true,
-										format: 'Y/m/d H:i:s',
-										reference: 'searchDataFieldValue',
-										fieldLabel: 'From',
-										name: 'from_date'
-										//,id:'from_date',
-										//vtype: 'daterange',
-										//endDateField: 'to_date'
-									}, {
-										xtype: 'datefield',
-										hideLabel: true,
-										hidden: true,
-										format: 'Y/m/d H:i:s',
-										reference: 'searchDataFieldValue2',
-										fieldLabel: 'To',
-										name: 'to_date'
-										//,id:'to_date',
-										//vtype: 'daterange',
-										//startDateField: 'from_date'
-									}, {
-										text: '查找',
-										iconCls: 'fa fa-search',
-										handler: 'quickSearch'
-									}, '->', {
-										text: '价格',
-										iconCls: 'fa fa-search-plus',
-										handler: 'openSearchWindow'
-									}, {
-										text: '面积',
-										tooltip: '面积升序',
-										iconCls: 'fa fa-caret-up',
+										text: '面积▲',
+										value:'up',
 										reference: 'AreaUp',
 										handler: areaUp
-									}, {
-										text: '面积',
-										tooltip: '面积降序',
-										iconCls: 'fa fa-caret-down',
-										handler: 'openAddWindow',
-										reference: 'AreaDown',
-										hidden: true
 									}]
 								},
 								columns: [{
@@ -408,7 +386,7 @@
 											"<b><a target='_blank' href='http://localhost:8081/showHouse/details?id=" + record.data.id + " '><h4 style='text-indent:50px;'>" + record.data.title + "</h4></a></b>" +
 											"<h4 style='color:red;font-family:verdana;'align='right'>" + record.data.price + "万</h4>" +
 											"<p style='text-indent:50px; font-size:17px;'><span> " + record.data.room + "室" + record.data.hall + "厅</span><em> | </em><span> " + record.data.area + "m²</span><em> | </em><span> 第" + record.data.floor + "层</span><em> | </em><span>" + record.data.buildDate + "年建</span>" + "</p>" +
-											"<p style='text-indent:50px; font-size:16px;'><b>" + record.data.region + "&nbsp;&nbsp;&nbsp;</b>" + record.data.address + "</p>" +
+											"<p style='text-indent:50px; font-size:16px; color:black;font-weight: bold;'>" + record.data.region + "&nbsp;&nbsp;&nbsp;" + record.data.address + "</p>" +
 											"</div>" +
 											"</div>";
 										return page;

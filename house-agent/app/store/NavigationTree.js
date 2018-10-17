@@ -25,7 +25,7 @@
                 leaf: true
             },{
                 text: '房源管理模块',
-                iconCls: 'x-fa fa-address-card',
+                iconCls: 'x-fa fa-home',
                 //rowCls: 'nav-tree-badge nav-tree-badge-new',
                 viewType: 'house',
                 leaf: true
