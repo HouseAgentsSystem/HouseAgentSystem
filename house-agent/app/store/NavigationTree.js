@@ -1,4 +1,4 @@
-﻿Ext.define('HouseAgentSystem.store.NavigationTree', {
+Ext.define('HouseAgentSystem.store.NavigationTree', {
     extend: 'Ext.data.TreeStore',
 
     storeId: 'NavigationTree',
@@ -24,10 +24,25 @@
                 viewType: 'store',
                 leaf: true
             },{
-                text: '房源管理模块',
+            	text: '房源管理模块',
                 iconCls: 'x-fa fa-home',
                 //rowCls: 'nav-tree-badge nav-tree-badge-new',
                 viewType: 'house',
+                leaf: true
+            },{
+                text: '管理员查看员工排名',
+                iconCls: 'x-fa fa-bar-chart',
+                viewType: 'adminStaffRanking',
+                leaf: true
+            },{
+                text: '员工排名',
+                iconCls: 'x-fa fa-bar-chart',
+                viewType: 'staffRanking',
+                leaf: true
+            },{
+                text: '门店排名',
+                iconCls: 'x-fa fa-bar-chart',
+                viewType: 'storeRanking',
                 leaf: true
             }
         ]
