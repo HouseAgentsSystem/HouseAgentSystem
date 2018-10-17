@@ -102,48 +102,12 @@
         	}
         , this);
 	},
-	/*Delete More Rows*/	
-	// deleteMoreRows:function(btn, rowIndex, colIndex){
-	// 	var grid = btn.up('gridpanel');
-	// 	var selModel = grid.getSelectionModel();
- //        if (selModel.hasSelection()) {
- //            Ext.Msg.confirm("警告", "确定要删除吗？", function (button) {
- //                if (button == "yes") {
- //                    var rows = selModel.getSelection();
- //                    var selectIds = []; //要删除的id
- //                    Ext.each(rows, function (row) {
- //                        selectIds.push(row.data.id);
- //                    });
- //                  	Ext.Ajax.request({ 
-	// 					url : '/store/deletes', 
-	// 					method : 'post', 
-	// 					params : { 
-	// 						//ids[] :selectIds
-	// 						ids :selectIds
-	// 					}, 
-	// 					success: function(response, options) {
-	// 		                var json = Ext.util.JSON.decode(response.responseText);
-	// 			            if(json.success){
-	// 			            	Ext.Msg.alert('操作成功', json.msg, function() {
-	// 			                    grid.getStore().reload();
-	// 			                });
-	// 				        }else{
-	// 				        	 Ext.Msg.alert('操作失败', json.msg);
-	// 				        }
-	// 		            }
-	// 				});
- //                }
- //            });
- //        }else {
- //            Ext.Msg.alert("错误", "没有任何行被选中，无法进行删除操作！");
- //        }
- //    },
 
  	backToAll: function(btn) {
  		var store =	btn.up('gridpanel').getStore();
 		//var store = Ext.getCmp('userGridPanel').getStore();// Ext.getCmp(）需要在StorePanel设置id属性
 		
-		this.lookupReference('locationFieldValue').setValue("全市");
+		this.lookupReference('regionFieldValue').setValue("全市");
 		this.lookupReference('searchFieldName').setValue("店名");
 		this.lookupReference('searchFieldValue').setValue("");
 
@@ -154,7 +118,7 @@
 		// 	Ext.apply(store.proxy.extraParams, {managerName: searchValue});
 		// }
 
-		Ext.apply(store.proxy.extraParams, {location:"", storeName:"", managerName:""});
+		Ext.apply(store.proxy.extraParams, {region:"", storeName:"", managerName:""});
 		store.load({params:{start:0, limit:20, page:1}});
  	},
 
