@@ -26,11 +26,11 @@ import com.houseAgent.store.repository.StoreRepository;
 public class StoreService implements IStoreService {
 
 	@Autowired
-	public StoreRepository storeRepository;
+	private StoreRepository storeRepository;
 	@Autowired
-	public StaffRepository staffRepository;
+	private StaffRepository staffRepository;
 	@Autowired
-	public HouseRepository houseRepository;
+	private HouseRepository houseRepository;
 	
 	@Override
 	public void saveAndUpdate(Store store) {

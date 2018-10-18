@@ -24,7 +24,7 @@ import com.houseAgent.store.service.IStoreService;
 public class showStoreController {
 	
 	@Autowired
-	IStoreService storeService;
+	private IStoreService storeService;
 
 	//获取单个门店信息
 	@GetMapping("/getStore/{storeId}")

@@ -1,5 +1,6 @@
 package com.houseAgent.houserent.domain;
 
+import java.util.Arrays;
 import java.util.Date;
 
 import com.houseAgent.common.beans.BeanUtils;
@@ -15,17 +16,17 @@ public class HouseRentBaseDTO {
     private Integer floor;		//楼层
     private String title;		//标题=地区+几室+几厅+有无卫生间+是否整租
     private String address;		//详细地址
-    private String images;		//图片
+    private String[] imgs;		//图片
     private String video;		//视频
     private Boolean isEntireRent;  //是否整租
-    private Boolean isbed;	//is床
-    private Boolean isWasher;	//is洗衣机
-    private Boolean isAirConditioning;	//Is空调
+    private Boolean isBed;	//is床.
+    private Boolean isWasher;	//is洗衣机.
+    private Boolean isAirConditioning;	//Is空调.
     private Boolean isBalcony;  //is阳台
-    private Boolean isRefrigerator;		//Is冰箱
-    private Boolean isToilet;		//Is厕所
+    private Boolean isRefrigerator;		//Is冰箱.
+    private Boolean isToilet;		//Is厕所.
     private Boolean isKitchen;		//Is厨房
-    private Boolean isCalorifier;	//is热水器
+    private Boolean isCalorifier;	//is热水器.
     private String introduce;	// 详细介绍
     private Date applyTime;		//申请日期
     private Date publishTime;	//发布日期
@@ -36,7 +37,7 @@ public class HouseRentBaseDTO {
     	String eSupportings = entity.getSupporting();
     	if(eSupportings!=null) {
     		String[] supportings = eSupportings.split(",");
-        	dto.isbed = supportings[0].equals("1") ? true : false;
+        	dto.isBed = supportings[0].equals("1") ? true : false;
         	dto.isWasher = supportings[1].equals("1") ? true : false;
         	dto.isAirConditioning = supportings[2].equals("1") ? true : false;
         	dto.isBalcony = supportings[3].equals("1") ? true : false;
@@ -45,13 +46,15 @@ public class HouseRentBaseDTO {
         	dto.isKitchen = supportings[6].equals("1") ? true : false;
         	dto.isCalorifier = supportings[7].equals("1") ? true : false;
     	}
+    	
+    	dto.imgs = entity.getImages().split(",");
     }
     
     public static void dtoToEntity(HouseRentBaseDTO dto, HouseRent entity) {
     	BeanUtils.copyProperties(dto, entity);
     	String[] supportings = entity.getSupporting().split(",");
-    	if(dto.isbed != null) {
-    		supportings[0] = (dto.isbed == true) ? "1," : "0,";
+    	if(dto.isBed != null) {
+    		supportings[0] = (dto.isBed == true) ? "1," : "0,";
     	}
     	if(dto.isWasher != null) {
     		supportings[1] = (dto.isWasher == true) ? "1," : "0,";
@@ -132,11 +135,11 @@ public class HouseRentBaseDTO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getImages() {
-		return images;
+	public String[] getImgs() {
+		return imgs;
 	}
-	public void setImages(String images) {
-		this.images = images;
+	public void setImgs(String[] imgs) {
+		this.imgs = imgs;
 	}
 	public String getVideo() {
 		return video;
@@ -150,11 +153,11 @@ public class HouseRentBaseDTO {
 	public void setIsEntireRent(Boolean isEntireRent) {
 		this.isEntireRent = isEntireRent;
 	}
-	public Boolean getIsbed() {
-		return isbed;
+	public Boolean getIsBed() {
+		return isBed;
 	}
-	public void setIsbed(Boolean isbed) {
-		this.isbed = isbed;
+	public void setIsBed(Boolean isbed) {
+		this.isBed = isbed;
 	}
 	public Boolean getIsWasher() {
 		return isWasher;
@@ -223,5 +226,16 @@ public class HouseRentBaseDTO {
 	}
 	public void setState(RentApplyStates state) {
 		this.state = state;
+	}
+
+	@Override
+	public String toString() {
+		return "HouseRentBaseDTO [id=" + id + ", region=" + region + ", rent=" + rent + ", area=" + area + ", room="
+				+ room + ", hall=" + hall + ", floor=" + floor + ", title=" + title + ", address=" + address
+				+ ", images=" + Arrays.toString(imgs) + ", video=" + video + ", isEntireRent=" + isEntireRent
+				+ ", isBed=" + isBed + ", isWasher=" + isWasher + ", isAirConditioning=" + isAirConditioning
+				+ ", isBalcony=" + isBalcony + ", isRefrigerator=" + isRefrigerator + ", isToilet=" + isToilet
+				+ ", isKitchen=" + isKitchen + ", isCalorifier=" + isCalorifier + ", introduce=" + introduce
+				+ ", applyTime=" + applyTime + ", publishTime=" + publishTime + ", state=" + state + "]";
 	}
 }
