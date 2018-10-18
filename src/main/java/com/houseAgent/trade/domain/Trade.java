@@ -19,7 +19,7 @@ public class Trade {
 	private Date saleDate;
 	private Double agencyFees;
 	private Double actualPrice;
-	private User user;
+	private User user;//买家
 	private House houseData;
 	
 	@Id

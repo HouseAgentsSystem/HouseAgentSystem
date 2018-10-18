@@ -36,6 +36,8 @@ public class House {
 	private Double agencyFees;//中介费
 	private Integer state;//状态
 	private Integer propertyRights;//产权年限
+	private String ownerName;//房主姓名
+	private String ownerPhoneNumber;//房主联系方式
 	private Staff staff;//员工
 	private Store store;//门店 
 	@Id
@@ -110,6 +112,12 @@ public class House {
 	}
 	public Integer getPropertyRights() {
 		return propertyRights;
+	}
+	public String getOwnerName() {
+		return ownerName;
+	}
+	public String getOwnerPhoneNumber() {
+		return ownerPhoneNumber;
 	}
 	@ManyToOne(cascade=CascadeType.REFRESH)
 	public Staff getStaff() {
@@ -190,12 +198,28 @@ public class House {
 	public void setPropertyRights(Integer propertyRights) {
 		this.propertyRights = propertyRights;
 	}
+	public void setOwnerName(String ownerName) {
+		this.ownerName = ownerName;
+	}
+	public void setOwnerPhoneNumber(String ownerPhoneNumber) {
+		this.ownerPhoneNumber = ownerPhoneNumber;
+	}
 	public void setStaff(Staff staff) {
 		this.staff = staff;
 	}
 	public void setStore(Store store) {
 		this.store = store;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "House [id=" + id + ", region=" + region + ", price=" + price + ", area=" + area + ", type=" + type
+				+ ", buildDate=" + buildDate + ", room=" + room + ", hall=" + hall + ", orientation=" + orientation
+				+ ", floor=" + floor + ", decorateLevel=" + decorateLevel + ", title=" + title + ", address=" + address
+				+ ", images=" + images + ", video=" + video + ", longitude=" + longitude + ", latitude=" + latitude
+				+ ", isElevator=" + isElevator + ", isParking=" + isParking + ", introduce=" + introduce
+				+ ", agencyFees=" + agencyFees + ", state=" + state + ", propertyRights=" + propertyRights
+				+ ", ownerName=" + ownerName + ", ownerPhoneNumber=" + ownerPhoneNumber + ", staff=" + staff
+				+ ", store=" + store + "]";
+	}
 }
