@@ -9,6 +9,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.houseAgent.staff.domain.Staff;
 import com.houseAgent.trade.domain.Trade;
 import com.houseAgent.trade.domain.TradeRankingStaffDTO;
 import com.houseAgent.trade.domain.TradeRankingStoreDTO;
@@ -33,5 +34,11 @@ public interface TradeRepository extends PagingAndSortingRepository<Trade, Long>
 	@Query("select new com.houseAgent.trade.domain.TradeRankingStaffDTO(SUM(tra.actualPrice) as total,tra.houseData.staff.id, tra.houseData.staff.userName, tra.houseData.staff.store.storeName) "
 			+ "from Trade as tra where tra.saleDate BETWEEN :startT and :endT and tra.houseData.staff.store.id = :storeId GROUP BY tra.houseData.staff.userName order by total desc")
 	public List<TradeRankingStaffDTO> totalGroupByStaffByStore(@Param("startT") Date startTime, @Param("endT") Date endTime, @Param("storeId")Long storeId);
+	
+	@Query("from Trade trade where trade.houseData.staff.id = ?1")
+	public List<Trade> findTradeByStaffId(Long id);
+	
+	@Query("from Trade trade where trade.houseData.store.id = ?1")
+	public List<Trade> findTradeByStoreId(Long id);
 	
 }

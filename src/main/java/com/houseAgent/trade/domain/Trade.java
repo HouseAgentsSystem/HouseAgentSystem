@@ -8,12 +8,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.houseAgent.house.domain.House;
 import com.houseAgent.user.domain.User;
 
 
 @Entity
+@Table(name="t_trade")
 public class Trade {
 	private Long id;
 	private Date saleDate;
