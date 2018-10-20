@@ -40,7 +40,7 @@ public class TradeRankingController {
 	public List<TradeRankingStaffDTO> findStaffRankingByStoreId(HttpSession session, Integer month, Long storeId) {
 		SessionUtil.setGroupNames(session, "admin");
 		
-		if(SessionUtil.getGroupNames(session)=="admin") {
+		if(SessionUtil.getGroupNames(session).equals("admin")) {
 			if(storeId==null||storeId==0L) {
 				List<TradeRankingStaffDTO> tradeRankingStaffDTOs = tradeRankingService.totalGroupByAllStaff(month);
 				int length = tradeRankingStaffDTOs.size();

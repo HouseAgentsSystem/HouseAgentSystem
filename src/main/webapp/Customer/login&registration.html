@@ -10,7 +10,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 		<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="assets/font-awesome/4.2.0/css/font-awesome.min.css" />
-
+		
 		<link rel="stylesheet" href="assets/css/ace.min.css" />
 		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
 		<link rel="stylesheet" href="css/main.css" />
@@ -48,19 +48,19 @@
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="PhoneNumber" name='user' id="login_phone"/>
+															<input type="text" class="form-control" placeholder="账号/手机号" name='user' id="login_phone"/>
 															<i class="ace-icon fa fa-user"></i>
 														</span>
-														<p><label class="err" id="login_phone_text">手机号错误</label></p>
+														<p><em class="err" id="login_phone_text"></em></p>
 														<hr>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Password" name='password' id="login_password"/>
+															<input type="password" class="form-control" placeholder="密码" name='password' id="login_password"/>
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
-														<p><label class="err" id="login_password_text">请输入密码</label></p><hr>
+														<p><em class="err" id="login_password_text"></em></p><hr>
 													</label>
 
 													<div class="space"></div>
@@ -113,36 +113,38 @@
 
 											<form id='form2'>
 												<fieldset>
-													<label class="block clearfix">
+													<label class="block clearfix" for="phone2">
 														<span class="block input-icon input-icon-right">
 															<input type="text" class="form-control" placeholder="綁定手机" id='phone2' name='phone2'/>
 															<i class="ace-icon fa fa-mobile-phone"></i>
 														</span>
 													</label>
-													<label class="block clearfix">
+													<label class="block clearfix" for="newPassword">
 														<span class="block input-icon input-icon-right">
 															<input type="password" class="form-control" placeholder="密码" id='newPassword' name='newPassword'/>
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>
 
-													<label class="block clearfix">
+													<label class="block clearfix" for="validation2">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="确认密码" />
+															<input type="password" class="form-control" placeholder="确认密码" id="validation2" name="validation2" />
 															<i class="ace-icon fa fa-retweet"></i>
 														</span>
 													</label>
-													<div class="input-group">
-														<input type="text" class="form-control" placeholder="输入验证码" aria-describedby="basic-addon2" name='code2'>
-														<span class="input-group-btn">
-												        <input class="btn btn-info" type="button" id="btn2" value="免费获取验证码" onclick="settime(this)"></input>
-												      </span>
-													</div>
+													<label class="block clearfix" for="code2">
+														<div class="input-group">
+															<input type="text" class="form-control" placeholder="输入验证码" aria-describedby="basic-addon2" id="code2" name='code2'>
+															<span class="input-group-btn">
+													        <input class="btn btn-info" type="button" id="btn2" value="免费获取验证码"></input>
+													      </span>
+														</div>
+													</label>
 													<br><br><br>
 													<div class="clearfix">
-														<button type="button" class="width-35 pull-right btn btn-sm btn-danger">
+														<button type="submit" class="width-35 pull-right btn btn-sm btn-danger">
 															<i class="ace-icon fa fa-lightbulb-o"></i>
-															<span class="bigger-110" onclick="updata()">确定</span>
+															<span class="bigger-110">确定</span>
 														</button>
 													</div>
 												</fieldset>
@@ -172,49 +174,50 @@
 											<div class="space-6"></div>
 											<p>填写信息: </p>
 
-											<form id="form1">
+											<form id="form1" action="">
 												<fieldset>
-													<label class="block clearfix">
+													<label class="block clearfix" for="userName">
 														<span class="block input-icon input-icon-right">
 															<input type="text" class="form-control" placeholder="用户名" name="userName" id="userName"/>
 															<i class="ace-icon fa fa-user"></i>
 														</span>
 													</label>
 
-													<label class="block clearfix">
+													<label class="block clearfix" for="password">
 														<span class="block input-icon input-icon-right">
 															<input type="password" class="form-control" placeholder="密码" name="password" id="password"/>
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>
 
-													<label class="block clearfix">
+													<label class="block clearfix" for="validation">
 														<span class="block input-icon input-icon-right">
 															<input type="password" class="form-control" placeholder="确认密码" name="validation" id="validation"/>
 															<i class="ace-icon fa fa-retweet"></i>
 														</span>
 													</label>
-													<label class="block clearfix">
+													<label class="block clearfix" for="phone">
 														<span class="block input-icon input-icon-right">
 															<input type="text" class="form-control" placeholder="手机" id="phone" name="phone"/>
 															<i class="ace-icon fa fa-mobile-phone"></i>
 														</span>
 													</label>
-													<div class="input-group">
-														<input type="text" class="form-control" placeholder="输入验证码" aria-describedby="basic-addon2" name="code" id="code">
-														<span class="input-group-btn">
-												        <input class="btn btn-info" type="button" id="btn" value="免费获取验证码" onclick="settime(this)"></input>
-												      </span>
-													</div>
+													<label class="block clearfix" for="code">
+														<div class="input-group">
+															<input type="text" class="form-control" placeholder="输入验证码" aria-describedby="basic-addon2" name="code" id="code">
+															<span class="input-group-btn">
+													        <input class="btn btn-info" type="button" id="btn" value="免费获取验证码"></input>
+													      </span>
+														</div>
+													</label>
 													<div class="space-24"></div>
 
 													<div class="clearfix">
-														<button type="reset" class="width-30 pull-left btn btn-sm">
+														<button id="reset" type="reset" class="width-30 pull-left btn btn-sm">
 															<i class="ace-icon fa fa-refresh"></i>
 															<span class="bigger-110">重置</span>
 														</button>
-
-														<button type="button" class="width-65 pull-right btn btn-sm btn-success" onclick="registration()">
+														<button type=submit class="width-65 pull-right btn btn-sm btn-success">
 															<span class="bigger-110">注册</span>
 
 															<i class="ace-icon fa fa-arrow-right icon-on-right"></i>
@@ -244,6 +247,7 @@
 		<script src="assets/js/jquery.2.1.1.min.js"></script>
 		<script type="text/javascript" src="js/tbdValidate.js"></script>
 		<script type="text/javascript" src="js/upload.js"></script>
+		<script type="text/javascript" src="assets/js/jquery.validate.min.js"></script>
 		<script type="text/javascript">
 			window.jQuery || document.write("<script src='assets/js/jquery.min.js'>" + "<" + "/script>");
 		</script>
@@ -291,7 +295,7 @@
 		</script>
 		<script type="text/javascript">
 			var countdown = 60;
-
+			var countdown2 = 60;
 			function settime(obj) {
 				if(countdown == 0) {
 					obj.removeAttribute("disabled");
@@ -307,65 +311,25 @@
 					settime(obj)
 				}, 1000)
 			}
-		</script>
-		<script type="text/javascript">
-			$('#btn').on('click', function sendCode() {
-				var phoneNumber = $('#phone').val();
-				$.ajax({
-					//几个参数需要注意一下
-					//type: "POST",//方法类型
-					dataType: "json", //预期服务器返回的数据类型
-					url: "/users/sendCode?phoneNumber=" + phoneNumber
-				});
-			});
-
-			function registration() {
-				$.ajax({
-					//几个参数需要注意一下
-					type: "POST", //方法类型
-					dataType: "json", //预期服务器返回的数据类型
-					url: "/users/registered", //url
-					data: $('#form1').serialize(),
-					success: function() {
-						//console.log();//打印服务端返回的数据(调试用)
-						alert("注册成功");
-						window.location.reload();
-					},
-					error: function() {
-						alert("注册失败！");
-					}
-				});
+			
+			function settime2(obj) {
+				if(countdown2 == 0) {
+					obj.removeAttribute("disabled");
+					obj.value = "免费获取验证码";
+					countdown = 60;
+					return;
+				} else {
+					obj.setAttribute("disabled", true);
+					obj.value = "重新发送(" + countdown2 + ")";
+					countdown2--;
+				}
+				setTimeout(function() {
+					settime(obj)
+				}, 1000)
 			}
+			
 		</script>
-		<script type="text/javascript">
-			$('#btn2').on('click', function sendCode() {
-				var phoneNumber = $('#phone2').val();
-				$.ajax({
-					//几个参数需要注意一下
-					//type: "POST",//方法类型
-					dataType: "json", //预期服务器返回的数据类型
-					url: "/users/sendCode?phoneNumber=" + phoneNumber
-				});
-			});
-
-			function updata() {
-				$.ajax({
-					//几个参数需要注意一下
-					type: "POST", //方法类型
-					dataType: "json", //预期服务器返回的数据类型
-					url: "/users/updata", //url
-					data: $('#form2').serialize(),
-					success: function() {
-						//console.log();//打印服务端返回的数据(调试用)
-						alert("修改密码成功");
-						window.location.reload();
-					},
-					error: function() {
-						alert("修改密码失败！");
-					}
-				});
-			}
-		</script>
+		
 		<script type="text/javascript">
 			function login() {
 				$.ajax({
@@ -374,13 +338,14 @@
 					dataType: "json", //预期服务器返回的数据类型
 					url: "/users/login", //url
 					data: $('#form3').serialize(),
-					success: function() {
+					success: function(data) {
 						//console.log();//打印服务端返回的数据(调试用)
-						alert("登录成功");
-						window.location.reload();
-					},
-					error: function() {
-						alert("登录失败！");
+						if(data.success){
+							alert("登录成功");
+							window.location.reload();
+						}else{
+							alert("登录失败");
+						}
 					}
 				});
 			}
@@ -393,10 +358,7 @@
 						eletext: "login_phone_text",
 						rule: [{
 							reg: /^.+$/,
-							text: "手机号不能为空"
-						}, {
-							reg: /^1[34578]\d{9}$/,
-							text: "手机号格式错误"
+							text: "*账号不能为空"
 						}]
 					},
 					{
@@ -404,7 +366,7 @@
 						eletext: "login_password_text",
 						rule: [{
 							reg: /^.+$/,
-							text: "密码不能为空"
+							text: "*密码不能为空"
 						}]
 					}
 				];
@@ -414,7 +376,6 @@
 						funsubmit: function() { //验证通过可提交回调				
 							//信息提交接口
 							login();
-							alert("成功");
 						},
 						funerr: function() { //不可提交回调
 
@@ -424,6 +385,240 @@
 						}
 					}
 				);
+				
+				//自定义正则表达示验证方法
+				$.validator.addMethod("checkName",function(value,element,params){
+					var checkName = /^\w{2,10}$/g;
+					return this.optional(element)||(checkName.test(value));
+				},"*只允许2-10位英文字母、数字或者下画线！");
+				
+				$.validator.addMethod("checkPhone",function(value,element,params){
+					var checkPhone = /^1[34578]\d{9}$/;
+					return this.optional(element)||(checkPhone.test(value));
+				},"*手机格式错误！");
+				
+				var validator1 = $("#form1").validate({
+				    rules: {
+				      userName: {
+				        required: true,
+				        checkName: true,
+				        remote:{       //验证用户名是否存在
+        		        	type:"POST",
+        		        	url:"/users/checkUserName",             //controller
+        					dataType: "json", //预期服务器返回的数据类型
+        		            data:{
+        		            	userName:function(){return $("#userName").val();}
+        		            } 
+        		      	}
+				      },
+				      password: {
+				        required: true,
+				        minlength: 5,
+				        maxlength: 20
+				      },
+				      validation: {
+				        required: true,
+				        minlength: 5,
+				        equalTo: "#password"
+				      },
+				      phone: {
+				        required: true,
+				        checkPhone: true,
+				        remote:{       //验证手机号码是否被绑定
+        		        	type:"POST",
+        		        	url:"/users/checkPhoneNumber",             //controller
+        					dataType: "json", //预期服务器返回的数据类型
+        		            data:{
+        		            	phoneName: function(){return $("#phone").val();}
+        		            }
+        		      	}
+				      },
+				      code: {
+				    	  required: true
+				      }
+				    },
+				    messages: {
+				      userName: {
+				      	required: "*请输入用户名",
+				        remote: "*用户名已被注册"
+				      },
+				      password: {
+				        required: "*请输入密码",
+				        minlength: "*密码长度不能小于 5 个字母",
+				        maxlength: "*密码长度最多不能超过20个字符"
+				      },
+				      validation: {
+				        required: "*请再次输入密码",
+				        minlength: "*密码长度不能小于 5 个字母",
+				        equalTo: "*两次密码输入不一致"
+				      },
+				      phone: {
+				    	  required: "*请输入手机号码",
+				    	  remote: "*手机号码已被绑定"
+				      },
+				      code: {
+				    	  required: "*请输入验证码"
+				      }
+				    },
+				    focusInvalid:true,
+				    errorPlacement: function(error, element) {
+						// Append error within linked label
+						$( element )
+							.closest( "form" )
+								.find( "label[for='" + element.attr( "id" ) + "']" )
+									.after( error );
+					},
+				    errorElement: "em",
+				    errorClass: "err2",
+				    submitHandler: function(form){//通过之后回调
+				    	//进行ajax传值
+				    	$.ajax({
+							//几个参数需要注意一下
+							type: "POST", //方法类型
+							dataType: "json", //预期服务器返回的数据类型
+							url: "/users/registered", //url
+							data: $('#form1').serialize(),
+							success: function() {
+								//console.log();//打印服务端返回的数据(调试用)
+								alert("注册成功");
+								window.location.reload();
+							},
+							error: function() {
+								alert("注册失败！");
+							}
+						});
+				    },
+				    invalidHandler: function(form, validator) {return false;}
+				});
+				
+				$("#reset").click(function(){
+					validator1.resetForm();
+				});
+				
+				var validator2 = $("#form2").validate({
+				    rules: {
+				      newPassword: {
+				        required: true,
+				        minlength: 5,
+				        maxlength: 20
+				      },
+				      validation2: {
+				        required: true,
+				        minlength: 5,
+				        equalTo: "#newPassword"
+				      },
+				      phone2: {
+				        required: true,
+				        checkPhone: true,
+				        remote:{       //验证手机号码是否存在
+        		        	type:"POST",
+        		        	url:"/users/checkPhoneNumberExist",             //controller
+        					dataType: "json", //预期服务器返回的数据类型
+        		            data:{
+        		            	phoneName: function(){return $("#phone2").val();}
+        		            }
+        		      	}
+				      },
+				      code2: {
+				    	  required: true
+				      }
+				    },
+				    messages: {
+				      newPassword: {
+				        required: "*请输入密码",
+				        minlength: "*密码长度不能小于 5 个字母",
+				        maxlength: "*密码长度最多不能超过20个字符"
+				      },
+				      validation2: {
+				        required: "*请再次输入密码",
+				        minlength: "*密码长度不能小于 5 个字母",
+				        equalTo: "*两次密码输入不一致"
+				      },
+				      phone2: {
+				    	  required: "*请输入手机号码",
+				    	  remote: "*手机号码不存在"
+				      },
+				      code2: {
+				    	  required: "*请输入验证码"
+				      }
+				    },
+				    focusInvalid:true,
+				    errorElement: "em",
+				    errorClass: "err2",
+				    errorPlacement: function(error, element) {
+						// Append error within linked label
+						$( element )
+							.closest( "form" )
+								.find( "label[for='" + element.attr( "id" ) + "']" )
+									.after( error );
+					},
+				    submitHandler: function(form){//通过之后回调
+				    	//进行ajax传值
+				    	$.ajax({
+							//几个参数需要注意一下
+							type: "POST", //方法类型
+							dataType: "json", //预期服务器返回的数据类型
+							url: "/users/update", //url
+							data: $('#form2').serialize(),
+							success: function(data) {
+								//console.log();//打印服务端返回的数据(调试用)
+								if(data.success){
+									alert(data.msg);
+									window.location.reload();
+								}else{
+									alert(data.msg);
+								}
+							}
+						});
+				    },
+				    invalidHandler: function(form, validator) {return false;}
+				});
+				
+				$('#btn').on('click', function sendCode() {		//注册时的发送验证码
+					var me = this;
+					if(validator1.element($("#phone"))){
+						settime(me);
+						var phoneNumber = $('#phone').val();
+						$.ajax({
+							//几个参数需要注意一下
+							//type: "POST",//方法类型
+							dataType: "json", //预期服务器返回的数据类型
+							url: "/users/sendCode?phoneNumber=" + phoneNumber
+						});
+					}
+				});
+				$('#btn2').on('click', function sendCode() {	//忘记密码
+					var me = this;
+					if(validator2.element($("#phone2"))){
+						settime2(me);
+						var phoneNumber = $('#phone2').val();
+						$.ajax({
+							//几个参数需要注意一下
+							//type: "POST",//方法类型
+							dataType: "json", //预期服务器返回的数据类型
+							url: "/users/sendCode?phoneNumber=" + phoneNumber
+						});
+					}
+				});
+				function registration() {
+					$.ajax({
+						//几个参数需要注意一下
+						type: "POST", //方法类型
+						dataType: "json", //预期服务器返回的数据类型
+						url: "/users/registered", //url
+						data: $('#form1').serialize(),
+						success: function() {
+							//console.log();//打印服务端返回的数据(调试用)
+							if(data.success){
+								alert(data.msg);
+								window.location.reload();
+							}else{
+								alert(data.msg);
+							}
+						}
+					});
+				}
+				
 			});
 		</script>
 	</body>

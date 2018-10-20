@@ -9,7 +9,9 @@ a{ color:#222; text-decoration:none;}
 input:focus,textarea:focus{box-shadow:0 0 3px 1px rgba(32, 127, 179, 0.4);outline: 0 none;}
 /******************************* 其他样式 *******************************/
 /*错误提示*/
-.err{ float:left; height:20px; line-height:20px; text-align:center; font-size:12px; width:100%; color:red; display:none; position:absolute; left:0px;}
+em.err2{height:20px; text-align:center; font-size:12px; width:100%; color:red;}
+.err{  height:20px; font-size:12px; width:100%; color:red; display:none; position:absolute; left:0px; margin-left: 42px;}
+/* text-align:center;*/
 .err img{ margin-top:2px; margin-right:2px;}
 .err-top40{ top:40px;}
 .err-top20{ top:20px;}
@@ -26,6 +28,10 @@ input:focus,textarea:focus{box-shadow:0 0 3px 1px rgba(32, 127, 179, 0.4);outlin
 .login-box-cen-form-ot{ height:30px; line-height:30px; text-align:right; font-size:12px;}
 .login-box-cen-form-ot span{color:#999999;}
 .login-box-cen-form-ot a{ color:#207fb3;}
+.login-layout label{
+	margin-top:11px;
+	margin-bottom:0px;
+}
 
 .w218{ width:218px;}
 .w238{ width:238px;}

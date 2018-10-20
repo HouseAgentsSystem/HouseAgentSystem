@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 
@@ -24,6 +25,7 @@ public class User {
 	private String phoneNumber;
 	private Date createTime;//创建日期
 	private String faceImage;//头像
+    private String salt;//加密密码的盐
 	private int status;
 	 @Id
 	 @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -78,14 +80,28 @@ public class User {
 	public void setStatus(int status) {
 		this.status = status;
 	}
+	
+	public String getSalt() {
+		return salt;
+	}
+	
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+	
+	/**
+	 * 密码盐.
+	 * @return
+	 */
+	@Transient
+	public String getCredentialsSalt(){
+		return this.userName+this.salt;
+	}
+	
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", realname=" + realname
 				+ ", phoneNumber=" + phoneNumber + ", createTime=" + createTime + ", faceImage=" + faceImage
 				+ ", status=" + status + "]";
 	}
-	
-	
-	
-	
 }

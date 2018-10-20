@@ -4,6 +4,7 @@ Ext.define('HouseAgentSystem.view.ranking.RankingController', {
     addExtraData:function(combo,record,index){
         var store = combo.getStore();
         store.add({storeName:'所有门店', id: '0'});
+        combo.setValue('0');
     },
    	searchCombobox:function(combo,record,index){
         var monthField = this.lookupReference('searchFieldName1');

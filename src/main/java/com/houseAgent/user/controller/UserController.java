@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.houseAgent.common.SMS.SMSCode;
 import com.houseAgent.common.web.ExtAjaxResponse;
+import com.houseAgent.common.web.SessionUtil;
 import com.houseAgent.user.domain.User;
 import com.houseAgent.user.service.UserService;
 
@@ -31,8 +32,15 @@ public class UserController {
 			System.out.println("手机号码为："+phoneNumber);
 			if(phoneNumber.trim().equals("")||phoneNumber == null) {
 				System.out.println("手机号码为空");
-				resp.sendRedirect("index.jsp");
 				return;
+			}
+			String type;	//findPassword 忘记密码, register 注册
+			if(checkPhoneNumberExist(req, resp)) {	//如果手机号码存在，是忘记密码的验证码
+				//忘记密码验证码模板
+				type = "findPassword";
+			}else {
+				//注册验证码模板
+				type = "register";
 			}
 			StringBuffer buffer = new StringBuffer();
 			Random random = new Random();
@@ -43,7 +51,7 @@ public class UserController {
 			resp.setContentType("text/html;charset=utf-8");
 			PrintWriter out = resp.getWriter();
 			try {
-				if(!SMSCode.sendCode(phoneNumber,buffer.toString())) {
+				if(!SMSCode.sendCode(phoneNumber, buffer.toString(), type)) {
 					out.println("验证码发送失败");
 				}else {
 					req.getSession().setAttribute("code",buffer.toString());
@@ -82,7 +90,11 @@ public class UserController {
 			user.setCreateTime(new Date());
 			user.setUserName(userName);
 			user.setFaceImage("default.img");
-			userService.addUser(user);
+			
+			if(userService.register(user)==null) {
+				System.out.println("该账号名已被注册！");
+				return new ExtAjaxResponse(false,"该账号名已被注册！");
+			}
 			System.out.println("注册成功");
 			return new ExtAjaxResponse(true,"注册成功！");
 		}else {
@@ -90,7 +102,7 @@ public class UserController {
 			return new ExtAjaxResponse(false,"验证码错误！！！");
 		}
 	}
-	@RequestMapping("/updata")
+	@RequestMapping("/update")
 	public ExtAjaxResponse updata(HttpServletRequest req,HttpServletResponse resp) {
 		String phoneNumber = req.getParameter("phone2");
 		String code = req.getParameter("code2");
@@ -118,16 +130,66 @@ public class UserController {
 		}
 	}
 	@RequestMapping("/login")
-	public ExtAjaxResponse login(HttpServletRequest req,HttpServletResponse resp) {
-		String user = req.getParameter("user");
+	public ExtAjaxResponse login(HttpSession session, HttpServletRequest req,HttpServletResponse resp) {
+		String userName = req.getParameter("user");
 		String password = req.getParameter("password");
-		HttpSession session = req.getSession();
-		if(userService.login(user, password) != null) {
+		User user = userService.login(userName, password);
+		if(user!= null) {
+			SessionUtil.setUser(session, user);
 			System.out.println("登录成功");
 			return new ExtAjaxResponse(true,"登录成功！");
 		}else {
 			System.out.println("登录失败");
 			return new ExtAjaxResponse(false,"登录失败！！！");
 		}
+	}
+	/**
+	 * 检测账号是否可用
+	 * @param req
+	 * @param resp
+	 * @return
+	 */
+	@RequestMapping("/checkUserName")
+	public Boolean checkUserName(HttpServletRequest req,HttpServletResponse resp) {
+		String userName = req.getParameter("userName");
+		if(userService.checkUserName(userName)) {
+			System.out.println("该账号名可用");
+			return true;
+		}
+		System.out.println("该账号已被注册！");
+		return false;
+	}
+	/**
+	 * 检测手机号码是否可用
+	 * @param req
+	 * @param resp
+	 * @return
+	 */
+	@RequestMapping("/checkPhoneNumber")
+	public Boolean checkPhoneNumber(HttpServletRequest req,HttpServletResponse resp) {
+		String phoneNumber = req.getParameter("phoneNumber");
+		if(userService.checkPhoneNumber(phoneNumber)) {
+			System.out.println("该手机号码可用");
+			return true;
+		}
+		System.out.println("该手机号码已被绑定！");
+		return false;
+	}
+	
+	/**
+	 * 检测手机号码是否存在，用于忘记密码时
+	 * @param req
+	 * @param resp
+	 * @return
+	 */
+	@RequestMapping("/checkPhoneNumberExist")
+	public Boolean checkPhoneNumberExist(HttpServletRequest req,HttpServletResponse resp) {
+		String phoneNumber = req.getParameter("phoneNumber");
+		if(!userService.checkPhoneNumber(phoneNumber)) {
+			System.out.println("该手机号码存在");
+			return true;
+		}
+		System.out.println("该手机号码不存在！");
+		return false;
 	}
 }
