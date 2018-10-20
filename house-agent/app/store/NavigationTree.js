@@ -44,6 +44,11 @@ Ext.define('HouseAgentSystem.store.NavigationTree', {
                 iconCls: 'x-fa fa-bar-chart',
                 viewType: 'storeRanking',
                 leaf: true
+            },{
+                text: '交易管理模块',
+                iconCls: 'x-fa fa-bar-chart',
+                viewType: 'trade',
+                leaf: true
             }
         ]
     }
