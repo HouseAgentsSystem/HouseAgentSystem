@@ -6,6 +6,6 @@ Ext.define('Ext.overrides.exporter.Base', {
     override: 'Ext.exporter.Base',
 
     applyTitle: function(title){
-        return title ? 'Produced by Ext JS Trial - ' + title : title;
+        return title;
     }
 });

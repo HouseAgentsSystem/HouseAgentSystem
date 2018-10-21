@@ -12,7 +12,6 @@ Ext.define('HouseAgentSystem.view.ranking.AdminStaffRanking', {
     viewModel: {
         type: 'staffRankingViewModel'
     },
-
     layout: 'responsivecolumn',
 
     defaults: {

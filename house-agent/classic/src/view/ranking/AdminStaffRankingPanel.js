@@ -11,7 +11,7 @@ Ext.define('HouseAgentSystem.view.ranking.AdminStaffRankingPanel', {
 
     // title: 'Bar Chart',
     // iconCls: 'x-fa fa-bar-chart',
-
+    // title: '经营数据报表',
     items: [{
         xtype: 'cartesian',  //笛卡尔坐标的图表
         reference: 'chart',

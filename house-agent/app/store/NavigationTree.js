@@ -49,6 +49,13 @@ Ext.define('HouseAgentSystem.store.NavigationTree', {
                 iconCls: 'x-fa fa-bar-chart',
                 viewType: 'trade',
                 leaf: true
+            },{
+                text: '报表',
+                iconCls: 'x-fa fa-apple',
+                rowCls: 'nav-tree-badge',
+                viewType: 'report',
+                routeId: 'report', // routeId defaults to viewType
+                leaf: true
             }
         ]
     }
