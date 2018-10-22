@@ -38,7 +38,7 @@
 										<a href="#fakelink">首页</a>
 									</li>
 									<li>
-										<a href="../Customer/house.html"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a>
+										<a href="../Customer/house.jsp"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a>
 									</li>
 									<li>
 										<a href="login.html"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a>
@@ -46,6 +46,20 @@
 									<li>
 										<a href=""><img src="http://localhost:8081/Customer/dist/images/出租.png">我要出租</a>
 									</li>
+									<li style="width:360px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+									<c:if test="${not empty sessionScope.user.realname}">
+										<li>
+											<a href="../showUser/information?id=${sessionScope.user.id}">${sessionScope.user.realname}<img src="../Customer/upload/user/${sessionScope.user.faceImage}" style="width:30px"></a>
+										</li>
+										<li>
+											<a href="#" onclick="logout()">退出</a>
+										</li>
+									</c:if>
+									<c:if test="${empty sessionScope.user.realname}">
+										<li>
+											<a href="../Customer/login&registration.html">登录/注册</a>
+										</li>
+									</c:if>
 								</ul>
 							</div>
 						</div>
@@ -76,7 +90,7 @@
 				            controls
 				            preload="auto"
 				            data-setup='{}' style="height: 400px; width: 100%;">
-				            <source src="../Customer/video/${requestScope.house.video}" type="video/mp4"></source>
+				            <source src="../Customer/upload/house/${requestScope.house.video}" type="video/mp4"></source>
 				           <!-- <source src="http://iurevych.github.com/Flat-UI-videos/big_buck_bunny.webm" type="video/webm"></source>-->
 				            <p class="vjs-no-js">
 				              To view this video please enable JavaScript, and consider upgrading to a
@@ -89,7 +103,7 @@
 					    </div>
 					    <c:forEach items="${requestScope.house.imgs}" var="img" varStatus="id">    
 							<div class="item">
-						      <img src="../Customer/images/${img}" alt="..." style="height: 400px; width: 100%;">
+						      <img src="../Customer/upload/house/${img}" alt="..." style="height: 400px; width: 100%;">
 						    </div>
 					    </c:forEach>
 					  </div>

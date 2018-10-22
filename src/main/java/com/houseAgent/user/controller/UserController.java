@@ -1,8 +1,11 @@
 package com.houseAgent.user.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +14,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.houseAgent.common.SMS.SMSCode;
 import com.houseAgent.common.web.ExtAjaxResponse;
@@ -71,6 +76,7 @@ public class UserController {
 		String code = req.getParameter("code");
 		String userName = req.getParameter("userName");
 		String password = req.getParameter("password");
+		String realname = req.getParameter("realname");
 		HttpSession session = req.getSession();
 		String code_Session = (String) session.getAttribute("code");
 		String number = (String) session.getAttribute("number");
@@ -89,8 +95,8 @@ public class UserController {
 			user.setStatus(1);
 			user.setCreateTime(new Date());
 			user.setUserName(userName);
-			user.setFaceImage("default.img");
-			
+			user.setFaceImage("default.jpg");
+			user.setRealname(realname);
 			if(userService.register(user)==null) {
 				System.out.println("该账号名已被注册！");
 				return new ExtAjaxResponse(false,"该账号名已被注册！");
@@ -133,8 +139,10 @@ public class UserController {
 	public ExtAjaxResponse login(HttpSession session, HttpServletRequest req,HttpServletResponse resp) {
 		String userName = req.getParameter("user");
 		String password = req.getParameter("password");
+		System.out.println(password);
 		User user = userService.login(userName, password);
 		if(user!= null) {
+			user.setPassword("");
 			SessionUtil.setUser(session, user);
 			System.out.println("登录成功");
 			return new ExtAjaxResponse(true,"登录成功！");
@@ -143,6 +151,62 @@ public class UserController {
 			return new ExtAjaxResponse(false,"登录失败！！！");
 		}
 	}
+	@RequestMapping("/updataInformation")
+	public ExtAjaxResponse updataInformation(HttpServletRequest request) {
+		System.out.println(request.getParameter("id"));
+		String id=request.getParameter("id");
+		Long Id=Long.parseLong(id);
+		User user2 = userService.findOne(Id);
+		user2.setFaceImage(request.getParameter("faceImage"));
+		user2.setRealname(request.getParameter("realname"));
+		userService.updataUser(user2);
+		return new ExtAjaxResponse(true,"修改成功！");
+	
+	}
+	@RequestMapping("/logout")
+	public ExtAjaxResponse logout(HttpSession session) {
+		session.invalidate();
+		System.out.println(session);
+		System.out.println("登出成功");
+		return new ExtAjaxResponse(true,"登出成功！");
+	}
+	@RequestMapping("/imagesUpload")
+    public String imagesUpload(@RequestParam(value = "fileList", required = true) MultipartFile[] files,
+            HttpServletRequest request) {
+        List<String> list = new ArrayList<String>();
+        System.out.println(files.length);
+        if (files != null && files.length > 0) {
+            for (int i = 0; i < files.length; i++) {
+                MultipartFile file = files[i];
+                list = saveFile(request, file, list);
+            }
+        }
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println("集合里面的数据" + list.get(i));
+            return list.get(i);
+        }
+        return null;
+    }
+	private List<String> saveFile(HttpServletRequest request,
+            MultipartFile file, List<String> list) {
+        if (!file.isEmpty()) {
+            try {
+                String filePath = request.getSession().getServletContext()
+                        .getRealPath("/")
+                        + "Customer/upload/user/" + file.getOriginalFilename();
+                System.out.println(filePath);
+                list.add(file.getOriginalFilename());
+                File saveDir = new File(filePath);
+                if (!saveDir.getParentFile().exists())
+                    saveDir.getParentFile().mkdirs();
+                file.transferTo(saveDir);
+                return list;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return list;
+    }
 	/**
 	 * 检测账号是否可用
 	 * @param req

@@ -90,7 +90,7 @@ public class HouseController {
 	}
 	@RequestMapping("/rarupload")
 	@ResponseBody
-	public ExtAjaxResponse rarUpload(@RequestParam(value = "file", required = true) MultipartFile file) {
+	public ExtAjaxResponse rarUpload(@RequestParam(value = "file", required = true) MultipartFile file,HttpServletRequest request) {
 		//System.out.println(file);
 		String fileName = file.getOriginalFilename();
         System.out.println("fileName:"+fileName);
@@ -103,7 +103,8 @@ public class HouseController {
                 ZipInputStream zip = new ZipInputStream(fileInputStream);
                 System.out.println("1");
                 BufferedInputStream Bin = new BufferedInputStream(zip);
-                String Parent="E:\\test\\"; //输出路径（文件夹目录
+                String Parent=request.getSession().getServletContext()
+                        .getRealPath("/")+ "Customer/upload/house"; //输出路径（文件夹目录
                 File Fout=null; 
                 ZipEntry entry; 
                 System.out.println("2");
@@ -174,7 +175,7 @@ public class HouseController {
             try {
                 String filePath = request.getSession().getServletContext()
                         .getRealPath("/")
-                        + "Customer/images/" + file.getOriginalFilename();
+                        + "Customer/upload/house/" + file.getOriginalFilename();
                 System.out.println(filePath);
                 list.add(file.getOriginalFilename());
                 File saveDir = new File(filePath);
@@ -194,7 +195,7 @@ public class HouseController {
             try {
                 String filePath = request.getSession().getServletContext()
                         .getRealPath("/")
-                        + "Customer/video/" + file.getOriginalFilename();
+                        + "Customer/upload/house/" + file.getOriginalFilename();
                 System.out.println(filePath);
                 list.add(file.getOriginalFilename());
                 File saveDir = new File(filePath);

@@ -34,7 +34,6 @@ public class UserService implements IUserService {
 		String passwordR = new SimpleHash("MD5", password, user.getCredentialsSalt(), 2).toString();
 		if(passwordR.equals(user.getPassword())) {
 			System.out.println("登录成功");
-			user.setPassword("");
 			return user;
 		}
 		System.out.println("密码或账号输入错误");
@@ -94,6 +93,12 @@ public class UserService implements IUserService {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public void updataUser(User entity) {
+		userRepository.save(entity);
+		
 	}
 	
 }

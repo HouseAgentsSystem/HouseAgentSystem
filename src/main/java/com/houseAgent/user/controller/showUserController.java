@@ -22,7 +22,7 @@ public class showUserController {
 		System.out.println(id);
 		User user = userService.findOne(id);
 		System.out.println(user);
-		model.put("user",user);
+		model.put("userInformation",user);
 		return "information";
 	}
 }

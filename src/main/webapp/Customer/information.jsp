@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
 
@@ -74,6 +75,7 @@
 			}
 		</style>
 	</head>
+
 	<body style="background-color: #f1f1f1;">
 		<div class="row demo-row">
 			<div class="col">
@@ -86,7 +88,7 @@
 									<a href="#fakelink">首页</a>
 								</li>
 								<li>
-									<a href="../Customer/house.html"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a>
+									<a href="../Customer/house.jsp"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a>
 								</li>
 								<li>
 									<a href="login.html"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a>
@@ -94,6 +96,20 @@
 								<li>
 									<a href=""><img src="http://localhost:8081/Customer/dist/images/出租.png">我要出租</a>
 								</li>
+								<li style="width:160px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+								<c:if test="${not empty sessionScope.user.realname}">
+									<li>
+										<a href="../showUser/information?id=${sessionScope.user.id}">${sessionScope.user.realname}<img src="../Customer/upload/user/${sessionScope.user.faceImage}" style="width:30px"></a>
+									</li>
+									<li>
+										<a href="#" onclick="logout()">退出</a>
+									</li>
+								</c:if>
+								<c:if test="${empty sessionScope.user.realname}">
+									<li>
+										<a href="../Customer/login&registration.html">登录/注册</a>
+									</li>
+								</c:if>
 							</ul>
 						</div>
 					</div>
@@ -106,53 +122,88 @@
 				<div class="nav col-sm-3">
 					<ul style="border:0.5px solid #c7c7c7;">
 						<li>
-							<a class="active">个人资料</a>
+							<a class="active" href="../showUser/information?id=${sessionScope.user.id}">个人资料</a>
 						</li>
 						<li>
-							<a>我要出租</a>
+							<a href="../Customer/addHouseRent.jsp">我要出租</a>
 						</li>
 						<li>
-							<a href="../Customer/houseRentGrid.html">我的出租</a>
+							<a href="../Customer/houseRentGrid.jsp">我的出租</a>
 						</li>
 					</ul>
 				</div>
 				<div class="col-sm-9" style="height: 600px;border:0.5px solid #c7c7c7; background-color: #FFFFFF;">
 					<h4>个人信息</h4>
 					<hr>
-					<form>
-						<table>
+					<table>
+						<form id="form1" enctype="multipart/form-data" method="post">
 							<tr>
-								<td><h4 style="line-height: 50px;text-indent:5em;">头 像：</h4></td>
+								<td>
+									<h4 style="line-height: 50px;text-indent:5em;">头 像：</h4></td>
 								<td style="text-indent:4em;">
-									<img src="../Customer/images/${requestScope.user.faceImage}" alt="..." class="img-circle img-thumbnail" style="width: 100px; height: 100px;" id="xmTanImg">
-									<input type="file"id="xdaTanFileImg" onchange="xmTanUploadImg(this)" accept="image/*">
-									<input type="text" id="imgUrl" value="${requestScope.user.faceImage}"/>
+									<img src="../Customer/upload/user/${requestScope.userInformation.faceImage}" alt="..." class="img-circle img-thumbnail" style="width: 100px; height: 100px;" id="xmTanImg">
+									<input type="file" id="xdaTanFileImg" onchange="xmTanUploadImg(this)" accept="image/*" name="fileList">
 								</td>
 							</tr>
+						</form>
+						<form id="form2" action="/users/updataInformation">
+							<input type="text" id="imgUrl" value="${requestScope.userInformation.faceImage}" name="faceImage" hidden="true">
 							<tr>
-								<td><h4 style="line-height: 50px;text-indent:5em;">用户名：</td></td>
-								<td><input type="text" value="${requestScope.user.userName}" class="form-control"/ ></td>
+								<td>
+									<h4 style="line-height: 50px;text-indent:5em;">用户名：</td></td>
+								<td><input type="text" value="${requestScope.userInformation.userName}" class="form-control" disabled="true" nname="userName"></td>
+							</tr>
+							<tr hidden=" true">
+								<td><h4 style="line-height: 50px;text-indent:5em;">id：</td></td>
+								<td><input type="text" value="${requestScope.userInformation.id}" class="form-control" name="id"/></td>
 							</tr>
 							<tr>
 								<td><h4 style="line-height: 50px;text-indent:5em;">真实姓名：</td></td>
-								<td><input type="text" value="${requestScope.user.realname}" class="form-control"/ ></td>
+								<td><input type="text" value="${requestScope.userInformation.realname}" class="form-control" name="realname"/ ></td>
 							</tr>
 							<tr>
 								<td><h4 style="line-height: 50px;text-indent:5em;">手机号码：</td></td>
-								<td><input type="text" value="${requestScope.user.phoneNumber}" class="form-control"/ ></td>
+								<td><input type="text" value="${requestScope.userInformation.phoneNumber}" class="form-control" name="phoneNumber" disabled="true"/ ></td>
 							</tr>
+							</form>
 							<tr>
 								<td></td>
-								<td><button class="btn btn-primary">提交</button></td>
+								<td><button class="btn btn-primary" onclick="submit()">提交</button></td>
 							</tr>
 						</table>
-						
-					</form>
 				</div>
 			</div>
 		</div>
 	</body>
 	<script type="text/javascript" src="../Customer/assets/js/jquery.2.1.1.min.js"></script>
+	<script>
+		function form2Submit(){
+			 $.ajax({
+            //几个参数需要注意一下
+                type: "POST",//方法类型
+                dataType: "json",//预期服务器返回的数据类型
+                url: "/users/updataInformation" ,//url
+                data: $('#form2').serialize(),
+            }).success(function (data) {
+	            	alert("修改成功");
+	            }).error(function () {
+	         });
+		}
+		function submit(){
+			var fileList = new FormData($('#form1')[0]);
+	            $.ajax({
+	                type: 'post',
+	                url: "/users/imagesUpload",
+	                data: fileList,
+	                cache: false,
+	                processData: false,
+	                contentType: false,
+	            }).success(function (data) {
+	            	form2Submit();
+	            }).error(function () {
+	            });
+		}
+	</script>
 	<script type="text/javascript">
 		//jQuery time
 		var parent, ink, d, x, y;
@@ -188,6 +239,8 @@
 			}).addClass("animate");
 		})
 	</script>
+	<script>
+	</script>
 	<script type="text/javascript">            
             //判断浏览器是否支持FileReader接口
             if (typeof FileReader == 'undefined') {
@@ -220,10 +273,15 @@
                 }
                 reader.onload = function (e) {
                     console.log("成功读取....");
-
                     var img = document.getElementById("xmTanImg");
                     img.src = e.target.result;
-                    document.getElementById("imgUrl").value=document.getElementById('xdaTanFileImg').value;
+                    var file = $("#xdaTanFileImg").val();
+					function getFileName(o) {
+						var pos = o.lastIndexOf("\\");
+						return o.substring(pos + 1);
+					}
+					$("#imgUrl").val(getFileName(file))
+                    //document.getElementById("imgUrl").value=document.getElementById('xdaTanFileImg').value;
                     //或者 img.src = this.result;  //e.target == this
                 }
 

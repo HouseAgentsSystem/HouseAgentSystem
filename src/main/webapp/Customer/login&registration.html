@@ -66,7 +66,7 @@
 													<div class="space"></div>
 
 													<div class="clearfix">
-														<button type="button" class="width-35 pull-right btn btn-sm btn-primary">
+														<button type="button" class="width-35 pull-right btn btn-sm btn-primary" onclick="login()">
 															<i class="ace-icon fa fa-key"></i>
 															<span class="bigger-110" id="login_submit">登录</span>
 														</button>
@@ -198,6 +198,12 @@
 													</label>
 													<label class="block clearfix" for="phone">
 														<span class="block input-icon input-icon-right">
+															<input type="text" class="form-control" placeholder="真实姓名" name="realname"/>
+															<i class="ace-icon fa fa-user"></i>
+														</span>
+													</label>
+													<label class="block clearfix" for="phone">
+														<span class="block input-icon input-icon-right">
 															<input type="text" class="form-control" placeholder="手机" id="phone" name="phone"/>
 															<i class="ace-icon fa fa-mobile-phone"></i>
 														</span>
@@ -246,7 +252,6 @@
 		<!-- /.main-container -->
 		<script src="assets/js/jquery.2.1.1.min.js"></script>
 		<script type="text/javascript" src="js/tbdValidate.js"></script>
-		<script type="text/javascript" src="js/upload.js"></script>
 		<script type="text/javascript" src="assets/js/jquery.validate.min.js"></script>
 		<script type="text/javascript">
 			window.jQuery || document.write("<script src='assets/js/jquery.min.js'>" + "<" + "/script>");
@@ -341,8 +346,7 @@
 					success: function(data) {
 						//console.log();//打印服务端返回的数据(调试用)
 						if(data.success){
-							alert("登录成功");
-							window.location.reload();
+							window.location.href="house.jsp";
 						}else{
 							alert("登录失败");
 						}
