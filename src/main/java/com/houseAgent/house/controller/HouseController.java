@@ -134,4 +134,78 @@ public class HouseController {
             return new ExtAjaxResponse(false,"部署失败!");
         }
 	}
+	@RequestMapping("/imagesUpload")
+    public String imagesUpload(@RequestParam(value = "fileList", required = true) MultipartFile[] files,
+            HttpServletRequest request) {
+        List<String> list = new ArrayList<String>();
+        System.out.println(files.length);
+        if (files != null && files.length > 0) {
+            for (int i = 0; i < files.length; i++) {
+                MultipartFile file = files[i];
+                list = saveFile(request, file, list);
+            }
+        }
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println("集合里面的数据" + list.get(i));
+            return list.get(i);
+        }
+        return null;
+    }
+	@RequestMapping("/vedioUpload")
+	@ResponseBody
+    public ExtAjaxResponse vedioUpload(@RequestParam(value = "fileList", required = true) MultipartFile[] files,
+            HttpServletRequest request) {
+        List<String> list = new ArrayList<String>();
+        System.out.println(files.length);
+        if (files != null && files.length > 0) {
+            for (int i = 0; i < files.length; i++) {
+                MultipartFile file = files[i];
+                list = saveFile2(request, file, list);
+            }
+        }
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println("集合里面的数据" + list.get(i));
+        }
+		return null;
+    }
+    private List<String> saveFile(HttpServletRequest request,
+            MultipartFile file, List<String> list) {
+        if (!file.isEmpty()) {
+            try {
+                String filePath = request.getSession().getServletContext()
+                        .getRealPath("/")
+                        + "Customer/images/" + file.getOriginalFilename();
+                System.out.println(filePath);
+                list.add(file.getOriginalFilename());
+                File saveDir = new File(filePath);
+                if (!saveDir.getParentFile().exists())
+                    saveDir.getParentFile().mkdirs();
+                file.transferTo(saveDir);
+                return list;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return list;
+    }
+    private List<String> saveFile2(HttpServletRequest request,
+            MultipartFile file, List<String> list) {
+        if (!file.isEmpty()) {
+            try {
+                String filePath = request.getSession().getServletContext()
+                        .getRealPath("/")
+                        + "Customer/video/" + file.getOriginalFilename();
+                System.out.println(filePath);
+                list.add(file.getOriginalFilename());
+                File saveDir = new File(filePath);
+                if (!saveDir.getParentFile().exists())
+                    saveDir.getParentFile().mkdirs();
+                file.transferTo(saveDir);
+                return list;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return list;
+    }
 }

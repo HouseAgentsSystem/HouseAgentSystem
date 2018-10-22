@@ -1,8 +1,10 @@
 package com.houseAgent.houserent.controller;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Map;
 
+import org.apache.catalina.Host;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.houseAgent.common.web.ExtjsPageRequest;
+import com.houseAgent.house.domain.House;
 import com.houseAgent.houserent.domain.HouseRent;
 import com.houseAgent.houserent.domain.HouseRentDTO;
 import com.houseAgent.houserent.domain.ShowHouseRentDTO;
@@ -38,5 +41,12 @@ public class ShowHouseRentController {
 		HouseRentDTO.entityToDto(houseRent, houseRentDTO);
 		model.put("houseRent", houseRentDTO);
 		return "houserentdetail";
+	}
+	@GetMapping("/addHouseRent")
+	public String addHouse(HouseRent houseRent) {
+		System.out.println(houseRent);
+		houseRent.setApplyTime(new Date());
+		houseRentService.saveAndUpdate(houseRent);
+		return null;
 	}
 }

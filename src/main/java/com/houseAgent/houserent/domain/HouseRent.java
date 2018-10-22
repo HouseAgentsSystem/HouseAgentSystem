@@ -165,4 +165,13 @@ public class HouseRent {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	@Override
+	public String toString() {
+		return "HouseRent [id=" + id + ", region=" + region + ", rent=" + rent + ", area=" + area + ", room=" + room
+				+ ", hall=" + hall + ", floor=" + floor + ", title=" + title + ", address=" + address + ", images="
+				+ images + ", video=" + video + ", isEntireRent=" + isEntireRent + ", supporting=" + supporting
+				+ ", introduce=" + introduce + ", applyTime=" + applyTime + ", publishTime=" + publishTime + ", state="
+				+ state + ", user=" + user + "]";
+	}
+	
 }

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="multipart/form-data;charset=utf-8" />
+		<title>HTML5多文件预览上传</title>
+		<!-- 引用控制层插件样式 -->
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/zyUpload.css" type="text/css">
+		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+		<!-- 引用核心层插件 -->
+		<script type="text/javascript" src="js/zyFile.js"></script>
+		<!-- 引用控制层插件 -->
+		<script type="text/javascript" src="js/zyUpload.js"></script>
+		<!-- 引用初始化JS -->
+		<script type="text/javascript" src="js/demo.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=VyA3AiLqbNrhGrsa4DAACgaiCOA7V9uo"></script>
+	</head>
+
+	<body style="background-color: #fffef1;">
+		<div class="container" style="border:1px solid #000">
+			<form id="form1" class="form-horizontal" action="/showHouse/addHouse">
+				<div style="width: 650px; margin-left: 245px;margin-top: 20px;">
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-2 control-label">标题</label>
+						<div class="col-sm-10">
+							<input type="email" class="form-control" id="inputEmail3" placeholder="标题" style="width: 350px;" name="title">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">价格(万元)</label>
+						<div class="col-sm-5">
+							<input type="text" class="form-control" id="inputPassword3" placeholder="价格" style="width: 200px;" name="price">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">面积(平方米)</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="inputPassword3" placeholder="面积" style="width: 200px;" name="area">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">房型</label>
+						<div class="col-sm-10">
+							<select class="form-control" style="width: 100px;" name="type">
+								<option value="商品房">商品房</option>
+								<option value="铺面">铺面</option>
+								<option value="别墅">别墅</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">地区</label>
+						<div class="col-sm-10">
+							<select class="form-control" style="width: 100px;" name="region">
+								<option value="松山湖">松山湖</option>
+								<option value="大岭山">大岭山</option>
+								<option value="东城">东城</option>
+								<option value="莞城">莞城</option>
+								<option value="虎门">虎门</option>
+								<option value="大朗">大朗</option>
+								<option value="长安">长安</option>
+								<option value="厚街">厚街</option>
+								<option value="南城">南城</option>
+								<option value="樟木头">樟木头</option>
+								<option value="塘厦">塘厦</option>
+								<option value="常平">常平</option>
+								<option value="凤岗">凤岗</option>
+								<option value="万江">万江</option>
+								<option value="寮步">寮步 </option>
+								<option value="黄江">黄江</option>
+								<option value="沙田">沙田</option>
+								<option value="清溪">清溪</option>
+								<option value="中堂">中堂</option>
+								<option value="桥头">桥头</option>
+								<option value="石龙">石龙</option>
+								<option value="横沥">横沥</option>
+								<option value="道滘">道滘</option>
+								<option value="茶山">茶山</option>
+								<option value="麻涌">麻涌 </option>
+								<option value="石排">石排</option>
+								<option value="东坑">东坑</option>
+								<option value="高埗">高埗</option>
+								<option value="企石">企石</option>
+								<option value="谢岗">谢岗</option>
+								<option value="红梅">红梅</option>
+								<option value="望牛墩">望牛墩</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">详细地址</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="inputPassword3" placeholder="详细地址" style="width: 350px;" name="address">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">楼层</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="inputPassword3" placeholder="楼层" style="width: 200px;" name="floor">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">装修等级</label>
+						<div class="col-sm-10">
+							<select class="form-control" style="width: 100px;" name="decorateLevel">
+								<option value="精装修">精装修</option>
+								<option value="简装修">简装修</option>
+								<option value="毛坯房">毛坯房</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">朝向</label>
+						<div class="col-sm-10">
+							<select class="form-control" style="width: 100px;" name="orientation">
+								<option value="东">东</option>
+								<option value="西">西</option>
+								<option value="南">南</option>
+								<option value="北">北</option>
+								<option value="东南">东南</option>
+								<option value="西北">西北</option>
+								<option value="东北">东北</option>
+								<option value="西南">西南</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">室</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="inputPassword3" placeholder="房间数" style="width: 200px;" name="room">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">厅</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="inputPassword3" placeholder="厅" style="width: 200px;" name="hall">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">建造时间</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="inputPassword3" placeholder="建造时间" style="width: 200px;" name="buildDate">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">年限</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="inputPassword3" placeholder="产权年限" style="width: 200px;" name="propertyRights">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">电梯</label>
+						<div class="col-sm-10">
+							<select class="form-control" style="width: 100px;" name="isElevator">
+								<option value="1">是</option>
+								<option value="0">否</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">停车位</label>
+						<div class="col-sm-10">
+							<select class="form-control" style="width: 100px;" name="isParking">
+								<option value="1">是</option>
+								<option value="0">否</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">核心卖点</label>
+						<div class="col-sm-10">
+							<textarea class="form-control" id="inputPassword3" placeholder="核心卖点" style="width: 350px;" name="introduce"></textarea>
+						</div>
+					</div>
+					<div class="form-group" hidden="true">
+						<label for="inputPassword3" class="col-sm-2 control-label">视频地址</label>
+						<div class="col-sm-10">
+							<input id="vedioUrl" type="text" name="video"/>
+						</div>
+					</div>
+					<input id="images" name="images" hidden="true">
+					<input id="lng" name="longitude" hidden="true"/>
+					<input id="lat" name="latitude" hidden="true"/>
+				</div>
+			</form>
+
+			<div style="width: 650px; margin-left: 245px;margin-top: 20px;">
+				<div id="map" style="width: 650px; height: 400px; border: dashed;"></div>
+			</div>
+			<form enctype="multipart/form-data" action="/house/vedioUpload" method="post" id="form2" class="form-horizontal">
+				<div style="width: 650px; margin-left: 245px;margin-top: 20px;">
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">选择视频</label>
+						<div class="col-sm-10">
+							<input type="file" id="vd" onchange="getUrl()" name="fileList" class="btn btn-default"/>
+						</div>
+					</div>
+				</div>
+			</form>
+			<div id="demo" class="demo"></div>
+			<div style="width: 650px; margin-left: 245px;margin-top: 20px;">
+				<p align="right"><button class="btn btn-primary btn-lg" id="submit" onclick="submit()">提交</button></p>
+			</div>
+		</div>
+
+		<div style="display:none">
+			<script src="http://s24.cnzz.com/stat.php?id=4273731&web_id=4273731" language="JavaScript"></script>
+			<script src="http://s20.cnzz.com/stat.php?id=5240441&web_id=5240441" language="JavaScript"></script>
+			<script type="text/javascript">
+				var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+				document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Faca36f9d36d03a04d61c93f28c896386' type='text/javascript'%3E%3C/script%3E"));
+			</script>
+			<script>
+				function getUrl() {
+					var file = $("#vd").val();
+
+					function getFileName(o) {
+						var pos = o.lastIndexOf("\\");
+						return o.substring(pos + 1);
+					}
+					$("#vedioUrl").val(getFileName(file))
+				}
+				function form2Upload(){
+					var fileList = new FormData($('#form2')[0]);
+			            $.ajax({
+			                type: 'post',
+			                url: "/house/vedioUpload",
+			                data: fileList,
+			                cache: false,
+			                processData: false,
+			                contentType: false,
+			            }).success(function (data) {
+			            	$("#form1").submit();
+			            }).error(function () {
+			            });
+				}
+				function submit(){
+					form2Upload();
+					/* $("#form1").submit(); */
+					/* $("#form2").submit(); */
+				}
+			</script>
+			<script type="text/javascript">
+				var map = new BMap.Map("allmap");
+				var point = new BMap.Point(113.756747, 23.025451);
+				var map = new BMap.Map("map", {
+					mapType: BMAP_NORMAL_MAP,
+					minZoom: 1,
+					maxZoom: 18
+				});
+				map.centerAndZoom(point, 12);
+				map.enableScrollWheelZoom();
+				var geolocation = new BMap.Geolocation();
+				geolocation.getCurrentPosition(function(r) {
+					if(this.getStatus() == BMAP_STATUS_SUCCESS) {
+						var point = new BMap.Point(r.point.lng, +r.point.lat);
+					}   
+				}, {
+					enableHighAccuracy: true
+				})
+				map.addEventListener("click", function(e) {  
+					map.clearOverlays();
+					point = new BMap.Point(e.point.lng, e.point.lat);
+					map.addOverlay(new BMap.Marker(point));
+					$("#lat").val(e.point.lat);
+					$("#lng").val(e.point.lng);
+				});
+			</script>
+		</div>
+	</body>
+
+</html>

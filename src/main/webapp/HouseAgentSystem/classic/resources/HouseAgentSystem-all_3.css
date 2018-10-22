@@ -1,3 +1,57 @@
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2966 */
+.x-keyboard-mode .x-btn-focus .x-btn-blue-small-tl,
+.x-keyboard-mode .x-btn-focus .x-btn-blue-small-bl,
+.x-keyboard-mode .x-btn-focus .x-btn-blue-small-tr,
+.x-keyboard-mode .x-btn-focus .x-btn-blue-small-br,
+.x-keyboard-mode .x-btn-focus .x-btn-blue-small-tc,
+.x-keyboard-mode .x-btn-focus .x-btn-blue-small-bc {
+    background-image: url(images/btn/btn-blue-small-focus-corners.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2974 */
+.x-keyboard-mode .x-btn-focus .x-btn-blue-small-ml,
+.x-keyboard-mode .x-btn-focus .x-btn-blue-small-mr {
+    background-image: url(images/btn/btn-blue-small-focus-sides.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2978 */
+.x-keyboard-mode .x-btn-focus .x-btn-blue-small-mc {
+    background-color: #167abc;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2991 */
+.x-btn-over .x-btn-blue-small-tl,
+.x-btn-over .x-btn-blue-small-bl,
+.x-btn-over .x-btn-blue-small-tr,
+.x-btn-over .x-btn-blue-small-br,
+.x-btn-over .x-btn-blue-small-tc,
+.x-btn-over .x-btn-blue-small-bc {
+    background-image: url(images/btn/btn-blue-small-over-corners.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2999 */
+.x-btn-over .x-btn-blue-small-ml,
+.x-btn-over .x-btn-blue-small-mr {
+    background-image: url(images/btn/btn-blue-small-over-sides.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3003 */
+.x-btn-over .x-btn-blue-small-mc {
+    background-color: #1470ad;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3016 */
+.x-keyboard-mode .x-btn-focus.x-btn-over .x-btn-blue-small-tl,
+.x-keyboard-mode .x-btn-focus.x-btn-over .x-btn-blue-small-bl,
+.x-keyboard-mode .x-btn-focus.x-btn-over .x-btn-blue-small-tr,
+.x-keyboard-mode .x-btn-focus.x-btn-over .x-btn-blue-small-br,
+.x-keyboard-mode .x-btn-focus.x-btn-over .x-btn-blue-small-tc,
+.x-keyboard-mode .x-btn-focus.x-btn-over .x-btn-blue-small-bc {
+    background-image: url(images/btn/btn-blue-small-focus-over-corners.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3024 */
+.x-keyboard-mode .x-btn-focus.x-btn-over .x-btn-blue-small-ml,
+.x-keyboard-mode .x-btn-focus.x-btn-over .x-btn-blue-small-mr {
+    background-image: url(images/btn/btn-blue-small-focus-over-sides.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3028 */
+.x-keyboard-mode .x-btn-focus.x-btn-over .x-btn-blue-small-mc {
+    background-color: #1470ad;
+}
 /* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3043 */
 .x-btn.x-btn-menu-active .x-btn-blue-small-tl,
 .x-btn.x-btn-menu-active .x-btn-blue-small-bl,
