@@ -35,7 +35,7 @@ public class showHouseController {
 		house.setState(1);
 		house.setAgencyFees((double) 5000);
 		houseService.addOneHouse(house);
-		return null;
+		return "addsucceed";
 	}
 	
 }

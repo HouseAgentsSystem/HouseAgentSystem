@@ -47,6 +47,6 @@ public class ShowHouseRentController {
 		System.out.println(houseRent);
 		houseRent.setApplyTime(new Date());
 		houseRentService.saveAndUpdate(houseRent);
-		return null;
+		return "addsucceed";
 	}
 }
