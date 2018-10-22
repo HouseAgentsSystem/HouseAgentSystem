@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import com.houseAgent.common.web.ExtAjaxResponse;
 import com.houseAgent.common.web.TreeNode;
 import com.houseAgent.staff.domain.Staff;
+import com.houseAgent.trade.domain.Trade;
 import com.houseAgent.trade.domain.TradeDTO;
 
 public interface ITradeService {
@@ -17,4 +19,6 @@ public interface ITradeService {
 	public Page<TradeDTO> findTradeByStaffId(Long id, Pageable pageable);
 	public Page<TradeDTO> findTradeByStoreId(Long id, Pageable pageable);
 	public Page<TradeDTO> findTradeAllByStaff(Staff staff, Pageable pageable);
+	public void save(Trade trade);
+	public ExtAjaxResponse saveOneTrade(Long houseId, String userName, Double agencyFees, Double actualPrice);
 }

@@ -1,0 +1,33 @@
+.user-grid .x-fa {
+    height: 20px;
+    width: 20px;
+    background: $grid-item-edit-btn-color;
+    line-height: 20px;
+    float: left;
+    margin-right: 10px;
+
+    &:before {
+        display: block;
+        line-height: 20px;
+        text-align: center;
+    }
+
+    &.fa-close{
+        background-color: $grid-item-close-btn-color;
+        color: $lightest-color;
+    }
+
+    &.fa-ban{
+        background-color: $grid-item-ban-btn-color;
+        color: $lightest-color;
+    }
+
+    &.fa-gavel{
+        background-color: #16b603;
+        color: $lightest-color;
+    }
+
+    &.x-action-col-icon{
+        font-size: 13px !important;
+    }
+}

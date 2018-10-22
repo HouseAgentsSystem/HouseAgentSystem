@@ -1,14 +1,9 @@
-﻿/**
-*订单模块主视图
-	在主视图配置viewController和viewModel，
-	那么主视图的子视图也可以访问配置好viewController和viewModel。
-*/
-Ext.define('HouseAgentSystem.view.trade.Trade', {		//1.修改文件路径
+﻿Ext.define('HouseAgentSystem.view.trade.Trade', {		//1.修改文件路径
       extend: 'Ext.container.Container',	//2.继承的组件类型
 	//3.重写继承组件的属性：
     xtype: 'trade',
 	height:Ext.Element.getViewportHeight()-104,//必须设置高，否则无法使用btrade布局
-    //controller: 'tradeViewController',		
+    controller: 'tradeViewController',		
     viewModel : {type: 'tradeViewModel'},	
 	requires: [
         'Ext.layout.container.Border'
@@ -18,7 +13,7 @@ Ext.define('HouseAgentSystem.view.trade.Trade', {		//1.修改文件路径
     items: [{
 		title: 'Navigation',
 		region:'west',
-		width: 200,
+		width: 180,
 		collapsible: true,
 		margins: '5 0 0 0',
 		cmargins: '5 5 0 0',

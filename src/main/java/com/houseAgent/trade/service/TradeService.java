@@ -1,6 +1,7 @@
 package com.houseAgent.trade.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.databind.annotation.JsonAppend.Attr;
+import com.houseAgent.common.web.ExtAjaxResponse;
 import com.houseAgent.common.web.TreeNode;
+import com.houseAgent.house.domain.House;
+import com.houseAgent.house.repository.HouseRepository;
+import com.houseAgent.houserent.repository.HouseRentRepository;
 import com.houseAgent.staff.domain.Staff;
 import com.houseAgent.staff.repository.StaffRepository;
 import com.houseAgent.store.domain.Store;
@@ -19,6 +24,8 @@ import com.houseAgent.store.repository.StoreRepository;
 import com.houseAgent.trade.domain.Trade;
 import com.houseAgent.trade.domain.TradeDTO;
 import com.houseAgent.trade.repository.TradeRepository;
+import com.houseAgent.user.domain.User;
+import com.houseAgent.user.repository.UserRepository;
 
 @Service
 @Transactional
@@ -30,6 +37,16 @@ public class TradeService implements ITradeService {
 	private StaffRepository staffRepository;
 	@Autowired
 	private StoreRepository storeRepository;
+	@Autowired
+	private UserRepository userRepository;
+	@Autowired
+	private HouseRepository houseRepository;
+	
+
+	@Override
+	public void save(Trade trade) {
+		tradeRepositoty.save(trade);
+	}
 	
 	/**
 	 * 根据门店id找员工Tree
@@ -138,4 +155,33 @@ public class TradeService implements ITradeService {
 		return new PageImpl<TradeDTO>(dtos, pageable, dtos.size());
 	}
 
+	@Override
+	public ExtAjaxResponse saveOneTrade(Long houseId, String userName, Double agencyFees, Double actualPrice) {
+		try {
+			Trade trade = new Trade();
+			
+			User user = userRepository.findByUserName(userName);
+			if(user != null) {
+				trade.setUser(user);
+			} else {
+				return new ExtAjaxResponse(false, "用户不存在！");
+			}
+			
+			House house = houseRepository.findById(houseId).get();
+			trade.setHouseData(house);
+			//设为已售
+			house.setState(2);
+			houseRepository.save(house);
+			
+			trade.setSaleDate(new Date());
+			trade.setAgencyFees(agencyFees);
+			trade.setActualPrice(actualPrice);
+			
+			tradeRepositoty.save(trade);
+		} catch(Exception e) {
+			e.printStackTrace();
+			return new ExtAjaxResponse(true, "记录交易失败！");
+		}
+		return new ExtAjaxResponse(true, "记录交易成功！");
+	}
 }

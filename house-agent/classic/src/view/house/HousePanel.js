@@ -84,8 +84,9 @@ Ext.define('HouseAgentSystem.view.house.HousePanel', {
 					},
 					{
 						xtype: 'button',
-						iconCls: 'x-fa fa-ban',
-						handler: 'onDisableButton'
+						iconCls: 'x-fa fa-gavel',
+						tooltip: '记录交易',
+						handler: 'onTradeButton'
 					}
 				],
 

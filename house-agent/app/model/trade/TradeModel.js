@@ -5,7 +5,7 @@ Ext.define('HouseAgentSystem.model.trade.TradeModel', {
 	],
     fields: [
 	    {type: 'int',name: 'id'},
-	    {type: 'date',name: 'saleDate', },
+	    {type: 'date',name: 'saleDate', dateFormat:'Y/m/d H:i:s'},
 	    {type: 'float',name: 'agencyFees'},
 	    {type: 'float',name: 'actualPrice'},
 	    {type: 'string',name: 'buyerName'},

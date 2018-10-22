@@ -186,8 +186,13 @@ Ext.define('HouseAgentSystem.view.house.HouseController', {
         	}
         , this);
 	},
-	onDisableButton: function() {
-
+	onTradeButton:function(grid, rowIndex, colIndex){
+		var record = grid.getStore().getAt(rowIndex);
+		if (record ) {
+			var win = grid.up('container').add(Ext.widget('tradeAddWindow'));
+			win.show();
+			win.down('form').getForm().loadRecord(record);
+		}
 	}
 	
 });
