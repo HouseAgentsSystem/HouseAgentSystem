@@ -54,6 +54,18 @@ public class StoreController {
 		}
 	}
 	
+	@PostMapping("/addStore")
+	public ExtAjaxResponse addStore(Store store, Staff staff) {
+		try {
+			storeService.saveOneStore(store, staff);
+			
+			return new ExtAjaxResponse(true, "添加门店成功！");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ExtAjaxResponse(false, "添加门店失败！");
+		}
+	}
+	
 	@DeleteMapping(value = "{id}")
 	public ExtAjaxResponse delete(@PathVariable("id") Long id) {
 		try {

@@ -27,4 +27,6 @@ public interface IStoreService {
 	public List<Staff> findStaffByStoreId(Long storeId);
 
 	public Page<House> findHouseByStoreId(Long storeId, Pageable pageRequest);
+	
+	public void saveOneStore(Store store, Staff staff);
 }

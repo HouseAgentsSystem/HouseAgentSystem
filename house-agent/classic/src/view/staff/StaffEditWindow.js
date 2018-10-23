@@ -55,7 +55,7 @@ Ext.define('HouseAgentSystem.view.staff.StaffEditWindow', {
             fieldLabel: '所属门店',
             name:'store',
 			editable: false,
-			store: Ext.create("HouseAgentSystem.store.store.StoreGridStroe"),
+			store: Ext.create("HouseAgentSystem.store.store.StoreGridStore"),
 			displayField: 'storeName',
 			valueField:'id',
 			queryMode: 'local',

@@ -38,14 +38,39 @@
 	/********************************************** Submit / Ajax / Rest *****************************************************/
 	/*Add Submit*/	
 	submitAddForm:function(btn){
-		var win    = btn.up('window');
+		// var win    = btn.up('window');
+		// var form = win.down('form');
+		// var record = Ext.create('HouseAgentSystem.model.store.StoreModel');
+		// var values  =form.getValues();//获取form数据
+		// record.set(values);
+		// record.save();
+		// Ext.data.StoreManager.lookup('storeGridStore').load();
+		// win.close();
+		var win = btn.up('window');
 		var form = win.down('form');
-		var record = Ext.create('HouseAgentSystem.model.store.StoreModel');
-		var values  =form.getValues();//获取form数据
-		record.set(values);
-		record.save();
-		Ext.data.StoreManager.lookup('storeGridStore').load();
-		win.close();
+
+		if (form.isValid()) {
+	        form.submit({
+	            url: '/store/addStore',
+				method: 'POST',
+	            waitMsg: '记录交易中...',
+	            success: function(form, action) {
+					var result = action.result;
+					if(result.success){
+						Ext.Msg.alert('操作成功', result.msg, function() {
+							Ext.data.StoreManager.lookup('storeGridStore').load();
+							win.close();
+						});
+					}else{
+						Ext.Msg.alert('操作失败', result.msg);
+					}
+				},
+				failure: function(form, action) {
+					var result = action.result;
+					Ext.Msg.alert('操作失败', result.msg);
+				}
+	        });
+	    }
 	},
 	/*Edit Submit*/	
 	submitEditForm:function(btn){

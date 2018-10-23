@@ -48,6 +48,7 @@ Ext.define('HouseAgentSystem.view.trade.TradeViewController', {
 					var result = action.result;
 					if(result.success){
 						Ext.Msg.alert('操作成功', result.msg, function() {
+							Ext.data.StoreManager.lookup('houseGridStore').load();
 							win.close();
 						});
 					}else{
@@ -55,7 +56,6 @@ Ext.define('HouseAgentSystem.view.trade.TradeViewController', {
 					}
 				},
 				failure: function(form, action) {
-					console.log("sdfio");
 					var result = action.result;
 					Ext.Msg.alert('操作失败', result.msg);
 				}

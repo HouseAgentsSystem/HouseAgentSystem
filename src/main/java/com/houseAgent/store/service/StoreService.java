@@ -101,4 +101,12 @@ public class StoreService implements IStoreService {
 		return new PageImpl<House>(houseList, pageable, houseList.size());
 	}
 
+	@Override
+	public void saveOneStore(Store store, Staff staff) {
+		storeRepository.save(store);
+		staff.setStore(store);
+		staff.setPosition("经理");
+		staff.setPassword("123456");//加密
+		staffRepository.save(staff);
+	}
 }
