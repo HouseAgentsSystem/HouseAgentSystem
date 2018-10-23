@@ -10,5 +10,5 @@ echo "===========================	remove classic dir  ==========================
 echo "===========================	mkdir classic di	==========================="
 	mkdir ..\src\main\webapp\classic
 echo "=========================== copy testing to webapp ==========================="
-	 xcopy /s /y build\testing\Admin ..\src\main\webapp  /e/h
+	 xcopy /s /y build\testing\HouseAgentSystem ..\src\main\webapp  /e/h
 pause

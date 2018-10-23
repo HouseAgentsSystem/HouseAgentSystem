@@ -24,7 +24,17 @@ public class StaffService implements IStaffService{
 	private StaffRepository staffRepository;
 	
 	@Override
+	public void save(Staff staff, Staff manager) {
+		staff.setFaceImg("default.jpg");
+		staff.setPassword("123456");//加密
+		staff.setPosition("员工");
+		staff.setStore(manager.getStore());
+		staffRepository.save(staff);
+	}
+	
+	@Override
 	public void saveAndUpdate(Staff staff) {
+		
 		staffRepository.save(staff);
 	}
 

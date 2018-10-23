@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>我要租房</title>
         
 	<!--CSS-->
 	<link rel="stylesheet" type="text/css" href="theme-triton/resources/theme-triton-all_1.css"/>
@@ -58,6 +58,62 @@
 			listeners: {}
 		});
 		
+		function reload(btn) {
+			var store = Ext.data.StoreManager.lookup('houseRentStore');
+			var sorter = store.getSorters();
+			sorter.clear();
+			var newSorter=[{
+				property:'id',
+				direction:'DESC'
+			}];
+			store.setSorters(newSorter);
+			
+		}
+		
+		function publishTimeUp(btn) {
+			var store = Ext.data.StoreManager.lookup('houseRentStore');
+			var sorter = store.getSorters();
+			sorter.clear();
+			var accord = this.getText();
+			if(accord=='发布时间▲'){
+				var newSorter=[{
+					property:'publishTime',
+					direction:'asc'
+				}];
+				store.setSorters(newSorter);
+				this.setText('发布时间▼');
+			}else{
+				var newSorter=[{
+					property:'publishTime',
+					direction:'DESC'
+				}];
+				store.setSorters(newSorter);
+				this.setText('发布时间▲');
+			}
+		}
+		
+		function priceUp(btn) {
+			var store = Ext.data.StoreManager.lookup('houseRentStore');
+			var sorter = store.getSorters();
+			sorter.clear();
+			var accord = this.getText();
+			if(accord=='价格▲'){
+				var newSorter=[{
+					property:'rent',
+					direction:'asc'
+				}];
+				store.setSorters(newSorter);
+				this.setText('价格▼');
+			}else{
+				var newSorter=[{
+					property:'rent',
+					direction:'DESC'
+				}];
+				store.setSorters(newSorter);
+				this.setText('价格▲');
+			}
+		}
+		
 		Ext.create('Ext.container.Viewport', {
 			    //width: 800,
 			    //height: 1500,
@@ -82,7 +138,7 @@
 					            '<div class="collapse navbar-collapse" id="navbar-collapse-01">'+
 					              '<ul class="nav navbar-nav mr-auto">'+
 					                '<li><a href="#fakelink">首页</a></li>'+
-					                '<li><a href="house.jsp"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a></li>'+
+					                '<li><a href="house.html"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a></li>'+
 					                '<li><a href="login.html"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a></li>'+
 					                '<li><a href=""><img src="http://localhost:8081/Customer/dist/images/出租.png">我要出租</a></li>'+
 					               '</ul>'+
@@ -264,7 +320,7 @@
 			                        var page = "<div class='media' style='background-color:rgba(); padding: 16px;'>"+
 			                        "<div class='media-left'>"+
 									    "<a href='#'>"+
-									      "<img class='media-object' src='images/"+record.data.image+"' alt='...' height='160px' width='215px'>"+
+									      "<img class='media-object' src='/Customer/upload/houseRent/"+record.data.image+"' alt='...' height='160px' width='215px'>"+
 									    "</a>"+
 									  "</div>"+
 									  "<div class='media-body'>"+
@@ -283,6 +339,21 @@
 			                    flex: 1
 			                }
 			            ],
+			            tbar: {
+							
+							items: ['->',{
+								text: '默认排序',
+								iconCls: 'x-fa fa-refresh',
+								handler:reload
+								
+							},{
+								text: '价格▲',
+								handler: priceUp
+							}, {
+								text: '发布时间▲',
+								handler: publishTimeUp
+							}]
+						},
 			            dockedItems: [
 			                {
 			                    xtype: 'pagingtoolbar',

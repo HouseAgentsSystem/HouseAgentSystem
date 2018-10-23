@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>${requestScope.store.storeName}</title>
 <!--CSS-->
 <link rel="stylesheet" type="text/css"
 	href="http://localhost:8081/Customer/theme-triton/resources/theme-triton-all_1.css" />
@@ -20,6 +20,12 @@
 <!-- Loading Flat UI -->
 <link href="http://localhost:8081/Customer/dist/css/flat-ui.css" rel="stylesheet">
 <link href="http://localhost:8081/Customer/docs/assets/css/demo.css" rel="stylesheet">
+<style type="text/css">
+	h3{color: #2b5454;}
+	p{margin: 5px; font-size:15px; letter-spacing: 1.5px;}
+	.detail{color: #797979;}
+	.detail span{color: black; font-size:18px;}
+</style>
 <!--JS-->
 <script type="text/javascript" src="http://localhost:8081/Customer/js/ext-all.js"></script>
 <script type="text/javascript">
@@ -124,11 +130,20 @@
 		        items:[{
 		        	region: 'north',     
 			        xtype: 'panel',
-			        height: 100,
+			        height: 118,
 			        split: false,         // enable resizing
 			        border: false,
-			        //margins: '0 5 5 5',
-			        html: '门店信息'
+			        margin: '0 5 0 100',
+			        html: "<div class='row col-md-8 col-md-offset-2'>"+
+					        	"<b><h3>${requestScope.store.storeName}</h3></b>"+
+					      "</div>"+
+				        '<div class="row col-md-8 col-md-offset-2">'+
+							'<b><p style="" class="detail">'+
+								'经理：<span>${requestScope.store.managerName}</span><em>&nbsp;|&nbsp;</em>'+
+								'联系方式：<span>${requestScope.store.managerPhone}</span><span>${requestScope.houseRent.hall}</span><em>&nbsp;|&nbsp;</em>'+
+								'门店地址：<span>${requestScope.store.address}</span>&nbsp;&nbsp;'+
+							"</p></b>"+
+						"</div>"
 		        },{
 		        	xtype: 'panel',
 		        	region: 'center', 
@@ -155,12 +170,12 @@
 			                        var page = "<div class='media' style='background-color:rgba();margin: 10px;'>"+
 									  "<div class='media-left'>"+
 									    "<a href='#'>"+
-									      "<img class='media-object' src='http://localhost:8081/Customer/images/"+record.data.images+"' alt='...' height='190px' width='260px'>"+
+									      "<img class='media-object' src='http://localhost:8081/Customer/upload/houseRent/"+record.data.images+"' alt='...' height='190px' width='260px'>"+
 									    "</a>"+
 									  "</div>"+
 									  "<div class='media-body'>"+
 									    "<b><a target='_blank' href='http://localhost:8081/showHouse/details?id="+record.data.id+" '><h4 style='text-indent:50px;'>"+record.data.title+"</h4></a></b>"+
-									    "<h4 style='color:red;font-family:verdana;'align='right'>"+record.data.price+"万</h4>"+
+									    "<h4 style='color:#eb5f00;font-family:verdana;'align='right'>"+record.data.price+"万</h4>"+
 									    "<p style='text-indent:50px; font-size:17px;'><span> "+record.data.room+"室"+record.data.hall+"厅</span><em> | </em><span> "+record.data.area+"m²</span><em> | </em><span> 第"+record.data.floor+"层</span><em> | </em><span>"+record.data.buildDate+"年建</span>"+"</p>"+
 									    "<p style='text-indent:50px; font-size:16px;'><b>"+record.data.region+"&nbsp;&nbsp;&nbsp;</b>"+record.data.address+"</p>"+
 									  "</div>"+

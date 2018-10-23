@@ -12,8 +12,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.jpa.domain.Specification;
 
 import com.houseAgent.common.beans.BeanUtils;
-import com.houseAgent.store.domain.Store;
-
 
 public class StaffDTO {
 	private long id;//员工Id	
@@ -23,13 +21,14 @@ public class StaffDTO {
 	private String sex;//性别
 	private String faceImg;//头像
 	
-	private String storeId;//门店Id
+	private Long storeId;//门店Id
 	private String name;
 	
 	//后到前：1.针对“前端”设计的数据封装对象(查询)
 	public static void entityToDto(Staff entity,StaffDTO dto){
 		BeanUtils.copyProperties(entity, dto);
 		if(entity.getStore()!=null) {
+			dto.setStoreId(entity.getStore().getId());
 			dto.setName(entity.getStore().getStoreName());
 		}
 	}
@@ -84,11 +83,11 @@ public class StaffDTO {
 		this.name = name;
 	}
 	
-	public String getStoreId() {
+	public Long getStoreId() {
 		return storeId;
 	}
 
-	public void setStoreId(String storeId) {
+	public void setStoreId(Long storeId) {
 		this.storeId = storeId;
 	}
 	
@@ -106,6 +105,12 @@ public class StaffDTO {
 				if (StringUtils.isNotBlank(staffDTO.getSex())) {
 					predicate.add(criteriaBuilder.like(root.get("sex").as(String.class),
 							staffDTO.getSex()));
+				}
+				if(staffDTO.getStoreId() != null) {
+					predicate.add(criteriaBuilder.equal(root.get("store").get("id"), staffDTO.getStoreId()));
+					predicate.add(criteriaBuilder.equal(root.get("position"), "员工"));
+				} else {
+					predicate.add(criteriaBuilder.notEqual(root.get("position"), "管理员"));
 				}
 				
 				Predicate[] pre = new Predicate[predicate.size()];

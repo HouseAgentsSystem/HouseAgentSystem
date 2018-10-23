@@ -10,6 +10,7 @@ import com.houseAgent.staff.domain.StaffDTO;
 
 
 public interface IStaffService {
+	public void save(Staff staff, Staff Manager);
 	public void saveAndUpdate(Staff staff);
 	public void update(Long id, StaffDTO staffDTO);
 	

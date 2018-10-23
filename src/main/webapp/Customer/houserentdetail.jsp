@@ -30,7 +30,7 @@
 		</style>
 		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=VyA3AiLqbNrhGrsa4DAACgaiCOA7V9uo"></script>
 		<meta charset="UTF-8">
-		<title>详情</title>
+		<title>租房详情</title>
 	</head>
 
 	<body>
@@ -87,7 +87,7 @@
 				            controls
 				            preload="auto"
 				            data-setup='{}' style="height: 400px; width: 100%;">
-				            <source src="/Customer/video/${requestScope.houseRent.video}" type="video/mp4"></source>
+				            <source src="/Customer/upload/houseRent/${requestScope.houseRent.video}" type="video/mp4"></source>
 				           <!-- <source src="http://iurevych.github.com/Flat-UI-videos/big_buck_bunny.webm" type="video/webm"></source>-->
 				            <p class="vjs-no-js">
 				              To view this video please enable JavaScript, and consider upgrading to a
@@ -100,7 +100,7 @@
 					    </div>
 					    <c:forEach items="${requestScope.houseRent.imgs}" var="img" varStatus="id">    
 							<div class="item">
-						      <img src="/Customer/images/${img}" alt="..." style="height: 400px; width: 100%;">
+						      <img src="/Customer/upload/houseRent/${img}" alt="..." style="height: 400px; width: 100%;">
 						    </div>
 					    </c:forEach>
 					  </div>
@@ -119,7 +119,7 @@
 				<div class="col-md-offset-0 col-md-4">
 				    <div class="thumbnail">
 				      <h4>房东信息</h4><hr>
-				      <img src="/Customer/images/${requestScope.houseRent.userFaceImage}" alt="..." style="height: 250px;width: 200px">
+				      <img src="/Customer/upload/user/${requestScope.houseRent.userFaceImage}" alt="..." style="height: 250px;width: 200px">
 				      <div class="caption">
 				        <h4>姓名：${requestScope.houseRent.userRealname}</h4>
 				        <h4>手机：${requestScope.houseRent.userPhoneNumber}</h4>

@@ -3,6 +3,7 @@ package com.houseAgent.staff.controller;
 import java.io.File;
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,10 +36,11 @@ public class StaffController {
 	private IStaffService staffService;
 	
 	@PostMapping
-    public ExtAjaxResponse save(Staff staff) {
+    public ExtAjaxResponse save(Staff staff, HttpSession session) {
 		
     	try {
-    		staffService.saveAndUpdate(staff);
+    		Staff manager = SessionUtil.getStaff(session);
+    		staffService.save(staff, manager);
     		return new ExtAjaxResponse(true,"添加员工成功！");
 	    } catch (Exception e) {
 	    	e.printStackTrace();
@@ -47,7 +49,12 @@ public class StaffController {
     }
 	
 	@GetMapping
-    public Page<StaffDTO> findAll(StaffDTO staffDTO,ExtjsPageRequest pageRequest) {
+    public Page<StaffDTO> findAll(StaffDTO staffDTO, ExtjsPageRequest pageRequest, HttpSession session) {
+		//Staff staff = SessionUtil.getStaff(session);
+		Staff staff = staffService.findById(3L);
+		if(staff.getPosition().equals("经理")) {
+			staffDTO.setStoreId(staff.getStore().getId());
+		}
 		return staffService.findAll(StaffDTO.getWhereClause(staffDTO), pageRequest.getPageable());
 	}
 	
@@ -104,25 +111,27 @@ public class StaffController {
 	}
 	
 	@PostMapping(value = "/upload")
-	public ExtAjaxResponse upload(@RequestParam("faceImg") MultipartFile file,HttpSession session) throws IOException { 
+	public ExtAjaxResponse upload(@RequestParam("faceImg") MultipartFile file,HttpSession session,HttpServletRequest request) throws IOException { 
 		String fileName = ""; 
 		File filedir; 
 		System.out.println("上传文件controller");
-		
 		try {
 			if(!("").equals(file.getOriginalFilename())&&file !=null) {
 	    	   //获得文件名
 	           fileName = file.getOriginalFilename();
 	           System.out.println(fileName);
-	           filedir = new File("E:\\stsWorkspace\\activiti_springboot\\admin-dashboard\\resources\\images\\user-profile\\");
+	           String filePath = request.getSession().getServletContext()
+                       .getRealPath("/")
+                       + "Customer/upload/staff/";
+	           filedir = new File(filePath);
 	           if(!filedir.exists()) {
 	        	   filedir.mkdirs();
 	           }
 	           //将附件保存
-	           file.transferTo(new File("E:\\stsWorkspace\\activiti_springboot\\admin-dashboard\\resources\\images\\user-profile\\"+fileName));
+	           file.transferTo(new File(filePath+fileName));
 			}
 			
-			SessionUtil.setStaffId(session,5L);
+			SessionUtil.setStaffId(session,5L);//得删除
 			Long id = SessionUtil.getStaffId(session);
 			StaffDTO dto = staffService.findOne(id);
 			dto.setFaceImg(fileName);
