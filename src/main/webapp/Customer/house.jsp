@@ -5,7 +5,7 @@
 <html>
 
 	<head>
-		<title>LeHome</title>
+		<title>我要买房</title>
 		<meta charset="utf-8" />
 
 		<!--CSS-->
@@ -133,10 +133,10 @@
 						html: '<div class="row demo-row">' +
 							'<div class="col">' +
 							'<nav class="navbar navbar-inverse navbar-embossed navbar-expand-lg" role="navigation">' +
-							'<a class="navbar-brand" href="#">Flat UI</a>' +
+							'<a class="navbar-brand" href="index.jsp">Le Home</a>' +
 							'<div class="collapse navbar-collapse" id="navbar-collapse-01">' +
 							'<ul class="nav navbar-nav mr-auto">' +
-							'<li><a href="#fakelink">首页</a></li>' +
+							'<li><a href="index.jsp">首页</a></li>' +
 							'<li><a href="house.jsp"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a></li>' +
 							'<li><a href="login.html"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a></li>' +
 							'<li><a href=""><img src="http://localhost:8081/Customer/dist/images/出租.png">我要出租</a></li>' +

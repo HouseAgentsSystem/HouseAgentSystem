@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.houseAgent.common.beans.BeanUtils;
 import com.houseAgent.house.domain.House;
+import com.houseAgent.house.domain.HouseDTO;
 import com.houseAgent.house.repository.HouseRepository;
 import com.houseAgent.staff.domain.Staff;
 import com.houseAgent.staff.repository.StaffRepository;
@@ -95,10 +96,17 @@ public class StoreService implements IStoreService {
 
 	@Override
 	@Transactional(readOnly=true)
-	public Page<House> findHouseByStoreId(Long storeId, Pageable pageable) {
+	public Page<HouseDTO> findHouseByStoreId(Long storeId, Pageable pageable) {
 		Store store = storeRepository.findById(storeId).get();
+		List<HouseDTO> dtoList = new ArrayList<>();
 		List<House> houseList = houseRepository.findHouseByStore(store);
-		return new PageImpl<House>(houseList, pageable, houseList.size());
+		for (House house : houseList) {
+			HouseDTO dto = new HouseDTO();
+			HouseDTO.entityToDto(house, dto);
+			dtoList.add(dto);
+		}
+		
+		return new PageImpl<HouseDTO>(dtoList, pageable, houseList.size());
 	}
 
 	@Override

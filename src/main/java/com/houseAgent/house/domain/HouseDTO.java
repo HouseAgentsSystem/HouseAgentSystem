@@ -39,7 +39,7 @@ public class HouseDTO {
 	
 	public static void entityToDto(House house , HouseDTO dto) {
 		BeanUtils.copyProperties(house, dto);
-		dto.imgs = house.getImages().split("/");
+		dto.imgs = house.getImages().split(",");
 		if(house.getIsElevator()==1) {
 			dto.setIsElevator("是");
 		}else dto.setIsElevator("否");

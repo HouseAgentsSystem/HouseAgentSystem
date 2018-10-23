@@ -96,6 +96,8 @@
 		    title: 'Border Layout',
 		    defaults: {border: false},
 		    layout: 'border',
+		    scrollable: true,
+			autosrcoll: true,
 		    items: [{
 		        //title: 'North Region is resizable',
 		        region: 'north',     // position for region
@@ -103,21 +105,29 @@
 		        height: 55,
 		        split: false,         // enable resizing
 		        //margin: '0 5 5 5',
-		        html: '<div class="row demo-row">'+
-				        '<div class="col">'+
-				          '<nav class="navbar navbar-inverse navbar-embossed navbar-expand-lg" role="navigation">'+
-				            '<a class="navbar-brand" href="#">Flat UI</a>'+
-				            '<div class="collapse navbar-collapse" id="navbar-collapse-01">'+
-				              '<ul class="nav navbar-nav mr-auto">'+
-				                '<li><a href="#fakelink">首页</a></li>'+
-				                '<li><a href="house.html"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a></li>'+
-				                '<li><a href="login.html"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a></li>'+
-				                '<li><a href=""><img src="http://localhost:8081/Customer/dist/images/出租.png">我要出租</a></li>'+
-				               '</ul>'+
-				            '</div>'+
-				          '</nav>'+
-				        '</div>'+
-				      '</div>',
+		        html: '<div class="row demo-row">' +
+				'<div class="col">' +
+				'<nav class="navbar navbar-inverse navbar-embossed navbar-expand-lg" role="navigation">' +
+				'<a class="navbar-brand" href="index.jsp">Le Home</a>' +
+				'<div class="collapse navbar-collapse" id="navbar-collapse-01">' +
+				'<ul class="nav navbar-nav mr-auto">' +
+				'<li><a href="index.jsp">首页</a></li>' +
+				'<li><a href="house.jsp"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a></li>' +
+				'<li><a href="login.html"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a></li>' +
+				'<li><a href=""><img src="http://localhost:8081/Customer/dist/images/出租.png">我要出租</a></li>' +
+				'<li style="width:600px;"></li>'+
+				'<c:if test="${not empty sessionScope.user.realname}">'+
+				'<li><a href="../showUser/information?id=${sessionScope.user.id}">${sessionScope.user.realname}<img src="../Customer/upload/user/${sessionScope.user.faceImage}" style="width:30px;height:30px;border-radius:15px;"></a></li>'+
+				'<li><a href="#"onclick="logout()">退出</a></li>'+
+				'</c:if>'+
+				'<c:if test="${empty sessionScope.user.realname}">'+
+				'<li><a href="../Customer/login&registration.html">登录/注册</a></li>'+
+				'</c:if>'+
+				'</ul>' +
+				'</div>' +
+				'</nav>' +
+				'</div>' +
+				'</div>',
 		    },{
 		        //title: 'Center Region',
 		        region: 'center',     // center region is required, no width/height specified
@@ -150,7 +160,8 @@
 		        	margin: '0 0 0 100',
 		        	padding: '20 0 0 0',
 		        	border: false,
-		        	layout: 'fit',
+		        	height: 1000,
+		        	//layout: 'fit',
 		        	items:[{
 		        		xtype: 'gridpanel',
 			            cls: 'allRecordsCls',
@@ -170,7 +181,7 @@
 			                        var page = "<div class='media' style='background-color:rgba();margin: 10px;'>"+
 									  "<div class='media-left'>"+
 									    "<a href='#'>"+
-									      "<img class='media-object' src='http://localhost:8081/Customer/upload/houseRent/"+record.data.images+"' alt='...' height='190px' width='260px'>"+
+									      "<img class='media-object' src='http://localhost:8081/Customer/upload/house/"+record.data.imgs[0]+"' alt='...' height='190px' width='260px'>"+
 									    "</a>"+
 									  "</div>"+
 									  "<div class='media-body'>"+
@@ -229,7 +240,7 @@
 			                        var page = "<div class='media' style='background-color:rgba();margin: 10px;'>"+
 									  "<div class='media-left'>"+
 									    "<a href='#'>"+
-									      "<img class='media-object' src='http://localhost:8081/Customer/images/face-img/"+record.data.faceImg+"' alt='...' height='90px' width='70px'>"+
+									      "<img class='media-object' src='http://localhost:8081/Customer/upload/staff/"+record.data.faceImg+"' alt='...' height='90px' width='70px'>"+
 									    "</a>"+
 									  "</div>"+
 									  "<a target='_blank' href='http://localhost:8081/staff/details?id="+record.data.id+" '>"+
@@ -253,7 +264,7 @@
 				        }]
 		            }]
         	}],
-		    renderTo: 'mainPanel'
+		    renderTo: Ext.getBody()
 		});
 		
 	    //console.log(getUrlParam('id'))
@@ -262,6 +273,5 @@
 </script>
 </head>
 <body>
-<div id='mainPanel'></div>
 </body>
 </html>

@@ -179,7 +179,7 @@
 		<div class="row demo-row">
 				<div class="col" style="background-color: rgba(222,222,222,0.48)">
 					<br><br>
-					<p align="center">邮箱 service@58ganji.com   Copyright © 2018-20** www.LeHome.com All Rights Reserved ICP号：粤 B2-20090008</p>
+					<p align="center">邮箱 service6LomeHome@qq.com   Copyright © 2018-20** www.LeHome.com All Rights Reserved ICP号：粤 B2-26666668</p>
 					<br><br>
 				</div>
 		</div>

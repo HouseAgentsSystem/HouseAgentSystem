@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.houseAgent.common.web.ExtjsPageRequest;
 import com.houseAgent.house.domain.House;
+import com.houseAgent.house.domain.HouseDTO;
 import com.houseAgent.staff.domain.Staff;
 import com.houseAgent.store.domain.Store;
 import com.houseAgent.store.domain.StoreDTO;
@@ -38,7 +39,7 @@ public class showStoreController {
 	
 	//获取门店房源列表
 	@RequestMapping(value="/getHouse/{storeId}")//, consumes=MediaType.APPLICATION_JSON_VALUE
-	public @ResponseBody Page<House> getHouseByStoreId(@PathVariable("storeId")Long storeId, ExtjsPageRequest pageRequest) {
+	public @ResponseBody Page<HouseDTO> getHouseByStoreId(@PathVariable("storeId")Long storeId, ExtjsPageRequest pageRequest) {
 		System.out.println("gethouse");
 		return storeService.findHouseByStoreId(storeId, pageRequest.getPageable());
 	}

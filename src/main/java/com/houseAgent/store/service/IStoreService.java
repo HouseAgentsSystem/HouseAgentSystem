@@ -8,6 +8,7 @@ import org.springframework.data.jpa.domain.Specification;
 
 import com.houseAgent.common.web.ExtjsPageRequest;
 import com.houseAgent.house.domain.House;
+import com.houseAgent.house.domain.HouseDTO;
 import com.houseAgent.staff.domain.Staff;
 import com.houseAgent.store.domain.Store;
 import com.houseAgent.store.domain.StoreDTO;
@@ -26,7 +27,7 @@ public interface IStoreService {
 
 	public List<Staff> findStaffByStoreId(Long storeId);
 
-	public Page<House> findHouseByStoreId(Long storeId, Pageable pageRequest);
+	public Page<HouseDTO> findHouseByStoreId(Long storeId, Pageable pageRequest);
 	
 	public void saveOneStore(Store store, Staff staff);
 }
