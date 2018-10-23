@@ -11,16 +11,42 @@ import javax.persistence.criteria.Root;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.jpa.domain.Specification;
 
+import com.houseAgent.common.beans.BeanUtils;
 import com.houseAgent.store.domain.Store;
 
 
 public class StaffDTO {
+	private long id;//员工Id	
 	private	String realname;//员工姓名
 	private String position;//职位
 	private String phoneNumber;//手机号码
 	private String sex;//性别
 	private String faceImg;//头像
-	private Store store;//门店Id
+	
+	private String storeId;//门店Id
+	private String name;
+	
+	//后到前：1.针对“前端”设计的数据封装对象(查询)
+	public static void entityToDto(Staff entity,StaffDTO dto){
+		BeanUtils.copyProperties(entity, dto);
+		if(entity.getStore()!=null) {
+			dto.setName(entity.getStore().getStoreName());
+		}
+	}
+	
+	//前到后：2.维护多个对象 的数据 以及 对象之间的关联关系 (创建关联、更新关联)
+	public static void dtoToEntity(StaffDTO dto, Staff entity) {
+		BeanUtils.copyProperties(dto, entity);
+	}
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+	
 	public String getRealname() {
 		return realname;
 	}
@@ -51,11 +77,19 @@ public class StaffDTO {
 	public void setFaceImg(String faceImg) {
 		this.faceImg = faceImg;
 	}
-	public Store getStore() {
-		return store;
+	public String getName() {
+		return name;
 	}
-	public void setStore(Store store) {
-		this.store = store;
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getStoreId() {
+		return storeId;
+	}
+
+	public void setStoreId(String storeId) {
+		this.storeId = storeId;
 	}
 	
 	@SuppressWarnings({ "serial"})
