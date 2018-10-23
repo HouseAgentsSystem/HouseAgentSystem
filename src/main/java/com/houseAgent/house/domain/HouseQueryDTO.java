@@ -18,6 +18,8 @@ public class HouseQueryDTO {
 	private Double price=0.0;//价格
 	private Integer roomArea=0;//面积
 	private Integer room=0;//几室
+	private Integer state;
+	private Integer distribution =0;//分配情况
 	@SuppressWarnings({ "unused"})
 	public static Specification<House> getWhereClause(final HouseQueryDTO houseQueryDTO) {
 		return new Specification<House>() {
@@ -27,6 +29,14 @@ public class HouseQueryDTO {
 				if (StringUtils.isNotBlank(houseQueryDTO.getLocation())) {
 					predicate.add(criteriaBuilder.like(root.get("region").as(String.class),
 							"%" + houseQueryDTO.getLocation() + "%"));
+				}
+				if(0!=houseQueryDTO.getDistribution()) {
+					if(houseQueryDTO.getDistribution()==2) {
+						predicate.add(criteriaBuilder.isNotNull(root.get("staff")));
+					}
+					if(houseQueryDTO.getDistribution()==1) {
+						predicate.add(criteriaBuilder.isNull(root.get("staff")));
+					}
 				}
 				if(0!=houseQueryDTO.getRoomArea()) {
 					if(houseQueryDTO.getRoomArea()==50) {
@@ -125,6 +135,8 @@ public class HouseQueryDTO {
 								5));
 					}
 				}
+				predicate.add(criteriaBuilder.equal(root.get("state"),
+						1));
 				System.out.println("4");
 				Predicate[] pre = new Predicate[predicate.size()];
 				return query.where(predicate.toArray(pre)).getRestriction();
@@ -155,6 +167,12 @@ public class HouseQueryDTO {
 	}
 	public void setRoom(int room) {
 		this.room = room;
+	}
+	public Integer getDistribution() {
+		return distribution;
+	}
+	public void setDistribution(Integer distribution) {
+		this.distribution = distribution;
 	}
 	
 }

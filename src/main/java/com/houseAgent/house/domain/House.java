@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.houseAgent.staff.domain.Staff;
+import com.houseAgent.staff.domain.StaffDTO;
 import com.houseAgent.store.domain.Store;
 @Entity
 @Table(name="t_house")

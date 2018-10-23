@@ -14,4 +14,8 @@ public interface IHouseService {
 	public Page<HouseDTO> findAll(Specification<House> spec,Pageable pageable);
 	public Page<HouseDTO> showAll(Pageable pageable);
 	public HouseDTO findOne(Long id);
+	public House findById(Long id);
+	public void deleteById(Long id);
+	public void deleteAll(Long [] ids);
+	public void updata(House house);
 }

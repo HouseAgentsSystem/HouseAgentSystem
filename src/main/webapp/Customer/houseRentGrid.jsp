@@ -237,9 +237,7 @@
 								</li>
 								<li style="width:140px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 								<c:if test="${not empty sessionScope.user.realname}">
-									<li>
-										<a href="../showUser/information?id=${sessionScope.user.id}">${sessionScope.user.realname}<img src="../Customer/upload/user/${sessionScope.user.faceImage}" style="width:30px"></a>
-									</li>
+									<li><a href="../showUser/information?id=${sessionScope.user.id}">${sessionScope.user.realname}<img src="../Customer/upload/user/${sessionScope.user.faceImage}" style="width:30px;height:30px;border-radius:15px;"></a></li>
 									<li>
 										<a href="#" onclick="logout()">退出</a>
 									</li>

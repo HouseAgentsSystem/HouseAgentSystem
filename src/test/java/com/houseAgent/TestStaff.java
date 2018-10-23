@@ -54,8 +54,8 @@ public class TestStaff {
 	@Test
 	public void addHouse() {
 		House house = new House();
-		Staff staff = staffService.findOne(1L);
-		Store store = staff.getStore();
+		//Staff staff = staffService.findOne(1L);
+		//Store store = staff.getStore();
 		house.setTitle("震惊，鸡儿邦邦硬!!!");
 		house.setType("商品房");
 		house.setRegion("东城");
@@ -63,8 +63,8 @@ public class TestStaff {
 		house.setPrice(300.0);
 		house.setAddress("松山湖大学路东莞理工学院教师村");
 		house.setImages("2.jpg");
-		house.setStaff(staff);
-		house.setStore(store);
+		//house.setStaff(staff);
+		//house.setStore(store);
 		house.setArea(400.0);
 		house.setAgencyFees(300.0);
 		houseService.addOneHouse(house);

@@ -48,9 +48,7 @@
 									</li>
 									<li style="width:360px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 									<c:if test="${not empty sessionScope.user.realname}">
-										<li>
-											<a href="../showUser/information?id=${sessionScope.user.id}">${sessionScope.user.realname}<img src="../Customer/upload/user/${sessionScope.user.faceImage}" style="width:30px"></a>
-										</li>
+											<li><a href="../showUser/information?id=${sessionScope.user.id}">${sessionScope.user.realname}<img src="../Customer/upload/user/${sessionScope.user.faceImage}" style="width:30px;height:30px;border-radius:15px;"></a></li>
 										<li>
 											<a href="#" onclick="logout()">退出</a>
 										</li>
@@ -126,7 +124,7 @@
 				      <div class="caption">
 				        <h4>姓名：${requestScope.house.staffName}</h4>
 				        <h4>手机：${requestScope.house.phoneNumber}</h4>
-				        <h4>所属门店：${requestScope.house.storeName}</h4>
+				        <h4><a href="/showStore/getStore/${requestScope.house.storeId}">所属门店：${requestScope.house.storeName}</a></h4>
 				      </div>
 				    </div>
 				  </div>

@@ -70,7 +70,7 @@ public class TradeController {
 	public List<TreeNode> getTreeNode(@RequestParam("node") String node, String nodeId, HttpSession session) {
 		if(node.equals("root")) {
 			//Staff staff = SessionUtil.getStaff(session);
-			Staff staff = staffService.findOne(7L);
+			Staff staff = staffService.findById(7L);
 			
 			return tradeService.findNodes(staff);
 		} else {
@@ -88,7 +88,7 @@ public class TradeController {
 			}
 		} else {
 			//Staff staff = SessionUtil.getStaff(session);
-			Staff staff = staffService.findOne(7L);
+			Staff staff = staffService.findById(7L);
 			return tradeService.findTradeAllByStaff(staff, pageable.getPageable());
 		}
 	}

@@ -14,25 +14,34 @@ import java.util.zip.ZipInputStream;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.FilenameUtils;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.houseAgent.common.beans.BeanUtils;
 import com.houseAgent.common.util.DynamicUtil;
 import com.houseAgent.common.util.ExcelUtil;
 import com.houseAgent.common.web.ExtAjaxResponse;
 import com.houseAgent.common.web.ExtjsPageRequest;
+import com.houseAgent.common.web.SessionUtil;
 import com.houseAgent.house.domain.House;
 import com.houseAgent.house.domain.HouseDTO;
 import com.houseAgent.house.domain.HouseQueryDTO;
 import com.houseAgent.house.service.HouseService;
+import com.houseAgent.staff.domain.Staff;
+import com.houseAgent.staff.service.StaffService;
 
 
 @RestController
@@ -40,6 +49,8 @@ import com.houseAgent.house.service.HouseService;
 public class HouseController {
 	@Autowired
 	private HouseService houseService;
+	@Autowired
+	private StaffService staffService;
 	@GetMapping
 	public Page<HouseDTO> getPage(HouseQueryDTO houseQueryDTO ,ExtjsPageRequest pageRequest) 
 	{
@@ -54,7 +65,6 @@ public class HouseController {
 	@ResponseBody
 	public ExtAjaxResponse excelUpload(@RequestParam("file")MultipartFile file, HttpServletRequest request) {
 		//System.out.println(file);
-		System.out.println("54we54r1w5r1");
 		if(!file.isEmpty()){
 			//MultipartFile 转 file
 			File excelfile = null;
@@ -79,6 +89,8 @@ public class HouseController {
 				System.out.println(data);
 				House house = new House();
 				DynamicUtil.dynamicSet(house, propertyName, data);
+				//Staff staff = SessionUtil.getStaff(session);
+				//house.setStaff(staff);
 				house.setStaff(null);
 				house.setStore(null);
 				houseService.addOneHouse(house);
@@ -134,6 +146,49 @@ public class HouseController {
             
             return new ExtAjaxResponse(false,"部署失败!");
         }
+	}
+	@DeleteMapping(value="{id}")
+	public ExtAjaxResponse delete(@PathVariable("id") Long id) 
+	{
+		try {
+			if(id!=null) {
+				houseService.deleteById(id);
+			}
+			return new ExtAjaxResponse(true,"删除成功！");
+		} catch (Exception e) {
+			return new ExtAjaxResponse(true,"删除失败！");
+		}
+	}
+	@PutMapping(value="{id}",consumes=MediaType.APPLICATION_JSON_VALUE)
+	public ExtAjaxResponse update(@PathVariable("id") Long myId,@RequestBody HouseDTO dto) 
+	{
+		System.out.println(dto.getStaffId());
+		try {
+			House entity = houseService.findById(myId);
+			if(entity!=null) {
+				BeanUtils.copyProperties(dto,entity);//使用自定义的BeanUtils
+				entity.setStaff(staffService.findById(dto.getStaffId()));
+				entity.setStore(staffService.findById(dto.getStaffId()).getStore());
+				houseService.updata(entity);
+				//System.out.println(entity);
+			}
+			return new ExtAjaxResponse(true,"更新成功！");
+		} catch (Exception e) {
+			return new ExtAjaxResponse(true,"更新失败！");
+		}
+	}
+	
+	@PostMapping("/deletes")
+	public ExtAjaxResponse deleteRows(@RequestParam(name="ids") Long[] ids) 
+	{
+		try {
+			if(ids!=null) {
+				houseService.deleteAll(ids);
+			}
+			return new ExtAjaxResponse(true,"批量删除成功！");
+		} catch (Exception e) {
+			return new ExtAjaxResponse(true,"批量删除失败！");
+		}
 	}
 	@RequestMapping("/imagesUpload")
     public String imagesUpload(@RequestParam(value = "fileList", required = true) MultipartFile[] files,

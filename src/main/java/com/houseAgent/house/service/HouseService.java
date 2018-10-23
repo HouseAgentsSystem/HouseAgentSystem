@@ -1,6 +1,7 @@
 package com.houseAgent.house.service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -60,6 +61,35 @@ public class HouseService implements IHouseService {
 		}
 		
 		return new PageImpl<HouseDTO>(dtoLists, pageable, list.getTotalElements());
+	}
+
+	@Override
+	public void deleteById(Long id) {
+		houseRepository.deleteById(id);
+		
+	}
+
+	@Override
+	public void deleteAll(Long[] ids) {
+		List<Long> idLists = new ArrayList<Long>(Arrays.asList(ids));
+		
+		List<House> houses = (List<House>) houseRepository.findAllById(idLists);
+		if(houses!=null) {
+			houseRepository.deleteAll(houses);
+		}
+		
+	}
+
+	@Override
+	public House findById(Long id) {
+		// TODO Auto-generated method stub
+		return houseRepository.findById(id).get();
+	}
+
+	@Override
+	public void updata(House house) {
+		houseRepository.save(house);
+		
 	}
 
 }

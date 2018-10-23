@@ -142,7 +142,7 @@
 							'<li><a href=""><img src="http://localhost:8081/Customer/dist/images/出租.png">我要出租</a></li>' +
 							'<li style="width:600px;"></li>'+
 							'<c:if test="${not empty sessionScope.user.realname}">'+
-							'<li><a href="../showUser/information?id=${sessionScope.user.id}">${sessionScope.user.realname}<img src="../Customer/upload/user/${sessionScope.user.faceImage}" style="width:30px"></a></li>'+
+							'<li><a href="../showUser/information?id=${sessionScope.user.id}">${sessionScope.user.realname}<img src="../Customer/upload/user/${sessionScope.user.faceImage}" style="width:30px;height:30px;border-radius:15px;"></a></li>'+
 							'<li><a href="#"onclick="logout()">退出</a></li>'+
 							'</c:if>'+
 							'<c:if test="${empty sessionScope.user.realname}">'+
@@ -250,7 +250,8 @@
 												var store = Ext.data.StoreManager.lookup('simpsonsStore');
 												text = btn.up("fieldcontainer").down("segmentedbutton").getValue() * 1;
 												Ext.apply(store.proxy.extraParams, {
-													price: text
+													price: text,
+													state:1
 												});
 												store.load({
 													params: {

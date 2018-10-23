@@ -56,6 +56,20 @@ Ext.define('HouseAgentSystem.view.house.HouseController', {
 		store.load({params:{start:0, limit:20, page:1}});
 		
 	},
+	distributionComboboxSelectChange:function(combo,record,index){
+		
+		var distribution = this.lookupReference('distributionFieldValue').getValue();
+		
+		var store =	combo.up('gridpanel').getStore();
+		Ext.apply(store.proxy.extraParams, {distribution:0});//, storeName:"", managerName:""
+		
+		if(distribution != '不限'){
+			Ext.apply(store.proxy.extraParams, {distribution: distribution});
+		}
+		
+		store.load({params:{start:0, limit:20, page:1}});
+		
+	},
 	excelUpload: function(btn) {
 		var grid = btn.up('grid');
 		var win = btn.up('window');

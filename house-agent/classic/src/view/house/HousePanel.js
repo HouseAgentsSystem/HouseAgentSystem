@@ -71,6 +71,20 @@ Ext.define('HouseAgentSystem.view.house.HousePanel', {
 				flex: 1
 			},
 			{
+				xtype: 'gridcolumn',
+				cls: 'content-column',
+				dataIndex: 'price',
+				text: '手机号码',
+				flex: 1
+			},
+			{
+				xtype: 'gridcolumn',
+				cls: 'content-column',
+				dataIndex: 'price',
+				text: '房主',
+				flex: 1
+			},
+			{
 				xtype: 'actioncolumn',
 				items: [{
 						xtype: 'button',
@@ -130,7 +144,7 @@ Ext.define('HouseAgentSystem.view.house.HousePanel', {
 					queryMode: 'local',
 					triggerAction: 'all',
 					//emptyText: 'Select a state...',
-					width: 250,
+					width: 200,
 					listeners: {
 						select: 'priceComboboxSelectChange'
 					}
@@ -148,9 +162,27 @@ Ext.define('HouseAgentSystem.view.house.HousePanel', {
 					queryMode: 'local',
 					triggerAction: 'all',
 					//emptyText: 'Select a state...',
-					width: 250,
+					width: 200,
 					listeners: {
 						select: 'areaComboboxSelectChange'
+					}
+				},{
+					xtype: 'combobox',
+					reference: 'distributionFieldValue',
+					fieldLabel: '分&nbsp;配&nbsp;情&nbsp;况',
+					labelClsExtra: 'locationLabel',
+					labelAlign: 'right',
+					store: Ext.create("HouseAgentSystem.store.DistributionStore"),
+					displayField: 'name',
+					valueField: 'value',
+					value: '不限',
+					editable: false,
+					queryMode: 'local',
+					triggerAction: 'all',
+					//emptyText: 'Select a state...',
+					width: 200,
+					listeners: {
+						select: 'distributionComboboxSelectChange'
 					}
 				},
 				'->', {

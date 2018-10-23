@@ -71,4 +71,10 @@ public class StaffService implements IStaffService{
 		StaffDTO.dtoToEntity(staffDTO, staff);
 		staffRepository.save(staff);
 	}
+
+	@Override
+	public Staff findById(long id) {
+		// TODO Auto-generated method stub
+		return staffRepository.findById(id).get();
+	}
 }

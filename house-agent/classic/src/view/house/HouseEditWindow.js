@@ -7,9 +7,9 @@ Ext.define('HouseAgentSystem.view.house.HouseEditWindow', {
 	modal: true,
 	layout: 'fit',
 	width: 500,
-	height: 200,
+	height: 400,
 	closable: true,
-	title: '编辑用户信息',
+	title: '编辑房源',
 	items: [{
 		id: 'editForm',
 		xtype: 'form',
@@ -28,29 +28,36 @@ Ext.define('HouseAgentSystem.view.house.HouseEditWindow', {
             hidden: true
         },
         {
-            name: 'houseNumber',
-            fieldLabel: 'House Number'
+            name: 'title',
+            fieldLabel: '标题'
         },{
-        	xtype: 'datefield',
-            name: 'createTime',
-            //xtype: 'datepicker',
-            //width: 200,
-            //defaultValue: '1999.9.9',
-            fieldLabel: 'Create Time',
-            format: 'Y/m/d H:i:s'
+            name: 'price',
+            fieldLabel: '价格'
+        },{
+            name: 'area',
+            fieldLabel: '面积'
+        },{
+            name: 'address',
+            fieldLabel: '详细地址'
+        },{
+            name: 'orientation',
+            fieldLabel: '朝向'
+        },{
+            name: 'decorateLevel',
+            fieldLabel: '装修等级'
+        },{
+            name: 'floor',
+            fieldLabel: '楼层'
+        },{
+            name: 'room',
+            fieldLabel: '房'
+        },{
+            name: 'hall',
+            fieldLabel: '厅'
         }],
 		buttons: [{
 			text: 'Save',
 			handler: 'submitEditForm'
-			// function() {
-			// 	if (this.up('form').getForm().isValid()) {
-			// 	// this would submit the form to the configured url
-			// 	// this.up('form').getForm().submit(); / AJAX
-			// 		this.up('form').getForm().reset();
-			// 		this.up('window').hide();
-			// 		Ext.MessageBox.alert('Thank you!', 'submit Success!');
-			// 	}
-			// }
 		},
 		{
 			text: 'Cancel',

@@ -333,7 +333,7 @@ var images="";
 					onSuccess: function(file, response) {
 						$("#uploadProgress_" + file.index).hide();
 						$("#uploadSuccess_" + file.index).show();
-						$("#uploadInf").append("<p>上传成功，文件地址是：" + response + "</p>");
+						//$("#uploadInf").append("<p>上传成功，文件地址是：" + response + "</p>");
 						// 根据配置参数确定隐不隐藏上传成功的文件
 						if(para.finishDel){
 							// 移除效果

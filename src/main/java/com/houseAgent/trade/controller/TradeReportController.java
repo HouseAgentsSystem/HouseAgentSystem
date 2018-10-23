@@ -25,7 +25,7 @@ public class TradeReportController {
 	@RequestMapping("/findAll")
 	public List<TradeReportDTO> findAll(HttpSession session) {
 		SessionUtil.setGroupNames(session, "manager");
-		Staff staff = staffService.findOne(1L);
+		Staff staff = staffService.findById(1L);
 		SessionUtil.setStaff(session, staff);
 
 		System.out.println("staff" + staff);

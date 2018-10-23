@@ -82,7 +82,7 @@
 					            '<div class="collapse navbar-collapse" id="navbar-collapse-01">'+
 					              '<ul class="nav navbar-nav mr-auto">'+
 					                '<li><a href="#fakelink">首页</a></li>'+
-					                '<li><a href="house.html"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a></li>'+
+					                '<li><a href="house.jsp"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a></li>'+
 					                '<li><a href="login.html"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a></li>'+
 					                '<li><a href=""><img src="http://localhost:8081/Customer/dist/images/出租.png">我要出租</a></li>'+
 					               '</ul>'+

@@ -17,6 +17,7 @@ public interface IStaffService {
 	public void deleteAll(Long[] ids);
 	
 	public StaffDTO findOne(long id);
+	public Staff findById(long id);
 	public Page<StaffDTO> findAll(Specification<Staff> spec, Pageable pageable);
 }
 

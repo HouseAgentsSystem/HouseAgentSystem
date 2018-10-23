@@ -1,3 +1,997 @@
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3043 */
+.x-btn.x-btn-menu-active .x-btn-green-small-tl,
+.x-btn.x-btn-menu-active .x-btn-green-small-bl,
+.x-btn.x-btn-menu-active .x-btn-green-small-tr,
+.x-btn.x-btn-menu-active .x-btn-green-small-br,
+.x-btn.x-btn-menu-active .x-btn-green-small-tc,
+.x-btn.x-btn-menu-active .x-btn-green-small-bc,
+.x-btn.x-btn-pressed .x-btn-green-small-tl,
+.x-btn.x-btn-pressed .x-btn-green-small-bl,
+.x-btn.x-btn-pressed .x-btn-green-small-tr,
+.x-btn.x-btn-pressed .x-btn-green-small-br,
+.x-btn.x-btn-pressed .x-btn-green-small-tc,
+.x-btn.x-btn-pressed .x-btn-green-small-bc {
+    background-image: url(images/btn/btn-green-small-pressed-corners.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3051 */
+.x-btn.x-btn-menu-active .x-btn-green-small-ml,
+.x-btn.x-btn-menu-active .x-btn-green-small-mr,
+.x-btn.x-btn-pressed .x-btn-green-small-ml,
+.x-btn.x-btn-pressed .x-btn-green-small-mr {
+    background-image: url(images/btn/btn-green-small-pressed-sides.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3055 */
+.x-btn.x-btn-menu-active .x-btn-green-small-mc,
+.x-btn.x-btn-pressed .x-btn-green-small-mc {
+    background-color: #118902;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3069 */
+.x-keyboard-mode .x-btn-focus.x-btn-menu-active .x-btn-green-small-tl,
+.x-keyboard-mode .x-btn-focus.x-btn-menu-active .x-btn-green-small-bl,
+.x-keyboard-mode .x-btn-focus.x-btn-menu-active .x-btn-green-small-tr,
+.x-keyboard-mode .x-btn-focus.x-btn-menu-active .x-btn-green-small-br,
+.x-keyboard-mode .x-btn-focus.x-btn-menu-active .x-btn-green-small-tc,
+.x-keyboard-mode .x-btn-focus.x-btn-menu-active .x-btn-green-small-bc,
+.x-keyboard-mode .x-btn-focus.x-btn-pressed .x-btn-green-small-tl,
+.x-keyboard-mode .x-btn-focus.x-btn-pressed .x-btn-green-small-bl,
+.x-keyboard-mode .x-btn-focus.x-btn-pressed .x-btn-green-small-tr,
+.x-keyboard-mode .x-btn-focus.x-btn-pressed .x-btn-green-small-br,
+.x-keyboard-mode .x-btn-focus.x-btn-pressed .x-btn-green-small-tc,
+.x-keyboard-mode .x-btn-focus.x-btn-pressed .x-btn-green-small-bc {
+    background-image: url(images/btn/btn-green-small-focus-pressed-corners.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3077 */
+.x-keyboard-mode .x-btn-focus.x-btn-menu-active .x-btn-green-small-ml,
+.x-keyboard-mode .x-btn-focus.x-btn-menu-active .x-btn-green-small-mr,
+.x-keyboard-mode .x-btn-focus.x-btn-pressed .x-btn-green-small-ml,
+.x-keyboard-mode .x-btn-focus.x-btn-pressed .x-btn-green-small-mr {
+    background-image: url(images/btn/btn-green-small-focus-pressed-sides.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3081 */
+.x-keyboard-mode .x-btn-focus.x-btn-menu-active .x-btn-green-small-mc,
+.x-keyboard-mode .x-btn-focus.x-btn-pressed .x-btn-green-small-mc {
+    background-color: #118902;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3095 */
+.x-btn.x-btn-disabled .x-btn-green-small-tl,
+.x-btn.x-btn-disabled .x-btn-green-small-bl,
+.x-btn.x-btn-disabled .x-btn-green-small-tr,
+.x-btn.x-btn-disabled .x-btn-green-small-br,
+.x-btn.x-btn-disabled .x-btn-green-small-tc,
+.x-btn.x-btn-disabled .x-btn-green-small-bc {
+    background-image: url(images/btn/btn-green-small-disabled-corners.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3103 */
+.x-btn.x-btn-disabled .x-btn-green-small-ml,
+.x-btn.x-btn-disabled .x-btn-green-small-mr {
+    background-image: url(images/btn/btn-green-small-disabled-sides.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3107 */
+.x-btn.x-btn-disabled .x-btn-green-small-mc {
+    background-color: #16b603;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3117 */
+.x-nbr .x-btn-green-small {
+    background-image: none;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3123 */
+.x-btn-disabled.x-btn-green-small {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    opacity: 0.5;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3142 */
+.x-nbr .x-segmented-button-item-horizontal.x-btn-green-small.x-segmented-button-first {
+    border-right-width: 1px !important;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3144 */
+.x-nbr .x-segmented-button-item-horizontal.x-btn-green-small.x-segmented-button-first .x-btn-green-small-mc {
+    padding-right: 7px !important;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3148 */
+.x-nbr .x-segmented-button-item-horizontal.x-btn-green-small.x-segmented-button-middle {
+    border-right-width: 1px !important;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3150 */
+.x-nbr .x-segmented-button-item-horizontal.x-btn-green-small.x-segmented-button-middle .x-btn-green-small-mc {
+    padding-right: 7px !important;
+    padding-left: 7px !important;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3156 */
+.x-nbr .x-segmented-button-item-horizontal.x-btn-green-small.x-segmented-button-last .x-btn-green-small-mc {
+    padding-left: 7px !important;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3163 */
+.x-nbr .x-segmented-button-item-vertical.x-btn-green-small.x-segmented-button-first {
+    border-bottom-width: 1px !important;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3165 */
+.x-nbr .x-segmented-button-item-vertical.x-btn-green-small.x-segmented-button-first .x-btn-green-small-mc {
+    padding-bottom: 7px !important;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3169 */
+.x-nbr .x-segmented-button-item-vertical.x-btn-green-small.x-segmented-button-middle {
+    border-bottom-width: 1px !important;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3171 */
+.x-nbr .x-segmented-button-item-vertical.x-btn-green-small.x-segmented-button-middle .x-btn-green-small-mc {
+    padding-top: 7px !important;
+    padding-bottom: 7px !important;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3177 */
+.x-nbr .x-segmented-button-item-vertical.x-btn-green-small.x-segmented-button-last .x-btn-green-small-mc {
+    padding-top: 7px !important;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3183 */
+.x-nbr .x-segmented-button-item.x-btn-green-small:after {
+    content: ' ';
+    border-style: solid;
+    border-width: 0;
+    position: absolute;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3201 */
+.x-nbr .x-segmented-button-item-horizontal.x-btn-green-small:after {
+    top: 1px;
+    right: 0;
+    bottom: 1px;
+    left: 0;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3207 */
+.x-nbr .x-segmented-button-item-horizontal.x-btn-green-small.x-segmented-button-first:after {
+    left: 1px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3210 */
+.x-nbr .x-segmented-button-item-horizontal.x-btn-green-small.x-segmented-button-last:after {
+    right: 1px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3216 */
+.x-nbr .x-segmented-button-item-vertical.x-btn-green-small:after {
+    top: 0;
+    right: 1px;
+    bottom: 0;
+    left: 1px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3222 */
+.x-nbr .x-segmented-button-item-vertical.x-btn-green-small.x-segmented-button-first:after {
+    top: 1px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3225 */
+.x-nbr .x-segmented-button-item-vertical.x-btn-green-small.x-segmented-button-last:after {
+    bottom: 1px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3233 */
+.x-keyboard-mode .x-nbr .x-segmented-button-item.x-btn-focus.x-btn-green-small:after {
+    border-width: 1px;
+    border-color: #cbe5f1;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3249 */
+.x-keyboard-mode .x-nbr .x-segmented-button-item.x-btn-focus.x-btn-over.x-btn-green-small:after {
+    border-width: 1px;
+    border-color: #cae2ed;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3267 */
+.x-keyboard-mode .x-nbr .x-segmented-button-item.x-btn-focus.x-btn-menu-active.x-btn-green-small:after,
+.x-keyboard-mode .x-nbr .x-segmented-button-item.x-btn-focus.x-btn-pressed.x-btn-green-small:after {
+    border-width: 1px;
+    border-color: #c8dce5;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:187 */
+.x-btn-green-toolbar-small {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    padding: 7px 7px 7px 7px;
+    border-width: 1px;
+    border-style: solid;
+    background-color: #16b603;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:237 */
+.x-btn-green-toolbar-small-mc {
+    background-color: #16b603;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:264 */
+.x-nbr .x-btn-green-toolbar-small {
+    padding: 0 !important;
+    border-width: 0 !important;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+    border-radius: 0px;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:281 */
+.x-btn-green-toolbar-small-frameInfo {
+    font-family: th-1-1-1-1-1-1-1-1-7-7-7-7;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:347 */
+.x-btn-green-toolbar-small-tl {
+    background-position: 0 -2px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:351 */
+.x-btn-green-toolbar-small-tr {
+    background-position: right -3px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:355 */
+.x-btn-green-toolbar-small-bl {
+    background-position: 0 -4px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:359 */
+.x-btn-green-toolbar-small-br {
+    background-position: right -5px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:363 */
+.x-btn-green-toolbar-small-ml {
+    background-position: 0 top;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:371 */
+.x-btn-green-toolbar-small-mr {
+    background-position: right top;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:379 */
+.x-btn-green-toolbar-small-tc {
+    background-position: 0 0;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:383 */
+.x-btn-green-toolbar-small-bc {
+    background-position: 0 -1px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:388 */
+.x-btn-green-toolbar-small-tr,
+.x-btn-green-toolbar-small-br,
+.x-btn-green-toolbar-small-mr {
+    padding-right: 1px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:394 */
+.x-btn-green-toolbar-small-tl,
+.x-btn-green-toolbar-small-bl,
+.x-btn-green-toolbar-small-ml {
+    padding-left: 1px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:400 */
+.x-btn-green-toolbar-small-tc {
+    height: 1px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:403 */
+.x-btn-green-toolbar-small-bc {
+    height: 1px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:407 */
+.x-btn-green-toolbar-small-tl,
+.x-btn-green-toolbar-small-bl,
+.x-btn-green-toolbar-small-tr,
+.x-btn-green-toolbar-small-br,
+.x-btn-green-toolbar-small-tc,
+.x-btn-green-toolbar-small-bc,
+.x-btn-green-toolbar-small-ml,
+.x-btn-green-toolbar-small-mr {
+    background-image: url(images/btn/btn-green-toolbar-small-corners.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:453 */
+.x-btn-green-toolbar-small-ml,
+.x-btn-green-toolbar-small-mr {
+    background-image: url(images/btn/btn-green-toolbar-small-sides.gif);
+    background-repeat: repeat-y;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:464 */
+.x-btn-green-toolbar-small-mc {
+    padding: 7px 7px 7px 7px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2463 */
+.x-btn-green-toolbar-small {
+    border-color: #139d03;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2470 */
+.x-btn-button-green-toolbar-small {
+    min-height: 16px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2475 */
+.x-ie9m .x-btn-button-green-toolbar-small {
+    min-height: auto;
+    height: 16px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2482 */
+.x-btn-inner-green-toolbar-small {
+    font: 500 12px/16px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    color: #606060;
+    padding: 0 5px;
+    max-width: 100%;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2502 */
+.x-ie9 .x-btn-icon-right > .x-btn-inner-green-toolbar-small,
+.x-ie9 .x-btn-icon-left > .x-btn-inner-green-toolbar-small {
+    max-width: calc(100% - 16px);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2510 */
+.x-safari8m .x-btn-icon-right > .x-btn-inner-green-toolbar-small,
+.x-safari8m .x-btn-icon-left > .x-btn-inner-green-toolbar-small {
+    max-width: calc(100% - 15px);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2516 */
+.x-ie10p .x-btn-inner-green-toolbar-small {
+    max-width: none;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2521 */
+.x-btn-icon-el-green-toolbar-small {
+    font-size: 16px;
+    height: 16px;
+    color: #919191;
+    line-height: 16px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2527 */
+.x-btn-icon-left > .x-btn-icon-el-green-toolbar-small,
+.x-btn-icon-right > .x-btn-icon-el-green-toolbar-small {
+    width: 16px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2532 */
+.x-btn-icon-top > .x-btn-icon-el-green-toolbar-small,
+.x-btn-icon-bottom > .x-btn-icon-el-green-toolbar-small {
+    min-width: 16px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2554 */
+.x-ie8 .x-btn-icon-el-green-toolbar-small.x-btn-glyph {
+    color: #919191;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2561 */
+.x-btn-text.x-btn-icon-left > .x-btn-icon-el-green-toolbar-small {
+    margin-right: 3px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2572 */
+.x-btn-text.x-btn-icon-right > .x-btn-icon-el-green-toolbar-small {
+    margin-left: 3px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2583 */
+.x-btn-text.x-btn-icon-top > .x-btn-icon-el-green-toolbar-small {
+    margin-bottom: 8px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2587 */
+.x-btn-text.x-btn-icon-bottom > .x-btn-icon-el-green-toolbar-small {
+    margin-top: 8px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2593 */
+.x-btn-arrow-right > .x-btn-icon.x-btn-no-text.x-btn-button-green-toolbar-small {
+    padding-right: 8px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2596 */
+.x-btn-arrow-right > .x-btn-text.x-btn-icon-right > .x-btn-icon-el-green-toolbar-small {
+    margin-right: 5px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2603 */
+.x-btn-arrow-bottom > .x-btn-button-green-toolbar-small,
+.x-btn-split-bottom > .x-btn-button-green-toolbar-small {
+    padding-bottom: 7px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2609 */
+.x-btn-wrap-green-toolbar-small.x-btn-arrow-right:after {
+    width: 18px;
+    content: "\f0d7";
+    font: 16px/1 FontAwesome;
+    color: #606060;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2636 */
+.x-btn-wrap-green-toolbar-small.x-btn-arrow-bottom:after {
+    height: 12px;
+    content: "\f0d7";
+    font: 16px/12px FontAwesome;
+    color: #606060;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2663 */
+.x-btn-wrap-green-toolbar-small.x-btn-split-right > .x-btn-button {
+    padding-right: 7px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2671 */
+.x-btn-wrap-green-toolbar-small.x-btn-split-right > .x-btn-button:after {
+    border-right: 1px solid #e4e4e4;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2676 */
+.x-btn-wrap-green-toolbar-small.x-btn-split-right:after {
+    width: 20px;
+    content: "\f0d7";
+    font: 16px/1 FontAwesome;
+    color: #606060;
+    padding-left: 7px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2702 */
+.x-btn-wrap-green-toolbar-small.x-btn-split-bottom {
+    margin-bottom: -7px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2704 */
+.x-btn-wrap-green-toolbar-small.x-btn-split-bottom > .x-btn-button:after {
+    border-bottom: 1px solid #e4e4e4;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2715 */
+.x-btn-wrap-green-toolbar-small.x-btn-split-bottom:after {
+    height: 20px;
+    content: "\f0d7";
+    font: 16px/20px FontAwesome;
+    color: #606060;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2748 */
+.x-btn-split-right > .x-btn-icon.x-btn-no-text.x-btn-button-green-toolbar-small {
+    padding-right: 8px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2751 */
+.x-btn-split-right > .x-btn-text.x-btn-icon-right > .x-btn-icon-el-green-toolbar-small {
+    margin-right: 5px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2757 */
+.x-keyboard-mode .x-btn-focus.x-btn-green-toolbar-small {
+    background-image: none;
+    background-color: #16b603;
+    -webkit-box-shadow: #35baf6 0 1px 0px 0 inset, #35baf6 0 -1px 0px 0 inset, #35baf6 -1px 0 0px 0 inset, #35baf6 1px 0 0px 0 inset;
+    -moz-box-shadow: #35baf6 0 1px 0px 0 inset, #35baf6 0 -1px 0px 0 inset, #35baf6 -1px 0 0px 0 inset, #35baf6 1px 0 0px 0 inset;
+    box-shadow: #35baf6 0 1px 0px 0 inset, #35baf6 0 -1px 0px 0 inset, #35baf6 -1px 0 0px 0 inset, #35baf6 1px 0 0px 0 inset;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2793 */
+.x-btn-green-toolbar-small .x-btn-arrow-el {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 27px;
+    pointer-events: none;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2810 */
+.x-keyboard-mode .x-btn-green-toolbar-small.x-arrow-focus .x-btn-arrow-el {
+    border: 1px solid #35baf6;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2817 */
+.x-btn-over.x-btn-green-toolbar-small {
+    border-color: #129702;
+    background-image: none;
+    background-color: #15af03;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2845 */
+.x-keyboard-mode .x-btn-focus.x-btn-over.x-btn-green-toolbar-small {
+    -webkit-box-shadow: #35baf6 0 1px 0px 0 inset, #35baf6 0 -1px 0px 0 inset, #35baf6 -1px 0 0px 0 inset, #35baf6 1px 0 0px 0 inset;
+    -moz-box-shadow: #35baf6 0 1px 0px 0 inset, #35baf6 0 -1px 0px 0 inset, #35baf6 -1px 0 0px 0 inset, #35baf6 1px 0 0px 0 inset;
+    box-shadow: #35baf6 0 1px 0px 0 inset, #35baf6 0 -1px 0px 0 inset, #35baf6 -1px 0 0px 0 inset, #35baf6 1px 0 0px 0 inset;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2874 */
+.x-btn.x-btn-menu-active.x-btn-green-toolbar-small,
+.x-btn.x-btn-pressed.x-btn-green-toolbar-small {
+    border-color: #119002;
+    background-image: none;
+    background-color: #14a703;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2904 */
+.x-keyboard-mode .x-btn-focus.x-btn-menu-active.x-btn-green-toolbar-small,
+.x-keyboard-mode .x-btn-focus.x-btn-pressed.x-btn-green-toolbar-small {
+    -webkit-box-shadow: #35baf6 0 1px 0px 0 inset, #35baf6 0 -1px 0px 0 inset, #35baf6 -1px 0 0px 0 inset, #35baf6 1px 0 0px 0 inset;
+    -moz-box-shadow: #35baf6 0 1px 0px 0 inset, #35baf6 0 -1px 0px 0 inset, #35baf6 -1px 0 0px 0 inset, #35baf6 1px 0 0px 0 inset;
+    box-shadow: #35baf6 0 1px 0px 0 inset, #35baf6 0 -1px 0px 0 inset, #35baf6 -1px 0 0px 0 inset, #35baf6 1px 0 0px 0 inset;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2933 */
+.x-btn.x-btn-disabled.x-btn-green-toolbar-small {
+    background-image: none;
+    background-color: #16b603;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2966 */
+.x-keyboard-mode .x-btn-focus .x-btn-green-toolbar-small-tl,
+.x-keyboard-mode .x-btn-focus .x-btn-green-toolbar-small-bl,
+.x-keyboard-mode .x-btn-focus .x-btn-green-toolbar-small-tr,
+.x-keyboard-mode .x-btn-focus .x-btn-green-toolbar-small-br,
+.x-keyboard-mode .x-btn-focus .x-btn-green-toolbar-small-tc,
+.x-keyboard-mode .x-btn-focus .x-btn-green-toolbar-small-bc {
+    background-image: url(images/btn/btn-green-toolbar-small-focus-corners.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2974 */
+.x-keyboard-mode .x-btn-focus .x-btn-green-toolbar-small-ml,
+.x-keyboard-mode .x-btn-focus .x-btn-green-toolbar-small-mr {
+    background-image: url(images/btn/btn-green-toolbar-small-focus-sides.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2978 */
+.x-keyboard-mode .x-btn-focus .x-btn-green-toolbar-small-mc {
+    background-color: #16b603;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2991 */
+.x-btn-over .x-btn-green-toolbar-small-tl,
+.x-btn-over .x-btn-green-toolbar-small-bl,
+.x-btn-over .x-btn-green-toolbar-small-tr,
+.x-btn-over .x-btn-green-toolbar-small-br,
+.x-btn-over .x-btn-green-toolbar-small-tc,
+.x-btn-over .x-btn-green-toolbar-small-bc {
+    background-image: url(images/btn/btn-green-toolbar-small-over-corners.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2999 */
+.x-btn-over .x-btn-green-toolbar-small-ml,
+.x-btn-over .x-btn-green-toolbar-small-mr {
+    background-image: url(images/btn/btn-green-toolbar-small-over-sides.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3003 */
+.x-btn-over .x-btn-green-toolbar-small-mc {
+    background-color: #15af03;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3016 */
+.x-keyboard-mode .x-btn-focus.x-btn-over .x-btn-green-toolbar-small-tl,
+.x-keyboard-mode .x-btn-focus.x-btn-over .x-btn-green-toolbar-small-bl,
+.x-keyboard-mode .x-btn-focus.x-btn-over .x-btn-green-toolbar-small-tr,
+.x-keyboard-mode .x-btn-focus.x-btn-over .x-btn-green-toolbar-small-br,
+.x-keyboard-mode .x-btn-focus.x-btn-over .x-btn-green-toolbar-small-tc,
+.x-keyboard-mode .x-btn-focus.x-btn-over .x-btn-green-toolbar-small-bc {
+    background-image: url(images/btn/btn-green-toolbar-small-focus-over-corners.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3024 */
+.x-keyboard-mode .x-btn-focus.x-btn-over .x-btn-green-toolbar-small-ml,
+.x-keyboard-mode .x-btn-focus.x-btn-over .x-btn-green-toolbar-small-mr {
+    background-image: url(images/btn/btn-green-toolbar-small-focus-over-sides.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3028 */
+.x-keyboard-mode .x-btn-focus.x-btn-over .x-btn-green-toolbar-small-mc {
+    background-color: #15af03;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3043 */
+.x-btn.x-btn-menu-active .x-btn-green-toolbar-small-tl,
+.x-btn.x-btn-menu-active .x-btn-green-toolbar-small-bl,
+.x-btn.x-btn-menu-active .x-btn-green-toolbar-small-tr,
+.x-btn.x-btn-menu-active .x-btn-green-toolbar-small-br,
+.x-btn.x-btn-menu-active .x-btn-green-toolbar-small-tc,
+.x-btn.x-btn-menu-active .x-btn-green-toolbar-small-bc,
+.x-btn.x-btn-pressed .x-btn-green-toolbar-small-tl,
+.x-btn.x-btn-pressed .x-btn-green-toolbar-small-bl,
+.x-btn.x-btn-pressed .x-btn-green-toolbar-small-tr,
+.x-btn.x-btn-pressed .x-btn-green-toolbar-small-br,
+.x-btn.x-btn-pressed .x-btn-green-toolbar-small-tc,
+.x-btn.x-btn-pressed .x-btn-green-toolbar-small-bc {
+    background-image: url(images/btn/btn-green-toolbar-small-pressed-corners.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3051 */
+.x-btn.x-btn-menu-active .x-btn-green-toolbar-small-ml,
+.x-btn.x-btn-menu-active .x-btn-green-toolbar-small-mr,
+.x-btn.x-btn-pressed .x-btn-green-toolbar-small-ml,
+.x-btn.x-btn-pressed .x-btn-green-toolbar-small-mr {
+    background-image: url(images/btn/btn-green-toolbar-small-pressed-sides.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3055 */
+.x-btn.x-btn-menu-active .x-btn-green-toolbar-small-mc,
+.x-btn.x-btn-pressed .x-btn-green-toolbar-small-mc {
+    background-color: #14a703;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3069 */
+.x-keyboard-mode .x-btn-focus.x-btn-menu-active .x-btn-green-toolbar-small-tl,
+.x-keyboard-mode .x-btn-focus.x-btn-menu-active .x-btn-green-toolbar-small-bl,
+.x-keyboard-mode .x-btn-focus.x-btn-menu-active .x-btn-green-toolbar-small-tr,
+.x-keyboard-mode .x-btn-focus.x-btn-menu-active .x-btn-green-toolbar-small-br,
+.x-keyboard-mode .x-btn-focus.x-btn-menu-active .x-btn-green-toolbar-small-tc,
+.x-keyboard-mode .x-btn-focus.x-btn-menu-active .x-btn-green-toolbar-small-bc,
+.x-keyboard-mode .x-btn-focus.x-btn-pressed .x-btn-green-toolbar-small-tl,
+.x-keyboard-mode .x-btn-focus.x-btn-pressed .x-btn-green-toolbar-small-bl,
+.x-keyboard-mode .x-btn-focus.x-btn-pressed .x-btn-green-toolbar-small-tr,
+.x-keyboard-mode .x-btn-focus.x-btn-pressed .x-btn-green-toolbar-small-br,
+.x-keyboard-mode .x-btn-focus.x-btn-pressed .x-btn-green-toolbar-small-tc,
+.x-keyboard-mode .x-btn-focus.x-btn-pressed .x-btn-green-toolbar-small-bc {
+    background-image: url(images/btn/btn-green-toolbar-small-focus-pressed-corners.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3077 */
+.x-keyboard-mode .x-btn-focus.x-btn-menu-active .x-btn-green-toolbar-small-ml,
+.x-keyboard-mode .x-btn-focus.x-btn-menu-active .x-btn-green-toolbar-small-mr,
+.x-keyboard-mode .x-btn-focus.x-btn-pressed .x-btn-green-toolbar-small-ml,
+.x-keyboard-mode .x-btn-focus.x-btn-pressed .x-btn-green-toolbar-small-mr {
+    background-image: url(images/btn/btn-green-toolbar-small-focus-pressed-sides.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3081 */
+.x-keyboard-mode .x-btn-focus.x-btn-menu-active .x-btn-green-toolbar-small-mc,
+.x-keyboard-mode .x-btn-focus.x-btn-pressed .x-btn-green-toolbar-small-mc {
+    background-color: #14a703;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3095 */
+.x-btn.x-btn-disabled .x-btn-green-toolbar-small-tl,
+.x-btn.x-btn-disabled .x-btn-green-toolbar-small-bl,
+.x-btn.x-btn-disabled .x-btn-green-toolbar-small-tr,
+.x-btn.x-btn-disabled .x-btn-green-toolbar-small-br,
+.x-btn.x-btn-disabled .x-btn-green-toolbar-small-tc,
+.x-btn.x-btn-disabled .x-btn-green-toolbar-small-bc {
+    background-image: url(images/btn/btn-green-toolbar-small-disabled-corners.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3103 */
+.x-btn.x-btn-disabled .x-btn-green-toolbar-small-ml,
+.x-btn.x-btn-disabled .x-btn-green-toolbar-small-mr {
+    background-image: url(images/btn/btn-green-toolbar-small-disabled-sides.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3107 */
+.x-btn.x-btn-disabled .x-btn-green-toolbar-small-mc {
+    background-color: #16b603;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3117 */
+.x-nbr .x-btn-green-toolbar-small {
+    background-image: none;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3123 */
+.x-btn-disabled.x-btn-green-toolbar-small {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    opacity: 0.5;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3142 */
+.x-nbr .x-segmented-button-item-horizontal.x-btn-green-toolbar-small.x-segmented-button-first {
+    border-right-width: 1px !important;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3144 */
+.x-nbr .x-segmented-button-item-horizontal.x-btn-green-toolbar-small.x-segmented-button-first .x-btn-green-toolbar-small-mc {
+    padding-right: 7px !important;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3148 */
+.x-nbr .x-segmented-button-item-horizontal.x-btn-green-toolbar-small.x-segmented-button-middle {
+    border-right-width: 1px !important;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3150 */
+.x-nbr .x-segmented-button-item-horizontal.x-btn-green-toolbar-small.x-segmented-button-middle .x-btn-green-toolbar-small-mc {
+    padding-right: 7px !important;
+    padding-left: 7px !important;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3156 */
+.x-nbr .x-segmented-button-item-horizontal.x-btn-green-toolbar-small.x-segmented-button-last .x-btn-green-toolbar-small-mc {
+    padding-left: 7px !important;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3163 */
+.x-nbr .x-segmented-button-item-vertical.x-btn-green-toolbar-small.x-segmented-button-first {
+    border-bottom-width: 1px !important;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3165 */
+.x-nbr .x-segmented-button-item-vertical.x-btn-green-toolbar-small.x-segmented-button-first .x-btn-green-toolbar-small-mc {
+    padding-bottom: 7px !important;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3169 */
+.x-nbr .x-segmented-button-item-vertical.x-btn-green-toolbar-small.x-segmented-button-middle {
+    border-bottom-width: 1px !important;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3171 */
+.x-nbr .x-segmented-button-item-vertical.x-btn-green-toolbar-small.x-segmented-button-middle .x-btn-green-toolbar-small-mc {
+    padding-top: 7px !important;
+    padding-bottom: 7px !important;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3177 */
+.x-nbr .x-segmented-button-item-vertical.x-btn-green-toolbar-small.x-segmented-button-last .x-btn-green-toolbar-small-mc {
+    padding-top: 7px !important;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3183 */
+.x-nbr .x-segmented-button-item.x-btn-green-toolbar-small:after {
+    content: ' ';
+    border-style: solid;
+    border-width: 0;
+    position: absolute;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3201 */
+.x-nbr .x-segmented-button-item-horizontal.x-btn-green-toolbar-small:after {
+    top: 1px;
+    right: 0;
+    bottom: 1px;
+    left: 0;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3207 */
+.x-nbr .x-segmented-button-item-horizontal.x-btn-green-toolbar-small.x-segmented-button-first:after {
+    left: 1px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3210 */
+.x-nbr .x-segmented-button-item-horizontal.x-btn-green-toolbar-small.x-segmented-button-last:after {
+    right: 1px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3216 */
+.x-nbr .x-segmented-button-item-vertical.x-btn-green-toolbar-small:after {
+    top: 0;
+    right: 1px;
+    bottom: 0;
+    left: 1px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3222 */
+.x-nbr .x-segmented-button-item-vertical.x-btn-green-toolbar-small.x-segmented-button-first:after {
+    top: 1px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3225 */
+.x-nbr .x-segmented-button-item-vertical.x-btn-green-toolbar-small.x-segmented-button-last:after {
+    bottom: 1px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3233 */
+.x-keyboard-mode .x-nbr .x-segmented-button-item.x-btn-focus.x-btn-green-toolbar-small:after {
+    border-width: 1px;
+    border-color: #35baf6;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3249 */
+.x-keyboard-mode .x-nbr .x-segmented-button-item.x-btn-focus.x-btn-over.x-btn-green-toolbar-small:after {
+    border-width: 1px;
+    border-color: #35baf6;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:3267 */
+.x-keyboard-mode .x-nbr .x-segmented-button-item.x-btn-focus.x-btn-menu-active.x-btn-green-toolbar-small:after,
+.x-keyboard-mode .x-nbr .x-segmented-button-item.x-btn-focus.x-btn-pressed.x-btn-green-toolbar-small:after {
+    border-width: 1px;
+    border-color: #35baf6;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:187 */
+.x-btn-blue-small {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    padding: 7px 7px 7px 7px;
+    border-width: 1px;
+    border-style: solid;
+    background-color: #167abc;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:237 */
+.x-btn-blue-small-mc {
+    background-color: #167abc;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:264 */
+.x-nbr .x-btn-blue-small {
+    padding: 0 !important;
+    border-width: 0 !important;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+    border-radius: 0px;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:281 */
+.x-btn-blue-small-frameInfo {
+    font-family: th-1-1-1-1-1-1-1-1-7-7-7-7;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:347 */
+.x-btn-blue-small-tl {
+    background-position: 0 -2px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:351 */
+.x-btn-blue-small-tr {
+    background-position: right -3px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:355 */
+.x-btn-blue-small-bl {
+    background-position: 0 -4px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:359 */
+.x-btn-blue-small-br {
+    background-position: right -5px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:363 */
+.x-btn-blue-small-ml {
+    background-position: 0 top;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:371 */
+.x-btn-blue-small-mr {
+    background-position: right top;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:379 */
+.x-btn-blue-small-tc {
+    background-position: 0 0;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:383 */
+.x-btn-blue-small-bc {
+    background-position: 0 -1px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:388 */
+.x-btn-blue-small-tr,
+.x-btn-blue-small-br,
+.x-btn-blue-small-mr {
+    padding-right: 1px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:394 */
+.x-btn-blue-small-tl,
+.x-btn-blue-small-bl,
+.x-btn-blue-small-ml {
+    padding-left: 1px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:400 */
+.x-btn-blue-small-tc {
+    height: 1px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:403 */
+.x-btn-blue-small-bc {
+    height: 1px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:407 */
+.x-btn-blue-small-tl,
+.x-btn-blue-small-bl,
+.x-btn-blue-small-tr,
+.x-btn-blue-small-br,
+.x-btn-blue-small-tc,
+.x-btn-blue-small-bc,
+.x-btn-blue-small-ml,
+.x-btn-blue-small-mr {
+    background-image: url(images/btn/btn-blue-small-corners.gif);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:453 */
+.x-btn-blue-small-ml,
+.x-btn-blue-small-mr {
+    background-image: url(images/btn/btn-blue-small-sides.gif);
+    background-repeat: repeat-y;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-base/sass/etc/mixins/frame.scss:464 */
+.x-btn-blue-small-mc {
+    padding: 7px 7px 7px 7px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2463 */
+.x-btn-blue-small {
+    border-color: #136ba5;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2470 */
+.x-btn-button-blue-small {
+    min-height: 16px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2475 */
+.x-ie9m .x-btn-button-blue-small {
+    min-height: auto;
+    height: 16px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2482 */
+.x-btn-inner-blue-small {
+    font: 500 12px/16px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    color: #f0f0f0;
+    padding: 0 5px;
+    max-width: 100%;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2502 */
+.x-ie9 .x-btn-icon-right > .x-btn-inner-blue-small,
+.x-ie9 .x-btn-icon-left > .x-btn-inner-blue-small {
+    max-width: calc(100% - 16px);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2510 */
+.x-safari8m .x-btn-icon-right > .x-btn-inner-blue-small,
+.x-safari8m .x-btn-icon-left > .x-btn-inner-blue-small {
+    max-width: calc(100% - 15px);
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2516 */
+.x-ie10p .x-btn-inner-blue-small {
+    max-width: none;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2521 */
+.x-btn-icon-el-blue-small {
+    font-size: 16px;
+    height: 16px;
+    color: #f0f0f0;
+    line-height: 16px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2527 */
+.x-btn-icon-left > .x-btn-icon-el-blue-small,
+.x-btn-icon-right > .x-btn-icon-el-blue-small {
+    width: 16px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2532 */
+.x-btn-icon-top > .x-btn-icon-el-blue-small,
+.x-btn-icon-bottom > .x-btn-icon-el-blue-small {
+    min-width: 16px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2554 */
+.x-ie8 .x-btn-icon-el-blue-small.x-btn-glyph {
+    color: #f0f0f0;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2561 */
+.x-btn-text.x-btn-icon-left > .x-btn-icon-el-blue-small {
+    margin-right: 3px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2572 */
+.x-btn-text.x-btn-icon-right > .x-btn-icon-el-blue-small {
+    margin-left: 3px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2583 */
+.x-btn-text.x-btn-icon-top > .x-btn-icon-el-blue-small {
+    margin-bottom: 8px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2587 */
+.x-btn-text.x-btn-icon-bottom > .x-btn-icon-el-blue-small {
+    margin-top: 8px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2593 */
+.x-btn-arrow-right > .x-btn-icon.x-btn-no-text.x-btn-button-blue-small {
+    padding-right: 8px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2596 */
+.x-btn-arrow-right > .x-btn-text.x-btn-icon-right > .x-btn-icon-el-blue-small {
+    margin-right: 5px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2603 */
+.x-btn-arrow-bottom > .x-btn-button-blue-small,
+.x-btn-split-bottom > .x-btn-button-blue-small {
+    padding-bottom: 7px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2609 */
+.x-btn-wrap-blue-small.x-btn-arrow-right:after {
+    width: 18px;
+    content: "\f0d7";
+    font: 16px/1 FontAwesome;
+    color: #f0f0f0;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2636 */
+.x-btn-wrap-blue-small.x-btn-arrow-bottom:after {
+    height: 12px;
+    content: "\f0d7";
+    font: 16px/12px FontAwesome;
+    color: #f0f0f0;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2663 */
+.x-btn-wrap-blue-small.x-btn-split-right > .x-btn-button {
+    padding-right: 7px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2671 */
+.x-btn-wrap-blue-small.x-btn-split-right > .x-btn-button:after {
+    border-right: 1px solid #f0f0f0;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2676 */
+.x-btn-wrap-blue-small.x-btn-split-right:after {
+    width: 20px;
+    content: "\f0d7";
+    font: 16px/1 FontAwesome;
+    color: #f0f0f0;
+    padding-left: 7px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2702 */
+.x-btn-wrap-blue-small.x-btn-split-bottom {
+    margin-bottom: -7px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2704 */
+.x-btn-wrap-blue-small.x-btn-split-bottom > .x-btn-button:after {
+    border-bottom: 1px solid #f0f0f0;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2715 */
+.x-btn-wrap-blue-small.x-btn-split-bottom:after {
+    height: 20px;
+    content: "\f0d7";
+    font: 16px/20px FontAwesome;
+    color: #f0f0f0;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2748 */
+.x-btn-split-right > .x-btn-icon.x-btn-no-text.x-btn-button-blue-small {
+    padding-right: 8px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2751 */
+.x-btn-split-right > .x-btn-text.x-btn-icon-right > .x-btn-icon-el-blue-small {
+    margin-right: 5px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2757 */
+.x-keyboard-mode .x-btn-focus.x-btn-blue-small {
+    background-image: none;
+    background-color: #167abc;
+    -webkit-box-shadow: #cbe5f1 0 1px 0px 0 inset, #cbe5f1 0 -1px 0px 0 inset, #cbe5f1 -1px 0 0px 0 inset, #cbe5f1 1px 0 0px 0 inset;
+    -moz-box-shadow: #cbe5f1 0 1px 0px 0 inset, #cbe5f1 0 -1px 0px 0 inset, #cbe5f1 -1px 0 0px 0 inset, #cbe5f1 1px 0 0px 0 inset;
+    box-shadow: #cbe5f1 0 1px 0px 0 inset, #cbe5f1 0 -1px 0px 0 inset, #cbe5f1 -1px 0 0px 0 inset, #cbe5f1 1px 0 0px 0 inset;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2793 */
+.x-btn-blue-small .x-btn-arrow-el {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 27px;
+    pointer-events: none;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2810 */
+.x-keyboard-mode .x-btn-blue-small.x-arrow-focus .x-btn-arrow-el {
+    border: 1px solid #cbe5f1;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2817 */
+.x-btn-over.x-btn-blue-small {
+    border-color: #126398;
+    background-image: none;
+    background-color: #1470ad;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2845 */
+.x-keyboard-mode .x-btn-focus.x-btn-over.x-btn-blue-small {
+    -webkit-box-shadow: #cae2ed 0 1px 0px 0 inset, #cae2ed 0 -1px 0px 0 inset, #cae2ed -1px 0 0px 0 inset, #cae2ed 1px 0 0px 0 inset;
+    -moz-box-shadow: #cae2ed 0 1px 0px 0 inset, #cae2ed 0 -1px 0px 0 inset, #cae2ed -1px 0 0px 0 inset, #cae2ed 1px 0 0px 0 inset;
+    box-shadow: #cae2ed 0 1px 0px 0 inset, #cae2ed 0 -1px 0px 0 inset, #cae2ed -1px 0 0px 0 inset, #cae2ed 1px 0 0px 0 inset;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2874 */
+.x-btn.x-btn-menu-active.x-btn-blue-small,
+.x-btn.x-btn-pressed.x-btn-blue-small {
+    border-color: #0e507c;
+    background-image: none;
+    background-color: #115c8d;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2904 */
+.x-keyboard-mode .x-btn-focus.x-btn-menu-active.x-btn-blue-small,
+.x-keyboard-mode .x-btn-focus.x-btn-pressed.x-btn-blue-small {
+    -webkit-box-shadow: #c8dce5 0 1px 0px 0 inset, #c8dce5 0 -1px 0px 0 inset, #c8dce5 -1px 0 0px 0 inset, #c8dce5 1px 0 0px 0 inset;
+    -moz-box-shadow: #c8dce5 0 1px 0px 0 inset, #c8dce5 0 -1px 0px 0 inset, #c8dce5 -1px 0 0px 0 inset, #c8dce5 1px 0 0px 0 inset;
+    box-shadow: #c8dce5 0 1px 0px 0 inset, #c8dce5 0 -1px 0px 0 inset, #c8dce5 -1px 0 0px 0 inset, #c8dce5 1px 0 0px 0 inset;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2933 */
+.x-btn.x-btn-disabled.x-btn-blue-small {
+    background-image: none;
+    background-color: #167abc;
+}
 /* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/var/button/Button.scss:2966 */
 .x-keyboard-mode .x-btn-focus .x-btn-blue-small-tl,
 .x-keyboard-mode .x-btn-focus .x-btn-blue-small-bl,
@@ -1488,6 +2482,40 @@
 /* C:/Users/Administrator/git/HouseAgentSystem/house-agent/ext/classic/theme-neutral/sass/etc/mixins/font-icon.scss:132 */
 .x-tool-wrench:before {
     content: "\f0ad";
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/classic/src/view/house/House.scss:1 */
+.user-grid .x-fa {
+    height: 20px;
+    width: 20px;
+    background: #e9e9e9;
+    line-height: 20px;
+    float: left;
+    margin-right: 10px;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/classic/src/view/house/House.scss:9 */
+.user-grid .x-fa:before {
+    display: block;
+    line-height: 20px;
+    text-align: center;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/classic/src/view/house/House.scss:15 */
+.user-grid .x-fa.fa-close {
+    background-color: #fc8999;
+    color: #fff;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/classic/src/view/house/House.scss:20 */
+.user-grid .x-fa.fa-ban {
+    background-color: #ffc000;
+    color: #fff;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/classic/src/view/house/House.scss:25 */
+.user-grid .x-fa.fa-gavel {
+    background-color: #16b603;
+    color: #fff;
+}
+/* C:/Users/Administrator/git/HouseAgentSystem/house-agent/classic/src/view/house/House.scss:30 */
+.user-grid .x-fa.x-action-col-icon {
+    font-size: 13px !important;
 }
 /* C:/Users/Administrator/git/HouseAgentSystem/house-agent/classic/src/view/store/Store.scss:1 */
 .locationLabel {
