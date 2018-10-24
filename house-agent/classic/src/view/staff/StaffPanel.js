@@ -93,11 +93,11 @@ Ext.define('HouseAgentSystem.view.staff.StaffPanel', {
                 {xtype:'gridcolumn',width: 75,cls:'content-column',dataIndex:'faceImg',text:'FaceImg',
                     renderer: function(value) {
                         if(value)
-													return "<img src='resources/images/user-profile/"+value+"' alt='Profile Pic' height='40px' width='40px'>";
-												else
-													return "<img src='resources/images/user-profile/default.jpg' alt='Profile Pic' height='40px' width='40px'>";
-										}
-								},
+							return "<img src='/Customer/upload/staff/"+value+"' alt='Profile Pic' height='40px' width='40px'>";
+						else
+							return "<img src='/Customer/upload/staff/default.jpg' alt='Profile Pic' height='40px' width='40px'>";
+						}
+					},
                 {xtype:'gridcolumn',cls:'content-column',width: 150,dataIndex:'realname',text:'姓名'},
                 {xtype:'gridcolumn',cls:'content-column',width: 100,dataIndex:'sex',text:'性别'},
                 {xtype:'gridcolumn',cls:'content-column',dataIndex:'phoneNumber',text:'电话号码',flex: 1},

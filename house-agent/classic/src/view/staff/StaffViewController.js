@@ -85,8 +85,9 @@ Ext.define('HouseAgentSystem.view.staff.StaffViewController', {
 	},
 
 	/*faceImgUpload*/
-	faceImgUpload:function() {
+	faceImgUpload:function(btn) {
 		var form = this.lookupReference('uploadForm').getForm();
+		var win = btn.up('window');
 		//var form = Ext.getCmp('uploadForm').getForm();
 		if(form.isValid()) {
 			form.submit({
@@ -95,6 +96,13 @@ Ext.define('HouseAgentSystem.view.staff.StaffViewController', {
 				waitMsg: 'Uploading your photo...',
 				success: function(fp) {
 					Ext.Msg.alert('Success', '上传成功！');
+					console.log(Ext.getCmp('staffInfoForm'));
+					//myview.render('grid-example');
+					win.close();
+					Ext.getCmp('infoReload').click();
+					//Ext.getCmp('staffInfo').render();
+					//this.redirectTo("staffInfo");
+					//Ext.getCmp('staffInfo').up('container').render();
 				},
 				failure: function(fp) {
 					Ext.Msg.alert('Failure', '上传失败！');

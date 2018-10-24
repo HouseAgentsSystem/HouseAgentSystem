@@ -1,13 +1,15 @@
 Ext.define('HouseAgentSystem.view.staff.StaffInfo', {
     extend: 'Ext.panel.Panel',
 	xtype: 'staffInfo',
+	id: 'staffInfo',
 	requires:[
         'Ext.grid.Panel'
     ], 
 	
 	controller: 'staffViewController',
 	
-    width: 500,
+    //width: 500,
+    height: Ext.Element.getViewportHeight()-200,
 	buttonAlign:'left',
     scrollable: true,
     title: 'Personal information',
@@ -16,6 +18,7 @@ Ext.define('HouseAgentSystem.view.staff.StaffInfo', {
 	
     items: [{
 		xtype: 'form',
+		id: 'staffInfoForm',
         padding: '10px',
 		width: 400,
 		height:480,
@@ -40,40 +43,10 @@ Ext.define('HouseAgentSystem.view.staff.StaffInfo', {
 				marginBottom:'30px',
 			},
             alt: 'current user image',
-            src: 'resources/images/user-profile/default.jpg',
+            src: '/Customer/upload/staff/default.jpg',
 			listeners:{
 				el : {
 					click : "openUploadWindow"
-// 					function() {
-// 						var win = new Ext.create('Ext.window.Window',{
-// 							controller: 'staffViewController',
-// 							xtype : 'form',
-// 							layout : "form",
-// 							reference: 'uploadForm',
-// 							id:'uploadForm',
-// 							title : '选择头像',
-// 							width : 500,
-// 							bodyPadding: 10,
-// 							plain : true,
-// 							modal : true,
-// 							closeAction : "hide",
-// 							items: [{
-// 								xtype: 'filefield',
-// 								name: 'faceImg',
-// 								fieldLabel: 'Photo',
-// 								labelWidth: 50,
-// 								msgTarget: 'side',
-// 								allowBlank: false,
-// 								anchor: '100%',
-// 								buttonText: 'Select Photo...'
-// 							}],
-// 							buttons: [{
-// 								text: 'Upload',
-// 								handler: 'faceImgUpload',
-// 							}]
-// 						});
-// 						win.show();
-// 					}
 				}
 			}	
         },{
@@ -120,36 +93,40 @@ Ext.define('HouseAgentSystem.view.staff.StaffInfo', {
     }],
 	listeners:{
 		render:function(){
-			Ext.Ajax.request({  
-				url: '/staff/findMyInfo',  
-				method:'GET',
-				success: function (response) {
-                    var json = Ext.util.JSON.decode(response.responseText);
-					//调用文本域的方法，设置它的值~
-					if(json.position == '总经理')
-						Ext.getCmp('store').setEditable(false);
-					Ext.getCmp('id').setValue(json.id);
-					//Ext.getCmp('feceImg').setValue(json.faceImg);
-					Ext.getCmp('relaName').setValue(json.realname);
-					Ext.getCmp('sex').setValue(json.sex);
-					Ext.getCmp('phoneNumber').setValue(json.phoneNumber);
-					Ext.getCmp('position').setValue(json.position);
-					Ext.getCmp('store').setValue(json.name);
-					
-					
-//					console.log(json.id);
-// 					console.log(json.realname);
-// 					console.log(json.sex);
-// 					console.log(json.phoneNumber);
-// 					console.log(json.position);
-// 					console.log(json.store);
-                }
-			});
+			Ext.getCmp('infoReload').click();
 		}
 	},
     buttons:  [{
         xtype: 'button',
         text: 'Edit',
         handler: 'submitEditForm2'//预留提交事件，在ViewController中实现。
+    },{
+    	xtype: 'button',
+    	id: 'infoReload',
+    	text: '刷新',
+    	hidden: true,
+    	listeners: {
+    		click: function(){
+				Ext.Ajax.request({  
+					url: '/staff/findMyInfo',  
+					method:'GET',
+					success: function (response) {
+	                    var json = Ext.util.JSON.decode(response.responseText);
+						//调用文本域的方法，设置它的值~
+						if(json.position == '总经理')
+							Ext.getCmp('store').setEditable(false);
+						Ext.getCmp('id').setValue(json.id);
+						//console.log(Ext.getCmp('faceImg'));
+						Ext.getCmp('faceImg').getEl().dom.src=('/Customer/upload/staff/'+json.faceImg);
+						Ext.getCmp('relaName').setValue(json.realname);
+						Ext.getCmp('sex').setValue(json.sex);
+						Ext.getCmp('phoneNumber').setValue(json.phoneNumber);
+						Ext.getCmp('position').setValue(json.position);
+						Ext.getCmp('store').setValue(json.name);
+						
+	                }
+				});
+			}
+    	}
     }]
 });

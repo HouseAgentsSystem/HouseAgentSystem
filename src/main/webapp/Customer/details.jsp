@@ -119,7 +119,7 @@
 				      <h4>经纪人信息</h4><hr>
 				      <img src="/Customer/upload/staff/${requestScope.house.faceImg}" alt="..." style="height: 250px;">
 				      <div class="caption">
-				        <h4>姓名：${requestScope.house.staffName}</h4>
+				        <h4><a href="/showStaffStore/getStaff/${requestScope.house.staffId}">姓名：${requestScope.house.staffName}</a></h4>
 				        <h4>手机：${requestScope.house.phoneNumber}</h4>
 				        <h4><a href="/showStore/getStore/${requestScope.house.storeId}">所属门店：${requestScope.house.storeName}</a></h4>
 				      </div>
