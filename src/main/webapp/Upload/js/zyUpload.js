@@ -341,7 +341,7 @@ var images="";
 							// 重新设置统计栏信息
 							self.funSetStatusInfo(ZYFILE.funReturnNeedFiles());
 						}
-						images = images + file.name +'/';
+						images = images + file.name +',';
 						$("#images").val(images);
 					},
 					onFailure: function(file) {

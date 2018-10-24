@@ -12,6 +12,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,7 +64,7 @@ public class HouseController {
 	}
 	@RequestMapping("/excelupload")
 	@ResponseBody
-	public ExtAjaxResponse excelUpload(@RequestParam("file")MultipartFile file, HttpServletRequest request) {
+	public ExtAjaxResponse excelUpload(@RequestParam("file")MultipartFile file, HttpServletRequest request,HttpSession session) {
 		//System.out.println(file);
 		if(!file.isEmpty()){
 			//MultipartFile 转 file
@@ -89,10 +90,10 @@ public class HouseController {
 				System.out.println(data);
 				House house = new House();
 				DynamicUtil.dynamicSet(house, propertyName, data);
-				//Staff staff = SessionUtil.getStaff(session);
-				//house.setStaff(staff);
-				house.setStaff(null);
-				house.setStore(null);
+				Staff staff = SessionUtil.getStaff(session);
+				house.setStaff(staff);
+				house.setStore(staff.getStore());
+				System.out.println(house);
 				houseService.addOneHouse(house);
 			}
 			return new ExtAjaxResponse(true, "数据导入成功！");
@@ -167,10 +168,8 @@ public class HouseController {
 			House entity = houseService.findById(myId);
 			if(entity!=null) {
 				BeanUtils.copyProperties(dto,entity);//使用自定义的BeanUtils
-				entity.setStaff(staffService.findById(dto.getStaffId()));
-				entity.setStore(staffService.findById(dto.getStaffId()).getStore());
+				entity.setState(1);
 				houseService.updata(entity);
-				//System.out.println(entity);
 			}
 			return new ExtAjaxResponse(true,"更新成功！");
 		} catch (Exception e) {
