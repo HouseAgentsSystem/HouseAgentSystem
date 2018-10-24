@@ -142,11 +142,11 @@
 							'<li><a href="houserent.jsp"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a></li>' +
 							'<li style="width:600px;"></li>'+
 							'<c:if test="${not empty sessionScope.user.realname}">'+
-							'<li><a href="../showUser/information?id=${sessionScope.user.id}">${sessionScope.user.realname}<img src="../Customer/upload/user/${sessionScope.user.faceImage}" style="width:30px;height:30px;border-radius:15px;"></a></li>'+
+							'<li><a href="http://localhost:8081/showUser/information?id=${sessionScope.user.id}">${sessionScope.user.realname}<img src="http://localhost:8081/Customer/upload/user/${sessionScope.user.faceImage}" style="width:30px;height:30px;border-radius:15px;"></a></li>'+
 							'<li><a href="#"onclick="logout()">退出</a></li>'+
 							'</c:if>'+
 							'<c:if test="${empty sessionScope.user.realname}">'+
-							'<li><a href="../Customer/login&registration.html">登录/注册</a></li>'+
+							'<li><a href="http://localhost:8081/Customer/login&registration.html">登录/注册</a></li>'+
 							'</c:if>'+
 							'</ul>' +
 							'</div>' +

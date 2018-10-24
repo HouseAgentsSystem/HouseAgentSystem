@@ -240,7 +240,7 @@
 									      "<img class='media-object' src='http://localhost:8081/Customer/upload/staff/"+record.data.faceImg+"' alt='...' height='90px' width='70px'>"+
 									    "</a>"+
 									  "</div>"+
-									  "<a target='_blank' href='http://localhost:8081/staff/details?id="+record.data.id+" '>"+
+									  "<a target='_blank' href='http://localhost:8081/showStaffStore/getStaff/"+record.data.id+" '>"+
 									  "<div class='media-body'>"+
 									    "</br><p style='color:black; text-indent:10px; font-size:15px;'>"+record.data.realname+"</p>"+
 									    //"<h4 style='font-size:30px;>"+record.data.realname+"</h4></b>"+

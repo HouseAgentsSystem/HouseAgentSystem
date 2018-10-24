@@ -117,7 +117,7 @@
 				<div class="col-md-offset-1 col-md-4">
 				    <div class="thumbnail">
 				      <h4>经纪人信息</h4><hr>
-				      <img src="../Customer/images/${requestScope.house.faceImg}" alt="..." style="height: 250px;">
+				      <img src="/Customer/upload/staff/${requestScope.house.faceImg}" alt="..." style="height: 250px;">
 				      <div class="caption">
 				        <h4>姓名：${requestScope.house.staffName}</h4>
 				        <h4>手机：${requestScope.house.phoneNumber}</h4>

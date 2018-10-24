@@ -38,21 +38,30 @@
 				<div class="col">
 					<nav class="navbar navbar-inverse navbar-embossed navbar-expand-lg" role="navigation">
 						<div class="container">
-							<a class="navbar-brand" href="#">Le home</a>
+							<a class="navbar-brand" href="http://localhost:8081/Customer/index.jsp">Le Home</a>
 							<div class="collapse navbar-collapse" id="navbar-collapse-01">
 								<ul class="nav navbar-nav mr-auto">
 									<li>
-										<a href="#fakelink">首页</a>
+										<a href="http://localhost:8081/Customer/index.jsp">首页</a>
 									</li>
 									<li>
-										<a href="/Customer/house.html"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a>
+										<a href="http://localhost:8081/Customer/house.jsp"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a>
 									</li>
 									<li>
-										<a href="/Customer/houserent.jsp"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a>
+										<a href="http://localhost:8081/Customer/houserent.jsp"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a>
 									</li>
-									<li>
-										<a href=""><img src="http://localhost:8081/Customer/dist/images/出租.png">我要出租</a>
-									</li>
+									<li style="width:360px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+									<c:if test="${not empty sessionScope.user.realname}">
+											<li><a href="http://localhost:8081/showUser/information?id=${sessionScope.user.id}">${sessionScope.user.realname}<img src="http://localhost:8081/Customer/upload/user/${sessionScope.user.faceImage}" style="width:30px;height:30px;border-radius:15px;"></a></li>
+										<li>
+											<a href="#" onclick="logout()">退出</a>
+										</li>
+									</c:if>
+									<c:if test="${empty sessionScope.user.realname}">
+										<li>
+											<a href="http://localhost:8081/Customer/login&registration.html">登录/注册</a>
+										</li>
+									</c:if>
 								</ul>
 							</div>
 						</div>
@@ -206,5 +215,19 @@
 		<script src="/Customer/assets/js/jquery.2.1.1.min.js"></script>
 	    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	    <script>
+			function logout(){
+				$.ajax({
+		                type: 'post',
+		                url: "http://localhost:8081/users/logout",
+		                cache: false,
+		                processData: false,
+		                contentType: false,
+		            }).success(function (data) {
+		            	window.location.reload();
+		            }).error(function () {
+		        });
+			}
+		</script>
 	</body>
 </html>
