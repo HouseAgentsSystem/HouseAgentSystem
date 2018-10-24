@@ -61,7 +61,7 @@ public class TradeService implements ITradeService {
 			TreeNode node = new  TreeNode();
 			
 			node.setNodeId(staff.getId());
-			node.setText(staff.getRealname());
+			node.setText(staff.getRealName());
 			node.setLeaf(true);
 			
 			nodeList.add(node);
@@ -75,8 +75,7 @@ public class TradeService implements ITradeService {
 	 * id 员工id
 	 */
 	@Override
-	public List<TreeNode> findNodes(Staff staff) {
-		String position = staff.getPosition();
+	public List<TreeNode> findNodes(Staff staff, String position) {
 		List<TreeNode> nodeList = new ArrayList<>();
 		
 		if(position.equals("管理员")) {
@@ -85,7 +84,7 @@ public class TradeService implements ITradeService {
 			for (Store store : stores) {
 				TreeNode node = new  TreeNode();
 				
-				node.setNodeId(store.getId());
+				node.setNodeId(store.getId().toString());
 				node.setText(store.getStoreName());
 				node.setLeaf(false);
 				
@@ -102,7 +101,7 @@ public class TradeService implements ITradeService {
 	}
 
 	@Override
-	public Page<TradeDTO> findTradeByStaffId(Long id, Pageable pageable) {
+	public Page<TradeDTO> findTradeByStaffId(String id, Pageable pageable) {
 		List<TradeDTO> dtos = new ArrayList<>();
 		List<Trade> trades = tradeRepositoty.findTradeByStaffId(id);
 		for (Trade trade : trades) {
@@ -128,8 +127,7 @@ public class TradeService implements ITradeService {
 	}
 
 	@Override
-	public Page<TradeDTO> findTradeAllByStaff(Staff staff, Pageable pageable) {
-		String position = staff.getPosition();
+	public Page<TradeDTO> findTradeAllByStaff(Staff staff, String position, Pageable pageable) {
 		List<TradeDTO> dtos = new ArrayList<>();
 		
 		if(position.equals("管理员")) {

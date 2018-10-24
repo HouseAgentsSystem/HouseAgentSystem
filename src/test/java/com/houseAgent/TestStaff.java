@@ -40,14 +40,14 @@ public class TestStaff {
 	//@Test
 	public void addStaff() {
 		Staff s = new Staff();
-		s.setRealname("鸡儿硬");
+//		s.setRealname("鸡儿硬");
 		s.setPhoneNumber("12345678910");
 		s.setPosition("Boss");
 		s.setSex("汉子");
 		s.setFaceImg(null);
 		s.setPassword(null);
 		s.setStore(storeService.findOne(1L));
-		s.setUserName("邦邦硬");
+//		s.setUserName("邦邦硬");
 		
 		staffService.saveAndUpdate(s);
 	}

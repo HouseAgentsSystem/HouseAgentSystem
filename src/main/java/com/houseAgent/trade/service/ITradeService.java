@@ -14,11 +14,11 @@ import com.houseAgent.trade.domain.TradeDTO;
 public interface ITradeService {
 	
 	public List<TreeNode> findNodes(Long id);
-	public List<TreeNode> findNodes(Staff staff);
+	public List<TreeNode> findNodes(Staff staff, String position);
 
-	public Page<TradeDTO> findTradeByStaffId(Long id, Pageable pageable);
+	public Page<TradeDTO> findTradeByStaffId(String id, Pageable pageable);
 	public Page<TradeDTO> findTradeByStoreId(Long id, Pageable pageable);
-	public Page<TradeDTO> findTradeAllByStaff(Staff staff, Pageable pageable);
+	public Page<TradeDTO> findTradeAllByStaff(Staff staff, String position, Pageable pageable);
 	public void save(Trade trade);
 	public ExtAjaxResponse saveOneTrade(Long houseId, String userName, Double agencyFees, Double actualPrice);
 }

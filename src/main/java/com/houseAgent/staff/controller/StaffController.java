@@ -50,10 +50,8 @@ public class StaffController {
 	
 	@GetMapping
     public Page<StaffDTO> findAll(StaffDTO staffDTO, ExtjsPageRequest pageRequest, HttpSession session) {
-		//Staff staff = SessionUtil.getStaff(session);
-		
-		Staff staff = staffService.findById(3L);
-		System.out.println(staff.getPosition());
+		Staff staff = SessionUtil.getStaff(session);
+//		Staff staff = staffService.findById(3L);
 		if(staff.getPosition().equals("经理")) {
 			System.out.println(staff.getStore());
 			staffDTO.setStoreId(staff.getStore().getId());
@@ -63,7 +61,7 @@ public class StaffController {
 	}
 	
 	@DeleteMapping(value="{id}")
-	public ExtAjaxResponse  delete(@PathVariable("id") long id) {
+	public ExtAjaxResponse  delete(@PathVariable("id") String id) {
 		try {
 			staffService.deleteById(id);
 			return new ExtAjaxResponse (true,"成功删除！");
@@ -73,7 +71,7 @@ public class StaffController {
 	}
 	
 	@PostMapping("/deletes")
-	public ExtAjaxResponse deleteRows(@RequestParam(name="ids") Long[] ids) 
+	public ExtAjaxResponse deleteRows(@RequestParam(name="ids") String[] ids) 
 	{
 		try {
 			if(ids!=null) {
@@ -88,14 +86,14 @@ public class StaffController {
 	@GetMapping(value="{id}")
 	public StaffDTO getOne(HttpSession session) 
 	{
-		SessionUtil.setStaffId(session,1L);
-		Long id = SessionUtil.getStaffId(session);
+//		SessionUtil.setStaffId(session,5L);
+		String id = SessionUtil.getStaffId(session);
 		StaffDTO dto = staffService.findOne(id);
 		return dto;
 	}
 	
 	@PutMapping(value="{id}",consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ExtAjaxResponse UpdateOrder(@PathVariable("id") Long id,@RequestBody StaffDTO dto) {
+	public ExtAjaxResponse UpdateOrder(@PathVariable("id") String id,@RequestBody StaffDTO dto) {
 		try {
 			staffService.update(id, dto);
 			return new ExtAjaxResponse(true,"修改成功！");
@@ -135,8 +133,8 @@ public class StaffController {
 	           file.transferTo(new File(filePath+fileName));
 			}
 			
-			SessionUtil.setStaffId(session,1L);//得删除
-			Long id = SessionUtil.getStaffId(session);
+//			SessionUtil.setStaffId(session,5L);//得删除
+			String id = SessionUtil.getStaffId(session);
 			StaffDTO dto = staffService.findOne(id);
 			dto.setFaceImg(fileName);
 			Staff staff = new Staff();

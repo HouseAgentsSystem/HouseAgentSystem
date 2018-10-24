@@ -14,14 +14,15 @@ public class TradeReportDTO {
 	private Date saleDate;
 	private Double actualPrice;
 	private String storeName;
+	private String staffId;
 	private String staffName;
 	private Double agencyFees;
 	
 	public static void entityToDto(Trade entity, TradeReportDTO dto) {
 		BeanUtils.copyProperties(entity, dto);
 		dto.setStoreName(entity.getHouseData().getStore().getStoreName());
-		dto.setStaffName(entity.getHouseData().getStaff().getUserName());
-//		dto.setStaffName(entity.getHouseData().getStaff().getId());
+		dto.setStaffId(entity.getHouseData().getStaff().getId());
+		dto.setStaffName(entity.getHouseData().getStaff().getRealName());
 	}
 //	public static void dtoToEntity(TradeReportDTO dto, Trade entity) {
 //		
@@ -58,9 +59,16 @@ public class TradeReportDTO {
 	public void setAgencyFees(Double agencyFees) {
 		this.agencyFees = agencyFees;
 	}
+	public String getStaffId() {
+		return staffId;
+	}
+	public void setStaffId(String staffId) {
+		this.staffId = staffId;
+	}
 	@Override
 	public String toString() {
 		return "TradeReportDTO [saleDate=" + saleDate + ", actualPrice=" + actualPrice + ", storeName=" + storeName
-				+ ", staffName=" + staffName + ", agencyFees=" + agencyFees + "]";
+				+ ", staffId=" + staffId + ", staffName=" + staffName + ", agencyFees=" + agencyFees + "]";
 	}
+	
 }

@@ -45,7 +45,7 @@
                 '->',
                 {
                     xtype: 'tbtext',
-                    text: '用户名:HouseAgentSystem',
+                    id: "loginUserName",
                     cls: 'top-user-name'
                 },
                 {
@@ -55,6 +55,12 @@
                     width: 35,
                     alt:'current user image',
                     src: 'resources/images/user-profile/2.png'
+                },
+                {
+                    iconCls:'x-fa fa-sign-out',
+                    ui: 'header',
+                    tooltip: 'Logout',
+                    handler: 'logoutButton'
                 }
             ]
         },

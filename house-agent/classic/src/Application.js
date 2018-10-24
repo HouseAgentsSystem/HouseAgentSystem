@@ -4,7 +4,10 @@ Ext.define('HouseAgentSystem.Application', {
     name: 'HouseAgentSystem',
 
     stores: [
-        'NavigationTree'
+        'NavigationTree',
+        'NavigationAdminTree',
+        'NavigationEmploeeTree',
+        'NavigationManagerTree'
     ],
 
     defaultToken : 'dashboard',

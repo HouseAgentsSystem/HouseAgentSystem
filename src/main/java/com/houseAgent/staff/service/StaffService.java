@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.shiro.crypto.SecureRandomNumberGenerator;
+import org.apache.shiro.crypto.hash.SimpleHash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -14,10 +16,11 @@ import org.springframework.stereotype.Service;
 import com.houseAgent.house.domain.House;
 import com.houseAgent.house.domain.HouseDTO;
 import com.houseAgent.house.repository.HouseRepository;
+import com.houseAgent.staff.domain.Group;
 import com.houseAgent.staff.domain.Staff;
 import com.houseAgent.staff.domain.StaffDTO;
+import com.houseAgent.staff.repository.GroupRepository;
 import com.houseAgent.staff.repository.StaffRepository;
-import com.houseAgent.store.domain.Store;
 
 
 
@@ -26,34 +29,53 @@ public class StaffService implements IStaffService{
 
 	@Autowired
 	private StaffRepository staffRepository;
-
+	
 	@Autowired
 	private HouseRepository houseRepository;
+	@Autowired
+	private GroupRepository groupRepository;
 	
 	@Override
 	public void save(Staff staff, Staff manager) {
 		staff.setFaceImg("default.jpg");
 		staff.setPassword("123456");//加密
+		//密码加密	...MD5加密两次	... 盐值为 随机字符+userName
+		String salt = new SecureRandomNumberGenerator().nextBytes(32).toHex();
+		staff.setSalt(salt);
+		String passwordR = new SimpleHash("MD5", staff.getPassword(), staff.getCredentialsSalt(), 2).toString();
+		staff.setPassword(passwordR);
 		staff.setPosition("员工");
 		staff.setStore(manager.getStore());
+		if(staff.getPosition()!=null) {
+			Group group = groupRepository.findByName(staff.getPosition());
+			List<Group> actIdGroups = new ArrayList<Group>();
+			actIdGroups.add(group);
+			staff.setActIdGroups(actIdGroups);
+		}
 		staffRepository.save(staff);
+		
 	}
 	
 	@Override
 	public void saveAndUpdate(Staff staff) {
-		
+		if(staff.getPosition()!=null) {
+			Group group = groupRepository.findByName(staff.getPosition());
+			List<Group> actIdGroups = new ArrayList<Group>();
+			actIdGroups.add(group);
+			staff.setActIdGroups(actIdGroups);
+		}
 		staffRepository.save(staff);
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(String id) {
 		staffRepository.deleteById(id);
 		
 	}
 
 	@Override
-	public void deleteAll(Long[] ids) {
-		List<Long> idLists = new ArrayList<Long>(Arrays.asList(ids));
+	public void deleteAll(String[] ids) {
+		List<String> idLists = new ArrayList<String>(Arrays.asList(ids));
 		
 		List<Staff> staffs = (List<Staff>) staffRepository.findAllById(idLists);
 		if(staffs!=null) {
@@ -62,7 +84,7 @@ public class StaffService implements IStaffService{
 	}
 
 	@Override
-	public StaffDTO findOne(long id) {
+	public StaffDTO findOne(String id) {
 		Staff staff = staffRepository.findById(id).get();
 		StaffDTO staffDTO = new StaffDTO();
 		StaffDTO.entityToDto(staff, staffDTO);
@@ -83,20 +105,20 @@ public class StaffService implements IStaffService{
 	}
 	
 	@Override
-	public void update(Long id, StaffDTO staffDTO) {
+	public void update(String id, StaffDTO staffDTO) {
 		Staff staff = staffRepository.findById(id).get();
 		StaffDTO.dtoToEntity(staffDTO, staff);
 		staffRepository.save(staff);
 	}
 
 	@Override
-	public Staff findById(long id) {
+	public Staff findById(String id) {
 		// TODO Auto-generated method stub
 		return staffRepository.findById(id).get();
 	}
 
 	@Override
-	public Page<HouseDTO> findHouseByStaffId(Long staffId, Pageable pageRequest) {
+	public Page<HouseDTO> findHouseByStaffId(String staffId, Pageable pageRequest) {
 		Staff staff = staffRepository.findById(staffId).get();
 		List<HouseDTO> dtoList = new ArrayList<>();
 		List<House> houseList = houseRepository.findHouseByStaff(staff);

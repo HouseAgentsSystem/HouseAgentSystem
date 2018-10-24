@@ -25,7 +25,7 @@ public class showStaffStoreController {
 	
 	//获取员工信息
 	@GetMapping("/getStaff/{staffId}")
-	public String getStaff(@PathVariable("staffId")Long staffId, Map<String,Object> model) { 
+	public String getStaff(@PathVariable("staffId")String staffId, Map<String,Object> model) { 
 		Staff staff = staffService.findById(staffId);
 		StaffDTO staffDTO = new StaffDTO();
 		StaffDTO.entityToDto(staff, staffDTO);
@@ -35,7 +35,7 @@ public class showStaffStoreController {
 	
 	//获取门店房源列表
 	@RequestMapping(value="/getHouse/{storeId}")//, consumes=MediaType.APPLICATION_JSON_VALUE
-	public @ResponseBody Page<HouseDTO> getHouseByStoreId(@PathVariable("staffId")Long staffId, ExtjsPageRequest pageRequest) {
+	public @ResponseBody Page<HouseDTO> getHouseByStoreId(@PathVariable("staffId")String staffId, ExtjsPageRequest pageRequest) {
 		System.out.println("gethouse");
 		return staffService.findHouseByStaffId(staffId, pageRequest.getPageable());
 	}

@@ -39,10 +39,11 @@ public class HouseRent {
     private String introduce;	// 详细介绍
     private Date applyTime;		//申请日期
     private Date publishTime;	//发布日期
+    private String backReason;	// 不通过理由
     private RentApplyStates state;		//状态(正在审核，审核不通过，未售，已售，取消)
-//    private Long customerId;	//客户外键
     private User user;
-    
+//  流程实例Id：用于关联流程引擎相关数据,没有启动流程之前为""
+    private String processInstanceId;
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long getId() {
@@ -110,7 +111,12 @@ public class HouseRent {
 	public User getUser() {
 		return user;
 	}
-
+	public String getProcessInstanceId() {
+		return processInstanceId;
+	}
+	public String getBackReason() {
+		return backReason;
+	}
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -164,6 +170,14 @@ public class HouseRent {
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	public void setProcessInstanceId(String processInstanceId) {
+		this.processInstanceId = processInstanceId;
+	}
+	
+	public void setBackReason(String backReason) {
+		this.backReason = backReason;
 	}
 	@Override
 	public String toString() {

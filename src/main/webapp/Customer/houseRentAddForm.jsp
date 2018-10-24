@@ -24,8 +24,8 @@
 		<div class="container">
 			<h4>租房信息</h4>
 			<hr>
-			<form id="form1" class="form-horizontal" action="/showHouseRent/addHouseRent">
-				<input type="text" value="${sessionScope.user.id}" name="id" hidden="true"/>
+			<form id="form1" class="form-horizontal" method="post" action="/showHouseRent/addHouseRent">
+				<%-- <input type="text" value="${sessionScope.user.id}" name="id" hidden="true"/> --%>
 				<div style="width: 600px; margin-left: 100px;margin-top: 20px;">
 					<div class="form-group">
 						<label for="inputPassword3" class="col-sm-2 control-label">标题</label>

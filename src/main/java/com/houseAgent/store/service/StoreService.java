@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.shiro.crypto.SecureRandomNumberGenerator;
+import org.apache.shiro.crypto.hash.SimpleHash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -16,7 +18,9 @@ import com.houseAgent.common.beans.BeanUtils;
 import com.houseAgent.house.domain.House;
 import com.houseAgent.house.domain.HouseDTO;
 import com.houseAgent.house.repository.HouseRepository;
+import com.houseAgent.staff.domain.Group;
 import com.houseAgent.staff.domain.Staff;
+import com.houseAgent.staff.repository.GroupRepository;
 import com.houseAgent.staff.repository.StaffRepository;
 import com.houseAgent.store.domain.Store;
 import com.houseAgent.store.domain.StoreDTO;
@@ -32,6 +36,8 @@ public class StoreService implements IStoreService {
 	private StaffRepository staffRepository;
 	@Autowired
 	private HouseRepository houseRepository;
+	@Autowired
+	private GroupRepository groupRepository;
 	
 	@Override
 	public void saveAndUpdate(Store store) {
@@ -80,7 +86,7 @@ public class StoreService implements IStoreService {
 		Staff staff = staffRepository.findManagerByStoreId(store.getId());
 		
 		if(staff != null) {
-			dto.setManagerName(staff.getRealname());
+			dto.setManagerName(staff.getRealName());
 			dto.setManagerPhone(staff.getPhoneNumber());
 		} else {
 			dto.setManagerName("尚未分配");
@@ -115,6 +121,16 @@ public class StoreService implements IStoreService {
 		staff.setStore(store);
 		staff.setPosition("经理");
 		staff.setPassword("123456");//加密
+		if(staff.getPosition()!=null) {
+			Group group = groupRepository.findByName(staff.getPosition());
+			List<Group> actIdGroups = new ArrayList<Group>();
+			actIdGroups.add(group);
+			staff.setActIdGroups(actIdGroups);
+		}
+		String salt = new SecureRandomNumberGenerator().nextBytes(32).toHex();
+		staff.setSalt(salt);
+		String passwordR = new SimpleHash("MD5", staff.getPassword(), staff.getCredentialsSalt(), 2).toString();
+		staff.setPassword(passwordR);
 		staffRepository.save(staff);
 	}
 }

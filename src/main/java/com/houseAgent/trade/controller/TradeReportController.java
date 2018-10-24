@@ -24,11 +24,12 @@ public class TradeReportController {
 	IStaffService staffService;
 	@RequestMapping("/findAll")
 	public List<TradeReportDTO> findAll(HttpSession session) {
-		SessionUtil.setGroupNames(session, "manager");
-		Staff staff = staffService.findById(1L);
-		SessionUtil.setStaff(session, staff);
-
-		System.out.println("staff" + staff);
+//		SessionUtil.setGroupNames(session, "manager");
+//		Staff staff = staffService.findById(1L);
+//		SessionUtil.setStaff(session, staff);
+//		
+//		System.out.println("staff" + staff);
+		
 		Long storeId = null;
 		if(SessionUtil.getGroupNames(session).equals("manager")) {
 			storeId = SessionUtil.getStaff(session).getStore().getId();

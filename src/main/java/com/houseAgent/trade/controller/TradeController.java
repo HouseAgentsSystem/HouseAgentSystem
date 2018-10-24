@@ -69,10 +69,10 @@ public class TradeController {
 	@GetMapping("/findNodes")
 	public List<TreeNode> getTreeNode(@RequestParam("node") String node, String nodeId, HttpSession session) {
 		if(node.equals("root")) {
-			//Staff staff = SessionUtil.getStaff(session);
-			Staff staff = staffService.findById(7L);
-			
-			return tradeService.findNodes(staff);
+			Staff staff = SessionUtil.getStaff(session);
+//			Staff staff = staffService.findById(7L);
+			String position = SessionUtil.getGroupNames(session);
+			return tradeService.findNodes(staff, position);
 		} else {
 			return tradeService.findNodes(Long.parseLong(nodeId));
 		}
@@ -82,14 +82,15 @@ public class TradeController {
 	public Page<TradeDTO> getTradePage(Long nodeId, Boolean isLeaf, ExtjsPageRequest pageable, HttpSession session) {
 		if(nodeId != null) {
 			if(isLeaf) {
-				return tradeService.findTradeByStaffId(nodeId, pageable.getPageable());
+				return tradeService.findTradeByStaffId(nodeId.toString(), pageable.getPageable());
 			} else {
 				return tradeService.findTradeByStoreId(nodeId, pageable.getPageable());
 			}
 		} else {
-			//Staff staff = SessionUtil.getStaff(session);
-			Staff staff = staffService.findById(7L);
-			return tradeService.findTradeAllByStaff(staff, pageable.getPageable());
+			Staff staff = SessionUtil.getStaff(session);
+//			Staff staff = staffService.findById(7L);
+			String position = SessionUtil.getGroupNames(session);
+			return tradeService.findTradeAllByStaff(staff, position, pageable.getPageable());
 		}
 	}
 }

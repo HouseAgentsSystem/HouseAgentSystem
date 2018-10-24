@@ -29,7 +29,7 @@ public class HouseDTO {
 	private int state;//状态
 	private int propertyRights;//产权年限
 	
-	private Long staffId;
+	private String staffId;
 	private String staffName;
 	private String faceImg;
 	private String phoneNumber;//手机号码
@@ -48,7 +48,7 @@ public class HouseDTO {
 		}else dto.setIsParking("否");
 		if(house.getStaff()!=null) {
 			dto.setStaffId(house.getStaff().getId());
-			dto.setStaffName(house.getStaff().getRealname());
+			dto.setStaffName(house.getStaff().getRealName());
 			dto.setFaceImg(house.getStaff().getFaceImg());
 			dto.setPhoneNumber(house.getStaff().getPhoneNumber());
 		}else {
@@ -212,10 +212,10 @@ public class HouseDTO {
 		this.propertyRights = propertyRights;
 	}
 	
-	public Long getStaffId() {
+	public String getStaffId() {
 		return staffId;
 	}
-	public void setStaffId(Long staffId) {
+	public void setStaffId(String staffId) {
 		this.staffId = staffId;
 	}
 	public String getStaffName() {

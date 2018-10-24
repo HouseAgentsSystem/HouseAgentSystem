@@ -100,6 +100,10 @@
 			Ext.setGlyphFontFamily('FontAwesome');
 			var myStore = Ext.create('Ext.data.Store', {
 				storeId: 'simpsonsStore',
+				fields: [
+				    {type: 'int',name: 'id'},
+				    {type: 'date',name: 'applyTime'}
+				],
 				proxy: {
 					type: 'rest',
 					url: '/houseRent',
@@ -135,6 +139,66 @@
 					win.down('form').getForm().loadRecord(record);
 				}
 			}; 
+			function openDetailWindow(grid, rowIndex, colIndex){
+				alert("321");
+			     var record = grid.getStore().getAt(rowIndex);
+				//获取选中数据的字段值：console.log(record.get('id')); 或者 console.log(record.data.id);
+				if (record ) {
+					var win = Ext.getCmp('DetailWindow');//.add(Ext.getCmp('orderEditWindow'));
+					//console.log(win);
+					//var win = Ext.create('orderEditWindow');
+					win.show();
+					win.down('form').getForm().loadRecord(record);
+				}
+			};
+			function onClickRentedButton(view, recIndex, cellIndex, item, e, record) {
+			    Ext.Ajax.request({
+			        url: '/rentapply/changeStates/rented/' + record.get('id'),
+			        method: 'Get',
+			        success: function(response, options) {
+			            var json = Ext.util.JSON.decode(response.responseText);
+			            if (json.success) {
+			                Ext.Msg.alert('操作成功', json.msg, function() {
+			                    view.getStore().reload();
+			                });
+			            } else {
+			                Ext.Msg.alert('操作失败', json.msg);
+			            }
+			        }
+			    });
+			};
+			function onClickDownButton(view, recIndex, cellIndex, item, e, record) {
+			    Ext.Ajax.request({
+			        url: '/rentapply/changeStates/down/' + record.get('id'),
+			        method: 'Get',
+			        success: function(response, options) {
+			            var json = Ext.util.JSON.decode(response.responseText);
+			            if (json.success) {
+			                Ext.Msg.alert('操作成功', json.msg, function() {
+			                    view.getStore().reload();
+			                });
+			            } else {
+			                Ext.Msg.alert('操作失败', json.msg);
+			            }
+			        }
+			    });
+			};
+			function onClickCancelButton(view, recIndex, cellIndex, item, e, record) {
+			    Ext.Ajax.request({
+			        url: '/rentapply/changeStates/cancel/' + record.get('id'),
+			        method: 'Get',
+			        success: function(response, options) {
+			            var json = Ext.util.JSON.decode(response.responseText);
+			            if (json.success) {
+			                Ext.Msg.alert('操作成功', json.msg, function() {
+			                    view.getStore().reload();
+			                });
+			            } else {
+			                Ext.Msg.alert('操作失败', json.msg);
+			            }
+			        }
+			    });
+			};
 			Ext.create('Ext.Panel', {
 				requires: [
 					'Ext.grid.Panel',
@@ -156,6 +220,12 @@
 							hidden: true
 						},
 						{
+							header: '申请日期',
+							dataIndex: 'applyTime',
+							flex: 2,
+							renderer: Ext.util.Format.dateRenderer('Y/m/d H:i')
+						},
+						{
 							header: '标题',
 							dataIndex: 'title',
 							flex: 1
@@ -173,6 +243,22 @@
 						{
 							header: '状态',
 							dataIndex: 'state',
+							renderer:function(val){
+								if (val =="APPROVAL") {
+						            return '<span style="color:blue;">正在审核</span>';
+						        } else if(val == "REFUSE") {
+						            return '<span style="color:blue;">审核不通过</span>';
+						        } else if(val == "RENTING"){
+						        	return '<span style="color:blue;">正在租房</span>';
+						        } else if(val == "RENTED"){
+						        	return '<span style="color:blue;">已租</span>';
+						        } else if(val == "DOWN"){
+						        	return '<span style="color:blue;">下架</span>';
+						        } else if(val == "CANCEL"){
+						        	return '<span style="color:blue;">取消审核</span>';
+						        }
+						        return val;
+							}
 						}, {
 							xtype: 'actioncolumn',
 							cls: 'content-column',
@@ -181,26 +267,69 @@
 							tooltip: 'edit ',
 							value:'',
 							items: [{
+									//查看
+									tooltip: '查看详情',
 									xtype: 'button',
 									glyph: 0xf002,
 									iconCls:'green',
-									value:'edit'
+									value:'look',
+									handler: openDetailWindow
 								},'-',{
+									//重新申请
+									tooltip: '重新申请',
 									xtype: 'button',
-									glyph: 0xf040,
+									/* glyph: 0xf040, */
 									iconCls:'blue',
 									value:'edit',
-									handler: openEditWindow
+									handler: openEditWindow,
+									getClass: function(v, meta, rec) {
+							            if (rec.get('state')!='REFUSE') {
+							                  return 'x-hidden';
+							            }
+							            return 'x-fa fa-edit';
+									}
 								},'-',{
+									//设置为已租
+									tooltip: '已租',
 									xtype: 'button',
-									glyph: 0xf00d,
+									/* glyph: 0xf00d, */
 									iconCls:'red',
-									value:'delete'
+									value:'delete',
+									getClass: function(v, meta, rec) {
+							            if (rec.get('state')!='RENTING') {
+							                  return 'x-hidden';
+							            }
+							            return 'x-fa fa-gavel';
+									},
+									handler: onClickRentedButton
 								},'-',{
+									//设置为下架
+									tooltip: '下架',
 									xtype: 'button',
-									glyph: 0xf05e,
+									/* glyph: 0xf05e, */
 									iconCls: 'orange',
-									value:''
+									value:'',
+									getClass: function(v, meta, rec) {
+							            if (rec.get('state')!='RENTING' && rec.get('state')!='RENTED') {
+							                  return 'x-hidden';
+							            }
+							            return 'x-fa fa-minus-circle';
+									},
+									handler: onClickDownButton
+								},'-',{
+									//取消申请
+									tooltip: '取消申请',
+									xtype: 'button',
+									/* glyph: 0xf05e, */
+									iconCls: 'orange',
+									value:'',
+									getClass: function(v, meta, rec) {
+							            if (rec.get('state')!='REFUSE') {
+							                  return 'x-hidden';
+							            }
+							            return 'x-fa fa-ban';
+									},
+									handler: onClickCancelButton
 								}
 							]
 						}

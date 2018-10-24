@@ -23,19 +23,19 @@ public class StoreQueryDTO {
 	private String region;//地区
 	
 	@SuppressWarnings("unused")
-	public static Specification<Store> getWhereClause(StoreQueryDTO StoreQueryDTO)
+	public static Specification<Store> getWhereClause(StoreQueryDTO storeQueryDTO)
     {
 		return new Specification<Store>() {
 			public Predicate toPredicate(Root<Store> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				 //1.声明Predicate集合
 				 List<Predicate> predicate = new ArrayList<>();
 				 //2.根据storeQueryDTO查询条件动态添加Predicate
-				 System.out.println(StoreQueryDTO.getStoreName());
-				 if(StringUtils.isNotBlank(StoreQueryDTO.getStoreName())) {
-					 predicate.add(cb.like(root.get("storeName").as(String.class),"%"+ StoreQueryDTO.getStoreName()+"%"));
+				 System.out.println(storeQueryDTO.getStoreName());
+				 if(StringUtils.isNotBlank(storeQueryDTO.getStoreName())) {
+					 predicate.add(cb.like(root.get("storeName").as(String.class),"%"+ storeQueryDTO.getStoreName()+"%"));
 				 }
 				 
-				 if(StringUtils.isNotBlank(StoreQueryDTO.getManagerName())) {
+				 if(StringUtils.isNotBlank(storeQueryDTO.getManagerName())) {
 					 //CriteriaQuery<?> criteriaQuery = cb.createQuery(Staff.class);
 					 //query.
 					 //bancp
@@ -48,7 +48,7 @@ public class StoreQueryDTO {
 					 
 					 Root<Staff> staffRoot = query.from(Staff.class);
 					 predicate.add(cb.equal(root.get("id"), staffRoot.get("store").get("id")));
-					 predicate.add(cb.like(staffRoot.get("realname").as(String.class),"%"+ StoreQueryDTO.getManagerName()+"%"));
+					 predicate.add(cb.like(staffRoot.get("realname").as(String.class),"%"+ storeQueryDTO.getManagerName()+"%"));
 //					 predicate.add(cb.equal(staffRoot.get("realname"), StoreQueryDTO.getManagerName()));
 					 predicate.add(cb.equal(staffRoot.get("position"), "经理"));
 					 
@@ -94,8 +94,8 @@ public class StoreQueryDTO {
 //					 cb.equal(staffRoot.get("position"), "经理");
 				 }
 				 
-				 if(StringUtils.isNotBlank(StoreQueryDTO.getRegion())) {
-					 predicate.add(cb.like(root.get("address").as(String.class),"%"+ StoreQueryDTO.getRegion()+"%"));
+				 if(StringUtils.isNotBlank(storeQueryDTO.getRegion())) {
+					 predicate.add(cb.like(root.get("address").as(String.class),"%"+ storeQueryDTO.getRegion()+"%"));
 				 }
 
 				 //3.根据Predicate集合生成并返回and 连接的 where条件

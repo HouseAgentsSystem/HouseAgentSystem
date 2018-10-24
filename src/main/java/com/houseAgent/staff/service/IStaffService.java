@@ -13,15 +13,15 @@ import com.houseAgent.staff.domain.StaffDTO;
 public interface IStaffService {
 	public void save(Staff staff, Staff Manager);
 	public void saveAndUpdate(Staff staff);
-	public void update(Long id, StaffDTO staffDTO);
+	public void update(String id, StaffDTO staffDTO);
 	
-	public void deleteById(Long id);
-	public void deleteAll(Long[] ids);
+	public void deleteById(String id);
+	public void deleteAll(String[] ids);
 	
-	public StaffDTO findOne(long id);
-	public Staff findById(long id);
+	public StaffDTO findOne(String id);
+	public Staff findById(String id);
 	public Page<StaffDTO> findAll(Specification<Staff> spec, Pageable pageable);
 	
-	public Page<HouseDTO> findHouseByStaffId(Long staffId, Pageable pageRequest);
+	public Page<HouseDTO> findHouseByStaffId(String staffId, Pageable pageRequest);
 }
 

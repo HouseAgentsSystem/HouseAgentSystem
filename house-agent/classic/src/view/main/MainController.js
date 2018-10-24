@@ -147,5 +147,21 @@ Ext.define('HouseAgentSystem.view.main.MainController', {
 
     onRouteChange:function(id){
         this.setCurrentView(id);
+    },
+    logoutButton: function(){
+        var me = this;
+        Ext.Ajax.request({
+            url: '/logout',
+            method: 'post',
+            success: function(response, options) {
+                var json = Ext.util.JSON.decode(response.responseText);
+                if(json.success){
+                    me.redirectTo('login', true);
+                    window.location.reload();
+                }else{
+                    Ext.Msg.alert('登出失败', json.msg);
+                }
+            }
+        });
     }
 });

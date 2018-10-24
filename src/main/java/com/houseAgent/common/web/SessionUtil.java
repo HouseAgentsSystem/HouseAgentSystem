@@ -12,7 +12,7 @@ public class SessionUtil {
 	public static final String USERId 		= "userId";
 	public static final String STAFF 		= "staff";		//员工用户
 	public static final String STAFFId 		= "staffId";
-//	public static final String GROUPS 		= "groups";s
+//	public static final String GROUPS 		= "groups";
 	public static final String GROUPNAMES 	= "groupNames";
     /**
      * 设置普通用户到session
@@ -83,15 +83,15 @@ public class SessionUtil {
 //    public static void setStaffName(HttpSession session, String staffName) {
 //        session.setAttribute(STAFFNAME, staffName);
 //    }
-    public static void setStaffId(HttpSession session, Long staffId) {
+    public static void setStaffId(HttpSession session, String staffId) {
         session.setAttribute(STAFFId, staffId);
     }
     /**
      * 从Session获取当前员工用户名
      */
-    public static Long getStaffId(HttpSession session) {
+    public static String getStaffId(HttpSession session) {
         Object staffId = session.getAttribute(STAFFId);
-        return staffId == null ? null : (Long) staffId;
+        return staffId == null ? null : (String) staffId;
     }
 
     /**

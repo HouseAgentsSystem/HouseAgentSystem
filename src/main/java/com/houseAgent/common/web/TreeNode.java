@@ -13,7 +13,7 @@ import org.apache.poi.ss.formula.functions.T;
  */
 public class TreeNode 
 {
-	private Long nodeId;
+	private String nodeId;
 	private String text;//显示的节点文本
 	private boolean expanded = false;//节点是否展开
 	private boolean leaf = false;	//是否为子节点，根据当前节点是否有子节点判断
@@ -21,7 +21,7 @@ public class TreeNode
 	//private List<TreeNode> children = ArrayList<TreeNode>();	//子节点集合
     //private String iconCls;	//节点图标样式
 	
-	public Long getNodeId() {
+	public String getNodeId() {
 		return nodeId;
 	}
 	public String getText() {
@@ -33,7 +33,7 @@ public class TreeNode
 	public boolean isLeaf() {
 		return leaf;
 	}
-	public void setNodeId(Long nodeId) {
+	public void setNodeId(String nodeId) {
 		this.nodeId = nodeId;
 	}
 	public void setText(String text) {

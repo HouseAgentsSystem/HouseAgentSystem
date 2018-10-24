@@ -14,7 +14,7 @@ import org.springframework.data.jpa.domain.Specification;
 import com.houseAgent.common.beans.BeanUtils;
 
 public class StaffDTO {
-	private long id;//员工Id	
+	private String id;//员工Id	
 	private	String realname;//员工姓名
 	private String position;//职位
 	private String phoneNumber;//手机号码
@@ -38,11 +38,11 @@ public class StaffDTO {
 		BeanUtils.copyProperties(dto, entity);
 	}
 	
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	

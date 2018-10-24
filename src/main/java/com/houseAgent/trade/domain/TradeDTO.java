@@ -40,7 +40,7 @@ public class TradeDTO {
 		dto.houseAddress = house.getAddress();
 		dto.houseSummary = house.getRegion() + "室" + house.getHall() + "厅的" + house.getArea() + "平方米" + house.getType();
 		dto.storeName = house.getStore().getStoreName();
-		dto.staffName = house.getStaff().getRealname();
+		dto.staffName = house.getStaff().getRealName();
 		
 	}
 	
