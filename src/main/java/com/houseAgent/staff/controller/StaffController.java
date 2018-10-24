@@ -51,10 +51,14 @@ public class StaffController {
 	@GetMapping
     public Page<StaffDTO> findAll(StaffDTO staffDTO, ExtjsPageRequest pageRequest, HttpSession session) {
 		//Staff staff = SessionUtil.getStaff(session);
+		
 		Staff staff = staffService.findById(3L);
+		System.out.println(staff.getPosition());
 		if(staff.getPosition().equals("经理")) {
+			System.out.println(staff.getStore());
 			staffDTO.setStoreId(staff.getStore().getId());
 		}
+		System.out.println("staffdto: "+staffDTO.getStoreId());
 		return staffService.findAll(StaffDTO.getWhereClause(staffDTO), pageRequest.getPageable());
 	}
 	
@@ -84,7 +88,7 @@ public class StaffController {
 	@GetMapping(value="{id}")
 	public StaffDTO getOne(HttpSession session) 
 	{
-		SessionUtil.setStaffId(session,5L);
+		SessionUtil.setStaffId(session,1L);
 		Long id = SessionUtil.getStaffId(session);
 		StaffDTO dto = staffService.findOne(id);
 		return dto;
@@ -131,7 +135,7 @@ public class StaffController {
 	           file.transferTo(new File(filePath+fileName));
 			}
 			
-			SessionUtil.setStaffId(session,5L);//得删除
+			SessionUtil.setStaffId(session,1L);//得删除
 			Long id = SessionUtil.getStaffId(session);
 			StaffDTO dto = staffService.findOne(id);
 			dto.setFaceImg(fileName);

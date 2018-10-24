@@ -102,6 +102,7 @@ Ext.define('HouseAgentSystem.view.calendar.Month', {
 						id: id,
 						title: title,
 						calendarId: calendarId,
+						allDay : allDay,
 						description: description,
 						startDate: startDate,
 						endDate: endDate
@@ -132,6 +133,7 @@ Ext.define('HouseAgentSystem.view.calendar.Month', {
 						id: id,
 						title: title,
 						calendarId: calendarId,
+						allDay : allDay,
 						description: description,
 						startDate: startDate,
 						endDate: endDate

@@ -55,9 +55,9 @@ Ext.define('HouseAgentSystem.view.calendar.Days', {
 		//region: 'center',
 		xtype: 'calendar-days',
 		height: 700,
-		startTime: 0,
-		endTime: 24,
-		visibleDays: 2,
+		startTime: 7,
+		endTime: 20,
+		visibleDays: 5,
 		timezoneOffset: -480,
 		gestureNavigation: false,
 		bind: {
@@ -86,6 +86,7 @@ Ext.define('HouseAgentSystem.view.calendar.Days', {
 						id: id,
 						title: title,
 						calendarId: calendarId,
+						allDay : allDay,
 						description: description,
 						startDate : startDate,
 						endDate : endDate
@@ -116,6 +117,7 @@ Ext.define('HouseAgentSystem.view.calendar.Days', {
 						id: id,
 						title: title,
 						calendarId: calendarId,
+						allDay : allDay,
 						description: description,
 						startDate: startDate,
 						endDate: endDate

@@ -5,14 +5,14 @@ Ext.define('HouseAgentSystem.model.user.UserModel', {
 	],
 	fields: [
 		{type: 'int',name: 'id'},
-		{type: 'string',name: 'FaceImg'},
+		{type: 'string',name: 'faceImage'},
 		{type: 'string',name: 'realname'},
-		{type: 'string',name: 'sex'},
 		{type: 'string',name: 'phoneNumber'},
-		{type: 'string',name: 'store'}
+		{type: 'date',name: 'createTime',dateFormat:'Y/m/d H:i:s'},
+		{type: 'string',name: 'status'},
 	],
 	proxy: {
 		type: 'rest',
-		url: '/user',
+		url: '/users',
 	}
 });

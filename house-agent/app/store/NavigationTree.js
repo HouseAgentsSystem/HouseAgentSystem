@@ -56,7 +56,27 @@ Ext.define('HouseAgentSystem.store.NavigationTree', {
                 viewType: 'report',
                 routeId: 'report', // routeId defaults to viewType
                 leaf: true
-            }
+            },{
+               text: '日历',
+               iconCls: 'fa fa-calendar',
+               viewType: 'calendar-days-view',
+               leaf: true
+           },{
+               text: '员工管理',
+               iconCls: 'fa fa-users',
+               viewType: 'staff',
+               leaf: true
+           },{
+               text: '个人信息',
+               iconCls: 'fa fa-users',
+               viewType: 'staffInfo',
+               leaf: true
+           },{
+               text: '客户模块',
+               iconCls: 'fa fa-user',
+               viewType: 'user',
+               leaf: true
+           }
         ]
     }
 });

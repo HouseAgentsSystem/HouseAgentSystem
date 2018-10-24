@@ -11,9 +11,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import com.houseAgent.house.domain.House;
+import com.houseAgent.house.domain.HouseDTO;
+import com.houseAgent.house.repository.HouseRepository;
 import com.houseAgent.staff.domain.Staff;
 import com.houseAgent.staff.domain.StaffDTO;
 import com.houseAgent.staff.repository.StaffRepository;
+import com.houseAgent.store.domain.Store;
 
 
 
@@ -22,6 +26,9 @@ public class StaffService implements IStaffService{
 
 	@Autowired
 	private StaffRepository staffRepository;
+
+	@Autowired
+	private HouseRepository houseRepository;
 	
 	@Override
 	public void save(Staff staff, Staff manager) {
@@ -86,5 +93,18 @@ public class StaffService implements IStaffService{
 	public Staff findById(long id) {
 		// TODO Auto-generated method stub
 		return staffRepository.findById(id).get();
+	}
+
+	@Override
+	public Page<HouseDTO> findHouseByStaffId(Long staffId, Pageable pageRequest) {
+		Staff staff = staffRepository.findById(staffId).get();
+		List<HouseDTO> dtoList = new ArrayList<>();
+		List<House> houseList = houseRepository.findHouseByStaff(staff);
+		for (House house : houseList) {
+			HouseDTO dto = new HouseDTO();
+			HouseDTO.entityToDto(house, dto);
+			dtoList.add(dto);
+		}
+		return null;
 	}
 }

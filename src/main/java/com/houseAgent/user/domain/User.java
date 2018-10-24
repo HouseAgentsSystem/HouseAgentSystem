@@ -1,6 +1,8 @@
 package com.houseAgent.user.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,10 +12,18 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
+import org.apache.commons.lang3.StringUtils;
 import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
+import org.springframework.data.jpa.domain.Specification;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.houseAgent.staff.domain.Staff;
+import com.houseAgent.staff.domain.StaffDTO;
 
 @Entity
 @Table(name = "t_user")
@@ -27,8 +37,9 @@ public class User {
 	private String faceImage;//头像
     private String salt;//加密密码的盐
 	private int status;
-	 @Id
-	 @GeneratedValue(strategy=GenerationType.IDENTITY)
+	 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
@@ -103,5 +114,23 @@ public class User {
 		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", realname=" + realname
 				+ ", phoneNumber=" + phoneNumber + ", createTime=" + createTime + ", faceImage=" + faceImage
 				+ ", status=" + status + "]";
+	}
+	
+	@SuppressWarnings({ "serial"})
+	public static Specification<User> getWhereClause(final User user) {
+		return new Specification<User>() {
+			@Override
+			public Predicate toPredicate(Root<User> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+			
+				List<Predicate> predicate = new ArrayList<>();
+				if (StringUtils.isNotBlank(user.getRealname())) {
+					predicate.add(criteriaBuilder.like(root.get("realname").as(String.class),
+							"%"+user.getRealname()+"%"));
+				}
+				
+				Predicate[] pre = new Predicate[predicate.size()];
+				return query.where(predicate.toArray(pre)).getRestriction();
+			}
+		};
 	}
 }

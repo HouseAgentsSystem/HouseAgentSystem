@@ -9,7 +9,7 @@ Ext.define('HouseAgentSystem.model.staff.StaffModel', {
 		{type: 'string',name: 'realname'},
 		{type: 'string',name: 'sex'},
 		{type: 'string',name: 'phoneNumber'},
-		{type: 'string',name: 'store'}
+		{type: 'string',name: 'name'}
 	],
 	proxy: {
 		type: 'rest',

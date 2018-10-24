@@ -3,9 +3,14 @@ package com.houseAgent.user.service;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.houseAgent.common.beans.BeanUtils;
+import com.houseAgent.staff.domain.Staff;
 import com.houseAgent.user.domain.User;
 import com.houseAgent.user.repository.UserRepository;
 
@@ -99,6 +104,20 @@ public class UserService implements IUserService {
 	public void updataUser(User entity) {
 		userRepository.save(entity);
 		
+	}
+
+	
+	@Override
+	public Page<User> findAll(Specification<User> spec, Pageable pageable) {
+		// TODO Auto-generated method stub
+		return userRepository.findAll(pageable);
+	}
+
+	@Override
+	public void update(Long id , User user) {
+		User u = userRepository.findById(id).get();
+		BeanUtils.copyProperties(user,u);
+		userRepository.save(u);
 	}
 	
 }
