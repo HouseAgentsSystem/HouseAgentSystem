@@ -24,6 +24,7 @@ import com.houseAgent.common.web.ExtAjaxResponse;
 import com.houseAgent.common.web.SessionUtil;
 import com.houseAgent.shiro.config.MyShiroRealm;
 import com.houseAgent.staff.domain.Staff;
+import com.houseAgent.staff.service.IGroupService;
 
 
 @RestController
@@ -33,6 +34,8 @@ public class HomeController {
     private IdentityService identityService;
     @Autowired
     private MyShiroRealm myShiroRealm;
+    @Autowired
+    private IGroupService groupService;
 	@RequestMapping({"/","/index"})
 	public String index(){
 		return "/index";
@@ -64,7 +67,9 @@ public class HomeController {
 			groups.toArray(groupStrings);
 	        System.out.println(groupStrings);
 //	        //读取角色Group
-	        SessionUtil.setGroupNames(session, String.join(",", groupStrings));//"groupNames"  : "admin,hrManager"
+	        String groupId = String.join(",", groupStrings);
+	        String groupName = groupService.findById(groupId).getName();
+	        SessionUtil.setGroupNames(session, groupName);//"groupNames"  : "admin,hrManager"
 	        System.out.println(SessionUtil.getGroupNames(session));
 	        Map<String,String> map=new HashMap<String, String>();
 	        map.put("userName", userName);
@@ -90,6 +95,37 @@ public class HomeController {
 			return new ExtAjaxResponse(true,"登出成功!");
 		} catch (Exception e) {
 			return new ExtAjaxResponse(false,"登出失败!");
+		}
+	}
+	/**
+	 * 获取当前员工角色
+	 * @param session
+	 * @return 员工图片，员工姓名，员工角色
+	 */
+	@RequestMapping(value = "/getInformation")
+	public @ResponseBody ExtAjaxResponse getInformation(HttpSession session) {
+		System.out.println("getInformationController!!!!");
+		try {
+			Subject subject = SecurityUtils.getSubject();
+			Staff staff = (Staff)subject.getPrincipal();
+			AuthorizationInfo authorizationInfo = myShiroRealm.doGetAuthorizationInfo(subject.getPrincipals());
+			Collection<String> groups = authorizationInfo.getRoles();
+			String[] groupStrings = new String[groups.size()];
+			
+			String realName = staff.getRealName();
+			String faceImg = staff.getFaceImg();
+			String staffRole = groupStrings[0];//角色
+			SessionUtil.setGroupNames(session, String.join(",", groupStrings));
+			System.out.println(SessionUtil.getGroupNames(session));
+			
+			Map<String,String> map=new HashMap<String, String>();
+	        map.put("userName", realName);
+	        map.put("msg", "获取信息成功!");
+	        map.put("role", staffRole);
+	        map.put("faceImg", faceImg);
+			return new ExtAjaxResponse(true,map);
+		} catch (Exception e) {
+			return new ExtAjaxResponse(false,"获取信息失败!");
 		}
 	}
 }

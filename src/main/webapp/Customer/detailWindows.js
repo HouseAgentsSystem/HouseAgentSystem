@@ -1,6 +1,6 @@
 Ext.create('Ext.window.Window', {
 	//extend: 'Ext.window.Window',
-    id: 'DetailWindow',
+    id: 'DetailWindow22',
     height: 600,
     minHeight: 300,
     minWidth: 300,

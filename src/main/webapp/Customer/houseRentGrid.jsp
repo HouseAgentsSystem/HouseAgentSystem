@@ -19,6 +19,7 @@
 		<!--JS-->
 		<script type="text/javascript" src="js/ext-all.js"></script>
 		<script src="editWindows.js"></script>
+		<script src="detailWindows.js"></script>
 		<style type="text/css">
 			* {
 				margin: 0;
@@ -138,17 +139,17 @@
 					win.show();
 					win.down('form').getForm().loadRecord(record);
 				}
-			}; 
+			};
 			function openDetailWindow(grid, rowIndex, colIndex){
 				alert("321");
 			     var record = grid.getStore().getAt(rowIndex);
 				//获取选中数据的字段值：console.log(record.get('id')); 或者 console.log(record.data.id);
 				if (record ) {
-					var win = Ext.getCmp('DetailWindow');//.add(Ext.getCmp('orderEditWindow'));
+					var win2 = Ext.getCmp('DetailWindow22');//.add(Ext.getCmp('orderEditWindow'));
 					//console.log(win);
 					//var win = Ext.create('orderEditWindow');
-					win.show();
-					win.down('form').getForm().loadRecord(record);
+					win2.show();
+					win2.down('form').getForm().loadRecord(record);
 				}
 			};
 			function onClickRentedButton(view, recIndex, cellIndex, item, e, record) {
