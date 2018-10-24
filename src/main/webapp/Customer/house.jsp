@@ -15,7 +15,7 @@
 		<!-- <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	
 
-	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
 		<link href="dist/css/vendor/bootstrap.min.css" rel="stylesheet">
 
 		<!-- Loading Flat UI -->
@@ -138,8 +138,7 @@
 							'<ul class="nav navbar-nav mr-auto">' +
 							'<li><a href="index.jsp">首页</a></li>' +
 							'<li><a href="house.jsp"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a></li>' +
-							'<li><a href="login.html"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a></li>' +
-							'<li><a href=""><img src="http://localhost:8081/Customer/dist/images/出租.png">我要出租</a></li>' +
+							'<li><a href="houserent.jsp"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a></li>' +
 							'<li style="width:600px;"></li>'+
 							'<c:if test="${not empty sessionScope.user.realname}">'+
 							'<li><a href="../showUser/information?id=${sessionScope.user.id}">${sessionScope.user.realname}<img src="../Customer/upload/user/${sessionScope.user.faceImage}" style="width:30px;height:30px;border-radius:15px;"></a></li>'+

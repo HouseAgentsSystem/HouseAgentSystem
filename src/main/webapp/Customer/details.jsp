@@ -31,20 +31,17 @@
 				<div class="col">
 					<nav class="navbar navbar-inverse navbar-embossed navbar-expand-lg" role="navigation">
 						<div class="container">
-							<a class="navbar-brand" href="#">Flat UI</a>
+							<a class="navbar-brand" href="../Customer/index.jsp">Le Home</a>
 							<div class="collapse navbar-collapse" id="navbar-collapse-01">
 								<ul class="nav navbar-nav mr-auto">
 									<li>
-										<a href="#fakelink">首页</a>
+										<a href="../Customer/index.jsp">首页</a>
 									</li>
 									<li>
 										<a href="../Customer/house.jsp"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a>
 									</li>
 									<li>
-										<a href="login.html"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a>
-									</li>
-									<li>
-										<a href=""><img src="http://localhost:8081/Customer/dist/images/出租.png">我要出租</a>
+										<a href="../Customer/houserent.jsp"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a>
 									</li>
 									<li style="width:360px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 									<c:if test="${not empty sessionScope.user.realname}">
@@ -214,6 +211,20 @@
 		    school.searchNearby('学校',mPoint,1000);
 		
 			marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+		</script>
+		<script>
+			function logout(){
+				$.ajax({
+		                type: 'post',
+		                url: "http://localhost:8081/users/logout",
+		                cache: false,
+		                processData: false,
+		                contentType: false,
+		            }).success(function (data) {
+		            	window.location.reload();
+		            }).error(function () {
+		        });
+			}
 		</script>
 	</body>
 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,15 +11,12 @@
 	href="http://localhost:8081/Customer/theme-triton/resources/theme-triton-all_1.css" />
 <link rel="stylesheet" type="text/css"
 	href="http://localhost:8081/Customer/theme-triton/resources/theme-triton-all_2.css" />
-
-<!-- <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	
-
-	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
+ 
 <link href="http://localhost:8081/Customer/dist/css/vendor/bootstrap.min.css" rel="stylesheet">
 
 <!-- Loading Flat UI -->
 <link href="http://localhost:8081/Customer/dist/css/flat-ui.css" rel="stylesheet">
+<link href="http://localhost:8081/Customer/dist/css/navbar.css" rel="stylesheet">
 <link href="http://localhost:8081/Customer/docs/assets/css/demo.css" rel="stylesheet">
 <style type="text/css">
 	h3{color: #2b5454;}
@@ -87,7 +85,7 @@
 		
 		Ext.create('Ext.container.Viewport', {
 		    //width: 800,
-		    height: 1500,
+		    //height: 1500,
 		    requires: [
 		        'Ext.grid.Panel',
 		        'Ext.toolbar.Paging',
@@ -96,8 +94,6 @@
 		    title: 'Border Layout',
 		    defaults: {border: false},
 		    layout: 'border',
-		    scrollable: true,
-			autosrcoll: true,
 		    items: [{
 		        //title: 'North Region is resizable',
 		        region: 'north',     // position for region
@@ -111,17 +107,16 @@
 				'<a class="navbar-brand" href="index.jsp">Le Home</a>' +
 				'<div class="collapse navbar-collapse" id="navbar-collapse-01">' +
 				'<ul class="nav navbar-nav mr-auto">' +
-				'<li><a href="index.jsp">首页</a></li>' +
-				'<li><a href="house.jsp"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a></li>' +
-				'<li><a href="login.html"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a></li>' +
-				'<li><a href=""><img src="http://localhost:8081/Customer/dist/images/出租.png">我要出租</a></li>' +
+				'<li><a href="http://localhost:8081/Customer/index.jsp">首页</a></li>' +
+				'<li><a href="http://localhost:8081/Customer/house.jsp"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a></li>' +
+				'<li><a href="http://localhost:8081/Customer/houserent.jsp"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a></li>' +
 				'<li style="width:600px;"></li>'+
 				'<c:if test="${not empty sessionScope.user.realname}">'+
-				'<li><a href="../showUser/information?id=${sessionScope.user.id}">${sessionScope.user.realname}<img src="../Customer/upload/user/${sessionScope.user.faceImage}" style="width:30px;height:30px;border-radius:15px;"></a></li>'+
+				'<li><a href="/showUser/information?id=${sessionScope.user.id}">${sessionScope.user.realname}<img src="http://localhost:8081/Customer/upload/user/${sessionScope.user.faceImage}" style="width:30px;height:30px;border-radius:15px;"></a></li>'+
 				'<li><a href="#"onclick="logout()">退出</a></li>'+
 				'</c:if>'+
 				'<c:if test="${empty sessionScope.user.realname}">'+
-				'<li><a href="../Customer/login&registration.html">登录/注册</a></li>'+
+				'<li><a href="http://localhost:8081/Customer/login&registration.html">登录/注册</a></li>'+
 				'</c:if>'+
 				'</ul>' +
 				'</div>' +
@@ -160,7 +155,9 @@
 		        	margin: '0 0 0 100',
 		        	padding: '20 0 0 0',
 		        	border: false,
-		        	height: 1000,
+		        	scrollable: true,
+					autosrcoll: true,
+		        	//height: 1000,
 		        	//layout: 'fit',
 		        	items:[{
 		        		xtype: 'gridpanel',
@@ -270,6 +267,21 @@
 	    //console.log(getUrlParam('id'))
 	    //Ext.Msg.alert('Title', getUrlParam('id'), function(){});
 	});
+</script>
+<script src="http://localhost:8081/Customer/assets/js/jquery.2.1.1.min.js"></script>
+<script>
+	function logout(){
+		$.ajax({
+                type: 'post',
+                url: "http://localhost:8081/users/logout",
+                cache: false,
+                processData: false,
+                contentType: false,
+            }).success(function (data) {
+            	window.location.reload();
+            }).error(function () {
+        });
+	}
 </script>
 </head>
 <body>

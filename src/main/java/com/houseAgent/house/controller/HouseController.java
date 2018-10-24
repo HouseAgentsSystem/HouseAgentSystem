@@ -193,6 +193,7 @@ public class HouseController {
 	@RequestMapping("/imagesUpload")
     public String imagesUpload(@RequestParam(value = "fileList", required = true) MultipartFile[] files,
             HttpServletRequest request) {
+		System.out.println(request.getSession().getMaxInactiveInterval());
         List<String> list = new ArrayList<String>();
         System.out.println(files.length);
         if (files != null && files.length > 0) {

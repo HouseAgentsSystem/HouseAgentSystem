@@ -38,7 +38,7 @@
 				<div class="col">
 					<nav class="navbar navbar-inverse navbar-embossed navbar-expand-lg" role="navigation">
 						<div class="container">
-							<a class="navbar-brand" href="#">Flat UI</a>
+							<a class="navbar-brand" href="#">Le home</a>
 							<div class="collapse navbar-collapse" id="navbar-collapse-01">
 								<ul class="nav navbar-nav mr-auto">
 									<li>

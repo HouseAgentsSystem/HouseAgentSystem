@@ -44,9 +44,6 @@
 								<li>
 									<a href="login.html"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a>
 								</li>
-								<li>
-									<a href=""><img src="http://localhost:8081/Customer/dist/images/出租.png">我要出租</a>
-								</li>
 								<li style="width:360px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 								<c:if test="${not empty sessionScope.user.realname}">
 									<li>
@@ -266,5 +263,18 @@
 	</body>
 	<script type="text/javascript" src="js/jquery.2.1.1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+	<script>
+		function logout(){
+			$.ajax({
+	                type: 'post',
+	                url: "http://localhost:8081/users/logout",
+	                cache: false,
+	                processData: false,
+	                contentType: false,
+	            }).success(function (data) {
+	            	window.location.reload();
+	            }).error(function () {
+	        });
+		}
+	</script>
 </html>
