@@ -17,10 +17,8 @@ Ext.define('HouseAgentSystem.view.staff.StaffAddWindow', {
         ariaLabel: 'Enter your name',
         items: [{
             xtype: 'textfield',
-            fieldLabel: 'id',
+            fieldLabel: '账号',
             name:'id',  //最重要的属性
-            hidden: true,
-            readOnly: true
         },{
             xtype: 'textfield',
             fieldLabel: '员工姓名',

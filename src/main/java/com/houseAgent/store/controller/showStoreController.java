@@ -16,6 +16,7 @@ import com.houseAgent.common.web.ExtjsPageRequest;
 import com.houseAgent.house.domain.House;
 import com.houseAgent.house.domain.HouseDTO;
 import com.houseAgent.staff.domain.Staff;
+import com.houseAgent.staff.domain.StaffDTO;
 import com.houseAgent.store.domain.Store;
 import com.houseAgent.store.domain.StoreDTO;
 import com.houseAgent.store.service.IStoreService;
@@ -46,7 +47,7 @@ public class showStoreController {
 	
 	//获取门店下的员工
 	@RequestMapping(value="/getStaff/{storeId}")//, consumes=MediaType.APPLICATION_JSON_VALUE
-	public @ResponseBody List<Staff> getStaff(@PathVariable("storeId")Long storeId) {
+	public @ResponseBody List<StaffDTO> getStaff(@PathVariable("storeId")Long storeId) {
 		return storeService.findStaffByStoreId(storeId);
 	}
 }

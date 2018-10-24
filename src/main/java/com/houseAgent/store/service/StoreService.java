@@ -20,6 +20,7 @@ import com.houseAgent.house.domain.HouseDTO;
 import com.houseAgent.house.repository.HouseRepository;
 import com.houseAgent.staff.domain.Group;
 import com.houseAgent.staff.domain.Staff;
+import com.houseAgent.staff.domain.StaffDTO;
 import com.houseAgent.staff.repository.GroupRepository;
 import com.houseAgent.staff.repository.StaffRepository;
 import com.houseAgent.store.domain.Store;
@@ -41,6 +42,7 @@ public class StoreService implements IStoreService {
 	
 	@Override
 	public void saveAndUpdate(Store store) {
+		
 		storeRepository.save(store);
 	}
 
@@ -96,8 +98,15 @@ public class StoreService implements IStoreService {
 
 	@Override
 	@Transactional(readOnly=true)
-	public List<Staff> findStaffByStoreId(Long storeId) {
-		return staffRepository.findStaffByStoreId(storeId);
+	public List<StaffDTO> findStaffByStoreId(Long storeId) {
+		List<StaffDTO> dtos = new ArrayList<>();
+		List<Staff> staffs = staffRepository.findStaffByStoreId(storeId);
+		for (Staff staff : staffs) {
+			StaffDTO dto = new StaffDTO();
+			StaffDTO.entityToDto(staff, dto);
+			dtos.add(dto);
+		}
+		return dtos;
 	}
 
 	@Override
@@ -116,8 +125,9 @@ public class StoreService implements IStoreService {
 	}
 
 	@Override
-	public void saveOneStore(Store store, Staff staff) {
+	public void saveOneStore(Store store, Staff staff, String userName) {
 		storeRepository.save(store);
+		staff.setId(userName);
 		staff.setStore(store);
 		staff.setPosition("经理");
 		staff.setPassword("123456");//加密
@@ -131,6 +141,7 @@ public class StoreService implements IStoreService {
 		staff.setSalt(salt);
 		String passwordR = new SimpleHash("MD5", staff.getPassword(), staff.getCredentialsSalt(), 2).toString();
 		staff.setPassword(passwordR);
+		staff.setFaceImg("default.jpg");
 		staffRepository.save(staff);
 	}
 }

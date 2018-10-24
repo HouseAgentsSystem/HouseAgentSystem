@@ -42,7 +42,7 @@ Ext.define('HouseAgentSystem.view.store.StoreAddWindow', {
         },{
             xtype: 'textfield',
             fieldLabel: '员工姓名',
-            name:'realname'
+            name:'realName'
         }, {
             xtype: 'combobox',
             fieldLabel: '性别',

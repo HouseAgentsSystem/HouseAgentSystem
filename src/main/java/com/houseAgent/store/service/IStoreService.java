@@ -10,6 +10,7 @@ import com.houseAgent.common.web.ExtjsPageRequest;
 import com.houseAgent.house.domain.House;
 import com.houseAgent.house.domain.HouseDTO;
 import com.houseAgent.staff.domain.Staff;
+import com.houseAgent.staff.domain.StaffDTO;
 import com.houseAgent.store.domain.Store;
 import com.houseAgent.store.domain.StoreDTO;
 
@@ -25,9 +26,9 @@ public interface IStoreService {
 
 	public void entityToDto(Store store, StoreDTO storeDTO);
 
-	public List<Staff> findStaffByStoreId(Long storeId);
+	public List<StaffDTO> findStaffByStoreId(Long storeId);
 
 	public Page<HouseDTO> findHouseByStoreId(Long storeId, Pageable pageRequest);
 	
-	public void saveOneStore(Store store, Staff staff);
+	public void saveOneStore(Store store, Staff staff, String userName);
 }

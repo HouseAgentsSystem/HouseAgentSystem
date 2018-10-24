@@ -34,7 +34,7 @@ public class showStaffStoreController {
 	}
 	
 	//获取门店房源列表
-	@RequestMapping(value="/getHouse/{storeId}")//, consumes=MediaType.APPLICATION_JSON_VALUE
+	@RequestMapping(value="/getHouse/{staffId}")//, consumes=MediaType.APPLICATION_JSON_VALUE
 	public @ResponseBody Page<HouseDTO> getHouseByStoreId(@PathVariable("staffId")String staffId, ExtjsPageRequest pageRequest) {
 		System.out.println("gethouse");
 		return staffService.findHouseByStaffId(staffId, pageRequest.getPageable());

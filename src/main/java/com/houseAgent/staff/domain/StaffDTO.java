@@ -99,7 +99,7 @@ public class StaffDTO {
 			
 				List<Predicate> predicate = new ArrayList<>();
 				if (StringUtils.isNotBlank(staffDTO.getRealName())) {
-					predicate.add(criteriaBuilder.like(root.get("realname").as(String.class),
+					predicate.add(criteriaBuilder.like(root.get("realName").as(String.class),
 							"%"+staffDTO.getRealName()+"%"));
 				}
 				if (StringUtils.isNotBlank(staffDTO.getSex())) {

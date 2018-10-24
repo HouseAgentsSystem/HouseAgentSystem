@@ -64,7 +64,8 @@ Ext.define('HouseAgentSystem.view.staff.StaffInfo', {
             name:'sex',
 			style:{
 				marginLeft:'50px'
-			}
+			},
+			readOnly: true
         }, {
             xtype: 'textfield',
             fieldLabel: '电话',
@@ -80,7 +81,8 @@ Ext.define('HouseAgentSystem.view.staff.StaffInfo', {
             name:'position',
 			style:{
 				marginLeft:'50px'
-			}
+			},
+			readOnly: true
         }, {
             xtype: 'textfield',
             fieldLabel: '所属门店',
@@ -88,7 +90,8 @@ Ext.define('HouseAgentSystem.view.staff.StaffInfo', {
             name:'store',
 			style:{
 				marginLeft:'50px'
-			}
+			},
+			readOnly: true
         }]
     }],
 	listeners:{
@@ -118,7 +121,7 @@ Ext.define('HouseAgentSystem.view.staff.StaffInfo', {
 						Ext.getCmp('id').setValue(json.id);
 						//console.log(Ext.getCmp('faceImg'));
 						Ext.getCmp('faceImg').getEl().dom.src=('/Customer/upload/staff/'+json.faceImg);
-						Ext.getCmp('relaName').setValue(json.realname);
+						Ext.getCmp('relaName').setValue(json.realName);
 						Ext.getCmp('sex').setValue(json.sex);
 						Ext.getCmp('phoneNumber').setValue(json.phoneNumber);
 						Ext.getCmp('position').setValue(json.position);

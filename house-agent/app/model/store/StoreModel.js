@@ -4,7 +4,7 @@ Ext.define('HouseAgentSystem.model.store.StoreModel', {
 		'Ext.data.proxy.Rest'
 	],
     fields: [
-	    {type: 'int',name: 'id'},
+	    {type: 'string',name: 'id'},
 	    {type: 'string',name: 'storeName'},
 	    {type: 'string',name: 'address'},
 	    {type: 'string',name: 'managerName'},

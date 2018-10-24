@@ -48,7 +48,7 @@ public class StoreQueryDTO {
 					 
 					 Root<Staff> staffRoot = query.from(Staff.class);
 					 predicate.add(cb.equal(root.get("id"), staffRoot.get("store").get("id")));
-					 predicate.add(cb.like(staffRoot.get("realname").as(String.class),"%"+ storeQueryDTO.getManagerName()+"%"));
+					 predicate.add(cb.like(staffRoot.get("realName").as(String.class),"%"+ storeQueryDTO.getManagerName()+"%"));
 //					 predicate.add(cb.equal(staffRoot.get("realname"), StoreQueryDTO.getManagerName()));
 					 predicate.add(cb.equal(staffRoot.get("position"), "经理"));
 					 

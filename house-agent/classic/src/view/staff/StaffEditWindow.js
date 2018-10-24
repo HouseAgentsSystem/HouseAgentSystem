@@ -1,7 +1,7 @@
 Ext.define('HouseAgentSystem.view.staff.StaffEditWindow', {
     extend: 'Ext.window.Window',
     alias: 'widget.staffEditWindow',
-    height: 400,
+    height: 300,
     minHeight: 300,
     minWidth: 300,
     width: 500,
@@ -46,22 +46,25 @@ Ext.define('HouseAgentSystem.view.staff.StaffEditWindow', {
             xtype: 'textfield',
             fieldLabel: '电话',
             name:'phoneNumber'
-        }, {
-            xtype: 'textfield',
-            fieldLabel: '职位',
-            name:'position'
-        }, {
-            xtype: 'combobox',
-            fieldLabel: '所属门店',
-            name:'store',
-			editable: false,
-			store: Ext.create("HouseAgentSystem.store.store.StoreGridStore"),
-			displayField: 'storeName',
-			valueField:'id',
-			queryMode: 'local',
-			triggerAction: 'all',
-			emptyText: 'Select a store...',
-        }]
+        }
+        // , {
+        //     xtype: 'textfield',
+        //     fieldLabel: '职位',
+        //     name:'position'
+        // }
+   //      , {
+   //          xtype: 'combobox',
+   //          fieldLabel: '所属门店',
+   //          name:'store',
+			// editable: false,
+			// store: Ext.create("HouseAgentSystem.store.store.StoreGridStore"),
+			// displayField: 'storeName',
+			// valueField:'id',
+			// queryMode: 'local',
+			// triggerAction: 'all',
+			// emptyText: 'Select a store...',
+   //      }
+        ]
     }],
     buttons:  [{
         xtype: 'button',

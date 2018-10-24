@@ -1,16 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>${requestScope.staff.realname}</title>
+<title>${requestScope.staff.realName}的店铺</title>
 <!--CSS-->
 	<link rel="stylesheet" type="text/css" href="http://localhost:8081/Customer/theme-triton/resources/theme-triton-all_1.css" />
 	<link rel="stylesheet" type="text/css" href="http://localhost:8081/Customer/theme-triton/resources/theme-triton-all_2.css" />
 	<link href="http://localhost:8081/Customer/dist/css/vendor/bootstrap.min.css" rel="stylesheet">
 	<!-- Loading Flat UI -->
 	<link href="http://localhost:8081/Customer/dist/css/flat-ui.css" rel="stylesheet">
+	<link href="http://localhost:8081/Customer/dist/css/navbar.css" rel="stylesheet">
 	<link href="http://localhost:8081/Customer/docs/assets/css/demo.css" rel="stylesheet">
 	<style type="text/css">
 		h3{color: #2b5454;}
@@ -32,7 +34,7 @@
 					storeId:'staffStore',
 					proxy: {
 					type: 'rest',
-					url: '/showStaffStore/getStaff/'+ ${requestScope.staff.id},//Ext.get("storeId").dom.innerHTML,
+					url: '/showStaffStore/getStaff/${requestScope.staff.id}',//Ext.get("storeId").dom.innerHTML,
 					reader:{
 						type:'json',
 						rootProperty:'content',
@@ -74,28 +76,27 @@
 							split: false,         // enable resizing
 							//margin: '0 5 5 5',
 							html: '<div class="row demo-row">' +
-					'<div class="col">' +
-					'<nav class="navbar navbar-inverse navbar-embossed navbar-expand-lg" role="navigation">' +
-					'<a class="navbar-brand" href="index.jsp">Le Home</a>' +
-					'<div class="collapse navbar-collapse" id="navbar-collapse-01">' +
-					'<ul class="nav navbar-nav mr-auto">' +
-					'<li><a href="index.jsp">首页</a></li>' +
-					'<li><a href="house.jsp"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a></li>' +
-					'<li><a href="login.html"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a></li>' +
-					'<li><a href=""><img src="http://localhost:8081/Customer/dist/images/出租.png">我要出租</a></li>' +
-					'<li style="width:600px;"></li>'+
-					'<c:if test="${not empty sessionScope.user.realname}">'+
-					'<li><a href="../showUser/information?id=${sessionScope.user.id}">${sessionScope.user.realname}<img src="../Customer/upload/user/${sessionScope.user.faceImage}" style="width:30px;height:30px;border-radius:15px;"></a></li>'+
-					'<li><a href="#"onclick="logout()">退出</a></li>'+
-					'</c:if>'+
-					'<c:if test="${empty sessionScope.user.realname}">'+
-					'<li><a href="../Customer/login&registration.html">登录/注册</a></li>'+
-					'</c:if>'+
-					'</ul>' +
-					'</div>' +
-					'</nav>' +
-					'</div>' +
-					'</div>',
+							'<div class="col">' +
+							'<nav class="navbar navbar-inverse navbar-embossed navbar-expand-lg" role="navigation">' +
+							'<a class="navbar-brand" href="index.jsp">Le Home</a>' +
+							'<div class="collapse navbar-collapse" id="navbar-collapse-01">' +
+							'<ul class="nav navbar-nav mr-auto">' +
+							'<li><a href="http://localhost:8081/Customer/index.jsp">首页</a></li>' +
+							'<li><a href="http://localhost:8081/Customer/house.jsp"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a></li>' +
+							'<li><a href="http://localhost:8081/Customer/houserent.jsp"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a></li>' +
+							'<li style="width:600px;"></li>'+
+							'<c:if test="${not empty sessionScope.user.realname}">'+
+							'<li><a href="/showUser/information?id=${sessionScope.user.id}">${sessionScope.user.realname}<img src="http://localhost:8081/Customer/upload/user/${sessionScope.user.faceImage}" style="width:30px;height:30px;border-radius:15px;"></a></li>'+
+							'<li><a href="#"onclick="logout()">退出</a></li>'+
+							'</c:if>'+
+							'<c:if test="${empty sessionScope.user.realname}">'+
+							'<li><a href="http://localhost:8081/Customer/login&registration.html">登录/注册</a></li>'+
+							'</c:if>'+
+							'</ul>' +
+							'</div>' +
+							'</nav>' +
+							'</div>' +
+							'</div>',
 					},{
 							region: 'center',     // center region is required, no width/height specified
 							xtype: 'panel',
@@ -113,7 +114,7 @@
 								margin: '15 5 0 100',
 								html: "<img src='/Customer/upload/staff/${requestScope.staff.faceImg}' style='float:left;width:100px;height:150px;'>"+
 									"<div class='row col-md-8 col-md-offset-2' float:right; >"+
-										"<b><h3>${requestScope.staff.realname}的店铺</h3></b>"+
+										"<b><h3>${requestScope.staff.realName}的店铺</h3></b>"+
 									"</div>"+
 									'<div class="row col-md-8 col-md-offset-2">'+'<b><p style="" class="detail">'+
 									'联系方式：<span>${requestScope.staff.phoneNumber}</span><span>${requestScope.houseRent.hall}</span><em>&nbsp;&nbsp;</em>'+
@@ -184,6 +185,21 @@
 			});
 		});
 	</script>
+<script src="http://localhost:8081/Customer/assets/js/jquery.2.1.1.min.js"></script>
+<script>
+	function logout(){
+		$.ajax({
+                type: 'post',
+                url: "http://localhost:8081/users/logout",
+                cache: false,
+                processData: false,
+                contentType: false,
+            }).success(function (data) {
+            	window.location.reload();
+            }).error(function () {
+        });
+	}
+</script>
 </head>
 <body>
 </body>

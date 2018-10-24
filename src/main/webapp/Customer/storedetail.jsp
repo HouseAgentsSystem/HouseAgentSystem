@@ -242,7 +242,7 @@
 									  "</div>"+
 									  "<a target='_blank' href='http://localhost:8081/showStaffStore/getStaff/"+record.data.id+" '>"+
 									  "<div class='media-body'>"+
-									    "</br><p style='color:black; text-indent:10px; font-size:15px;'>"+record.data.realname+"</p>"+
+									    "</br><p style='color:black; text-indent:10px; font-size:15px;'>"+record.data.realName+"</p>"+
 									    //"<h4 style='font-size:30px;>"+record.data.realname+"</h4></b>"+
 									    "<p style='color:black; text-indent:10px; font-size:10px;'>"+record.data.phoneNumber+
 									    //"<p style='text-indent:50px; font-size:16px;'><b>"+record.data.region+"&nbsp;&nbsp;&nbsp;</b>"+record.data.address+"</p>"+

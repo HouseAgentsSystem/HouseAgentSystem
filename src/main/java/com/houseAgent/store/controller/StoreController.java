@@ -55,9 +55,9 @@ public class StoreController {
 	}
 	
 	@PostMapping("/addStore")
-	public ExtAjaxResponse addStore(Store store, Staff staff) {
+	public ExtAjaxResponse addStore(Store store, Staff staff, String userName) {
 		try {
-			storeService.saveOneStore(store, staff);
+			storeService.saveOneStore(store, staff, userName);
 			
 			return new ExtAjaxResponse(true, "添加门店成功！");
 		} catch (Exception e) {

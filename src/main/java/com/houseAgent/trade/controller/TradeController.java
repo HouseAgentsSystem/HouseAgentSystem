@@ -79,12 +79,12 @@ public class TradeController {
 	}
 	
 	@GetMapping("/findTrade")
-	public Page<TradeDTO> getTradePage(Long nodeId, Boolean isLeaf, ExtjsPageRequest pageable, HttpSession session) {
+	public Page<TradeDTO> getTradePage(String nodeId, Boolean isLeaf, ExtjsPageRequest pageable, HttpSession session) {
 		if(nodeId != null) {
 			if(isLeaf) {
-				return tradeService.findTradeByStaffId(nodeId.toString(), pageable.getPageable());
+				return tradeService.findTradeByStaffId(nodeId, pageable.getPageable());
 			} else {
-				return tradeService.findTradeByStoreId(nodeId, pageable.getPageable());
+				return tradeService.findTradeByStoreId(Long.parseLong(nodeId), pageable.getPageable());
 			}
 		} else {
 			Staff staff = SessionUtil.getStaff(session);
