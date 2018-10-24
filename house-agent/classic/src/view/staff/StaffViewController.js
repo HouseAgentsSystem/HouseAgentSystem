@@ -182,9 +182,9 @@ Ext.define('HouseAgentSystem.view.staff.StaffViewController', {
   		
 		var store =	btn.up('gridpanel').getStore();
 		//var store = Ext.getCmp('userGridPanel').getStore();// Ext.getCmp(）需要在staffPanel设置id属性
-		Ext.apply(store.proxy.extraParams, {realname:"",sex:""});
-		if(searchField==='realname'){
-			Ext.apply(store.proxy.extraParams, {realname:searchValue});
+		Ext.apply(store.proxy.extraParams, {realName:"",sex:""});
+		if(searchField==='realName'){
+			Ext.apply(store.proxy.extraParams, {realName:searchValue});
 		}
 		if(searchField==='sex'){
 			Ext.apply(store.proxy.extraParams, {sex:searchSexFieldValue});

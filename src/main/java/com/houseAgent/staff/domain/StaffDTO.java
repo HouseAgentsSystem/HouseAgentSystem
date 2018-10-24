@@ -15,7 +15,7 @@ import com.houseAgent.common.beans.BeanUtils;
 
 public class StaffDTO {
 	private String id;//员工Id	
-	private	String realname;//员工姓名
+	private	String realName;//员工姓名
 	private String position;//职位
 	private String phoneNumber;//手机号码
 	private String sex;//性别
@@ -46,11 +46,11 @@ public class StaffDTO {
 		this.id = id;
 	}
 	
-	public String getRealname() {
-		return realname;
+	public String getRealName() {
+		return realName;
 	}
-	public void setRealname(String realname) {
-		this.realname = realname;
+	public void setRealName(String realName) {
+		this.realName = realName;
 	}
 	public String getPosition() {
 		return position;
@@ -98,9 +98,9 @@ public class StaffDTO {
 			public Predicate toPredicate(Root<Staff> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
 			
 				List<Predicate> predicate = new ArrayList<>();
-				if (StringUtils.isNotBlank(staffDTO.getRealname())) {
+				if (StringUtils.isNotBlank(staffDTO.getRealName())) {
 					predicate.add(criteriaBuilder.like(root.get("realname").as(String.class),
-							"%"+staffDTO.getRealname()+"%"));
+							"%"+staffDTO.getRealName()+"%"));
 				}
 				if (StringUtils.isNotBlank(staffDTO.getSex())) {
 					predicate.add(criteriaBuilder.like(root.get("sex").as(String.class),

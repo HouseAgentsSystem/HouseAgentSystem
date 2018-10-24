@@ -28,13 +28,13 @@ Ext.define('HouseAgentSystem.view.staff.StaffPanel', {
                     store:Ext.create("Ext.data.Store", {
                         fields: ["name", "value"],
                         data: [
-                            { name: '员工姓名', value: 'realname' },
+                            { name: '员工姓名', value: 'realName' },
                             { name: '性别', value: 'sex' }
                         ]
                 }),
                 displayField: 'name',//展示的字段
                 valueField:'value',//获取值的字段
-                value:'realname',//设置默认值
+                value:'realName',//设置默认值
                 editable: false,//不可编辑
                 queryMode: 'local',
                 triggerAction: 'all',
@@ -98,7 +98,7 @@ Ext.define('HouseAgentSystem.view.staff.StaffPanel', {
 							return "<img src='/Customer/upload/staff/default.jpg' alt='Profile Pic' height='40px' width='40px'>";
 						}
 					},
-                {xtype:'gridcolumn',cls:'content-column',width: 150,dataIndex:'realname',text:'姓名'},
+                {xtype:'gridcolumn',cls:'content-column',width: 150,dataIndex:'realName',text:'姓名'},
                 {xtype:'gridcolumn',cls:'content-column',width: 100,dataIndex:'sex',text:'性别'},
                 {xtype:'gridcolumn',cls:'content-column',dataIndex:'phoneNumber',text:'电话号码',flex: 1},
                 {xtype:'gridcolumn',cls:'content-column',dataIndex:'position',text:'职位',flex: 1},

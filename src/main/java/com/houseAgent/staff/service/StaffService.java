@@ -118,7 +118,7 @@ public class StaffService implements IStaffService{
 	}
 
 	@Override
-	public Page<HouseDTO> findHouseByStaffId(String staffId, Pageable pageRequest) {
+	public Page<HouseDTO> findHouseByStaffId(String staffId, Pageable pageable) {
 		Staff staff = staffRepository.findById(staffId).get();
 		List<HouseDTO> dtoList = new ArrayList<>();
 		List<House> houseList = houseRepository.findHouseByStaff(staff);
@@ -127,6 +127,6 @@ public class StaffService implements IStaffService{
 			HouseDTO.entityToDto(house, dto);
 			dtoList.add(dto);
 		}
-		return null;
+		return new PageImpl<HouseDTO>(dtoList, pageable, houseList.size());
 	}
 }

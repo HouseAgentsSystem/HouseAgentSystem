@@ -24,7 +24,7 @@ Ext.define('HouseAgentSystem.view.staff.StaffEditWindow', {
         }, {
             xtype: 'textfield',
             fieldLabel: '姓名',
-            name:'realname'
+            name:'realName'
         }, {
             xtype: 'combobox',
             fieldLabel: '性别',

@@ -53,7 +53,7 @@ Ext.define('HouseAgentSystem.view.staff.StaffInfo', {
             xtype: 'textfield',
             fieldLabel: '姓名',
 			id:"relaName",
-            name:'realname',
+            name:'realName',
 			style:{
 				marginLeft:'50px'
 			}
