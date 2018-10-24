@@ -30,11 +30,11 @@
 						return param ? params[param] : params;
 				};
 			
-			var staffStore = Ext.create('Ext.data.Store', {
-					storeId:'staffStore',
+			var houseStore = Ext.create('Ext.data.Store', {
+					storeId:'houseStore',
 					proxy: {
 					type: 'rest',
-					url: '/showStaffStore/getStaff/${requestScope.staff.id}',//Ext.get("storeId").dom.innerHTML,
+					url: '/showStaffStore/getHouse/${requestScope.staff.id}',//Ext.get("storeId").dom.innerHTML,
 					reader:{
 						type:'json',
 						rootProperty:'content',
@@ -126,6 +126,7 @@
 								margin: '0 100 0 100',
 								padding: '20 0 0 0',
 								border: false,
+								width: 800,
 								height: 1000,
 								//layout: 'fit',
 								items:[{
