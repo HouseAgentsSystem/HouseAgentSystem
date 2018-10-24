@@ -70,11 +70,13 @@ public class HomeController {
 	        String groupId = String.join(",", groupStrings);
 	        String groupName = groupService.findById(groupId).getName();
 	        SessionUtil.setGroupNames(session, groupName);//"groupNames"  : "admin,hrManager"
+	        String faceImg = staff.getFaceImg();
 	        System.out.println(SessionUtil.getGroupNames(session));
 	        Map<String,String> map=new HashMap<String, String>();
-	        map.put("userName", userName);
+	        map.put("realName", staff.getRealName());
 	        map.put("msg", "登录成功!");
-	        map.put("group", SessionUtil.getGroupNames(session));
+	        map.put("role", SessionUtil.getGroupNames(session));
+	        map.put("faceImg", faceImg);
 	        //map.put("loginUserImage", staff.getImgUrl());
 	        
 	        return new ExtAjaxResponse(true,map);
@@ -98,30 +100,27 @@ public class HomeController {
 		}
 	}
 	/**
-	 * 获取当前员工角色
+	 * 获取当前员工信息
 	 * @param session
 	 * @return 员工图片，员工姓名，员工角色
 	 */
 	@RequestMapping(value = "/getInformation")
 	public @ResponseBody ExtAjaxResponse getInformation(HttpSession session) {
-		System.out.println("getInformationController!!!!");
+		
 		try {
+			System.out.println("getInformationController!!!!");
 			Subject subject = SecurityUtils.getSubject();
 			Staff staff = (Staff)subject.getPrincipal();
-			AuthorizationInfo authorizationInfo = myShiroRealm.doGetAuthorizationInfo(subject.getPrincipals());
-			Collection<String> groups = authorizationInfo.getRoles();
-			String[] groupStrings = new String[groups.size()];
-			
+			System.out.println(staff);
 			String realName = staff.getRealName();
 			String faceImg = staff.getFaceImg();
-			String staffRole = groupStrings[0];//角色
-			SessionUtil.setGroupNames(session, String.join(",", groupStrings));
+			String roleName = SessionUtil.getGroupNames(session);//角色
 			System.out.println(SessionUtil.getGroupNames(session));
 			
 			Map<String,String> map=new HashMap<String, String>();
-	        map.put("userName", realName);
+	        map.put("realName", realName);
 	        map.put("msg", "获取信息成功!");
-	        map.put("role", staffRole);
+	        map.put("role", roleName);
 	        map.put("faceImg", faceImg);
 			return new ExtAjaxResponse(true,map);
 		} catch (Exception e) {

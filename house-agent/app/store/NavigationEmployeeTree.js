@@ -17,7 +17,28 @@
                 viewType: 'HouseAgentSystemdashboard',
                 routeId: 'dashboard', // routeId defaults to viewType
                 leaf: true
-            },
+            },{
+                text: '房源管理模块',
+                iconCls: 'x-fa fa-home',
+                //rowCls: 'nav-tree-badge nav-tree-badge-new',
+                viewType: 'house',
+                leaf: true
+            },{
+                text: '交易管理模块',
+                iconCls: 'x-fa fa-bar-chart',
+                viewType: 'trade',
+                leaf: true
+            },{
+               text: '日历',
+               iconCls: 'fa fa-calendar',
+               viewType: 'calendar-days-view',
+               leaf: true
+           },{
+               text: '个人信息',
+               iconCls: 'fa fa-users',
+               viewType: 'staffInfo',
+               leaf: true
+           },
             {
                 text: 'Pages',
                 iconCls: 'x-fa fa-leanpub',

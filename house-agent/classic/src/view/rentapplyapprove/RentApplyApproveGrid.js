@@ -30,7 +30,7 @@
 				handler: 'onClickRentApplyApproveCompleteWindowButton'	//taskDefinitionKey 动态表单
 			},{
 				xtype: 'button',
-				iconCls: 'x-fa fa-edit',
+				iconCls: 'x-fa fa-search-plus',
 				tooltip: '详情',
 				handler: 'onClickRentApplyDetailsWindowButton'	//taskDefinitionKey 动态表单
 			}],

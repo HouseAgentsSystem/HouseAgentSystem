@@ -22,7 +22,29 @@
                 iconCls: 'x-fa fa-bar-chart',
                 viewType: 'staffRanking',
                 leaf: true
-            },
+            },{
+                text: '交易管理模块',
+                iconCls: 'x-fa fa-bar-chart',
+                viewType: 'trade',
+                leaf: true
+            },{
+                text: '报表',
+                iconCls: 'x-fa fa-apple',
+                rowCls: 'nav-tree-badge',
+                viewType: 'report',
+                routeId: 'report', // routeId defaults to viewType
+                leaf: true
+            },{
+               text: '员工管理',
+               iconCls: 'fa fa-users',
+               viewType: 'staff',
+               leaf: true
+           },{
+               text: '个人信息',
+               iconCls: 'fa fa-users',
+               viewType: 'staffInfo',
+               leaf: true
+           },
             {
                 text: 'Pages',
                 iconCls: 'x-fa fa-leanpub',

@@ -50,6 +50,7 @@
                 },
                 {
                     xtype: 'image',
+                    id: "loginUserImg",
                     cls: 'header-right-profile-image',
                     height: 35,
                     width: 35,

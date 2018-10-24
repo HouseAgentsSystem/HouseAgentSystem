@@ -68,8 +68,10 @@ public class HouseRentService implements IHouseRentService {
 		List<HouseRentActivitiDTO> dtoList = new ArrayList<>();
 		List<HouseRent> entityList = houseRentPage.getContent();
 		for (HouseRent entity : entityList) {
+			System.out.println(entity);
 			HouseRentActivitiDTO dto = new HouseRentActivitiDTO();
 			HouseRentActivitiDTO.entityToDto(entity, dto);
+			System.out.println(dto);
 			dtoList.add(dto);
 		}
 		return new PageImpl<>(dtoList, pageable, houseRentPage.getTotalElements());

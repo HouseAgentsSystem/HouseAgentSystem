@@ -104,5 +104,11 @@ public class HouseRentActivitiDTO extends HouseRentBaseDTO {
 	public void setBackReason(String backReason) {
 		this.backReason = backReason;
 	}
+	@Override
+	public String toString() {
+		return "HouseRentActivitiDTO [userId=" + userId + ", processInstanceId=" + processInstanceId + ", assignee="
+				+ assignee + ", taskId=" + taskId + ", taskCreateTime=" + taskCreateTime + ", taskDefinitionKey="
+				+ taskDefinitionKey + ", backReason=" + backReason + "]";
+	}
 	
 }

@@ -31,7 +31,7 @@ public class TradeReportController {
 //		System.out.println("staff" + staff);
 		
 		Long storeId = null;
-		if(SessionUtil.getGroupNames(session).equals("manager")) {
+		if(SessionUtil.getGroupNames(session).equals("经理")) {
 			storeId = SessionUtil.getStaff(session).getStore().getId();
 			System.out.println(storeId);
 		}

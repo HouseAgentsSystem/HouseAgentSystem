@@ -18,6 +18,11 @@ Ext.define('HouseAgentSystem.store.NavigationTree', {
                 routeId: 'dashboard', // routeId defaults to viewType
                 leaf: true
             },{
+                text: '租房申请审批模块',
+                iconCls: 'x-fa fa-address-card',
+                viewType: 'rentapplyApproveCenterPanel',
+                leaf: true
+            },{
                 text: '门店管理模块',
                 iconCls: 'x-fa fa-address-card',
                 //rowCls: 'nav-tree-badge nav-tree-badge-new',

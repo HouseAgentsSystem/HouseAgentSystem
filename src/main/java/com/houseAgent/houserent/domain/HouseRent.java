@@ -184,8 +184,10 @@ public class HouseRent {
 		return "HouseRent [id=" + id + ", region=" + region + ", rent=" + rent + ", area=" + area + ", room=" + room
 				+ ", hall=" + hall + ", floor=" + floor + ", title=" + title + ", address=" + address + ", images="
 				+ images + ", video=" + video + ", isEntireRent=" + isEntireRent + ", supporting=" + supporting
-				+ ", introduce=" + introduce + ", applyTime=" + applyTime + ", publishTime=" + publishTime + ", state="
-				+ state + ", user=" + user + "]";
+				+ ", introduce=" + introduce + ", applyTime=" + applyTime + ", publishTime=" + publishTime
+				+ ", backReason=" + backReason + ", state=" + state + ", user=" + user + ", processInstanceId="
+				+ processInstanceId + "]";
 	}
+	
 	
 }

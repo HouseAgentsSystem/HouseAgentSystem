@@ -60,12 +60,13 @@ public class HouseRentApplyController {
 	public Page<HouseRentActivitiDTO> findHouse(HttpSession session, ExtjsPageRequest pageRequest) {
 		//分页返回
 		System.out.println("findHouse");
-		try {
-			Long userId = SessionUtil.getUserId(session);
-			return houseRentService.findByUserId(HouseRentActivitiDTO.getWhereClause(userId), pageRequest.getPageable());
-		} catch (Exception e) {
-			return null;
-		}
+		Long userId = SessionUtil.getUserId(session);
+		return houseRentService.findByUserId(HouseRentActivitiDTO.getWhereClause(userId), pageRequest.getPageable());
+//		try {
+//			
+//		} catch (Exception e) {
+//			return null;
+//		}
 	}
 	//按钮：
 	//下架

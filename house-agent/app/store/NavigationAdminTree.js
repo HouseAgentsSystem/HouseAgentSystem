@@ -18,16 +18,15 @@ Ext.define('HouseAgentSystem.store.NavigationAdminTree', {
                 routeId: 'dashboard', // routeId defaults to viewType
                 leaf: true
             },{
+                text: '租房申请审批模块',
+                iconCls: 'x-fa fa-address-card',
+                viewType: 'rentapplyApproveCenterPanel',
+                leaf: true
+            },{
                 text: '门店管理模块',
                 iconCls: 'x-fa fa-address-card',
                 //rowCls: 'nav-tree-badge nav-tree-badge-new',
                 viewType: 'store',
-                leaf: true
-            },{
-                text: '房源管理模块',
-                iconCls: 'x-fa fa-home',
-                //rowCls: 'nav-tree-badge nav-tree-badge-new',
-                viewType: 'house',
                 leaf: true
             },
             // {
@@ -37,11 +36,6 @@ Ext.define('HouseAgentSystem.store.NavigationAdminTree', {
             //     leaf: true
             // },
             {
-                text: '租房申请审批模块',
-                iconCls: 'x-fa fa-address-card',
-                viewType: 'rentapplyApproveCenterPanel',
-                leaf: true
-            },{
                 text: '管理员查看员工排名',
                 iconCls: 'x-fa fa-bar-chart',
                 viewType: 'adminStaffRanking',
@@ -49,7 +43,7 @@ Ext.define('HouseAgentSystem.store.NavigationAdminTree', {
             },{
                 text: '门店排名',
                 iconCls: 'x-fa fa-bar-chart',
-                viewType: 'storeRnking',
+                viewType: 'storeRanking',
                 leaf: true
             },{
                 text: '交易管理模块',
@@ -63,7 +57,12 @@ Ext.define('HouseAgentSystem.store.NavigationAdminTree', {
                 viewType: 'report',
                 routeId: 'report', // routeId defaults to viewType
                 leaf: true
-            },
+            },{
+               text: '客户模块',
+               iconCls: 'fa fa-user',
+               viewType: 'user',
+               leaf: true
+           },
             {
                 text: 'Pages',
                 iconCls: 'x-fa fa-leanpub',
