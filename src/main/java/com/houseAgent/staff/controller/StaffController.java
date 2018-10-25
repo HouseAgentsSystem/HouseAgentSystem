@@ -93,7 +93,7 @@ public class StaffController {
 	}
 	
 	@PutMapping(value="{id}",consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ExtAjaxResponse UpdateOrder(@PathVariable("id") String id,@RequestBody StaffDTO dto) {
+	public ExtAjaxResponse UpdateStaff(@PathVariable("id") String id,@RequestBody StaffDTO dto) {
 		try {
 			staffService.update(id, dto);
 			return new ExtAjaxResponse(true,"修改成功！");

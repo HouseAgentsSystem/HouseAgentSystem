@@ -7,16 +7,16 @@
 	<head>
 		<title>我要出租</title>
 		<meta charset="utf-8" />
-		<link href="../Customer/assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/Customer/assets/css/bootstrap.min.css" rel="stylesheet">
 
 		<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
 		<!-- Loading Flat UI -->
-		<link href="../Customer/dist/css/navbar.css" rel="stylesheet">
-		<link href="../Customer/docs/assets/css/demo.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="assets/font-awesome/4.2.0/css/font-awesome.min.css" />
+		<link href="/Customer/dist/css/navbar.css" rel="stylesheet">
+		<link href="/Customer/docs/assets/css/demo.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="/Customer/assets/font-awesome/4.2.0/css/font-awesome.min.css" />
 		<!--JS-->
-		<script type="text/javascript" src="js/ext-all.js"></script>
-		<script src="editWindows.js"></script>
+		<script type="text/javascript" src="/Customer/js/ext-all.js"></script>
+		<script src="/Customer/editWindows.js"></script>
 		<style type="text/css">
 			* {
 				margin: 0;
@@ -99,28 +99,28 @@
 			<div class="col">
 				<nav class="navbar navbar-inverse navbar-embossed navbar-expand-lg" role="navigation">
 					<div class="container">
-						<a class="navbar-brand" href="../Customer/index.jsp">Le Home</a>
+						<a class="navbar-brand" href="/Customer/index.jsp">Le Home</a>
 						<div class="collapse navbar-collapse" id="navbar-collapse-01">
 							<ul class="nav navbar-nav mr-auto">
 								<li>
-									<a href="../Customer/index.jsp">首页</a>
+									<a href="/Customer/index.jsp">首页</a>
 								</li>
 								<li>
-									<a href="../Customer/house.jsp"><img src="http://localhost:8081/Customer/dist/images/卖房.png">买房</a>
+									<a href="/Customer/house.jsp"><img src="/Customer/dist/images/卖房.png">买房</a>
 								</li>
 								<li>
-									<a href="../Customer/houserent.jsp"><img src="http://localhost:8081/Customer/dist/images/租房.png">租房</a>
+									<a href="/Customer/houserent.jsp"><img src="/Customer/dist/images/租房.png">租房</a>
 								</li>
 								<li style="width:160px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 								<c:if test="${not empty sessionScope.user.realname}">
-									<li><a href="../showUser/information?id=${sessionScope.user.id}">${sessionScope.user.realname}<img src="../Customer/upload/user/${sessionScope.user.faceImage}" style="width:30px;height:30px;border-radius:15px;"></a></li>
+									<li><a href="/showUser/information">${sessionScope.user.realname}<img src="/Customer/upload/user/${sessionScope.user.faceImage}" style="width:30px;height:30px;border-radius:15px;"></a></li>
 									<li>
 										<a href="#" onclick="logout()">退出</a>
 									</li>
 								</c:if>
 								<c:if test="${empty sessionScope.user.realname}">
 									<li>
-										<a href="../Customer/login&registration.html">登录/注册</a>
+										<a href="/Customer/login&registration.html">登录/注册</a>
 									</li>
 								</c:if>
 							</ul>
@@ -135,25 +135,25 @@
 				<div class="nav col-sm-3">
 					<ul style="border:0.5px solid #c7c7c7;">
 						<li>
-							<a href="../showUser/information?id=${sessionScope.user.id}">个人资料</a>
+							<a href="/showUser/information">个人资料</a>
 						</li>
 						<li>
-							<a class="active" href="../Customer/addHouseRent.jsp">我要出租</a>
+							<a class="active" href="/showUser/addHouseRent">我要出租</a>
 						</li>
 						<li>
-							<a href="../Customer/houseRentGrid.jsp">我的出租</a>
+							<a href="/showUser/houseRentGrid">我的出租</a>
 						</li>
 					</ul>
 				</div>
 				<div class="col-sm-9">
 					<div style=" border: solid #000000 1px; width: 800px; height: 1400px;" >
-						<iframe src="houseRentAddForm.jsp" width="100%" height="100%" frameborder="0"></iframe>
+						<iframe src="/Customer/houseRentAddForm.jsp" width="100%" height="100%" frameborder="0"></iframe>
 					</div>
 				</div>
 			</div>
 		</div>
 	</body>
-	<script type="text/javascript" src="../Customer/assets/js/jquery.2.1.1.min.js"></script>
+	<script type="text/javascript" src="/Customer/assets/js/jquery.2.1.1.min.js"></script>
 	<script type="text/javascript">
 		//jQuery time
 		var parent, ink, d, x, y;
@@ -189,12 +189,12 @@
 			}).addClass("animate");
 		})
 	</script>
-	<script src="http://localhost:8081/Customer/assets/js/jquery.2.1.1.min.js"></script>
+	<script src="/Customer/assets/js/jquery.2.1.1.min.js"></script>
 	<script>
 		function logout(){
 			$.ajax({
 	                type: 'post',
-	                url: "http://localhost:8081/users/logout",
+	                url: "/users/logout",
 	                cache: false,
 	                processData: false,
 	                contentType: false,

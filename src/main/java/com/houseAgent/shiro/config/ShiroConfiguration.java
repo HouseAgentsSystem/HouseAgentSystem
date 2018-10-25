@@ -62,24 +62,65 @@ public class ShiroConfiguration {
 		//配置记住我或认证通过可以访问的地址
         filterChainDefinitionMap.put("/index", "user");
         filterChainDefinitionMap.put("/", "user");
+        	//个人信息
+        filterChainDefinitionMap.put("/staff/updateInfo", "checkOutTime,user");
+        filterChainDefinitionMap.put("/staff /upload", "checkOutTime,user");
+        	//交易管理模块
+        filterChainDefinitionMap.put("/trade/*", "checkOutTime,user");
+        
+        
         //测试：
         
         //配置不拦截的静态资源
         filterChainDefinitionMap.put("/Admin/**", "anon");
         filterChainDefinitionMap.put("/Customer/**", "anon");
         filterChainDefinitionMap.put("/users/**", "anon");
+        filterChainDefinitionMap.put("/showUser/**", "anon");
+        filterChainDefinitionMap.put("/showStore/**", "anon");
+        filterChainDefinitionMap.put("/showStaffStore/**", "anon");
+        filterChainDefinitionMap.put("/houseRent/**", "anon");
+        filterChainDefinitionMap.put("/showHouseRent/**", "anon");
+        
+        
         
         filterChainDefinitionMap.put("/login", "anon");
         filterChainDefinitionMap.put("/users/login", "anon");
-        
+        filterChainDefinitionMap.put("/logout", "anon");
 //        filterChainDefinitionMap.put("/403", "anon");//403界面
 //        filterChainDefinitionMap.put("/**", "shiroLoginFilter");
-        filterChainDefinitionMap.put("/userInfo/userDel","checkOutTime,roles[admin]");
+        
+        //租房审核(后台)
+        filterChainDefinitionMap.put("/rentapply/start","checkOutTime,roles[admin]");
+        filterChainDefinitionMap.put("/rentapply/tasks","checkOutTime,roles[admin]");
+        filterChainDefinitionMap.put("/rentapply/claim/*","checkOutTime,roles[admin]");
+        filterChainDefinitionMap.put("/rentapply/complete/*","checkOutTime,roles[admin]");
+        //门店管理模块
+        filterChainDefinitionMap.put("/store/*","checkOutTime,roles[admin]");
+        //房源管理模块
+        filterChainDefinitionMap.put("/house/*","checkOutTime,roles[staff]");
+        filterChainDefinitionMap.put("/addHouse","checkOutTime,roles[staff]");
+        //管理员查看员工排名 & 员工排名
+        filterChainDefinitionMap.put("/tradeRanking/staff","checkOutTime,roles[admin,manager]");
+        //门店排名
+        filterChainDefinitionMap.put("/admin/tradeRanking/store","checkOutTime,roles[admin]");
+        //报表
+        filterChainDefinitionMap.put("/report/findAll","checkOutTime,roles[admin,manager]");
+        //日程管理
+        filterChainDefinitionMap.put("/calendar/*","checkOutTime,roles[manager,staff]");
+        //员工管理
+        filterChainDefinitionMap.put("/staff/*","checkOutTime,roles[manager]");
+        //客户模块
+        filterChainDefinitionMap.put("/usersManage/*","checkOutTime,roles[admin]");
 //        filterChainDefinitionMap.put("/userInfo/userDel","roles[admin]");
 		//<!-- 过滤链定义，从上向下顺序执行，一般将 /**放在最为下边 -->:这是一个坑呢，一不小心代码就不好使了;
 	    //<!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问-->
-        filterChainDefinitionMap.put("/**", "anon");
-//		filterChainDefinitionMap.put("/**", "authc");
+        
+        
+        
+
+        
+//      filterChainDefinitionMap.put("/**", "anon");
+		filterChainDefinitionMap.put("/**", "authc");
 		
 		// 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
         shiroFilterFactoryBean.setLoginUrl("/Customer/login&registration.html");

@@ -46,6 +46,7 @@ Ext.define('HouseAgentSystem.model.report.ReportModel', {
     fields: [
         {name: 'storeName',   type: 'string'},                      //门店名字
         // {name: 'country',   type: 'string'},
+        {name: 'staffId',    type: 'string'},                     //员工名
         {name: 'staffName',    type: 'string'},                     //员工名
         {name: 'saleDate',      type: 'date', dateFormat: 'c'},     //销售日期
         {name: 'actualPrice',     type: 'float', allowNull: true},  //实际售价

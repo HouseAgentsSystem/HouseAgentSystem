@@ -56,9 +56,14 @@ public class ShowHouseRentController {
 	public String addHouse(HttpSession session, HouseRentActivitiDTO houseRentDTO) {
 		System.out.println("addHouse");
 		System.out.println(houseRentDTO);
-		houseRentDTO.setApplyTime(new Date());
 		User user = SessionUtil.getUser(session);
-		houseRentService.save(user, houseRentDTO);
-		return "addsucceed";
+		System.out.println(user.getId());
+		if(user.getId()!=null) {
+			houseRentDTO.setApplyTime(new Date());
+			houseRentService.save(user, houseRentDTO);
+			return "addsucceed";
+		}else {
+			return "index";
+		}
 	}
 }

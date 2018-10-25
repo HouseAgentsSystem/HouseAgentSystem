@@ -18,7 +18,7 @@ import com.houseAgent.staff.service.IStaffService;
 
 @Controller
 @RequestMapping("/showStaffStore")
-public class showStaffStoreController {
+public class ShowStaffStoreController {
 	
 	@Autowired
 	private IStaffService staffService;

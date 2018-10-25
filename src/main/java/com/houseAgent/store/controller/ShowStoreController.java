@@ -23,7 +23,7 @@ import com.houseAgent.store.service.IStoreService;
 
 @Controller
 @RequestMapping("/showStore")
-public class showStoreController {
+public class ShowStoreController {
 	
 	@Autowired
 	private IStoreService storeService;

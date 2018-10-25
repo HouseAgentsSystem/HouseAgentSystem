@@ -160,18 +160,7 @@ public class UserController {
 			return new ExtAjaxResponse(false,"登录失败！！！");
 		}
 	}
-	@RequestMapping("/updataInformation")
-	public ExtAjaxResponse updataInformation(HttpServletRequest request) {
-		System.out.println(request.getParameter("id"));
-		String id=request.getParameter("id");
-		Long Id=Long.parseLong(id);
-		User user2 = userService.findOne(Id);
-		user2.setFaceImage(request.getParameter("faceImage"));
-		user2.setRealname(request.getParameter("realname"));
-		userService.updataUser(user2);
-		return new ExtAjaxResponse(true,"修改成功！");
 	
-	}
 	@RequestMapping("/logout")
 	public ExtAjaxResponse logout(HttpSession session) {
 		session.invalidate();
@@ -179,43 +168,7 @@ public class UserController {
 		System.out.println("登出成功");
 		return new ExtAjaxResponse(true,"登出成功！");
 	}
-	@RequestMapping("/imagesUpload")
-    public String imagesUpload(@RequestParam(value = "fileList", required = true) MultipartFile[] files,
-            HttpServletRequest request) {
-        List<String> list = new ArrayList<String>();
-        System.out.println(files.length);
-        if (files != null && files.length > 0) {
-            for (int i = 0; i < files.length; i++) {
-                MultipartFile file = files[i];
-                list = saveFile(request, file, list);
-            }
-        }
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println("集合里面的数据" + list.get(i));
-            return list.get(i);
-        }
-        return null;
-    }
-	private List<String> saveFile(HttpServletRequest request,
-            MultipartFile file, List<String> list) {
-        if (!file.isEmpty()) {
-            try {
-                String filePath = request.getSession().getServletContext()
-                        .getRealPath("/")
-                        + "Customer/upload/user/" + file.getOriginalFilename();
-                System.out.println(filePath);
-                list.add(file.getOriginalFilename());
-                File saveDir = new File(filePath);
-                if (!saveDir.getParentFile().exists())
-                    saveDir.getParentFile().mkdirs();
-                file.transferTo(saveDir);
-                return list;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return list;
-    }
+	
 	/**
 	 * 检测账号是否可用
 	 * @param req
@@ -265,20 +218,62 @@ public class UserController {
 		System.out.println("该手机号码不存在！");
 		return false;
 	}
-	
-	@GetMapping
-	public Page<User> findAll(User user,ExtjsPageRequest pageRequest){
-		return userService.findAll(User.getWhereClause(user), pageRequest.getPageable());
-	}
-	
-	@PutMapping(value="{id}",consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ExtAjaxResponse UpdateOrder(@PathVariable("id") Long id , @RequestBody User user) {
-		try {
-			userService.update(id,user);
-			System.out.println(user);
+	@RequestMapping("/updataInformation")
+	public ExtAjaxResponse updataInformation(HttpServletRequest request, HttpSession session) {
+		
+		Long userId = SessionUtil.getUserId(session);
+		System.out.println(userId);
+		if(userId!=null) {
+			User user2 = userService.findOne(userId);
+			user2.setFaceImage(request.getParameter("faceImage"));
+			user2.setRealname(request.getParameter("realname"));
+			userService.updataUser(user2);
 			return new ExtAjaxResponse(true,"修改成功！");
-		} catch (Exception e) {
-			return new ExtAjaxResponse(true,"修改失败！！！");
+		}else {
+			return new ExtAjaxResponse(false,"请登录！");
 		}
 	}
+	
+	@RequestMapping("/imagesUpload")
+    public String imagesUpload(@RequestParam(value = "fileList", required = true) MultipartFile[] files,
+            HttpServletRequest request, HttpSession session) {
+		Long userId = SessionUtil.getUserId(session);
+		System.out.println(userId);
+		if(userId!=null) {
+			List<String> list = new ArrayList<String>();
+	        System.out.println(files.length);
+	        if (files != null && files.length > 0) {
+	            for (int i = 0; i < files.length; i++) {
+	                MultipartFile file = files[i];
+	                list = saveFile(request, file, list);
+	            }
+	        }
+	        for (int i = 0; i < list.size(); i++) {
+	            System.out.println("集合里面的数据" + list.get(i));
+	            return list.get(i);
+	        }
+		}
+		return null;
+        
+    }
+	private List<String> saveFile(HttpServletRequest request,
+            MultipartFile file, List<String> list) {
+        if (!file.isEmpty()) {
+            try {
+                String filePath = request.getSession().getServletContext()
+                        .getRealPath("/")
+                        + "Customer/upload/user/" + file.getOriginalFilename();
+                System.out.println(filePath);
+                list.add(file.getOriginalFilename());
+                File saveDir = new File(filePath);
+                if (!saveDir.getParentFile().exists())
+                    saveDir.getParentFile().mkdirs();
+                file.transferTo(saveDir);
+                return list;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return list;
+    }
 }

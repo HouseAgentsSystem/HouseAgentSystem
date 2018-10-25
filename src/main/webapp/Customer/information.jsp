@@ -96,7 +96,7 @@
 								<li style="width:160px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 								<c:if test="${not empty sessionScope.user.realname}">
 									<li>
-										<li><a href="../showUser/information?id=${sessionScope.user.id}">${sessionScope.user.realname}<img src="../Customer/upload/user/${sessionScope.user.faceImage}" style="width:30px;height:30px;border-radius:15px;"></a></li>
+										<li><a href="../showUser/information">${sessionScope.user.realname}<img src="../Customer/upload/user/${sessionScope.user.faceImage}" style="width:30px;height:30px;border-radius:15px;"></a></li>
 									</li>
 									<li>
 										<a href="#" onclick="logout()">退出</a>
@@ -119,13 +119,13 @@
 				<div class="nav col-sm-3">
 					<ul style="border:0.5px solid #c7c7c7;">
 						<li>
-							<a class="active" href="../showUser/information?id=${sessionScope.user.id}">个人资料</a>
+							<a class="active" href="../showUser/information">个人资料</a>
 						</li>
 						<li>
-							<a href="../Customer/addHouseRent.jsp">我要出租</a>
+							<a href="../showUser/addHouseRent">我要出租</a>
 						</li>
 						<li>
-							<a href="../Customer/houseRentGrid.jsp">我的出租</a>
+							<a href="../showUser/houseRentGrid">我的出租</a>
 						</li>
 					</ul>
 				</div>

@@ -21,7 +21,7 @@ import com.houseAgent.staff.domain.Staff;
 
 @Controller
 @RequestMapping("/showHouse")
-public class showHouseController {
+public class ShowHouseController {
 	@Autowired
 	private HouseService houseService;
 	@GetMapping("/details")

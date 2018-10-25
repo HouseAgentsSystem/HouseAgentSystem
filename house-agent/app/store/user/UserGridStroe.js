@@ -6,7 +6,7 @@ Ext.define('HouseAgentSystem.store.user.UserGridStroe', {
 
 	proxy: {
 		type: 'rest',
-		url: '/users',
+		url: '/usersManage',
 		reader:{
 			type:'json',
 			rootProperty:'content',//对应后台返回的结果集名称

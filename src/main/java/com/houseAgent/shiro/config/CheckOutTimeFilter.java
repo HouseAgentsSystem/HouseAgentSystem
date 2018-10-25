@@ -33,7 +33,7 @@ public class CheckOutTimeFilter extends AdviceFilter {
                 out.close();
                 return false;
             } else {//不是ajax进行重定向处理
-                httpServletResponse.sendRedirect("/Admin/index.html#login");
+                httpServletResponse.sendRedirect("/Customer/login&registration.html");
                 return false;
             }
         }

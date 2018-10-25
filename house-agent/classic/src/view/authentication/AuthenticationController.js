@@ -20,7 +20,7 @@ Ext.define('HouseAgentSystem.view.authentication.AuthenticationController', {
             success: function(response, options) {
                 var json = Ext.util.JSON.decode(response.responseText);
                 if(json.success){
-                    me.redirectTo('dashboard', true);
+                    
                     Ext.getCmp('loginUserName').setText(json.map.realName);
                     Ext.getCmp('loginUserImg').setSrc('/Customer/upload/staff/'+json.map.faceImg);
                     //根据不同的 角色 去加载不同的NavigationTree?
@@ -29,10 +29,13 @@ Ext.define('HouseAgentSystem.view.authentication.AuthenticationController', {
                     var navigationTreeList = Ext.getCmp('main-view-detail-wrap').getComponent('navigationTreeList');
                     if(json.map.role=='管理员'){
                         navigationTreeList.setStore('NavigationAdminTree');
+                        me.redirectTo('report', true);
                     }else if(json.map.role=='经理'){
                         navigationTreeList.setStore('NavigationManagerTree');
+                        me.redirectTo('report', true);
                     }else if(json.map.role=='员工'){
                         navigationTreeList.setStore('NavigationEmploeeTree');
+                        me.redirectTo('house', true);
                     }
                     
                 }else{
