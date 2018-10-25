@@ -126,8 +126,8 @@
 								margin: '0 100 0 100',
 								padding: '20 0 0 0',
 								border: false,
-								width: 800,
-								height: 1000,
+								scrollable: true,
+								autosrcoll: true,
 								//layout: 'fit',
 								items:[{
 									xtype: 'gridpanel',
