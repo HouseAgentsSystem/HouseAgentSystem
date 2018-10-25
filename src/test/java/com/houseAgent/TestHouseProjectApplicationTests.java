@@ -55,6 +55,8 @@ public class TestHouseProjectApplicationTests {
 		String salt1 = new SecureRandomNumberGenerator().nextBytes(32).toHex();
         String email1 = "513609643@qq.com";
         String phoneNumber1 = "13538367525";
+        String position = "管理员";
+        String realName = "小王";
         List<String> groups1 = Arrays.asList("admin");
         
         String userId2 = "manager1";
@@ -81,6 +83,8 @@ public class TestHouseProjectApplicationTests {
 		staff1.setEmail(email1);
 		staff1.setPhoneNumber(phoneNumber1);
 		staff1.setSalt(salt1);
+		staff1.setPosition(position);
+		staff1.setRealName(realName);
 		
 		staff2.setId(userId2);
 		staff2.setFirst(firstName2);

@@ -93,6 +93,8 @@ public class HouseRentService implements IHouseRentService {
 	public void save(User user, HouseRentActivitiDTO dto) {
 		HouseRent entity = new HouseRent();
 		HouseRentActivitiDTO.dtoToEntity(dto, entity);
+		System.out.println(dto.getImgs());
+		System.out.println(entity.getImages());
 		entity.setUser(user);
 		String userId = user.getId().toString();
 		houseRentRepository.save(entity);

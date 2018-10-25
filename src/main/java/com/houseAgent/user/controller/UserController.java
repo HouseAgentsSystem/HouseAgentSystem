@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.shiro.crypto.SecureRandomNumberGenerator;
+import org.apache.shiro.crypto.hash.SimpleHash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
@@ -135,7 +137,10 @@ public class UserController {
 		}
 		if(code_Session.trim().equalsIgnoreCase(code)) {
 			User  user = userService.findByPhoneNumber(phoneNumber);
-			user.setPassword(password);
+			String salt = new SecureRandomNumberGenerator().nextBytes(32).toHex();
+			user.setSalt(salt);
+			String passwordR = new SimpleHash("MD5",password, user.getCredentialsSalt(), 2).toString();
+			user.setPassword(passwordR);
 			userService.addUser(user);
 			System.out.println("修改密码成功");
 			return new ExtAjaxResponse(true,"修改密码成功！");
@@ -211,6 +216,7 @@ public class UserController {
 	@RequestMapping("/checkPhoneNumberExist")
 	public Boolean checkPhoneNumberExist(HttpServletRequest req,HttpServletResponse resp) {
 		String phoneNumber = req.getParameter("phoneNumber");
+		System.out.println(phoneNumber);
 		if(!userService.checkPhoneNumber(phoneNumber)) {
 			System.out.println("该手机号码存在");
 			return true;

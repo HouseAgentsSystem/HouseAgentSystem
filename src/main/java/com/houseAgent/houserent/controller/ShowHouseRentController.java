@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -53,9 +54,12 @@ public class ShowHouseRentController {
 	}
 	//添加租房申请
 	@PostMapping("/addHouseRent")
-	public String addHouse(HttpSession session, HouseRentActivitiDTO houseRentDTO) {
+	public String addHouse(HttpSession session, HouseRentActivitiDTO houseRentDTO, String images) {
 		System.out.println("addHouse");
 		System.out.println(houseRentDTO);
+		System.out.println(images);
+		houseRentDTO.setImgs(images.split(","));
+		System.out.println(houseRentDTO.getImgs());
 		User user = SessionUtil.getUser(session);
 		System.out.println(user.getId());
 		if(user.getId()!=null) {

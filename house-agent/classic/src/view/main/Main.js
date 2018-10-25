@@ -32,7 +32,7 @@
                     xtype: 'component',
                     reference: 'senchaLogo',
                     cls: 'sencha-logo',
-                    html: '<div class="main-logo"><img src="resources/images/company-logo.png">Hello Extjs</div>',
+                    html: '<div class="main-logo"><img src="resources/images/le.png">Le Home</div>',
                     width: 250
                 },
                 {

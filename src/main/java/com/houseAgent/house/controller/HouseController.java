@@ -53,9 +53,9 @@ public class HouseController {
 	@Autowired
 	private StaffService staffService;
 	@GetMapping
-	public Page<HouseDTO> getPage(HouseQueryDTO houseQueryDTO ,ExtjsPageRequest pageRequest) 
+	public Page<HouseDTO> getPage(HouseQueryDTO houseQueryDTO ,ExtjsPageRequest pageRequest,HttpSession session) 
 	{
-		return houseService.findAll(HouseQueryDTO.getWhereClause(houseQueryDTO),pageRequest.getPageable());
+		return houseService.findAll(HouseQueryDTO.getWhereClause(houseQueryDTO,session),pageRequest.getPageable());
 	}
 	@GetMapping("/management")
 	public Page<HouseDTO> showHouse(ExtjsPageRequest pageRequest) 

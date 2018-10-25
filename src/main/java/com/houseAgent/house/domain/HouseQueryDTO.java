@@ -8,9 +8,12 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.jpa.domain.Specification;
+
+import com.houseAgent.common.web.SessionUtil;
 
 
 public class HouseQueryDTO {
@@ -21,7 +24,7 @@ public class HouseQueryDTO {
 	private Integer state;
 	private Integer distribution =0;//分配情况
 	@SuppressWarnings({ "unused"})
-	public static Specification<House> getWhereClause(final HouseQueryDTO houseQueryDTO) {
+	public static Specification<House> getWhereClause(final HouseQueryDTO houseQueryDTO,HttpSession session) {
 		return new Specification<House>() {
 			public Predicate toPredicate(Root<House> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
 			
@@ -137,6 +140,10 @@ public class HouseQueryDTO {
 				}
 				predicate.add(criteriaBuilder.equal(root.get("state"),
 						1));
+				if(SessionUtil.getStaff(session)!=null) {
+					predicate.add(criteriaBuilder.equal(root.get("staff").get("id"),
+							SessionUtil.getStaff(session).getId()));
+				}
 				System.out.println("4");
 				Predicate[] pre = new Predicate[predicate.size()];
 				return query.where(predicate.toArray(pre)).getRestriction();

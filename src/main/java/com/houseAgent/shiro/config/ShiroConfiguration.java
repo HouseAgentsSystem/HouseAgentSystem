@@ -60,8 +60,8 @@ public class ShiroConfiguration {
 		
 		
 		//配置记住我或认证通过可以访问的地址
-        filterChainDefinitionMap.put("/index", "user");
-        filterChainDefinitionMap.put("/", "user");
+//        filterChainDefinitionMap.put("/index", "user");
+//        filterChainDefinitionMap.put("/", "user");
         	//个人信息
         filterChainDefinitionMap.put("/staff/updateInfo", "checkOutTime,user");
         filterChainDefinitionMap.put("/staff /upload", "checkOutTime,user");
@@ -82,7 +82,8 @@ public class ShiroConfiguration {
         filterChainDefinitionMap.put("/showHouseRent/**", "anon");
         
         
-        
+//        filterChainDefinitionMap.put("/index.html", "anon");
+//        filterChainDefinitionMap.put("/", "anon");
         filterChainDefinitionMap.put("/login", "anon");
         filterChainDefinitionMap.put("/users/login", "anon");
         filterChainDefinitionMap.put("/logout", "anon");
@@ -119,8 +120,8 @@ public class ShiroConfiguration {
         
 
         
-//      filterChainDefinitionMap.put("/**", "anon");
-		filterChainDefinitionMap.put("/**", "authc");
+      filterChainDefinitionMap.put("/**", "anon");
+//		filterChainDefinitionMap.put("/**", "authc");
 		
 		// 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
         shiroFilterFactoryBean.setLoginUrl("/Customer/login&registration.html");

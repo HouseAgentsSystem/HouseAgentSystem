@@ -14,6 +14,7 @@ import org.springframework.data.jpa.domain.Specification;
 
 import com.houseAgent.house.domain.House;
 import com.houseAgent.house.domain.HouseQueryDTO;
+import com.houseAgent.houserent.util.RentApplyStates;
 
 public class ShowHouseRentQueryDTO {
 	private String region;	//地区
@@ -98,6 +99,7 @@ public class ShowHouseRentQueryDTO {
 						predicate.add(cb.isFalse(root.get("isEntireRent")));
 					}
 				}
+				predicate.add(cb.equal(root.get("state"), RentApplyStates.RENTING));
 				
 				return cb.and(predicate.toArray(new Predicate[predicate.size()]));
 			}

@@ -46,8 +46,9 @@ public class HouseRentBaseDTO {
         	dto.isKitchen = supportings[6].equals("1") ? true : false;
         	dto.isCalorifier = supportings[7].equals("1") ? true : false;
     	}
-    	
-    	dto.imgs = entity.getImages().split(",");
+    	if(entity.getImages()!=null) {
+    		dto.imgs = entity.getImages().split(",");
+    	}
     }
     
     public static void dtoToEntity(HouseRentBaseDTO dto, HouseRent entity) {
@@ -82,6 +83,9 @@ public class HouseRentBaseDTO {
     	}
     	String supportingsNew = String.join(",", supportings);
     	entity.setSupporting(supportingsNew);
+    	if(dto.getImgs()!=null) {
+    		entity.setImages(String.join(",", dto.getImgs()));
+    	}
     }
     
 	public Long getId() {
