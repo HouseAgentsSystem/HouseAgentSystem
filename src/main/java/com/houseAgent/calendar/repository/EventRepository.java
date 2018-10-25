@@ -14,7 +14,7 @@ import com.houseAgent.calendar.domain.Event;
 @Repository
 public interface EventRepository extends PagingAndSortingRepository<Event, Long>,JpaSpecificationExecutor<Event>{
 	
-	@Query("from Event e where e.calendarId = ?1 and e.startDate > ?2 and e.endDate < ?3")
-	public List<Event> findByCalendarId(Long calendarId, Date startDate, Date endDate);
+	@Query("from Event e where e.calendarId = ?1 and e.startDate > ?2 and e.endDate < ?3 and e.staffName = ?4")
+	public List<Event> findByCalendarId(Long calendarId, Date startDate, Date endDate, String staffName);
 	
 }

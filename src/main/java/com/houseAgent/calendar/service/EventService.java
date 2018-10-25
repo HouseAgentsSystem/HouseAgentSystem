@@ -27,8 +27,11 @@ public class EventService implements IEventService {
 	}
 	
 	@Override
-	public List<Event> findByCalendarId(Long calendarId , Date startDate, Date endDate) {
-		return eventRepository.findByCalendarId(calendarId,startDate,endDate);
+	public List<Event> findByCalendarId(Long calendarId , Date startDate, Date endDate, String staffName) {
+		System.out.println(startDate);
+		System.out.println(endDate);
+		return eventRepository.findByCalendarId(calendarId,startDate,endDate,staffName);
+		
 	}
 
 	@Override

@@ -147,5 +147,11 @@ public class StaffController {
 		} catch (Exception e) {
 			return new ExtAjaxResponse(false,"上传失败！");
 		}
-	}	
+	}
+	@GetMapping(value="/findMyInfo")
+	public StaffDTO getOne2(HttpSession session){
+		String id = SessionUtil.getStaffId(session);
+		StaffDTO dto = staffService.findOne(id);
+		return dto;
+	}
 }

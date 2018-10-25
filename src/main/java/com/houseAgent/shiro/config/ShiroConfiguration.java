@@ -64,7 +64,8 @@ public class ShiroConfiguration {
 //        filterChainDefinitionMap.put("/", "user");
         	//个人信息
         filterChainDefinitionMap.put("/staff/updateInfo", "checkOutTime,user");
-        filterChainDefinitionMap.put("/staff /upload", "checkOutTime,user");
+        filterChainDefinitionMap.put("/staff/upload", "checkOutTime,user");
+        filterChainDefinitionMap.put("/staff/findMyInfo", "checkOutTime,user");
         	//交易管理模块
         filterChainDefinitionMap.put("/trade/*", "checkOutTime,user");
         
@@ -117,11 +118,8 @@ public class ShiroConfiguration {
 	    //<!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问-->
         
         
-        
-
-        
-      filterChainDefinitionMap.put("/**", "anon");
-//		filterChainDefinitionMap.put("/**", "authc");
+//      filterChainDefinitionMap.put("/**", "anon");
+		filterChainDefinitionMap.put("/**", "authc");
 		
 		// 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
         shiroFilterFactoryBean.setLoginUrl("/Customer/login&registration.html");

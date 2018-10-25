@@ -21,6 +21,8 @@ import com.houseAgent.calendar.service.IEventService;
 import com.houseAgent.common.beans.BeanUtils;
 import com.houseAgent.common.web.ExtAjaxResponse;
 import com.houseAgent.common.web.ExtResultJson;
+import com.houseAgent.common.web.SessionUtil;
+import com.houseAgent.staff.domain.Staff;
 
 @RestController
 @RequestMapping("/calendar")
@@ -35,7 +37,8 @@ public class CalendarController
     public ExtAjaxResponse saveEvents(HttpSession session, Event event) {
     	try {
 //    		String userName = SessionUtil.getUserName(session);
-    		event.setStaffName("staff01");
+    		String staffName = SessionUtil.getStaffId(session);
+    		event.setStaffName(staffName);
     		System.out.println("addevents!");
     		System.out.println(event);
     		eventService.save(event);
@@ -92,12 +95,19 @@ public class CalendarController
 	
 	@RequestMapping("/findEvents")
 	public @ResponseBody ExtResultJson<Event> findEvents(
-			Long calendar,
+			Long calendar, HttpSession session, 
 			@DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss.SSS'Z'") Date startDate,
-			@DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss.SSS'Z'") Date endDate)
+			@DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss.SSS'Z'") Date endDate
+			)
 	{
+		String staffName = SessionUtil.getStaffId(session);
+		System.out.println(startDate);
+		System.out.println(endDate);
+		System.out.println(staffName);
 		ExtResultJson<Event> json = new ExtResultJson<Event>(new ArrayList<Event>());
-		json.setLists(eventService.findByCalendarId(calendar, startDate, endDate));
+		List<Event> events = eventService.findByCalendarId(calendar, startDate, endDate,staffName);
+		System.out.println(events);
+		json.setLists(events);
 		
 //		System.out.println(calendar);
 //		System.out.println(startDate);

@@ -12,6 +12,6 @@ public interface IEventService {
 	
 	public void delete(long id);
 	
-	public List<Event> findByCalendarId(Long calendarId,Date startDate, Date endDate);
+	public List<Event> findByCalendarId(Long calendarId,Date startDate, Date endDate, String staffName);
 	public Event findOne(long id);
 }
