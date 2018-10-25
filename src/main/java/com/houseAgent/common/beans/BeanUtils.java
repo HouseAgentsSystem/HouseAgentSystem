@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.FatalBeanException;
 import org.springframework.util.Assert;
@@ -50,6 +51,12 @@ public abstract class BeanUtils extends org.springframework.beans.BeanUtils {
 							} else if (value instanceof Collection) {
 								Collection c = (Collection) value;
 								if (c == null || c.size() < 1) {
+									isEmpty = true;
+								}
+							}
+							else if (value instanceof String) {
+								String c = (String) value;
+								if (!StringUtils.isNotBlank(c) || c == null) {
 									isEmpty = true;
 								}
 							}

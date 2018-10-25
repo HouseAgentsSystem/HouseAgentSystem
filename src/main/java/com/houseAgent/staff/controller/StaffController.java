@@ -92,6 +92,7 @@ public class StaffController {
 		return dto;
 	}
 	
+	//管理员修改员工信息
 	@PutMapping(value="{id}",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ExtAjaxResponse UpdateStaff(@PathVariable("id") String id,@RequestBody StaffDTO dto) {
 		try {
@@ -102,6 +103,7 @@ public class StaffController {
 		}
 	}
 	
+	//员工修改个人信息
 	@PostMapping(value="/updateInfo")
 	public ExtAjaxResponse updateStaff1(StaffDTO dto) {
 		try {

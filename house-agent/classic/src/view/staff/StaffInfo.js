@@ -64,8 +64,7 @@ Ext.define('HouseAgentSystem.view.staff.StaffInfo', {
             name:'sex',
 			style:{
 				marginLeft:'50px'
-			},
-			readOnly: true
+			}
         }, {
             xtype: 'textfield',
             fieldLabel: '电话',
@@ -92,6 +91,14 @@ Ext.define('HouseAgentSystem.view.staff.StaffInfo', {
 				marginLeft:'50px'
 			},
 			readOnly: true
+        },{
+            xtype: 'textfield',
+            fieldLabel: '密码',
+			id: 'password',
+            name:'password',
+			style:{
+				marginLeft:'50px'
+			}
         }]
     }],
 	listeners:{
@@ -116,7 +123,7 @@ Ext.define('HouseAgentSystem.view.staff.StaffInfo', {
 					success: function (response) {
 	                    var json = Ext.util.JSON.decode(response.responseText);
 						//调用文本域的方法，设置它的值~
-						if(json.position == '总经理')
+						if(json.position == '经理')
 							Ext.getCmp('store').setEditable(false);
 						Ext.getCmp('id').setValue(json.id);
 						//console.log(Ext.getCmp('faceImg'));
@@ -126,6 +133,8 @@ Ext.define('HouseAgentSystem.view.staff.StaffInfo', {
 						Ext.getCmp('phoneNumber').setValue(json.phoneNumber);
 						Ext.getCmp('position').setValue(json.position);
 						Ext.getCmp('store').setValue(json.name);
+						//Ext.getCmp('password').setValue(json.password);
+						console.log(Ext.getCmp('password'));
 						
 	                }
 				});

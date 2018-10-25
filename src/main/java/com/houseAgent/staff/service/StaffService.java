@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -108,6 +109,15 @@ public class StaffService implements IStaffService{
 	public void update(String id, StaffDTO staffDTO) {
 		Staff staff = staffRepository.findById(id).get();
 		StaffDTO.dtoToEntity(staffDTO, staff);
+		//判断password是否为空 不为空 则处理
+		
+		if(StringUtils.isNotBlank(staffDTO.getPassword())) {
+			String salt = new SecureRandomNumberGenerator().nextBytes(32).toHex();
+			staff.setSalt(salt);
+			System.out.println(staff.getPassword());
+			String passwordR = new SimpleHash("MD5", staff.getPassword(), staff.getCredentialsSalt(), 2).toString();
+			staff.setPassword(passwordR);
+		}
 		staffRepository.save(staff);
 	}
 

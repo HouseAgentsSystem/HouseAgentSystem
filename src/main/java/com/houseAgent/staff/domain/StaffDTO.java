@@ -14,15 +14,16 @@ import org.springframework.data.jpa.domain.Specification;
 import com.houseAgent.common.beans.BeanUtils;
 
 public class StaffDTO {
-	private String id;//员工Id	
-	private	String realName;//员工姓名
-	private String position;//职位
-	private String phoneNumber;//手机号码
-	private String sex;//性别
-	private String faceImg;//头像
+	private String id;			//员工Id	
+	private String password;	//员工密码
+	private	String realName;	//员工姓名
+	private String position;	//职位
+	private String phoneNumber;	//手机号码
+	private String sex;			//性别
+	private String faceImg;		//头像
 	
-	private Long storeId;//门店Id
-	private String name;
+	private Long storeId;		//门店Id
+	private String name;		//门店名
 	
 	//后到前：1.针对“前端”设计的数据封装对象(查询)
 	public static void entityToDto(Staff entity,StaffDTO dto){
@@ -35,7 +36,13 @@ public class StaffDTO {
 	
 	//前到后：2.维护多个对象 的数据 以及 对象之间的关联关系 (创建关联、更新关联)
 	public static void dtoToEntity(StaffDTO dto, Staff entity) {
+		System.out.println(dto.getPassword());
+//		if(StringUtils.isNotBlank(dto.getPassword())) {
+//			entity.setPassword(password);
+//		}
+		System.out.println(entity.getPassword());
 		BeanUtils.copyProperties(dto, entity);
+		System.out.println(entity.getPassword());
 	}
 	
 	public String getId() {
@@ -46,6 +53,14 @@ public class StaffDTO {
 		this.id = id;
 	}
 	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public String getRealName() {
 		return realName;
 	}
