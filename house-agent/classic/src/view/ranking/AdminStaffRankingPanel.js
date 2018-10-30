@@ -6,7 +6,8 @@ Ext.define('HouseAgentSystem.view.ranking.AdminStaffRankingPanel', {
         'Ext.chart.CartesianChart',
         'Ext.chart.axis.Category',
         'Ext.chart.axis.Numeric',
-        'Ext.chart.series.Bar'
+        'Ext.chart.series.Bar',
+        "Ext.chart.interactions.ItemHighlight"
     ],
 
     // title: 'Bar Chart',

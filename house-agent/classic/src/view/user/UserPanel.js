@@ -9,7 +9,8 @@ Ext.define('HouseAgentSystem.view.user.UserPanel', {
         'Ext.selection.CheckboxModel',
         'Ext.grid.column.RowNumberer',
         'Ext.grid.column.Date',
-        'Ext.selection.CheckboxModel'
+        'Ext.selection.CheckboxModel',
+        "Ext.layout.container.Center"
     ], 
     //controller: 'searchresults',
    // viewModel: {type: 'orderViewModel'},

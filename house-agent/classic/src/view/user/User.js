@@ -4,7 +4,9 @@ Ext.define('HouseAgentSystem.view.user.User', {
  
     controller: 'userViewController',
     viewModel: {type: 'userViewModel'},
-    	
+    requires: [
+    	"Ext.layout.container.Center"
+    ],
     layout: 'fit',
     items: [{xtype:'userPanel'}]
 });

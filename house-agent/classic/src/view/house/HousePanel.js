@@ -67,21 +67,7 @@ Ext.define('HouseAgentSystem.view.house.HousePanel', {
 				xtype: 'gridcolumn',
 				cls: 'content-column',
 				dataIndex: 'price',
-				text: '价格',
-				flex: 1
-			},
-			{
-				xtype: 'gridcolumn',
-				cls: 'content-column',
-				dataIndex: 'price',
-				text: '手机号码',
-				flex: 1
-			},
-			{
-				xtype: 'gridcolumn',
-				cls: 'content-column',
-				dataIndex: 'price',
-				text: '房主',
+				text: '价格(万元)',
 				flex: 1
 			},
 			{

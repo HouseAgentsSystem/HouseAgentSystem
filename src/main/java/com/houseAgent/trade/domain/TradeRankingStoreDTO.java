@@ -32,7 +32,8 @@ public class TradeRankingStoreDTO {
 	}
 	@Override
 	public String toString() {
-		return "TradeRankingStoreDTO [total=" + total + ", storeId=" + storeId + ", storeName=" + storeName + "]";
+		return "TradeRankingStoreDTO [total=" + total + ", storeId=" + storeId + ", storeName=" + storeName
+				+ "]";
 	}
 	
 }

@@ -29,7 +29,7 @@ Ext.define('HouseAgentSystem.view.pages.Error404Window', {
                 {
                     xtype: 'label',
                     cls: 'error-page-desc',
-                    html: '<div>Seems you\'ve hit a wall!</div><div>Try going back to our <a href="#staffInfo"> Home page </a></div>'
+                    html: '<div>Seems you\'ve hit a wall!</div>'
                 },
                 {
                     xtype: 'tbspacer',

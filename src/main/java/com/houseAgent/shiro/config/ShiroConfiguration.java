@@ -73,6 +73,7 @@ public class ShiroConfiguration {
         //测试：
         
         //配置不拦截的静态资源
+        filterChainDefinitionMap.put("/HouseAgentSystem/**", "anon");
         filterChainDefinitionMap.put("/Admin/**", "anon");
         filterChainDefinitionMap.put("/Customer/**", "anon");
         filterChainDefinitionMap.put("/users/**", "anon");
@@ -80,8 +81,11 @@ public class ShiroConfiguration {
         filterChainDefinitionMap.put("/showStore/**", "anon");
         filterChainDefinitionMap.put("/showStaffStore/**", "anon");
         filterChainDefinitionMap.put("/houseRent/**", "anon");
+        filterChainDefinitionMap.put("/showHouse/**", "anon");
         filterChainDefinitionMap.put("/showHouseRent/**", "anon");
-        
+        filterChainDefinitionMap.put("/house/**", "anon");
+        filterChainDefinitionMap.put("/rentapply/**", "anon");
+        //qianduan
         
 //        filterChainDefinitionMap.put("/index.html", "anon");
 //        filterChainDefinitionMap.put("/", "anon");
@@ -99,7 +103,7 @@ public class ShiroConfiguration {
         //门店管理模块
         filterChainDefinitionMap.put("/store/*","checkOutTime,roles[admin]");
         //房源管理模块
-        filterChainDefinitionMap.put("/house/*","checkOutTime,roles[staff]");
+//        filterChainDefinitionMap.put("/house/*","checkOutTime,roles[staff]");
         filterChainDefinitionMap.put("/addHouse","checkOutTime,roles[staff]");
         //管理员查看员工排名 & 员工排名
         filterChainDefinitionMap.put("/tradeRanking/staff","checkOutTime,roles[admin,manager]");

@@ -10,7 +10,7 @@ Ext.define('HouseAgentSystem.Application', {
         'NavigationManagerTree'
     ],
 
-    defaultToken : 'dashboard',
+    defaultToken : 'staffInfo',
 
     // The name of the initial view to create. This class will gain a "viewport" plugin
     // if it does not extend Ext.Viewport.

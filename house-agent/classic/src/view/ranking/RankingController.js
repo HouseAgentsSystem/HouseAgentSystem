@@ -33,6 +33,6 @@ Ext.define('HouseAgentSystem.view.ranking.RankingController', {
         tooltip.setHtml(record.get(item.field).toFixed(1)+' (账号：'+record.get('staffId')+')' + ' 所属门店: ' + record.get('storeName'));
     },
     onBarTipRender: function(tooltip, record, item){
-        tooltip.setHtml(record.get(item.field).toFixed(1)+' (账号：'+record.get('staffId')+')' + ' 经理: ' + record.get('managerName'));
+        tooltip.setHtml(record.get(item.field).toFixed(1));
     }
 });

@@ -6,9 +6,9 @@ echo "===========================	remove dir build	==========================="
 echo "===========================	sencha app build	==========================="
 	start /wait sencha app build production
 echo "===========================	remove classic dir  ==========================="
-	rd /s/q ..\src\main\webapp\classic
+	rd /s/q ..\src\main\webapp\HouseAgentSystem\classic
 echo "===========================	mkdir classic di	==========================="
-	mkdir ..\src\main\webapp\classic
+	mkdir ..\src\main\webapp\HouseAgentSystem\classic
 echo "=========================== copy production to webapp ==========================="
-	 xcopy /s /y build\production\Admin ..\src\main\webapp  /e/h
+	 xcopy /s /y build\production\HouseAgentSystem ..\src\main\webapp\HouseAgentSystem  /e/h
 pause
